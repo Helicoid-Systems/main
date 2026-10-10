@@ -1,0 +1,12 @@
+[submodule "modules/core"]
+	path = modules/core
+	url = https://github.com/Helicoid-Systems/core.git
+[submodule "modules/server"]
+	path = modules/server
+	url = https://github.com/Helicoid-Systems/server.git
+[submodule "apps/macos"]
+	path = apps/macos
+	url = https://github.com/Helicoid-Systems/macos.git
+[submodule "apps/windows"]
+	path = apps/windows
+	url = https://github.com/Helicoid-Systems/windows.git
