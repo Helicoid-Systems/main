@@ -55,8 +55,9 @@ mode; launching the executable without the switches does not enable sign-in.
 The original diagnostic passed the user's unlocked checks but returned eligible
 in the reported Win+L check. Lock refusal FAILED for that candidate; native
 CI desktop-query correctness did not prove the locked-session matrix. The
-repair adds an independent WTS session-lock check and needs a fresh lock/unlock
-test on Windows 11. This tool enables no remote access and captures no pixels.
+repair adds an independent WTS session-lock check. The reported locked-PC
+retest passes below; post-unlock recovery and the remaining matrix are pending.
+This tool enables no remote access and captures no pixels.
 
 Native Windows CI and the downloaded bundle verified the exact embedded role
 icon resources and published sibling ICOs. Both SVG sources remain byte-identical
@@ -71,13 +72,18 @@ transition and malformed native-buffer cases. Schema 2 adds `lockState` and
 `lockQuerySucceeded`; `--watch` starts observations immediately in the existing
 process and groups repeated results over 30 seconds. Windows SDK layout was
 verified by compiling a C++ fixture against the installed headers. The actual
-repaired lock result is still pending. RDP is supported but not configured on
-the tester's PC, so RDP runtime testing is pending.
+repaired lock result passes the user-reported check below.
+RDP is supported but not configured on the tester's PC, so RDP runtime testing is pending.
 
 [Native CI 38059359725](https://github.com/Helicoid-Systems/windows/actions/runs/38059359725)
 passed the actual extended WTS query (Unlocked classification) and all 31
 sampling observations. This proves query/sampler operation; it does not prove
-lock refusal on the tester's PC. Download [the repaired metadata diagnostic](https://github.com/Helicoid-Systems/windows/actions/runs/38059359725/artifacts/11672762156)
+lock refusal on the tester's PC. The user subsequently supplied all 31 samples:
+second 0 was Unlocked/Eligible, second 1 was Locked/DesktopQueryFailed, and
+seconds 2–30 were Locked/SessionLocked despite a stable Default desktop.
+Every locked sample refused eligibility. Post-unlock recovery remains pending.
+
+To reproduce the metadata check, download [the repaired metadata diagnostic](https://github.com/Helicoid-Systems/windows/actions/runs/38059359725/artifacts/11672762156)
 into a fresh folder. Run the first command, immediately press Win+L, wait 40
 seconds, then unlock and run the second command. Paste only the resulting JSON.
 
@@ -88,3 +94,10 @@ Get-Content .\fresh-lock-check.json
 
 Expected: schemaVersion 2 and an ineligible group while locked. If all groups
 remain eligible, the repaired lock matrix has not passed.
+
+For the recovery check, run `.\Helicoid.ConsoleProbe.exe` after unlocking.
+Expect schemaVersion 2, Unlocked, successful lock query and eligible on the same ordinary physical console. This checks metadata
+recovery only; fresh authorization and desktop-generation enforcement are separate.
+
+Check the result contains schemaVersion 2 and the lock fields. An older copy
+without these fields cannot verify recovery of the repaired diagnostic.

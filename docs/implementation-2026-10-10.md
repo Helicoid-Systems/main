@@ -128,8 +128,9 @@ cannot establish the full V40 installed console/RDP/lock matrix. The user
 reported two eligible unlocked runs, followed by an eligible result in the
 reported Win+L test. That candidate's lock refusal failed; the original query
 lacked an independent session-lock flag. Sanitized evidence is retained in
-`docs/evidence/windows-console-user-2026-10-10.json`. A WTS session-lock repair
-and native retest are required before using this classification for access.
+`docs/evidence/windows-console-user-2026-10-10.json`. The repaired diagnostic
+now passes the reported unlocked-to-locked check below.
+Post-unlock recovery and the remaining installed-session matrix are still required.
 The isolated diagnostic remains disconnected from production authorization.
 
 The user's server-test video showed the PowerShell file opening in an editor
@@ -154,5 +155,11 @@ The lock diagnostic repair is in [Windows draft PR 1](https://github.com/Helicoi
 tests and adds independent WTS lock evidence plus a pre-started sampling mode.
 Native CI 38059359725 also passed the actual extended WTS query with Unlocked
 classification and all 31 sampling observations.
-Its actual repaired Win+L result remains pending. RDP is supported on the
-tester's PC but not configured, so the RDP runtime matrix remains pending.
+The user supplied the complete repaired 31-sample, 30-second Win+L report.
+The initial unlocked sample was eligible; the next sample denied a desktop
+query failure during transition, and the final 29 samples denied SessionLocked
+despite a stable Default desktop. All 30 locked samples refused eligibility.
+This passes the reported unlocked-to-locked metadata check on that PC.
+Post-unlock recovery is pending; the report contains no post-unlock sample.
+RDP is supported on the tester's PC but not configured, so its runtime matrix
+remains pending. This is not admission, capture/input or a full V40 proof.
