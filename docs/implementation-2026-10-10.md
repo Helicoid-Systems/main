@@ -56,11 +56,11 @@ Those temporary paths are execution conveniences, not reproducible release pins.
 | Core | 79 domain tests, format and clippy pass; native header drift check and isolated 61-test authority proof pass | core BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/core/actions/runs/38056845742) |
 | Server | 39 tests on Ubuntu and Windows; Windows release package and PowerShell bootstrap fixture pass | server BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/server/actions/runs/38054445029) |
 | macOS | 77 tests; Apple Silicon release packaging, Intel source compile | macOS BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/macos/actions/runs/38053246915) |
-| Windows | 171 tests; both x64 WinUI apps build and publish; launcher forwarding and positive native desktop query pass | Windows BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/windows/actions/runs/38056087268) |
+| Windows | 210 tests; both x64 WinUI apps build/publish; exact role icons, launcher, native desktop/lock queries and sampler pass | Windows BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/windows/actions/runs/38059359725) |
 | Integration | 21 actual loopback checks, both client libraries | [sanitized result](evidence/loopback-integration-2026-10-10.json), reproducible `scripts/live-integration.sh` |
 | Native Mac navigation | Packaged Manager opens; setup advances and blocks at unavailable actual SSH verification | coordinator CUA inspection; no SSH connection/deployment performed |
 
-There are 366 passing foundation tests across the four repositories. This count
+There are 405 passing foundation tests across the four repositories. This count
 excludes the 61 isolated authority tests and engine laboratory probes, and does
 not imply completion of S01–S10.
 Both client contract copies match server SHA-256
@@ -75,7 +75,7 @@ apps truthfully expose unavailable remote engine states.
 
 ## Downloadable app checks
 
-[Windows x64 development bundle](https://github.com/Helicoid-Systems/windows/actions/runs/38056087268/artifacts/11671357036)
+[Windows x64 development bundle](https://github.com/Helicoid-Systems/windows/actions/runs/38059359725/artifacts/11671909854)
 contains both actual PE32+ executables and self-contained dependencies. The user ran both applications on Windows and reported that they work. This
 confirms their launch on that PC; the full navigation and accessibility matrix
 remains unverified. Follow [Windows test instructions](windows-testing.md).
@@ -124,7 +124,13 @@ A third continuation package owns the Windows physical-console diagnostic.
 It reads WTS/desktop metadata only, keeps remote access unavailable and
 provides a separate runnable tool for installed console/RDP/lock checks.
 Native CI proved the real bounded desktop-name query and result shape. It
-cannot establish the full V40 installed console/RDP/lock matrix.
+cannot establish the full V40 installed console/RDP/lock matrix. The user
+reported two eligible unlocked runs, followed by an eligible result in the
+reported Win+L test. That candidate's lock refusal failed; the original query
+lacked an independent session-lock flag. Sanitized evidence is retained in
+`docs/evidence/windows-console-user-2026-10-10.json`. A WTS session-lock repair
+and native retest are required before using this classification for access.
+The isolated diagnostic remains disconnected from production authorization.
 
 The user's server-test video showed the PowerShell file opening in an editor
 and a later terminal disappearing before a readable error. The corrected
@@ -138,3 +144,15 @@ confirmed that it works. The new bundle includes an explicit development CMD
 launcher; native CI proves its forwarding and retained failure diagnostics.
 This proves the development sign-in path on that PC; it does
 not establish production authentication or endpoint enrollment.
+
+The supplied Windows role icons supersede the previous Windows shared artwork:
+blue Manager and dark Computer. Native CI 38058328331 and the downloaded
+artifact verified exact referenced PE icon payloads, sibling ICO files and
+unchanged source hashes. The user subsequently confirmed both apps open and
+the icons work in the requested Explorer/taskbar check. Mac artwork is unchanged.
+The lock diagnostic repair is in [Windows draft PR 1](https://github.com/Helicoid-Systems/windows/pull/1); it passes 210 portable
+tests and adds independent WTS lock evidence plus a pre-started sampling mode.
+Native CI 38059359725 also passed the actual extended WTS query with Unlocked
+classification and all 31 sampling observations.
+Its actual repaired Win+L result remains pending. RDP is supported on the
+tester's PC but not configured, so the RDP runtime matrix remains pending.

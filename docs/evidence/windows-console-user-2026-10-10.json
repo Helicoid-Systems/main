@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-10",
+  "source": "User-reported JSON from downloaded Windows diagnostic; no personal shell path retained",
+  "run": "https://github.com/Helicoid-Systems/windows/actions/runs/38056087268",
+  "revision": "bbc99727d199d3a4a57fcbf85258cf6dbdcfbb98",
+  "scope": "Metadata diagnostic only; no admission, capture, input, enrollment or production authorization",
+  "unlocked": {
+    "reportedRuns": 2,
+    "eligible": true,
+    "reason": "Eligible",
+    "facts": {
+      "physicalConsoleSessionId": 1,
+      "processSessionId": 1,
+      "connectState": 0,
+      "protocolType": 0,
+      "desktopCategory": "Default",
+      "observationStable": true,
+      "wtsQuerySucceeded": true,
+      "desktopQuerySucceeded": true
+    }
+  },
+  "reportedWinL": {
+    "procedure": "User reported executing delayed probe while PC locked with Win+L, then reading JSON after unlock",
+    "expectedEligible": false,
+    "actualEligible": true,
+    "reason": "Eligible",
+    "facts": {
+      "physicalConsoleSessionId": 1,
+      "processSessionId": 1,
+      "connectState": 0,
+      "protocolType": 0,
+      "desktopCategory": "Default",
+      "observationStable": true,
+      "wtsQuerySucceeded": true,
+      "desktopQuerySucceeded": true
+    },
+    "result": "FAILED candidate lock refusal; query lacked independent session lock flag. Native repair/retest pending."
+  },
+  "rdpTest": {
+    "availability": "User reports supported, but not configured",
+    "runtimeResult": "Not performed; no RDP or firewall configuration changed"
+  },
+  "repair": {
+    "windowsDraftPR": "https://github.com/Helicoid-Systems/windows/pull/1",
+    "revision": "f520448a622d893b2d09f46c1a4e5d164acdf7a4",
+    "localTests": 210,
+    "nativeSDKLayoutCI": "https://github.com/Helicoid-Systems/windows/actions/runs/38058328331",
+    "scope": "Independent WTS lock evidence, exact 232-byte native size, numeric 20-byte prefix only, schema2 sampling mode",
+    "nativeRuntimeStatus": "Repaired lock/unlock test on user PC pending",
+    "nativeCI": {
+      "url": "https://github.com/Helicoid-Systems/windows/actions/runs/38059359725",
+      "result": "success",
+      "domainTests": 210,
+      "sdkLayout": "232-byte WTSINFOEXW; Data offset8; flags offset16",
+      "extendedQuery": "Actual observable console returned Unlocked with lockQuerySucceeded true",
+      "sampling": "31 observations, one grouped state; elapsed >=30 seconds",
+      "diagnosticArtifact": "https://github.com/Helicoid-Systems/windows/actions/runs/38059359725/artifacts/11672762156",
+      "scope": "Native query and sampler correctness; repaired lock/unlock on user PC still pending"
+    }
+  },
+  "suppliedIcons": {
+    "testedBundle": "https://github.com/Helicoid-Systems/windows/actions/runs/38058328331/artifacts/11672650381",
+    "runtimeEvidence": "User answered they work to both app launch and blue Manager/dark Computer Explorer/taskbar icon check",
+    "sourcePreservation": "Four exact original PNG/SVG bytes verified locally; native CI passes source and referenced PE icon checks"
+  }
+}
