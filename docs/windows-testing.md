@@ -56,7 +56,7 @@ The original diagnostic passed the user's unlocked checks but returned eligible
 in the reported Win+L check. Lock refusal FAILED for that candidate; native
 CI desktop-query correctness did not prove the locked-session matrix. The
 repair adds an independent WTS session-lock check. The reported locked-PC
-retest passes below; post-unlock recovery and the remaining matrix are pending.
+retest and post-unlock recovery pass below; the remaining matrix is pending.
 This tool enables no remote access and captures no pixels.
 
 Native Windows CI and the downloaded bundle verified the exact embedded role
@@ -81,7 +81,11 @@ sampling observations. This proves query/sampler operation; it does not prove
 lock refusal on the tester's PC. The user subsequently supplied all 31 samples:
 second 0 was Unlocked/Eligible, second 1 was Locked/DesktopQueryFailed, and
 seconds 2–30 were Locked/SessionLocked despite a stable Default desktop.
-Every locked sample refused eligibility. Post-unlock recovery remains pending.
+Every locked sample refused eligibility. The user subsequently ran the repaired
+copy after unlock: schemaVersion 2, Unlocked, lockQuerySucceeded true and
+eligible true. The reported unlocked → locked → unlocked diagnostic check
+passes on this PC. The full V40 matrix, generation/admission and media/input
+enforcement remain unverified.
 
 To reproduce the metadata check, download [the repaired metadata diagnostic](https://github.com/Helicoid-Systems/windows/actions/runs/38059359725/artifacts/11672762156)
 into a fresh folder. Run the first command, immediately press Win+L, wait 40
