@@ -49,3 +49,10 @@ Drain remains synchronous; no async callback cancellation or real media/input
 is proved. Connect and observation exports return unavailable. Full RD02 and
 B03 remain incomplete. Exact source license, patch, header generator, harness,
 commands and results live in core's `engine-lab/`.
+
+The Intel macOS proof now also compiles the real `hs-native` library and links
+the C harness from a fresh pinned checkout. Both artifacts are x86_64 Mach-O,
+with the same 18 exports and no Sciter/Flutter dynamic dependencies. Intel
+test and harness execution remain unverified: this Apple Silicon Mac has no
+Rosetta installation. Compile/link evidence does not establish Intel runtime
+behavior. The retained source/header drift check also passes independently.
