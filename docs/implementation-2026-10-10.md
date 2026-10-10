@@ -53,7 +53,7 @@ Those temporary paths are execution conveniences, not reproducible release pins.
 
 | Area | Fresh result | Retained evidence |
 | --- | --- | --- |
-| Core | 79 domain tests, format and clippy pass | core BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/core/actions/runs/38054093917) |
+| Core | 79 domain tests, format and clippy pass; native header drift check passes | core BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/core/actions/runs/38055637377) |
 | Server | 39 tests on Ubuntu and Windows; Windows release package and PowerShell bootstrap fixture pass | server BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/server/actions/runs/38054445029) |
 | macOS | 77 tests; Apple Silicon release packaging, Intel source compile | macOS BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/macos/actions/runs/38053246915) |
 | Windows | 112 tests; both x64 WinUI apps build and publish | Windows BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/windows/actions/runs/38051352427) |
@@ -95,6 +95,8 @@ accepted as real RustDesk viewer initialization. The corrected lab constructs an
 actual generic Session/handler without starting listeners, capture or input.
 Nine Rust tests and 45 C harness checks pass on macOS arm64, and the retained
 patch reproduces against a clean source checkout.
+The same inert library and C harness also compile and link for Intel macOS;
+execution remains unverified because Rosetta is absent on the build machine.
 The apps cannot enable viewing/control until B02/B03 and installed console
 admission/teardown proofs pass.
 
@@ -111,8 +113,8 @@ are complete. Its existence alone cannot pass B03/RD03.
 includes the executable, a foreground loopback launcher, and tester instructions.
 Native Windows CI verified Unicode password stdin, child-only bootstrap token
 environment, unchanged caller environment, and single-use bootstrap denial.
-The user confirmed that the foreground server launcher works. Manager sign-in
-is still being tested on that PC.
+The user confirmed that the foreground server launcher works and subsequently
+confirmed Manager development sign-in works on that PC.
 
 A third continuation package owns the Windows physical-console diagnostic.
 It reads WTS/desktop metadata only, keeps remote access unavailable and
@@ -126,6 +128,7 @@ execution-policy override. Native CI executed this actual launcher with a
 controlled failing child and verified diagnostic retention and exit status.
 The user subsequently reported greyed-out Manager sign-in fields. This matches
 the default closed connection mode. The coordinator provided a concrete
-PowerShell invocation with the explicit development switches; a packaged
-launcher is being added to make that mode easier to start. Successful Manager
-sign-in on the user's PC remains pending.
+PowerShell invocation with the explicit development switches. The user
+confirmed that it works. A packaged launcher is being added to make that mode
+easier to start. This proves the development sign-in path on that PC; it does
+not establish production authentication or endpoint enrollment.
