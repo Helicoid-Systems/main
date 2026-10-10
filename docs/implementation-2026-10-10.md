@@ -53,7 +53,7 @@ Those temporary paths are execution conveniences, not reproducible release pins.
 
 | Area | Fresh result | Retained evidence |
 | --- | --- | --- |
-| Core | 79 domain tests, format and clippy pass; native header drift check and isolated 61-test authority proof pass | core BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/core/actions/runs/38056845742) |
+| Core | 79 domain tests; native header drift check; isolated 87 runtime and two compile-fail checks, format and clippy pass | core BUILD-REPORT, authority PROOF_REPORT and [CI](https://github.com/Helicoid-Systems/core/actions/runs/38063286220) |
 | Server | 39 tests on Ubuntu and Windows; Windows release package and PowerShell bootstrap fixture pass | server BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/server/actions/runs/38054445029) |
 | macOS | 77 tests; Apple Silicon release packaging, Intel source compile | macOS BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/macos/actions/runs/38053246915) |
 | Windows | 210 tests; both x64 WinUI apps build/publish; exact role icons, launcher, native desktop/lock queries and sampler pass | Windows BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/windows/actions/runs/38059359725) |
@@ -61,8 +61,8 @@ Those temporary paths are execution conveniences, not reproducible release pins.
 | Native Mac navigation | Packaged Manager opens; setup advances and blocks at unavailable actual SSH verification | coordinator CUA inspection; no SSH connection/deployment performed |
 
 There are 405 passing foundation tests across the four repositories. This count
-excludes the 61 isolated authority tests and engine laboratory probes, and does
-not imply completion of S01–S10.
+excludes the 87 isolated authority runtime tests, two compile-fail checks
+and engine laboratory probes; it does not imply completion of S01–S10.
 Both client contract copies match server SHA-256
 `09dbc30f7dd39dc051ba037aa3059caca7bed92a6f78ce0a5e2d4c6a9ef75b2e`
 (11,834 bytes).
@@ -105,12 +105,12 @@ MFA, file jobs, fleet actions, production deployment, backup/restore and full
 remote media/control are unfinished. These are executable follow-up packages,
 not features to infer from a successful source build.
 
-The reviewed core/authority-lab candidate passes 61 tests. The coordinator
-reproduced and fixed additional required-read, format-marker and intent-bound
+The reviewed core/authority-lab candidate now passes 87 runtime tests and
+two compile-fail checks. The coordinator reproduced and fixed additional required-read, format-marker and intent-bound
 failures. Its Ed25519 credentials have a 30-second lifetime cap, committed
 issuance and atomic replay consumption. It requires a local issuance row in
-the same store; peer possession, distributed admission, actual OS generations,
-independent rollback anchoring and approved recovery remain unproved.
+the same store; real authenticated transport, distributed admission, actual
+OS generations, independent rollback anchoring and approved recovery remain unproved.
 It stays isolated from production callers. B03/RD03 remain incomplete.
 
 [Windows development server](https://github.com/Helicoid-Systems/server/actions/runs/38054445029/artifacts/11669829225)
@@ -165,3 +165,24 @@ lock query and eligibility after unlock. This passes diagnostic recovery and
 the reported unlocked → locked → unlocked sequence on that PC.
 RDP is supported on the tester's PC but not configured, so its runtime matrix
 remains pending. This is not admission, capture/input or a full V40 proof.
+
+The next isolated authority prerequisite is in [core draft PR 1](https://github.com/Helicoid-Systems/core/pull/1),
+revision `11043b3727b4efeff19fd522139bf60adee12866`. A MiMo Code agent using
+`xiaomi/mimo-v2.5-pro` implemented a real Manager-key possession primitive;
+the coordinator reviewed it and reproduced six deadline/grant-binding failures
+before correction. The receiver creates a fresh, bounded challenge binding
+the exact key, computer/incarnation/desktop, operation, intent, signed grant
+and fixture channel. Foreign verifiers, replay, altered context, expiry and
+clock rollback refuse proof. Verified results are sealed behind immutable
+getters; caller fabrication/mutation compile-fail checks went red then green.
+Fresh coordinator checks passed all 87 runtime tests, both compile-fail checks,
+format and strict all-target clippy. This primitive remains separate from
+same-store admission, with no production or real transport integration.
+Channel and desktop-generation inputs are fixture values. B03/RD03 remain
+incomplete, including distributed endpoint enforcement, durable challenge
+replay/restart state, actual OS generations, recovery and authority cutover.
+
+[Core CI 38063286220](https://github.com/Helicoid-Systems/core/actions/runs/38063286220)
+passed all three jobs for this exact revision: main core format/test/clippy,
+retained native-header drift and candidate authority format/test/clippy.
+The authority job passed 87 runtime tests and both compile-fail doc checks.
