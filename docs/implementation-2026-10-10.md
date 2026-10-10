@@ -53,15 +53,16 @@ Those temporary paths are execution conveniences, not reproducible release pins.
 
 | Area | Fresh result | Retained evidence |
 | --- | --- | --- |
-| Core | 79 domain tests, format and clippy pass; native header drift check passes | core BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/core/actions/runs/38055637377) |
+| Core | 79 domain tests, format and clippy pass; native header drift check and isolated 61-test authority proof pass | core BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/core/actions/runs/38056845742) |
 | Server | 39 tests on Ubuntu and Windows; Windows release package and PowerShell bootstrap fixture pass | server BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/server/actions/runs/38054445029) |
 | macOS | 77 tests; Apple Silicon release packaging, Intel source compile | macOS BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/macos/actions/runs/38053246915) |
-| Windows | 112 tests; both x64 WinUI apps build and publish | Windows BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/windows/actions/runs/38051352427) |
+| Windows | 171 tests; both x64 WinUI apps build and publish; launcher forwarding and positive native desktop query pass | Windows BUILD-REPORT and [CI](https://github.com/Helicoid-Systems/windows/actions/runs/38056087268) |
 | Integration | 21 actual loopback checks, both client libraries | [sanitized result](evidence/loopback-integration-2026-10-10.json), reproducible `scripts/live-integration.sh` |
 | Native Mac navigation | Packaged Manager opens; setup advances and blocks at unavailable actual SSH verification | coordinator CUA inspection; no SSH connection/deployment performed |
 
-There are 307 passing foundation tests across the four repositories. This count
-excludes engine laboratory probes and does not imply completion of S01–S10.
+There are 366 passing foundation tests across the four repositories. This count
+excludes the 61 isolated authority tests and engine laboratory probes, and does
+not imply completion of S01–S10.
 Both client contract copies match server SHA-256
 `09dbc30f7dd39dc051ba037aa3059caca7bed92a6f78ce0a5e2d4c6a9ef75b2e`
 (11,834 bytes).
@@ -74,7 +75,7 @@ apps truthfully expose unavailable remote engine states.
 
 ## Downloadable app checks
 
-[Windows x64 development bundle](https://github.com/Helicoid-Systems/windows/actions/runs/38051352427/artifacts/11669493591)
+[Windows x64 development bundle](https://github.com/Helicoid-Systems/windows/actions/runs/38056087268/artifacts/11671357036)
 contains both actual PE32+ executables and self-contained dependencies. The user ran both applications on Windows and reported that they work. This
 confirms their launch on that PC; the full navigation and accessibility matrix
 remains unverified. Follow [Windows test instructions](windows-testing.md).
@@ -104,10 +105,13 @@ MFA, file jobs, fleet actions, production deployment, backup/restore and full
 remote media/control are unfinished. These are executable follow-up packages,
 not features to infer from a successful source build.
 
-An additional MiMo work package owns core/authority-lab: a candidate bounded
-Ed25519 admission contract and durable-commit/replay denial proof. It remains
-isolated from production callers until reviewed integration and B03 evidence
-are complete. Its existence alone cannot pass B03/RD03.
+The reviewed core/authority-lab candidate passes 61 tests. The coordinator
+reproduced and fixed additional required-read, format-marker and intent-bound
+failures. Its Ed25519 credentials have a 30-second lifetime cap, committed
+issuance and atomic replay consumption. It requires a local issuance row in
+the same store; peer possession, distributed admission, actual OS generations,
+independent rollback anchoring and approved recovery remain unproved.
+It stays isolated from production callers. B03/RD03 remain incomplete.
 
 [Windows development server](https://github.com/Helicoid-Systems/server/actions/runs/38054445029/artifacts/11669829225)
 includes the executable, a foreground loopback launcher, and tester instructions.
@@ -119,7 +123,8 @@ confirmed Manager development sign-in works on that PC.
 A third continuation package owns the Windows physical-console diagnostic.
 It reads WTS/desktop metadata only, keeps remote access unavailable and
 provides a separate runnable tool for installed console/RDP/lock checks.
-Native CI metadata checks cannot establish the full V40 installed matrix.
+Native CI proved the real bounded desktop-name query and result shape. It
+cannot establish the full V40 installed console/RDP/lock matrix.
 
 The user's server-test video showed the PowerShell file opening in an editor
 and a later terminal disappearing before a readable error. The corrected
@@ -129,6 +134,7 @@ controlled failing child and verified diagnostic retention and exit status.
 The user subsequently reported greyed-out Manager sign-in fields. This matches
 the default closed connection mode. The coordinator provided a concrete
 PowerShell invocation with the explicit development switches. The user
-confirmed that it works. A packaged launcher is being added to make that mode
-easier to start. This proves the development sign-in path on that PC; it does
+confirmed that it works. The new bundle includes an explicit development CMD
+launcher; native CI proves its forwarding and retained failure diagnostics.
+This proves the development sign-in path on that PC; it does
 not establish production authentication or endpoint enrollment.

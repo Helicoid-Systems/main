@@ -1,7 +1,7 @@
 # Windows development build check
 
 Use Windows 11 x64. Sign in to GitHub with access to Helicoid-Systems.
-Download [the verified app bundle](https://github.com/Helicoid-Systems/windows/actions/runs/38051352427/artifacts/11669493591)
+Download [the verified app bundle](https://github.com/Helicoid-Systems/windows/actions/runs/38056087268/artifacts/11671357036)
 and extract the complete archive. Keep each executable beside all its files.
 
 1. Open `manager/Helicoid.Manager.exe`. Confirm the window opens, navigation
@@ -18,7 +18,8 @@ and extract the complete archive. Keep each executable beside all its files.
    and the Windows version. Screenshots are useful for visual problems.
 
 The app bundle is unsigned development output, not a production installer.
-Windows CI compiled and published both apps and passed 112 domain/client tests;
+Windows CI compiled and published both apps and passed 171 domain/client,
+console-policy and decoder tests;
 the user subsequently launched both WinUI windows and reported that they work.
 The full UI test matrix remains unverified. No real capture, control, installed service,
 MFA, file jobs or production trust is implemented by this bundle.
@@ -30,8 +31,11 @@ extract it, and double-click `start-development.cmd`, or run
 Keep that password private. The launcher approves only `dev-manager-key` and
 creates no screen access. Windows launch arguments are:
 
-Close any Manager window opened by double-clicking its executable first.
-Open PowerShell in the extracted app bundle folder, then run:
+Close any existing Manager window, then double-click
+`manager/start-development-manager.cmd`. The bundle includes this launcher
+beside the executable and a short tester README. Native CI verified its exact
+argument forwarding from a folder with spaces and a different working folder,
+plus retained missing-file diagnostics. A PowerShell alternative is:
 
 ```powershell
 .\manager\Helicoid.Manager.exe --development-server=http://127.0.0.1:8787 --development-manager-identity dev-manager-key

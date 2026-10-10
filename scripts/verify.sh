@@ -25,6 +25,7 @@ verify_windows_domain() (
 
 case "$scope" in
     core|server) verify_rust "$scope" ;;
+    authority-lab) verify_rust "core/authority-lab" ;;
     macos) verify_macos ;;
     windows-domain) verify_windows_domain ;;
     all)
@@ -34,7 +35,7 @@ case "$scope" in
         verify_windows_domain
         ;;
     *)
-        printf '%s\n' 'Usage: scripts/verify.sh [all|core|server|macos|windows-domain]' >&2
+        printf '%s\n' 'Usage: scripts/verify.sh [all|core|server|macos|windows-domain|authority-lab]' >&2
         exit 2
         ;;
 esac

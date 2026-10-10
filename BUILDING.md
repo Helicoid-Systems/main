@@ -31,6 +31,12 @@ are built; remote media/control, production trust, installation, MFA and file
 jobs remain unfinished. The RustDesk native proof is isolated in core's
 engine lab and is not enabled in either app.
 
+The isolated `modules/core/authority-lab` candidate has 61 tests for committed
+issuance, bounded credentials, replay consumption and storage fault denials.
+Run `scripts/verify.sh authority-lab` with Rust on PATH. It requires a local
+issuance row in the same store; distributed peer authentication, OS admission
+and rollback protection remain unproved. It is not enabled in the apps.
+
 The corrected [Mac app archive download](https://github.com/Helicoid-Systems/macos/actions/runs/38053246915/artifacts/11670531699)
 contains both Apple Silicon apps with verified complete ad-hoc signatures and
 approved role-specific icon fallbacks. Unzip the inner role archive to retain
