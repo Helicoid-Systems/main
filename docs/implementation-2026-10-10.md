@@ -130,7 +130,7 @@ reported Win+L test. That candidate's lock refusal failed; the original query
 lacked an independent session-lock flag. Sanitized evidence is retained in
 `docs/evidence/windows-console-user-2026-10-10.json`. The repaired diagnostic
 now passes the reported unlocked-to-locked check below.
-Post-unlock recovery and the remaining installed-session matrix are still required.
+The remaining installed-session matrix is still required.
 The isolated diagnostic remains disconnected from production authorization.
 
 The user's server-test video showed the PowerShell file opening in an editor
@@ -160,6 +160,8 @@ The initial unlocked sample was eligible; the next sample denied a desktop
 query failure during transition, and the final 29 samples denied SessionLocked
 despite a stable Default desktop. All 30 locked samples refused eligibility.
 This passes the reported unlocked-to-locked metadata check on that PC.
-Post-unlock recovery is pending; the report contains no post-unlock sample.
+The subsequent repaired-copy schema 2 report confirmed Unlocked, successful
+lock query and eligibility after unlock. This passes diagnostic recovery and
+the reported unlocked → locked → unlocked sequence on that PC.
 RDP is supported on the tester's PC but not configured, so its runtime matrix
 remains pending. This is not admission, capture/input or a full V40 proof.
