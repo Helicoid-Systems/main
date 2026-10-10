@@ -166,7 +166,9 @@ the reported unlocked → locked → unlocked sequence on that PC.
 RDP is supported on the tester's PC but not configured, so its runtime matrix
 remains pending. This is not admission, capture/input or a full V40 proof.
 
-The next isolated authority prerequisite is in [core draft PR 1](https://github.com/Helicoid-Systems/core/pull/1),
+The isolated authority prerequisite was merged in [core PR 1](https://github.com/Helicoid-Systems/core/pull/1)
+on 2026-10-10 as `3506a1175dbd38da44072e773b797070bed6e405`.
+The workspace now pins that merged commit. Its tree exactly matches the reviewed
 revision `11043b3727b4efeff19fd522139bf60adee12866`. A MiMo Code agent using
 `xiaomi/mimo-v2.5-pro` implemented a real Manager-key possession primitive;
 the coordinator reviewed it and reproduced six deadline/grant-binding failures
@@ -183,6 +185,6 @@ incomplete, including distributed endpoint enforcement, durable challenge
 replay/restart state, actual OS generations, recovery and authority cutover.
 
 [Core CI 38063286220](https://github.com/Helicoid-Systems/core/actions/runs/38063286220)
-passed all three jobs for this exact revision: main core format/test/clippy,
+passed all three jobs for the reviewed revision: main core format/test/clippy,
 retained native-header drift and candidate authority format/test/clippy.
 The authority job passed 87 runtime tests and both compile-fail doc checks.
