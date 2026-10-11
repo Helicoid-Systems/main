@@ -13,34 +13,36 @@
       "conclusion": "success"
     },
     "windows": {
-      "sha": "0028bdd06a56a63f04da31ff6306ac4051daa69e",
-      "ci": 38122766239,
+      "sha": "75448f230bed2a20c96338e82e55f2bfa2cdcd8b",
+      "ci": 38142367280,
       "conclusion": "success",
       "runner": "Windows Server 2025",
-      "domain_tests": 292,
+      "domain_tests": 387,
       "native_integration_tests": 47,
       "skipped": 0,
-      "artifact": 11696096234,
+      "artifact": 11703970176,
       "downloaded_pe_x64": [
         {
           "path": "manager/Helicoid.Manager.exe",
           "bytes": 363008,
           "machine": "x64",
-          "sha256": "cc051b261d403a769c3eac09ad00742e1b43d591fa7dedd323b04528440ab87b"
+          "sha256": "27660b25de7e8c01122a0677ffd9d1c6f37e4fa669098008e911114b7f175cf7"
         },
         {
           "path": "computer/Helicoid.Computer.exe",
           "bytes": 339456,
           "machine": "x64",
-          "sha256": "2b8acb947e40fc6df24edc2c001b1433cb92e2e31de34c9ea6f6a2e3523735e1"
+          "sha256": "566dff4157dc5b35eb315df2b3070e6bfa751becfd9f6be459827fc4603eb739"
         },
         {
           "path": "computer/Helicoid.CaptureWorker.exe",
           "bytes": 162816,
           "machine": "x64",
-          "sha256": "363802eab067086bc108c6c75fad6413bb2c09334a37e99e650ca349883bc58c"
+          "sha256": "c994918014a5eddba590bae0b6508938de45f801b82fe31bdd8f1eb9e8162dd3"
         }
-      ]
+      ],
+      "ci_source_sha": "f8f356d3f29419f1161952d38bfb6428f24b3666",
+      "changes_after_ci": "README.md and BUILD-REPORT.md only; production and test code identical"
     },
     "macos": {
       "sha": "dff6e75a5e874b668b06a66a49d545f3231f01ef",
@@ -56,17 +58,26 @@
       }
     },
     "server": {
-      "sha": "3656c22ad01403650630fd565dd02f94510393f4",
-      "ci": 38139828063,
+      "sha": "3a20aa03e1cfecc7c8c684c59b30790363169d37",
+      "ci": 38143445740,
       "conclusion": "success",
-      "macos_tests": 209,
+      "macos_tests": 238,
       "native_client_loopback_checks": 21,
-      "scope": "Reviewed MFA/private-store/installer prerequisite; HTTPS changes remain separate and unaccepted",
-      "linux_tests": 203,
-      "windows_tests": 182,
+      "scope": "Reviewed Unix loopback HTTPS/auth/private-store/installer prerequisite; Windows TLS and persisted private MFA explicitly unavailable",
+      "linux_tests": 231,
+      "windows_tests": 189,
       "native_windows_runner": "Windows Server 2025",
       "linux_runner": "Ubuntu 24.04",
-      "artifact": 11702626178
+      "artifact": 11703299972,
+      "ci_source_sha": "ccaf29ab1255ba7c2669128e0dbf5bb2f9af3612",
+      "changes_after_ci": "README.md and BUILD-REPORT.md only; production and test code identical",
+      "downloaded_bundle": {
+        "path": "hs-server.exe",
+        "bytes": 8731136,
+        "machine": "x64",
+        "sha256": "246a48f9b5db2a9154126e8b5270d619953fe95681f232f5a02b0c99ad682175",
+        "launcher_companions_verified": true
+      }
     }
   },
   "capabilities": [
@@ -145,6 +156,25 @@
       "name": "MFA legacy password login refusal",
       "status": "Verified",
       "scope": "Six actual service/HTTP regressions plus portable real CLI startup; final transaction rechecks MFA/account/password/manager state; public authentication remains gated"
+    },
+    {
+      "name": "Pinned HTTPS transport",
+      "platform": "Windows Server 2025 native CI",
+      "status": "Verified",
+      "scope": "95 TLS/domain checks within387 total domain tests; sole independently supplied CA, native chain/name/date/EKU, redirect/body/deadline/cancellation/disposal checks; production trust adoption and login UI excluded"
+    },
+    {
+      "name": "Final HTTPS client/server integration",
+      "platform": "macOS arm64",
+      "status": "Verified",
+      "scope": "Actual final Rust server health with native Swift and .NET-on-Mac clients using disposable independently supplied test CA; account/device/engine/production identity excluded",
+      "evidence": "final-client-server-tls-2026-10-11.json"
+    },
+    {
+      "name": "Loopback HTTPS server transport",
+      "platform": "Unix",
+      "status": "Verified",
+      "scope": "238 Mac and231 Linux tests; actual CLI HTTPS health/SIGINT, bounded TLS handshakes and held-descriptor secret material; Windows seven TLS/CLI refusal/portable cases; public routes excluded"
     }
   ],
   "deployment": {

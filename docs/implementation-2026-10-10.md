@@ -14,12 +14,12 @@ production routing and verified installation/recovery are still unavailable.
 
 | Capability | Current evidence | Status |
 | --- | --- | --- |
-| Separate issuer/receiver admission candidate | Coordinator: 167 runtime tests and four compile-fail doctests; [native Linux/Mac/Windows CI](https://github.com/Helicoid-Systems/core/actions/runs/38085737672) passes formatting, tests and clippy; signatures, replay, restart and controller renewal exercised | Verified as an isolated candidate; actual authenticated OS/channel binding Not Verified |
+| Separate issuer/receiver admission candidate | Coordinator: 167 runtime tests and four compile-fail doctests; [native Linux/Mac/Windows CI](https://github.com/Helicoid-Systems/core/actions/runs/38123977124) passes formatting, tests and clippy; signatures, replay, restart and controller renewal exercised | Verified as an isolated candidate; actual authenticated OS/channel binding Not Verified |
 | Mac “This Mac” hosting preflight | 123 Swift tests; packaged UI blocks incomplete checks; Apple Silicon app build and Intel source build pass [CI](https://github.com/Helicoid-Systems/macos/actions/runs/38085682009) | Verified preflight only; service installation and capture/input Not Verified |
-| Windows metadata worker fencing | 292 domain tests and 47 native integration tests pass on the Windows Server 2025 CI runner; deterministic DPAPI envelope/ciphertext corruption checks exercise the actual storage seam | [Native CI 38122766239](https://github.com/Helicoid-Systems/windows/actions/runs/38122766239) Verified; Windows 11 installed capture/input Not Verified |
+| Windows metadata worker fencing | 387 domain tests (including95 pinned HTTPS checks) and47 native integration tests pass on the Windows Server 2025 CI runner; deterministic DPAPI envelope/ciphertext corruption checks exercise the actual storage seam | [Native CI38142367280](https://github.com/Helicoid-Systems/windows/actions/runs/38142367280) Verified; Windows 11 installed capture/input Not Verified |
 | RustDesk bridge frame lifetime | Coordinator: 32 Rust tests, real linked C/Swift/C# lifetime checks, strict Swift concurrency, header/negative wrapper drift and Intel compile/link pass at core `067de354`; production media remains unavailable | Lifetime/ABI prerequisites Verified on Mac arm64; Windows native ABI, Intel runtime and real media Not Verified |
 | Selected OSS routing adoption | Stock relay global key/UUID pairing lacks Helicoid per-allocation authorization; negotiated peer/channel binding and endpoint admission are not proved | Failed adoption gate; media/control and public deployment remain closed |
-| Server authentication and installer hardening | Coordinator: 209 Mac tests, formatting/clippy and 21 actual native-client loopback checks; [native Linux/Windows CI](https://github.com/Helicoid-Systems/server/actions/runs/38139828063) passes at `3656c22`; MFA legacy bypass repaired, Unix private-store/sidecar checks verified | Bounded prerequisite Verified; Windows persistent MFA/private migration unavailable; public authentication and installed acceptance Not Verified |
+| Server authentication and installer hardening | Coordinator:238 Mac tests and actual final Swift/.NET-on-Mac pinned HTTPS health; [native CI38143445740](https://github.com/Helicoid-Systems/server/actions/runs/38143445740) passed231 Linux and189 Windows tests, formatting/Clippy and Windows release/launcher checks at `ccaf29a`; Unix private-store/sidecar and loopback TLS checks verified | Bounded prerequisite Verified; Windows persistent MFA/private migration unavailable; public authentication and installed acceptance Not Verified |
 | Production release | Developer ID/notarization and Windows signing absent; installed OS acceptance, recovery and security review incomplete | Not Verified; release gated |
 
 [Current Apple Silicon development apps](https://github.com/Helicoid-Systems/macos/actions/runs/38085682009/artifacts/11682776126)
@@ -30,8 +30,9 @@ setup/preflight prerequisite build, not a passed worker/admission, live-preview,
 or control checkpoint. Intel compilation does not establish Intel runtime
 acceptance.
 
-[Current Windows x64 development bundle](https://github.com/Helicoid-Systems/windows/actions/runs/38122766239/artifacts/11696096234)
-is built from `0028bdd06a56a63f04da31ff6306ac4051daa69e`. The coordinator
+[Current Windows x64 development bundle](https://github.com/Helicoid-Systems/windows/actions/runs/38142367280/artifacts/11703970176)
+is built from `f8f356d3f29419f1161952d38bfb6428f24b3666`; the integration pin
+adds only reviewed evidence documentation at `75448f2`. The coordinator
 downloaded it and verified the Manager, Computer and metadata-worker executables
 as PE x64. Native CI passed all 47 integration tests without skips on Windows
 Server 2025. This establishes the tested IPC/storage prerequisites, not installed
