@@ -241,7 +241,7 @@
     {
       "capability": "Windows private seed fixtures and recreated SQLite owner diagnostics",
       "sha": "44346bf4fa060158851dc3e7de6699e612fb1be4",
-      "status": "Not Verified",
+      "status": "Failed",
       "ci": 38167890462,
       "url": "https://github.com/Helicoid-Systems/server/actions/runs/38167890462",
       "local_coordinator": {
@@ -249,7 +249,19 @@
         "format_clippy_build": "Verified",
         "actual_windows_module_tests_type_lint": "Verified; no runtime claim"
       },
-      "policy": "Production owner acceptance unchanged; collect native object/default-owner classifications before compatibility change"
+      "policy": "Production owner acceptance unchanged; collect native object/default-owner classifications before compatibility change",
+      "windows_library_tests_passed": 67,
+      "windows_library_tests_failed": 2,
+      "seconds": 2.09,
+      "linux_job": "Verified; passed",
+      "native_observations": {
+        "live_WAL_owner": "Administrators",
+        "recreated_WAL_owner": "Administrators",
+        "recreated_SHM_owner": "Administrators",
+        "process_token_user": "currentUser",
+        "process_token_owner": "Administrators"
+      },
+      "next_gate": "Scoped compatibility for existing SQLite store files only; native held-owner + strict DACL/shape/link checks. New explicit-owner objects and general recovery/key reads stay current-user only. Full native suite still required."
     }
   ],
   "boundaries": [

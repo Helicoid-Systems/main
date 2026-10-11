@@ -1,22 +1,25 @@
 {
   "observed_at": "2026-10-11",
   "scope": "Actual Rust server + native Swift/.NET-on-Mac HTTPS health; test-only independently supplied PKI; excludes accounts/devices/media/native Windows runtime/production adoption",
-  "server_sha": "ccaf29ab1255ba7c2669128e0dbf5bb2f9af3612",
-  "macos_sha": "8efc0fda1970cea4ed2e3b3562bdeb161ebb971a",
+  "server_sha": "44346bf4fa060158851dc3e7de6699e612fb1be4",
+  "server_scope": "Unix transport verified; Windows private-store candidate remains unaccepted",
+  "macos_sha": "7bf00ac9ce6b03f47f66539a913136451abe55fd",
   "windows_code_sha": "f8f356d3f29419f1161952d38bfb6428f24b3666",
-  "server_binary_sha256": "e6ff3debb878a8e9b3b881a83a400481a15cae1e6a104e00921963bbcf31e2e6",
+  "server_binary_sha256": "d89756ffe27f3716345687adbc716453470e86f0b99581b8bb2470f0b82b4604",
   "checks": [
     {
       "client": "dotnet-on-macos",
       "passed": true,
-      "seconds": 0.281
+      "seconds": 0.351
     },
     {
       "client": "native-swift-arm64",
       "passed": true,
-      "seconds": 0.244
+      "seconds": 0.264
     }
   ],
   "server_shutdown_exit": 0,
-  "deployment_mutations": 0
+  "deployment_mutations": 0,
+  "swift_probe_build": "Verified; rebuilt from accepted Mac production source",
+  "server_status": "Current Unix server prerequisite; Windows store candidate unaccepted"
 }
