@@ -54,6 +54,19 @@
         "Computer.zip": "27a3d10145c9538175283d789e2d4fb0793da2e0b35fa93e746714e7f428f0e8",
         "Manager.zip": "2d838bed64bf25b2dcc339a9c03013ab125c11f880697e41534bf23468e7c6f5"
       }
+    },
+    "server": {
+      "sha": "3656c22ad01403650630fd565dd02f94510393f4",
+      "ci": 38139828063,
+      "conclusion": "success",
+      "macos_tests": 209,
+      "native_client_loopback_checks": 21,
+      "scope": "Reviewed MFA/private-store/installer prerequisite; HTTPS changes remain separate and unaccepted",
+      "linux_tests": 203,
+      "windows_tests": 182,
+      "native_windows_runner": "Windows Server 2025",
+      "linux_runner": "Ubuntu 24.04",
+      "artifact": 11702626178
     }
   },
   "capabilities": [
@@ -103,8 +116,9 @@
     },
     {
       "name": "Persistent server credential confidentiality",
-      "status": "Failed",
-      "scope": "Previous candidate creates SQLite with default public-readable permissions; repair under review; no production deployment"
+      "status": "Verified",
+      "scope": "Descriptor-relative private-store checks, Darwin ACL/owner/mode/link and pre-open SQLite sidecar denial; new Windows persistent MFA and private migration remain unavailable",
+      "platform": "Unix candidate"
     },
     {
       "name": "Selected stock RustDesk relay adoption",
@@ -126,6 +140,11 @@
     {
       "name": "Signed production release and required security review",
       "status": "Not Verified"
+    },
+    {
+      "name": "MFA legacy password login refusal",
+      "status": "Verified",
+      "scope": "Six actual service/HTTP regressions plus portable real CLI startup; final transaction rechecks MFA/account/password/manager state; public authentication remains gated"
     }
   ],
   "deployment": {
