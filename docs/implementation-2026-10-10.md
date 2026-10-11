@@ -23,11 +23,14 @@ production routing and verified installation/recovery are still unavailable.
 | Production release | Developer ID/notarization and Windows signing absent; installed OS acceptance, recovery and security review incomplete | Not Verified; release gated |
 
 The new Mac HTTPS and Windows persistent private-store candidates have **not**
-advanced those accepted pins. [Mac native CI38146856209](https://github.com/Helicoid-Systems/macos/actions/runs/38146856209)
-failed with TLS cancellation and a separate SSH deadline assertion;
-[server native CI38147363684](https://github.com/Helicoid-Systems/server/actions/runs/38147363684)
-failed at a Windows-only test import before runtime. Their exact revisions,
-first failures and remaining gates are recorded in
+advanced those accepted pins. [Mac native CI38161304956](https://github.com/Helicoid-Systems/macos/actions/runs/38161304956)
+now identifies native TLS refusal as duplicate certificate extensions (`-67903`);
+local173 Swift checks, both packages and Intel compilation pass.
+[Server native CI38161333976](https://github.com/Helicoid-Systems/server/actions/runs/38161333976)
+compiles after fixture repairs but refuses ancestor ownership during Windows
+runtime (24 library tests passed,32 failed); local240 Mac checks pass.
+Bounded native ACL diagnostics and certificate fixture diagnosis remain pending.
+Exact revisions, earlier failures and remaining gates are recorded in
 [the candidate failure ledger](evidence/native-candidate-failures-2026-10-11.json).
 Local tests and exported MiMo metadata do not pass these native gates.
 

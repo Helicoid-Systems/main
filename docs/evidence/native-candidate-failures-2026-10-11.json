@@ -47,6 +47,68 @@
       "windows_runtime_tests": "Not Verified; compilation failed before runtime",
       "linux_job": "Verified; passed",
       "next_gate": "Fix import and genuinely private Windows fixture setup; compile and run full Windows tests before acceptance."
+    },
+    {
+      "capability": "Windows persistent private credential store fixture repair",
+      "sha": "6d9cc7b17d3025939a79e0cbb3f01f04b34d13e1",
+      "status": "Failed",
+      "ci": 38160803572,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38160803572",
+      "first_failure": {
+        "file": "tests/auth_v2.rs",
+        "code": "E0609",
+        "detail": "Three Windows-only assertions used totp_secret; the actual BootstrapV2Response field is totp_secret_base32."
+      },
+      "windows_runtime_tests": "Not Verified; compilation failed before runtime",
+      "linux_job": "Verified; passed"
+    },
+    {
+      "capability": "macOS task-owned TLS diagnostics",
+      "sha": "c098c02f00f6684bbce76cafb6d50c31fc89dc03",
+      "status": "Failed",
+      "ci": 38161304956,
+      "url": "https://github.com/Helicoid-Systems/macos/actions/runs/38161304956",
+      "tests": 173,
+      "suites": 26,
+      "issues": 17,
+      "elapsed_seconds": 37.732,
+      "native_trust": {
+        "decision": "refusedEvaluate",
+        "step": "evaluate",
+        "certificate_count": 2,
+        "cf_domain": "NSOSStatusErrorDomain",
+        "cf_code": -67903,
+        "apple_symbol": "errSecCertificateDuplicateExtension",
+        "primary_source": "https://raw.githubusercontent.com/apple-oss-distributions/Security/main/base/SecBase.h"
+      },
+      "local_coordinator": {
+        "tests": 173,
+        "suites": 26,
+        "elapsed_seconds": 19.833,
+        "arm64_release_packages": "Verified; strict ad hoc signatures",
+        "intel_compile": "Verified; both x86_64; minos15.0",
+        "intel_runtime": "Not Verified"
+      },
+      "next_gate": "Diagnose actual duplicate certificate extensions; retain native strict validation and repair fixtures only if confirmed."
+    },
+    {
+      "capability": "Portable MFA bootstrap and reopen tests with native Windows ACL corruption",
+      "sha": "19f14d0e5b791d0413fb6027b56723a58a4d0569",
+      "status": "Failed",
+      "ci": 38161333976,
+      "local_coordinator": {
+        "tests": 240,
+        "format": "Verified",
+        "clippy": "Verified; all targets, warnings denied",
+        "build": "Verified"
+      },
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38161333976",
+      "linux_job": "Verified; passed",
+      "windows_runtime_tests": "Executed; 32 library tests failed, 24 passed; dependent suites not reached",
+      "first_failure": {
+        "message": "path ancestor is not owned by current principal/SYSTEM/Administrators; refusing private store",
+        "next_gate": "Bounded native owner and ACL metadata diagnosis; no policy relaxation before native evidence"
+      }
     }
   ],
   "boundaries": [
