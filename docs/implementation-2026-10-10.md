@@ -22,6 +22,15 @@ production routing and verified installation/recovery are still unavailable.
 | Server authentication and installer hardening | Coordinator:238 Mac tests and actual final Swift/.NET-on-Mac pinned HTTPS health; [native CI38143445740](https://github.com/Helicoid-Systems/server/actions/runs/38143445740) passed231 Linux and189 Windows tests, formatting/Clippy and Windows release/launcher checks at `ccaf29a`; Unix private-store/sidecar and loopback TLS checks verified | Bounded prerequisite Verified; Windows persistent MFA/private migration unavailable; public authentication and installed acceptance Not Verified |
 | Production release | Developer ID/notarization and Windows signing absent; installed OS acceptance, recovery and security review incomplete | Not Verified; release gated |
 
+The new Mac HTTPS and Windows persistent private-store candidates have **not**
+advanced those accepted pins. [Mac native CI38146856209](https://github.com/Helicoid-Systems/macos/actions/runs/38146856209)
+failed with TLS cancellation and a separate SSH deadline assertion;
+[server native CI38147363684](https://github.com/Helicoid-Systems/server/actions/runs/38147363684)
+failed at a Windows-only test import before runtime. Their exact revisions,
+first failures and remaining gates are recorded in
+[the candidate failure ledger](evidence/native-candidate-failures-2026-10-11.json).
+Local tests and exported MiMo metadata do not pass these native gates.
+
 [Current Apple Silicon development apps](https://github.com/Helicoid-Systems/macos/actions/runs/38085682009/artifacts/11682776126)
 are built from `dff6e75a5e874b668b06a66a49d545f3231f01ef`. Both downloaded
 archives pass ZIP integrity checks and extracted bundle signatures pass

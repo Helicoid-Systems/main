@@ -1,0 +1,59 @@
+{
+  "observed_at": "2026-10-11",
+  "accepted_pins_unchanged": {
+    "macos": "dff6e75a5e874b668b06a66a49d545f3231f01ef",
+    "server": "3a20aa03e1cfecc7c8c684c59b30790363169d37"
+  },
+  "execution": {
+    "tool": "MiMo Code",
+    "provider": "xiaomi",
+    "model": "mimo-v2.6-pro",
+    "exported_metadata_verified": true,
+    "agent_reports_require_coordinator_checks": true
+  },
+  "candidates": [
+    {
+      "capability": "macOS pinned HTTPS transport",
+      "sha": "dab66917ce71714fa9484b3d2c1efb9ba19c087f",
+      "status": "Failed",
+      "ci": 38146856209,
+      "url": "https://github.com/Helicoid-Systems/macos/actions/runs/38146856209",
+      "runner": "macos-15",
+      "tests": 170,
+      "suites": 26,
+      "issues": 14,
+      "elapsed_seconds": 34.493,
+      "observations": [
+        "Real TLS fixture startup succeeds after literal-address binding and bounded POSIX pipe reads.",
+        "Positive HTTPS requests and exact response-body rejection cases receive cancellation; native trust failure cause is not established.",
+        "An independent SSH command-runner deadline assertion also fails.",
+        "Intel source build passes; Intel runtime remains Not Verified."
+      ],
+      "next_gate": "Reviewed task-owned trust diagnostics followed by a fresh native run; independent SSH deadline repair."
+    },
+    {
+      "capability": "Windows persistent private credential store",
+      "sha": "3741506515399750289edf727ffc8d1184a8d5d2",
+      "status": "Failed",
+      "ci": 38147363684,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38147363684",
+      "runner": "windows-latest",
+      "first_failure": {
+        "file": "tests/tls_transport.rs",
+        "line": 273,
+        "code": "E0425",
+        "detail": "create_new_private_file imported only on Unix but used by a Windows test"
+      },
+      "windows_runtime_tests": "Not Verified; compilation failed before runtime",
+      "linux_job": "Verified; passed",
+      "next_gate": "Fix import and genuinely private Windows fixture setup; compile and run full Windows tests before acceptance."
+    }
+  ],
+  "boundaries": [
+    "No candidate gitlink was accepted from local tests or agent reports.",
+    "Windows TLS remains unsupported in the server candidate.",
+    "No VM mutation or public authority/rendezvous/relay listener.",
+    "Selected stock RustDesk routing adoption remains Failed.",
+    "Live preview, control, installed acceptance, signing and recovery remain Not Verified."
+  ]
+}
