@@ -45,17 +45,48 @@
       "changes_after_ci": "README.md and BUILD-REPORT.md only; production and test code identical"
     },
     "macos": {
-      "sha": "dff6e75a5e874b668b06a66a49d545f3231f01ef",
-      "ci": 38085682009,
+      "observed_at": "2026-10-11",
+      "code_sha": "7bf00ac9ce6b03f47f66539a913136451abe55fd",
+      "ci": 38167550626,
+      "ci_status": "Verified",
+      "artifact_id": 11711859570,
+      "artifact_digest": "89b2f3928c5bd0cd1a08de3f6c62c0d008500af70d051e584db46389749593f2",
+      "checks": [
+        {
+          "archive": "Helicoid Computer.zip",
+          "archive_sha256": "d93c66d3fc86dc566ae2f95f5fa5a86ad02802c65cc4ab2e8dadd4c4f010e3de",
+          "zip_integrity": "Verified",
+          "strict_ad_hoc_signature": "Verified",
+          "executable": "HelicoidComputer",
+          "architecture": "arm64",
+          "minimum_macos": "15.0",
+          "binary_sha256": "e8d886cb9a0f39382234ba38e917f33b31a742d856662a17bf3ca8702361ad1a"
+        },
+        {
+          "archive": "Helicoid Manager.zip",
+          "archive_sha256": "3b2bd31257c55c9c94f88193ea283e7434aa88157fa4c33a13ae6606b80d162a",
+          "zip_integrity": "Verified",
+          "strict_ad_hoc_signature": "Verified",
+          "executable": "HelicoidManager",
+          "architecture": "arm64",
+          "minimum_macos": "15.0",
+          "binary_sha256": "6103a12abd95c93e65affefa4b43affded233c6a6befb278b09719fe300348bb"
+        }
+      ],
+      "intel": "Source cross-build Verified; runtime Not Verified",
+      "installed_runtime": "Not Verified",
+      "release_signing": "Developer ID/notarization Not Verified",
+      "sha": "ae34bc655152cdbc5e6c4548ef8d3201f94514bc",
+      "ci_source_sha": "7bf00ac9ce6b03f47f66539a913136451abe55fd",
       "conclusion": "success",
-      "swift_tests": 123,
-      "artifact": 11682776126,
-      "downloaded_bundles_verified": "ZIP integrity, executable mode and codesign --verify --deep --strict",
+      "swift_tests": 186,
+      "swift_suites": 27,
+      "native_test_seconds": 43.877,
+      "native_package_test_seconds": 43.843,
+      "changes_after_ci": "README.md and BUILD-REPORT.md only; production and test code identical",
+      "downloaded_bundles_verified": "ZIP integrity and codesign --verify --deep --strict",
       "signing": "ad hoc",
-      "archives_sha256": {
-        "Computer.zip": "27a3d10145c9538175283d789e2d4fb0793da2e0b35fa93e746714e7f428f0e8",
-        "Manager.zip": "2d838bed64bf25b2dcc339a9c03013ab125c11f880697e41534bf23468e7c6f5"
-      }
+      "artifact": 11711859570
     },
     "server": {
       "sha": "3a20aa03e1cfecc7c8c684c59b30790363169d37",
@@ -175,6 +206,12 @@
       "platform": "Unix",
       "status": "Verified",
       "scope": "238 Mac and231 Linux tests; actual CLI HTTPS health/SIGINT, bounded TLS handshakes and held-descriptor secret material; Windows seven TLS/CLI refusal/portable cases; public routes excluded"
+    },
+    {
+      "name": "Pinned HTTPS and owned setup command lifecycle",
+      "platform": "macOS native CI",
+      "status": "Verified",
+      "scope": "186 tests in 27 suites in both Test and Package apps; real certificates/sockets, wrong trust/body/deadline/drain/cancellation and actual local child reap checks; production sign-in/trust adoption and installed workers excluded"
     }
   ],
   "deployment": {
