@@ -1,0 +1,22 @@
+{
+  "observed_at": "2026-10-11",
+  "scope": "Actual Rust server + native Swift/.NET-on-Mac HTTPS health; test-only independently supplied PKI; excludes accounts/devices/media/native Windows runtime/production adoption",
+  "server_sha": "ccaf29ab1255ba7c2669128e0dbf5bb2f9af3612",
+  "macos_sha": "8efc0fda1970cea4ed2e3b3562bdeb161ebb971a",
+  "windows_code_sha": "f8f356d3f29419f1161952d38bfb6428f24b3666",
+  "server_binary_sha256": "e6ff3debb878a8e9b3b881a83a400481a15cae1e6a104e00921963bbcf31e2e6",
+  "checks": [
+    {
+      "client": "dotnet-on-macos",
+      "passed": true,
+      "seconds": 0.281
+    },
+    {
+      "client": "native-swift-arm64",
+      "passed": true,
+      "seconds": 0.244
+    }
+  ],
+  "server_shutdown_exit": 0,
+  "deployment_mutations": 0
+}
