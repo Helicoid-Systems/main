@@ -22,33 +22,17 @@ production routing and verified installation/recovery are still unavailable.
 | Server authentication and installer hardening | Coordinator:238 Mac tests and actual final Swift/.NET-on-Mac pinned HTTPS health; [native CI38143445740](https://github.com/Helicoid-Systems/server/actions/runs/38143445740) passed231 Linux and189 Windows tests, formatting/Clippy and Windows release/launcher checks at `ccaf29a`; Unix private-store/sidecar and loopback TLS checks verified | Bounded prerequisite Verified; Windows persistent MFA/private migration unavailable; public authentication and installed acceptance Not Verified |
 | Production release | Developer ID/notarization and Windows signing absent; installed OS acceptance, recovery and security review incomplete | Not Verified; release gated |
 
-The new Mac HTTPS and Windows persistent private-store candidates have **not**
-advanced those accepted pins. [Mac native CI38163339118](https://github.com/Helicoid-Systems/macos/actions/runs/38163339118)
-passes every TLS test after certificate fixtures gained explicit owned OpenSSL
-configuration. The complete177-test,27-suite run has one failure: the existing
-SSH timeout assertion (1.064 seconds against its unchanged one-second bound).
-The frozen fixture candidate passes177 local checks. SSH cleanup review remains
-pending; the earlier duplicate extensions were not reproduced locally.
-The reviewed SSH runner also remains unaccepted: narrow cleanup checks pass
-near50ms, but two original deadline checks fail in the concurrent186-test suite.
-A disposable scheduling probe observes actual failure continuation resume at
-50–52ms; blocking TLS fixture-generation waits are under separate review.
-[Read-only native ACL diagnostics](https://github.com/Helicoid-Systems/server/actions/runs/38162915222)
-identified TrustedInstaller ownership and creation-only/inherit-only root ACEs.
-The reviewed ancestor repair at `ff98740` passes64 native Windows library checks
-but [CI38165068195](https://github.com/Helicoid-Systems/server/actions/runs/38165068195)
-fails four database/SQLite owner checks. Ancestor and scoped-privilege tests now
-pass; actual sidecar/default-owner diagnosis remains pending. Linux passes,
-and local240 Mac checks pass. The complete Windows store gate is still open.
-Exact revisions, earlier failures and remaining gates are recorded in
-[the candidate failure ledger](evidence/native-candidate-failures-2026-10-11.json).
-Local tests and exported MiMo metadata do not pass these native gates.
+The Mac HTTPS and command-lifecycle prerequisite now passes complete [native CI 38167550626](https://github.com/Helicoid-Systems/macos/actions/runs/38167550626) at exact code `7bf00ac9ce6b03f47f66539a913136451abe55fd`: **186 tests in 27 suites** pass in both Test and Package apps, release packaging and Intel cross-build pass. The coordinator independently passed the complete concurrent suite and Apple Silicon packaging, verified all six frozen source hashes and both downloaded bundle signatures. The integration pin `ae34bc6` adds only reviewed evidence documentation. TLS fixtures use a dedicated serial native generator while awaiting test tasks suspend; actual command cancellation, timeout, rejected stdin and output overflow confirm direct-child cleanup before return. Original timing assertions and concurrent suites remain intact.
 
-[Current Apple Silicon development apps](https://github.com/Helicoid-Systems/macos/actions/runs/38085682009/artifacts/11682776126)
-are built from `dff6e75a5e874b668b06a66a49d545f3231f01ef`. Both downloaded
+The server candidate remains unaccepted. [Read-only native ACL diagnostics](https://github.com/Helicoid-Systems/server/actions/runs/38162915222) identified TrustedInstaller ancestry and creation-only/inherit-only grants. The repair at `ff98740` passes 64 Windows library tests but [CI 38165068195](https://github.com/Helicoid-Systems/server/actions/runs/38165068195) fails four database/SQLite owner checks. The next reviewed candidate `44346bf` creates private seed files before SQLite opens them and collects bounded native ownership classifications for recreated sidecars. Local 240 Mac checks, format, strict Clippy/build and Windows source type checks pass; [native CI 38167890462](https://github.com/Helicoid-Systems/server/actions/runs/38167890462) remains pending. Production owner acceptance is unchanged until actual Windows evidence. Main retains server `3a20aa0`.
+
+Exact revisions, earlier failures and remaining gates are recorded in [the candidate ledger](evidence/native-candidate-failures-2026-10-11.json). Local tests and exported MiMo metadata do not substitute for native gates.
+
+[Current Apple Silicon development apps](https://github.com/Helicoid-Systems/macos/actions/runs/38167550626/artifacts/11711859570)
+are built from `7bf00ac9ce6b03f47f66539a913136451abe55fd`. Both downloaded
 archives pass ZIP integrity checks and extracted bundle signatures pass
 `codesign --verify --deep --strict`. These use ad-hoc signatures. This is a
-setup/preflight prerequisite build, not a passed worker/admission, live-preview,
+setup/HTTPS prerequisite build, not a passed worker/admission, live-preview,
 or control checkpoint. Intel compilation does not establish Intel runtime
 acceptance.
 

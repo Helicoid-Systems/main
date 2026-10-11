@@ -1,9 +1,5 @@
 {
   "observed_at": "2026-10-11",
-  "accepted_pins_unchanged": {
-    "macos": "dff6e75a5e874b668b06a66a49d545f3231f01ef",
-    "server": "3a20aa03e1cfecc7c8c684c59b30790363169d37"
-  },
   "execution": {
     "tool": "MiMo Code",
     "provider": "xiaomi",
@@ -186,6 +182,74 @@
         "windows_source_types": "Verified; actual module and native test source, not runtime"
       },
       "next_gate": "Actual native SQLite/fixture owner metadata before any owner-policy change; preserve final private DACL and refusal/no-re-ACL boundaries."
+    },
+    {
+      "capability": "Mac pinned HTTPS and owned command lifecycle",
+      "sha": "7bf00ac9ce6b03f47f66539a913136451abe55fd",
+      "status": "Verified",
+      "ci": 38167550626,
+      "url": "https://github.com/Helicoid-Systems/macos/actions/runs/38167550626",
+      "tests": 186,
+      "suites": 27,
+      "issues": 0,
+      "test_seconds": 43.877,
+      "package_test_seconds": 43.843,
+      "intel_source_build": "Verified; runtime Not Verified",
+      "downloaded_artifact": {
+        "observed_at": "2026-10-11",
+        "code_sha": "7bf00ac9ce6b03f47f66539a913136451abe55fd",
+        "ci": 38167550626,
+        "ci_status": "Verified",
+        "artifact_id": 11711859570,
+        "artifact_digest": "89b2f3928c5bd0cd1a08de3f6c62c0d008500af70d051e584db46389749593f2",
+        "checks": [
+          {
+            "archive": "Helicoid Computer.zip",
+            "archive_sha256": "d93c66d3fc86dc566ae2f95f5fa5a86ad02802c65cc4ab2e8dadd4c4f010e3de",
+            "zip_integrity": "Verified",
+            "strict_ad_hoc_signature": "Verified",
+            "executable": "HelicoidComputer",
+            "architecture": "arm64",
+            "minimum_macos": "15.0",
+            "binary_sha256": "e8d886cb9a0f39382234ba38e917f33b31a742d856662a17bf3ca8702361ad1a"
+          },
+          {
+            "archive": "Helicoid Manager.zip",
+            "archive_sha256": "3b2bd31257c55c9c94f88193ea283e7434aa88157fa4c33a13ae6606b80d162a",
+            "zip_integrity": "Verified",
+            "strict_ad_hoc_signature": "Verified",
+            "executable": "HelicoidManager",
+            "architecture": "arm64",
+            "minimum_macos": "15.0",
+            "binary_sha256": "6103a12abd95c93e65affefa4b43affded233c6a6befb278b09719fe300348bb"
+          }
+        ],
+        "intel": "Source cross-build Verified; runtime Not Verified",
+        "installed_runtime": "Not Verified",
+        "release_signing": "Developer ID/notarization Not Verified"
+      },
+      "local_coordinator": {
+        "tests": 186,
+        "suites": 27,
+        "seconds": 21.054,
+        "six_frozen_source_hashes": "Verified",
+        "arm64_release_packages": "Verified; strict ad hoc signatures",
+        "intel_cross_build": "Verified; both executables x86_64/minimum macOS15.0",
+        "proof_limits": "No installed workers, production trust adoption or real media/input"
+      }
+    },
+    {
+      "capability": "Windows private seed fixtures and recreated SQLite owner diagnostics",
+      "sha": "44346bf4fa060158851dc3e7de6699e612fb1be4",
+      "status": "Not Verified",
+      "ci": 38167890462,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38167890462",
+      "local_coordinator": {
+        "tests": 240,
+        "format_clippy_build": "Verified",
+        "actual_windows_module_tests_type_lint": "Verified; no runtime claim"
+      },
+      "policy": "Production owner acceptance unchanged; collect native object/default-owner classifications before compatibility change"
     }
   ],
   "boundaries": [
@@ -230,5 +294,14 @@
       "Tests/HelicoidCoreTests/SSHSetupTests.swift": "0dcfcc233af7ec0c77706bbc8c8ab7f4b17add2349b89978107688030ae9c499"
     },
     "next_gate": "Suspend waiting fixture tasks while bounded native certificate generation runs separately; keep real certificates, concurrent tests and unchanged assertions; complete local/native acceptance."
+  },
+  "pins_at_start_of_candidate_review": {
+    "macos": "dff6e75a5e874b668b06a66a49d545f3231f01ef",
+    "server": "3a20aa03e1cfecc7c8c684c59b30790363169d37"
+  },
+  "accepted_updates": {
+    "macos": "ae34bc655152cdbc5e6c4548ef8d3201f94514bc",
+    "ci_source_sha": "7bf00ac9ce6b03f47f66539a913136451abe55fd",
+    "server_unchanged": "3a20aa03e1cfecc7c8c684c59b30790363169d37"
   }
 }
