@@ -1,5 +1,52 @@
 # Implementation run, 10 October 2026
 
+## MiMo V2.6 production prerequisites
+
+The current wave uses installed MiMo Code with `xiaomi/mimo-v2.6-pro`.
+The coordinator checks sanitized exported session metadata, reviews each diff
+and repeats acceptance commands. The earlier V2.5 results below are historical
+foundation evidence; they do not describe the current completion status.
+
+The requested scope includes all four Mac/Windows manager–endpoint combinations,
+Linux SSH, Windows-local and macOS-local hosting, and organization-owned public
+rendezvous/relay. These are implementation targets. Live preview, control,
+production routing and verified installation/recovery are still unavailable.
+
+| Capability | Current evidence | Status |
+| --- | --- | --- |
+| Separate issuer/receiver admission candidate | Coordinator: 167 runtime tests and four compile-fail doctests; [native Linux/Mac/Windows CI](https://github.com/Helicoid-Systems/core/actions/runs/38085737672) passes formatting, tests and clippy; signatures, replay, restart and controller renewal exercised | Verified as an isolated candidate; actual authenticated OS/channel binding Not Verified |
+| Mac “This Mac” hosting preflight | 123 Swift tests; packaged UI blocks incomplete checks; Apple Silicon app build and Intel source build pass [CI](https://github.com/Helicoid-Systems/macos/actions/runs/38085682009) | Verified preflight only; service installation and capture/input Not Verified |
+| Windows metadata worker fencing | 292 domain tests and 47 native integration tests pass on the Windows Server 2025 CI runner; deterministic DPAPI envelope/ciphertext corruption checks exercise the actual storage seam | [Native CI 38122766239](https://github.com/Helicoid-Systems/windows/actions/runs/38122766239) Verified; Windows 11 installed capture/input Not Verified |
+| RustDesk bridge frame lifetime | Coordinator: 32 Rust tests, real linked C/Swift/C# lifetime checks, strict Swift concurrency, header/negative wrapper drift and Intel compile/link pass at core `067de354`; production media remains unavailable | Lifetime/ABI prerequisites Verified on Mac arm64; Windows native ABI, Intel runtime and real media Not Verified |
+| Selected OSS routing adoption | Stock relay global key/UUID pairing lacks Helicoid per-allocation authorization; negotiated peer/channel binding and endpoint admission are not proved | Failed adoption gate; media/control and public deployment remain closed |
+| Server authentication and installer hardening | Coordinator: 158 tests, formatting/clippy and 21 actual native-client loopback checks pass; Linux CI passes, Windows installer test boundaries under repair | Authentication/installer test subset Verified; persistent credential privacy under repair; native Windows and installed acceptance Not Verified |
+| Production release | Developer ID/notarization and Windows signing absent; installed OS acceptance, recovery and security review incomplete | Not Verified; release gated |
+
+[Current Apple Silicon development apps](https://github.com/Helicoid-Systems/macos/actions/runs/38085682009/artifacts/11682776126)
+are built from `dff6e75a5e874b668b06a66a49d545f3231f01ef`. Both downloaded
+archives pass ZIP integrity checks and extracted bundle signatures pass
+`codesign --verify --deep --strict`. These use ad-hoc signatures. This is a
+setup/preflight prerequisite build, not a passed worker/admission, live-preview,
+or control checkpoint. Intel compilation does not establish Intel runtime
+acceptance.
+
+[Current Windows x64 development bundle](https://github.com/Helicoid-Systems/windows/actions/runs/38122766239/artifacts/11696096234)
+is built from `0028bdd06a56a63f04da31ff6306ac4051daa69e`. The coordinator
+downloaded it and verified the Manager, Computer and metadata-worker executables
+as PE x64. Native CI passed all 47 integration tests without skips on Windows
+Server 2025. This establishes the tested IPC/storage prerequisites, not installed
+Windows 11 capture/input or the complete worker/admission checkpoint.
+
+The v1 server contract and both vendored client copies match SHA-256
+`3e9f5de05569618cc1746513e4da70e789888bca4d42b73628864e7335a1ac02`
+(12,354 bytes). HTTP wire version stays 1; storage version is independently 2.
+
+The supplied Ubuntu host has been inspected read-only. Its existing services,
+data and occupied ports 80/443 remain intact. No authority, rendezvous or relay
+listener was opened. Server Ready for Enrollment and Deployment Verified remain
+separate states; neither follows from these development tests.
+
+
 The first implementation wave uses four MiMo Code sessions with the explicit
 `xiaomi/mimo-v2.5-pro` provider/model selection. Session export verified that
 selection before dispatch. The coordinator owns integration and fresh checks.
