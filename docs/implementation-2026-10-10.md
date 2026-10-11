@@ -29,13 +29,17 @@ configuration. The complete177-test,27-suite run has one failure: the existing
 SSH timeout assertion (1.064 seconds against its unchanged one-second bound).
 The frozen fixture candidate passes177 local checks. SSH cleanup review remains
 pending; the earlier duplicate extensions were not reproduced locally.
-[Server native CI38161333976](https://github.com/Helicoid-Systems/server/actions/runs/38161333976)
-compiles after fixture repairs but refuses ancestor ownership during Windows
-runtime (24 library tests passed,32 failed); local240 Mac checks pass.
+The reviewed SSH runner also remains unaccepted: narrow cleanup checks pass
+near50ms, but two original deadline checks fail in the concurrent186-test suite.
+A disposable scheduling probe observes actual failure continuation resume at
+50–52ms; blocking TLS fixture-generation waits are under separate review.
 [Read-only native ACL diagnostics](https://github.com/Helicoid-Systems/server/actions/runs/38162915222)
-now identify TrustedInstaller ownership and creation-only/inherit-only root ACEs.
-The ancestor-only policy repair still needs the complete native store suite;
-the metadata diagnostic does not pass that gate.
+identified TrustedInstaller ownership and creation-only/inherit-only root ACEs.
+The reviewed ancestor repair at `ff98740` passes64 native Windows library checks
+but [CI38165068195](https://github.com/Helicoid-Systems/server/actions/runs/38165068195)
+fails four database/SQLite owner checks. Ancestor and scoped-privilege tests now
+pass; actual sidecar/default-owner diagnosis remains pending. Linux passes,
+and local240 Mac checks pass. The complete Windows store gate is still open.
 Exact revisions, earlier failures and remaining gates are recorded in
 [the candidate failure ledger](evidence/native-candidate-failures-2026-10-11.json).
 Local tests and exported MiMo metadata do not pass these native gates.

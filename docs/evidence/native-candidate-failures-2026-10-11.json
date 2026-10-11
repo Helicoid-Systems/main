@@ -159,6 +159,33 @@
       ],
       "private_store_gate": "Not Verified; this metadata job does not run or accept the store implementation.",
       "next_gate": "Bounded ancestor-only policy repair; protected product directories, files and SQLite sidecars remain strict; full native Windows suite required."
+    },
+    {
+      "capability": "Windows private-store ancestor role repair",
+      "sha": "ff9874085589214135dd3bb9864ea78734ea5463",
+      "status": "Failed",
+      "ci": 38165068195,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38165068195",
+      "linux_job": "Verified; passed",
+      "windows_library": {
+        "passed": 64,
+        "failed": 4,
+        "elapsed_seconds": 1.88
+      },
+      "observations": [
+        "Normal ancestry, exact TrustedInstaller ancestor-only ownership, product TrustedInstaller denial, creation-only/inherit-only role checks, and scoped thread privilege unwind regressions pass.",
+        "Remaining failures: migrate_refuses_already_current_store_without_backup, migrate_upgrades_v1_store_on_windows_private_boundary, open_refuses_older_schema_without_auto_migrate, sqlite_lifecycle_live_wal_shm_journal_stay_private.",
+        "The remaining failures refuse an object owner other than current process principal; actual owner classification is not yet established.",
+        "Dependent Windows suites and packaging are not reached."
+      ],
+      "local_coordinator": {
+        "tests": 240,
+        "format": "Verified",
+        "clippy": "Verified; all targets, warnings denied",
+        "build": "Verified",
+        "windows_source_types": "Verified; actual module and native test source, not runtime"
+      },
+      "next_gate": "Actual native SQLite/fixture owner metadata before any owner-policy change; preserve final private DACL and refusal/no-re-ACL boundaries."
     }
   ],
   "boundaries": [
@@ -167,5 +194,41 @@
     "No VM mutation or public authority/rendezvous/relay listener.",
     "Selected stock RustDesk routing adoption remains Failed.",
     "Live preview, control, installed acceptance, signing and recovery remain Not Verified."
-  ]
+  ],
+  "local_macos_ssh_review": {
+    "status": "Failed full-suite checks; candidate remains unaccepted",
+    "base_sha": "9f8b71f50ca9230a86a79836800d76957494e57a",
+    "tests": 186,
+    "suites": 27,
+    "issues": 2,
+    "full_suite_elapsed_seconds": [
+      22.391,
+      20.813
+    ],
+    "failed_checks": [
+      "timeoutDoesNotWaitForInheritedPipeWriter",
+      "timeoutWithNonReadingStdinIsBounded"
+    ],
+    "unchanged_assertion": "less than 1 second",
+    "subset_tests": "Verified; actual cleanup and timeout checks pass near50ms",
+    "intel_cross_build": "Verified; runtime Not Verified",
+    "probe": {
+      "scope": "Disposable snapshot only; no product diagnostic logging",
+      "actual_spawn_seconds": [
+        0.002,
+        0.007
+      ],
+      "actual_failure_resume_seconds": [
+        0.05,
+        0.052
+      ],
+      "instrumented_full_suite": "186 tests/27 suites pass in23.545s; instrumentation perturbs scheduling",
+      "inference": "Synchronous generation/material locks in TLS fixtures block Swift test executors; not a universally confirmed root cause"
+    },
+    "working_source_sha256": {
+      "Sources/HelicoidCore/Setup/SetupCommandRunner.swift": "1934aede1958f186a6606d45b68c5b154409cb64f108e0c5bf63c6cc0342ad4a",
+      "Tests/HelicoidCoreTests/SSHSetupTests.swift": "0dcfcc233af7ec0c77706bbc8c8ab7f4b17add2349b89978107688030ae9c499"
+    },
+    "next_gate": "Suspend waiting fixture tasks while bounded native certificate generation runs separately; keep real certificates, concurrent tests and unchanged assertions; complete local/native acceptance."
+  }
 }
