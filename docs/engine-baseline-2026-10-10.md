@@ -1,5 +1,11 @@
 # RustDesk source/build baseline, 10 October 2026
 
+This document retains the earlier source/inert-session baseline. Later ABI v2,
+owned-buffer and actual callback work is tracked in [current implementation
+evidence](implementation-2026-10-10.md) and core's engine-lab reports. Historical
+test counts and synchronous-drain statements below apply to that earlier patch.
+They do not describe current bridge acceptance or a passed route gate.
+
 Exact upstream checkout: `001b0e96173cea4e49f9f7a67bea95a177dd1de3`.
 `hbb_common` submodule: `229b904508364c8997aad0fb5af57effac859f60`.
 The complete upstream Cargo.lock resolves 60 Git package entries to commits.

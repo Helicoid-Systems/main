@@ -1,0 +1,145 @@
+{
+  "observed_at": "2026-10-11",
+  "execution": {
+    "tool": "MiMo Code",
+    "provider": "xiaomi",
+    "model": "mimo-v2.6-pro",
+    "sanitized_export_metadata_verified": true
+  },
+  "repositories": {
+    "core": {
+      "sha": "067de354a56aae297e653ba048daacf3cb976caa",
+      "ci": 38123977124,
+      "conclusion": "success"
+    },
+    "windows": {
+      "sha": "0028bdd06a56a63f04da31ff6306ac4051daa69e",
+      "ci": 38122766239,
+      "conclusion": "success",
+      "runner": "Windows Server 2025",
+      "domain_tests": 292,
+      "native_integration_tests": 47,
+      "skipped": 0,
+      "artifact": 11696096234,
+      "downloaded_pe_x64": [
+        {
+          "path": "manager/Helicoid.Manager.exe",
+          "bytes": 363008,
+          "machine": "x64",
+          "sha256": "cc051b261d403a769c3eac09ad00742e1b43d591fa7dedd323b04528440ab87b"
+        },
+        {
+          "path": "computer/Helicoid.Computer.exe",
+          "bytes": 339456,
+          "machine": "x64",
+          "sha256": "2b8acb947e40fc6df24edc2c001b1433cb92e2e31de34c9ea6f6a2e3523735e1"
+        },
+        {
+          "path": "computer/Helicoid.CaptureWorker.exe",
+          "bytes": 162816,
+          "machine": "x64",
+          "sha256": "363802eab067086bc108c6c75fad6413bb2c09334a37e99e650ca349883bc58c"
+        }
+      ]
+    },
+    "macos": {
+      "sha": "dff6e75a5e874b668b06a66a49d545f3231f01ef",
+      "ci": 38085682009,
+      "conclusion": "success",
+      "swift_tests": 123,
+      "artifact": 11682776126,
+      "downloaded_bundles_verified": "ZIP integrity, executable mode and codesign --verify --deep --strict",
+      "signing": "ad hoc",
+      "archives_sha256": {
+        "Computer.zip": "27a3d10145c9538175283d789e2d4fb0793da2e0b35fa93e746714e7f428f0e8",
+        "Manager.zip": "2d838bed64bf25b2dcc339a9c03013ab125c11f880697e41534bf23468e7c6f5"
+      }
+    }
+  },
+  "capabilities": [
+    {
+      "name": "Separate persistent issuer/receiver candidate",
+      "status": "Verified",
+      "scope": "167 runtime plus four compile-fail tests; native Linux/Mac/Windows CI; real OS/channel integration excluded"
+    },
+    {
+      "name": "Native bridge callback/frame lifetime",
+      "platform": "macOS arm64",
+      "status": "Verified",
+      "scope": "32 Rust tests, linked C/Swift/C# harnesses, ABI2 contracts and negative drift; no live media"
+    },
+    {
+      "name": "Native bridge compilation",
+      "platform": "macOS x86_64",
+      "status": "Verified",
+      "scope": "Current library and C harness compile/link; 27 exports"
+    },
+    {
+      "name": "Native bridge runtime",
+      "platform": "macOS x86_64",
+      "status": "Not Verified"
+    },
+    {
+      "name": "Native bridge runtime",
+      "platform": "Windows x64",
+      "status": "Not Verified"
+    },
+    {
+      "name": "Metadata worker IPC/storage",
+      "platform": "Windows Server 2025 CI",
+      "status": "Verified",
+      "scope": "47 native tests; different-user service boundary and capture/input excluded"
+    },
+    {
+      "name": "Installed console capture/input",
+      "platform": "Windows 11",
+      "status": "Not Verified"
+    },
+    {
+      "name": "This Mac hosting preflight",
+      "platform": "macOS arm64",
+      "status": "Verified",
+      "scope": "Read-only setup; launchd installation and signed-in capture/input worker excluded"
+    },
+    {
+      "name": "Persistent server credential confidentiality",
+      "status": "Failed",
+      "scope": "Previous candidate creates SQLite with default public-readable permissions; repair under review; no production deployment"
+    },
+    {
+      "name": "Selected stock RustDesk relay adoption",
+      "status": "Failed",
+      "scope": "Global licence key/UUID pairing lacks Helicoid-bound allocation authorization; selected modified route has not been rejected as impossible"
+    },
+    {
+      "name": "All four live preview/control combinations",
+      "status": "Not Verified"
+    },
+    {
+      "name": "Public pinned HTTPS and administrator/operator authentication integration",
+      "status": "Not Verified"
+    },
+    {
+      "name": "Installed Linux/Windows/macOS hosting, update and recovery",
+      "status": "Not Verified"
+    },
+    {
+      "name": "Signed production release and required security review",
+      "status": "Not Verified"
+    }
+  ],
+  "deployment": {
+    "vm": "ubuntu@57.131.161.27",
+    "mutations": 0,
+    "existing_services_and_data": "Preserved",
+    "authority_or_relay_listeners_opened": false,
+    "server_ready_for_enrollment": false,
+    "deployment_verified": false
+  },
+  "checkpoints": {
+    "worker_admission": "Not Verified",
+    "live_preview": "Not Verified",
+    "control_installation_recovery": "Not Verified"
+  },
+  "builds": "Prerequisite development builds; none represents a passed requested checkpoint"
+}
