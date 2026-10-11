@@ -109,6 +109,56 @@
         "message": "path ancestor is not owned by current principal/SYSTEM/Administrators; refusing private store",
         "next_gate": "Bounded native owner and ACL metadata diagnosis; no policy relaxation before native evidence"
       }
+    },
+    {
+      "capability": "macOS independently configured certificate fixtures",
+      "sha": "9f8b71f50ca9230a86a79836800d76957494e57a",
+      "status": "Failed",
+      "ci": 38163339118,
+      "url": "https://github.com/Helicoid-Systems/macos/actions/runs/38163339118",
+      "runner": "macos-15",
+      "tests": 177,
+      "suites": 27,
+      "issues": 1,
+      "elapsed_seconds": 44.398,
+      "observations": [
+        "All TLS tests pass with explicit owned OpenSSL configuration and unique-extension regressions. Production trust validation remains strict.",
+        "Only the existing SSH timeout assertion fails: 1.063767334 seconds against the unchanged less-than-one-second bound.",
+        "Earlier duplicate extensions were not reproduced locally with LibreSSL 3.3.6 or OpenSSL 3.6.4; ambient configuration is an inference, not a confirmed local root cause."
+      ],
+      "local_coordinator": {
+        "frozen_snapshot": "c098c02 plus only the two fixture files; excludes concurrent SSH edits",
+        "tests": 177,
+        "suites": 27,
+        "elapsed_seconds": 21.458
+      },
+      "next_gate": "Review actual child cleanup, preserve successful output, and rerun the complete native suite before accepting the Mac gitlink."
+    },
+    {
+      "capability": "Windows private-store ancestry metadata diagnostic",
+      "sha": "ce19f817868c96f65bb69a7d9aa334d78ece9597",
+      "status": "Failed",
+      "ci": 38162772545,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38162772545",
+      "observations": [
+        "Managed SID enum member names incorrectly used Win prefixes; metadata collection did not run.",
+        "The owned empty diagnostic directory was removed."
+      ]
+    },
+    {
+      "capability": "Windows private-store ancestry metadata diagnostic",
+      "sha": "e639d783437a5da0cf9899cf4818c8ffc4982d4d",
+      "status": "Verified",
+      "ci": 38162915222,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38162915222",
+      "runner": "windows-latest",
+      "observations": [
+        "Bounded read-only owner/ACE classification completed; no system ACLs changed and no credentials or full paths printed.",
+        "The normal root ancestor is owned by TrustedInstaller; Authenticated Users has current-directory FILE_ADD_SUBDIRECTORY (0x4) plus an INHERIT_ONLY generic mutation grant.",
+        "Remaining observed ancestors are owned by Administrators or SYSTEM; unknown current-directory grants are read/traverse."
+      ],
+      "private_store_gate": "Not Verified; this metadata job does not run or accept the store implementation.",
+      "next_gate": "Bounded ancestor-only policy repair; protected product directories, files and SQLite sidecars remain strict; full native Windows suite required."
     }
   ],
   "boundaries": [

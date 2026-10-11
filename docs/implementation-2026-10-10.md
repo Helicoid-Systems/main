@@ -23,13 +23,19 @@ production routing and verified installation/recovery are still unavailable.
 | Production release | Developer ID/notarization and Windows signing absent; installed OS acceptance, recovery and security review incomplete | Not Verified; release gated |
 
 The new Mac HTTPS and Windows persistent private-store candidates have **not**
-advanced those accepted pins. [Mac native CI38161304956](https://github.com/Helicoid-Systems/macos/actions/runs/38161304956)
-now identifies native TLS refusal as duplicate certificate extensions (`-67903`);
-local173 Swift checks, both packages and Intel compilation pass.
+advanced those accepted pins. [Mac native CI38163339118](https://github.com/Helicoid-Systems/macos/actions/runs/38163339118)
+passes every TLS test after certificate fixtures gained explicit owned OpenSSL
+configuration. The complete177-test,27-suite run has one failure: the existing
+SSH timeout assertion (1.064 seconds against its unchanged one-second bound).
+The frozen fixture candidate passes177 local checks. SSH cleanup review remains
+pending; the earlier duplicate extensions were not reproduced locally.
 [Server native CI38161333976](https://github.com/Helicoid-Systems/server/actions/runs/38161333976)
 compiles after fixture repairs but refuses ancestor ownership during Windows
 runtime (24 library tests passed,32 failed); local240 Mac checks pass.
-Bounded native ACL diagnostics and certificate fixture diagnosis remain pending.
+[Read-only native ACL diagnostics](https://github.com/Helicoid-Systems/server/actions/runs/38162915222)
+now identify TrustedInstaller ownership and creation-only/inherit-only root ACEs.
+The ancestor-only policy repair still needs the complete native store suite;
+the metadata diagnostic does not pass that gate.
 Exact revisions, earlier failures and remaining gates are recorded in
 [the candidate failure ledger](evidence/native-candidate-failures-2026-10-11.json).
 Local tests and exported MiMo metadata do not pass these native gates.
