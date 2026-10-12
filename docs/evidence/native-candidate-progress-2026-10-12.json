@@ -44,13 +44,29 @@
         "provider": "xiaomi",
         "model": "mimo-v2.6-pro",
         "verified": true
+      },
+      {
+        "export": "server-launcher-private-directory-session.json",
+        "sha256": "6c6226bf854a21a55e59a2984c2a732079085527599c8e60062177650ebaecdb",
+        "assistant_model_records": 29,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "engine-script-arguments-session.json",
+        "sha256": "ff2b94fb22274bd0bbcfce97b97131be2c861e6a5c27cb3a392dfbaf62a74296",
+        "assistant_model_records": 29,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
       }
     ],
     "agent_reports_require_coordinator_checks": true
   },
   "accepted_main_pins": {
     "modules/core": "067de354a56aae297e653ba048daacf3cb976caa",
-    "modules/server": "3a20aa03e1cfecc7c8c684c59b30790363169d37",
+    "modules/server": "7ae1f4169dd4c33af53b0b064b4cc94a41a168c1",
     "apps/macos": "ae34bc655152cdbc5e6c4548ef8d3201f94514bc",
     "apps/windows": "75448f230bed2a20c96338e82e55f2bfa2cdcd8b"
   },
@@ -84,8 +100,16 @@
       "sha": "286af7c5d96b9dbc82c0489d5ea16f6c2b2a6e35",
       "run": 38251546295,
       "url": "https://github.com/Helicoid-Systems/server/actions/runs/38251546295",
-      "status": "Not Verified",
-      "observation": "Opaque token options now accept leading-hyphen separate values; two deterministic parser regressions. Fresh native checks in progress. Independent launcher ownership repair remains pending."
+      "status": "Failed",
+      "observation": "Linux full checks pass; Windows full tests, Clippy and release pass, then unchanged old launcher init refuses its precreated default-owned store folder."
+    },
+    {
+      "repository": "server",
+      "sha": "f01019faa41d484f7ce43bcc0f0559834ad9d10c",
+      "run": 38252656196,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38252656196",
+      "status": "Verified",
+      "observation": "235 Linux and226 Windows tests, no failures/ignores, formatting/Clippy, native release and actual PowerShell5.1/7 private-folder ACL/launcher checks pass. Downloaded archive digest, PE x64 and all companions verified."
     }
   ],
   "engine_candidates": [
@@ -112,6 +136,16 @@
       "url": "https://github.com/Helicoid-Systems/core/actions/runs/38249512646",
       "status": "Failed",
       "observation": "Explicit UTF-8 header check passes. Exact source/submodule/lock/patch/header/wrapper gates and frozen vcpkg dependency installation pass. Driver then fails PowerShell script argument binding before native Rust/C/C# execution."
+    },
+    {
+      "repository": "core",
+      "sha": "1fb642c73ce87fbba55b13eb5571273bd664f4fd",
+      "run": 38253183124,
+      "url": "https://github.com/Helicoid-Systems/core/actions/runs/38253183124",
+      "status": "Not Verified",
+      "attempt1": "Failed; Strawberry Perl dependency release download returned HTTP500 after vcpkg retries",
+      "attempt2": "In progress; unchanged source retry",
+      "observation": "PowerShell script parameters now bind by name; coordinator actual old-call red/fixed-call green and wrong-checkout/source-pin refusals pass. Native Rust/C/C#/PE acceptance remains pending."
     }
   ],
   "coordinator_checks": {
@@ -191,17 +225,53 @@
       },
       "frozen_contracts": "ABI/header/patch/wrappers/Mac harness unchanged",
       "native_windows_runtime": "Not Verified; current run fails before native cargo"
+    },
+    "engine_script_arguments": [
+      {
+        "case": "Old",
+        "exit": 1,
+        "expected": 1,
+        "guard": "A positional parameter cannot be found",
+        "verified": true
+      },
+      {
+        "case": "Fixed",
+        "exit": 0,
+        "expected": 0,
+        "guard": "patched-files.sha256 OK",
+        "verified": true
+      },
+      {
+        "case": "Wrong",
+        "exit": 1,
+        "expected": 1,
+        "guard": "failed (git exit",
+        "verified": true
+      },
+      {
+        "case": "WrongPin",
+        "exit": 1,
+        "expected": 1,
+        "guard": "wrong upstream HEAD",
+        "verified": true
+      }
+    ],
+    "server_launcher": {
+      "powershell_7_6_6_parse": "Verified; both scripts",
+      "actionlint_1_7_12": "Verified",
+      "actual_unix_helper_server_delegation": "Verified; chosen path absent, missing parent refused, actual server creates private folder",
+      "windows_native_acl_and_launcher": "Verified in CI38252656196 under PowerShell5.1 and7"
     }
   },
   "native_core_domain_ci": {
-    "run": 38249512602,
-    "url": "https://github.com/Helicoid-Systems/core/actions/runs/38249512602",
+    "run": 38253183103,
+    "url": "https://github.com/Helicoid-Systems/core/actions/runs/38253183103",
     "status": "Verified",
     "scope": "All five domain/authority/header jobs; not the upstream Windows engine"
   },
   "pending_packages": [
-    "Windows development launcher defers store-directory creation to server private factory",
-    "PowerShell named script argument forwarding in Windows native engine driver"
+    "Windows loopback HTTPS candidate after accepted private-store gate",
+    "Windows native engine driver Rust/C/C#/PE gate"
   ],
   "boundaries": [
     "Main server/core pins do not advance from local tests or agent reports.",
@@ -210,5 +280,7 @@
     "Selected stock RustDesk rendezvous/relay adoption remains Failed / Closed; production connect, observation and channel binding unavailable.",
     "No public listener, alternate transport, VM mutation or production credential/data inspection.",
     "Live preview/control, installed platform acceptance, Intel runtime, signing/notarization, updates/recovery and release security review remain Not Verified."
-  ]
+  ],
+  "accepted_server_source": "f01019faa41d484f7ce43bcc0f0559834ad9d10c",
+  "accepted_server_pin_source_equivalence": "7ae1f41 changes only README and BUILD-REPORT; tested src/tests/scripts/workflow/contracts/Cargo/lock unchanged"
 }
