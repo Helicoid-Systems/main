@@ -1,0 +1,241 @@
+{
+  "observed_at": "2026-10-13",
+  "source_sha": "21d2ff337e0b02c4dd01ea8a3bed5213fad3dacf",
+  "run": 38320441248,
+  "url": "https://github.com/Helicoid-Systems/server/actions/runs/38320441248",
+  "status": "Verified",
+  "tests": {
+    "fmt / test / clippy": {
+      "passed": 265,
+      "failed": 0,
+      "ignored": 0,
+      "suite_counts": [
+        60,
+        2,
+        26,
+        12,
+        44,
+        29,
+        26,
+        11,
+        6,
+        21,
+        28,
+        0
+      ]
+    },
+    "windows-latest test / build": {
+      "passed": 273,
+      "failed": 0,
+      "ignored": 0,
+      "suite_counts": [
+        78,
+        2,
+        27,
+        12,
+        44,
+        19,
+        26,
+        12,
+        6,
+        23,
+        24,
+        0
+      ]
+    }
+  },
+  "windows_launcher_versions": [
+    "PowerShell5.1",
+    "PowerShell7"
+  ],
+  "artifact_id": 11778357880,
+  "artifact_url": "https://github.com/Helicoid-Systems/server/actions/runs/38320441248/artifacts/11778357880",
+  "artifact_digest": "sha256:ed4cd0e1ea43e35fbe1d58a1ab061b2c350aac1acba8e24b8c8283f537ff271d",
+  "download_sha256": "ed4cd0e1ea43e35fbe1d58a1ab061b2c350aac1acba8e24b8c8283f537ff271d",
+  "zip_integrity": "Verified",
+  "files": [
+    {
+      "name": "hs-server.exe",
+      "bytes": 9175040,
+      "sha256": "649d5337c9e6acb2762c7f171fe8795d398be906f9b4d5036dee52e9de7454f6",
+      "architecture": "PE x64"
+    },
+    {
+      "name": "start-development.cmd",
+      "bytes": 541,
+      "sha256": "f41ee1e31c65ce742859b696b73a1ccdafd4ed9dde71e74398a50d6f61175d4a",
+      "source_text_matches": "Verified after Git line-ending normalization"
+    },
+    {
+      "name": "start-development.ps1",
+      "bytes": 12509,
+      "sha256": "61a97b5789adf37bf56bc54b983d238ff4910efb394cca73468c6db54b31dedd",
+      "source_text_matches": "Verified after Git line-ending normalization"
+    },
+    {
+      "name": "windows-tester.md",
+      "bytes": 10504,
+      "sha256": "8d1edcdfa0647d00dbcb93fffd57ba62c29697f2b7e9c904de6bf18f039debaa",
+      "source_text_matches": "Verified after Git line-ending normalization"
+    }
+  ],
+  "local_artifact_directory": "/tmp/hs-production-20261012/hs-server-artifact-yn651mzm",
+  "scope": "Native Linux/Windows installer metadata identity/target/trust/path prerequisite plus Windows literal-loopback HTTPS; installation and production release remain gated",
+  "windows_tls_hosting": "Verified for literal-loopback only",
+  "installed_windows_runtime": "Not Verified",
+  "signing": "Not Verified",
+  "production_media_control_route": "Unavailable",
+  "native_windows_tls_tests": [
+    "windows_held_file_read_refuses_untrusted_dacl_and_reads_private",
+    "windows_tls_loader_refuses_untrusted_dacl_material_before_db",
+    "windows_tls_loader_refuses_hardlinked_key_before_db",
+    "actual_windows_cli_https_health_and_bounded_kill",
+    "valid_test_ca_hostname_serves_real_health_json",
+    "foreign_ca_is_refused",
+    "wrong_hostname_is_refused",
+    "plaintext_request_cannot_access_http_body",
+    "stalled_handshake_is_bounded_and_dropped",
+    "graceful_shutdown_is_bounded"
+  ],
+  "windows_cleanup_proof": "Owned Child kill/reap only; no console signal or installed service-stop proof",
+  "installer_package_target_tests": "26 real signed-package metadata/trust/path tests on both native Linux and Windows",
+  "installer_product_release_binding": "Verified exact hs-server product, strict release numeric triple and nonempty artifact list with otherwise valid signed package fixtures",
+  "native_package_test_names": [
+    "all_four_targets_verify_with_real_signatures",
+    "weak_key_is_refused_and_old_nonstrict_verifier_accepted_it",
+    "wrong_key_refuses_on_every_target",
+    "wrong_signature_refuses_on_every_target",
+    "target_mismatch_refuses",
+    "architecture_mismatch_refuses",
+    "unknown_target_refuses",
+    "portable_path_violations_refuse_on_every_target",
+    "duplicate_declared_paths_refuse_before_artifact_reads",
+    "colliding_file_directory_paths_refuse",
+    "unknown_nested_file_under_known_dir_refuses",
+    "symlinked_nested_dir_refuses_before_unknown_walk_descends",
+    "malformed_installer_version_refuses_instead_of_zero_fill",
+    "non_positive_schema_floor_refuses",
+    "wrong_product_signed_with_trusted_key_refuses",
+    "malformed_release_version_with_valid_min_requirements_refuses",
+    "empty_artifact_list_with_valid_signature_refuses",
+    "canonical_release_versions_still_verify"
+  ],
+  "installer_scope": "Typed metadata verification only; installation commands remain Linux-only and Windows/macOS service installation unavailable",
+  "accepted_pin": "44a8eccb6d1503e0f1bef1f5dcd7a8310bc28b72",
+  "accepted_pin_source_equivalence": "Only README.md and BUILD-REPORT.md differ from tested21d2ff3",
+  "mimo": {
+    "session_id": "ses_ffe5ecdb81ef1ffeFyKNNGooZi",
+    "assistant_records": 40,
+    "providers_models": [
+      [
+        "xiaomi",
+        "mimo-v2.6-pro"
+      ]
+    ],
+    "sanitized_export_sha256": "e5a0ddfba863b3435728ea668753ee1b5e88822bcea6112e371bf9138e5aedfc",
+    "model_metadata_verified": true
+  },
+  "coordinator": {
+    "observed_at": "2026-10-13",
+    "status": "Verified",
+    "checks": [
+      {
+        "name": "fmt",
+        "command": "cargo fmt -- --check",
+        "exit": 0,
+        "seconds": 0.18,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tests": null
+      },
+      {
+        "name": "targets",
+        "command": "cargo test --locked --test installer_package_targets",
+        "exit": 0,
+        "seconds": 0.14,
+        "log_sha256": "b1cb788fa7d0e355be2919c4cb17b636ed45fbd1fbda7318ca80aaf1fda501f2",
+        "tests": {
+          "passed": 26,
+          "failed": 0,
+          "ignored": 0
+        }
+      },
+      {
+        "name": "full",
+        "command": "cargo test --locked",
+        "exit": 0,
+        "seconds": 10.96,
+        "log_sha256": "b1dbe44efa89454b3d1f51fcadfd180d29ccb56320263699ec25810ff132171e",
+        "tests": {
+          "passed": 272,
+          "failed": 0,
+          "ignored": 0
+        }
+      },
+      {
+        "name": "clippy",
+        "command": "cargo clippy --locked --all-targets -- -D warnings",
+        "exit": 0,
+        "seconds": 0.24,
+        "log_sha256": "299f16a2c523be18fef769975d2df00e0505521db047540feea3a74b94666887",
+        "tests": null
+      },
+      {
+        "name": "build",
+        "command": "cargo build --locked",
+        "exit": 0,
+        "seconds": 0.15,
+        "log_sha256": "22e0df986057b9ba5be07526ac5fb348862a3dedef42108383cc3e088acbb889",
+        "tests": null
+      }
+    ],
+    "source_hashes": {
+      "src/installer/manifest.rs": "5d04e1b73b1fa6b3ea02cb75af4a4f99f3708c29b5411d058172dcf1abb08af0",
+      "tests/installer_package_targets.rs": "c26b02219071e62c9ff2252ed8bf94c640467466c73a8428499ae405ad4fbd7c",
+      "Cargo.toml": "4b8607a65f07f9ac57d7f59042e45bd273876aa68e7571311f6305c840bbc9fc",
+      "Cargo.lock": "3f171f74b09ced588e448813e00a04fd1ac01928cf0aca5c5b0ab0af701b850d"
+    },
+    "source_unchanged": true,
+    "target_dir": "/tmp/hs-build/server-product-target",
+    "scope": "Coordinator fresh isolated macOS build of signed installer identity metadata verifier; no installed/runtime/deployment proof"
+  },
+  "baseline": {
+    "observed_at": "2026-10-13",
+    "status": "Verified",
+    "source_sha": "afa754455de73ed9cb4daf7b3605f750dea1921e",
+    "source_materialization": "git archive of exact accepted server commit into task-owned temporary directory",
+    "command": "cargo test --locked --test installer_identity_baseline -- --nocapture",
+    "exit": 0,
+    "cargo_target_dir": "/tmp/hs-build/installer-identity-baseline-target",
+    "tests": {
+      "passed": 1,
+      "failed": 0,
+      "cases": [
+        "product=hs-manager version=0.1.0 empty=false",
+        "product=hs-server version=abc.0.0 empty=false",
+        "product=hs-server version=0.1.0 empty=true"
+      ]
+    },
+    "test_sha256": "d658eb131e23e16ba0e72884dea3eed7f6acc66fcba2b523ce31a5b49762292f",
+    "original_manifest_sha256": "57c9c1a53766d85a59bc69b5edaf2862eaa085a21a5f15f9071d64d967ac6c84",
+    "log_sha256": "df483067a32fdb961846fb40a944d10ce3fa16ad4df22f25c4b07b761c380832",
+    "fixture": "Genuine signed disposable test package with matching artifact bytes/hash/size and valid minimum requirements; only named metadata hostile. No fixture enters normal operation.",
+    "discarded_attempt": "Initial shared-target run linked the current guarded library into the archived baseline; discarded. Accepted evidence uses a separate fresh build directory.",
+    "scope": "Exact old verifier accepts otherwise valid same-key wrong-product/malformed-version/empty packages; not production deployment or installed acceptance",
+    "final_regression_tests_against_original": {
+      "command": "cargo test --locked --test installer_package_targets",
+      "exit": 101,
+      "expected_exit": 101,
+      "passed": 23,
+      "failed": 3,
+      "failure_names": [
+        "wrong_product_signed_with_trusted_key_refuses",
+        "malformed_release_version_with_valid_min_requirements_refuses",
+        "empty_artifact_list_with_valid_signature_refuses"
+      ],
+      "test_sha256": "c26b02219071e62c9ff2252ed8bf94c640467466c73a8428499ae405ad4fbd7c",
+      "log_sha256": "9c0b4e8ea80903792c822690fcfde3dd0bbeba1dda97748eeb9d918dca6edbf7"
+    }
+  },
+  "selected_stock_relay_adoption": "Failed / Closed",
+  "full_worker_admission_live_preview_control_checkpoints": "Not Verified"
+}
