@@ -60,13 +60,29 @@
         "provider": "xiaomi",
         "model": "mimo-v2.6-pro",
         "verified": true
+      },
+      {
+        "export": "server-windows-loopback-tls-final-session.json",
+        "sha256": "c410523bd28b60b35a2ab057a90ee12208845136c7bcf00985e3db5b1f136c44",
+        "assistant_model_records": 45,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "engine-ipv6-sdk-header-session.json",
+        "sha256": "e390f40fa088b1162d0e6fd52f2d3f1ef70b7f764b2fa4fc4842da6f6d6efc02",
+        "assistant_model_records": 34,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
       }
     ],
     "agent_reports_require_coordinator_checks": true
   },
   "accepted_main_pins": {
-    "modules/core": "067de354a56aae297e653ba048daacf3cb976caa",
-    "modules/server": "7ae1f4169dd4c33af53b0b064b4cc94a41a168c1",
+    "modules/core": "a8cbd2be948740030891be8a4f291c67adb687bf",
+    "modules/server": "88c27309e098c87cc41c983975f441d6dacbf891",
     "apps/macos": "ae34bc655152cdbc5e6c4548ef8d3201f94514bc",
     "apps/windows": "75448f230bed2a20c96338e82e55f2bfa2cdcd8b"
   },
@@ -110,6 +126,14 @@
       "url": "https://github.com/Helicoid-Systems/server/actions/runs/38252656196",
       "status": "Verified",
       "observation": "235 Linux and226 Windows tests, no failures/ignores, formatting/Clippy, native release and actual PowerShell5.1/7 private-folder ACL/launcher checks pass. Downloaded archive digest, PE x64 and all companions verified."
+    },
+    {
+      "repository": "server",
+      "sha": "1d996692a248c4c743525e34c9481a6e4fe472c8",
+      "run": 38259032769,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38259032769",
+      "status": "Verified",
+      "observation": "235 Linux and243 Windows tests,strict Clippy/release,both PowerShell launchers and actual Windows TLS tests pass; coordinator242 Mac and exact downloaded archive/PE/companions verified."
     }
   ],
   "engine_candidates": [
@@ -142,10 +166,18 @@
       "sha": "1fb642c73ce87fbba55b13eb5571273bd664f4fd",
       "run": 38253183124,
       "url": "https://github.com/Helicoid-Systems/core/actions/runs/38253183124",
-      "status": "Not Verified",
+      "status": "Failed",
       "attempt1": "Failed; Strawberry Perl dependency release download returned HTTP500 after vcpkg retries",
-      "attempt2": "In progress; unchanged source retry",
-      "observation": "PowerShell script parameters now bind by name; coordinator actual old-call red/fixed-call green and wrong-checkout/source-pin refusals pass. Native Rust/C/C#/PE acceptance remains pending."
+      "attempt2": "Failed at MSVC C harness compile;32 real Rust tests and27 DLL exports pass",
+      "observation": "Exact pins/patch/header/wrappers, pinned dependency install,32 Rust bridge tests, actual DLL build and27 exports pass. MSVC C harness fails undeclared PMIB_TCP6TABLE_OWNER_PID; C/C# runtime gate remains Not Verified. Bounded public SDK include repair in progress."
+    },
+    {
+      "repository": "core",
+      "sha": "e4fe20e40cda671535a20417a6a1bfa7eff6387d",
+      "run": 38259987539,
+      "url": "https://github.com/Helicoid-Systems/core/actions/runs/38259987539",
+      "status": "Verified",
+      "observation": "32 Rust/133 C/85 C# native lifetime checks,27 exports and16 frozen hashes pass. Coordinator archive digest/header/hash/report inspection passes. Evidence archive does not retain testedDLL; no installable engine/admitted media claim."
     }
   ],
   "coordinator_checks": {
@@ -224,7 +256,7 @@
         "duplicate-pin-refused": 1
       },
       "frozen_contracts": "ABI/header/patch/wrappers/Mac harness unchanged",
-      "native_windows_runtime": "Not Verified; current run fails before native cargo"
+      "native_windows_runtime": "32 Rust tests and actual DLL/27 exports verified in CI38253183124 attempt2; C harness compilation fails; C/C# runtime not verified"
     },
     "engine_script_arguments": [
       {
@@ -261,26 +293,43 @@
       "actionlint_1_7_12": "Verified",
       "actual_unix_helper_server_delegation": "Verified; chosen path absent, missing parent refused, actual server creates private folder",
       "windows_native_acl_and_launcher": "Verified in CI38252656196 under PowerShell5.1 and7"
+    },
+    "server_windows_tls": {
+      "evidence": "server-windows-tls-acceptance-2026-10-12.json",
+      "source": "1d996692a248c4c743525e34c9481a6e4fe472c8",
+      "mac_tests": 242,
+      "tls_tests": 29,
+      "native_windows_tests": 243,
+      "native_linux_tests": 235,
+      "all_checks_exit": 0,
+      "native": "Verified for literal-loopback only"
+    },
+    "engine_windows_lifetime": {
+      "evidence": "engine-windows-lifetime-acceptance-2026-10-12.json",
+      "source": "e4fe20e40cda671535a20417a6a1bfa7eff6387d",
+      "rust": 32,
+      "c": 133,
+      "csharp": 85,
+      "native": "Verified for inert ABI/lifetime only"
     }
   },
   "native_core_domain_ci": {
-    "run": 38253183103,
-    "url": "https://github.com/Helicoid-Systems/core/actions/runs/38253183103",
+    "run": 38259987548,
+    "url": "https://github.com/Helicoid-Systems/core/actions/runs/38259987548",
     "status": "Verified",
-    "scope": "All five domain/authority/header jobs; not the upstream Windows engine"
+    "scope": "All five core/authority/header jobs on native-source candidatee4fe20e"
   },
-  "pending_packages": [
-    "Windows loopback HTTPS candidate after accepted private-store gate",
-    "Windows native engine driver Rust/C/C#/PE gate"
-  ],
+  "pending_packages": [],
   "boundaries": [
     "Main server/core pins do not advance from local tests or agent reports.",
     "Generic recovery/key reads and newly created private objects require currentUser owner; only existing SQLite store files allow currentUser/SYSTEM/Administrators owner with strict held DACL/shape/link checks.",
-    "Windows TLS server hosting remains unavailable.",
+    "Windows TLS server hosting is verified only on literal loopback; public authentication/listeners remain unavailable.",
     "Selected stock RustDesk rendezvous/relay adoption remains Failed / Closed; production connect, observation and channel binding unavailable.",
     "No public listener, alternate transport, VM mutation or production credential/data inspection.",
     "Live preview/control, installed platform acceptance, Intel runtime, signing/notarization, updates/recovery and release security review remain Not Verified."
   ],
-  "accepted_server_source": "f01019faa41d484f7ce43bcc0f0559834ad9d10c",
-  "accepted_server_pin_source_equivalence": "7ae1f41 changes only README and BUILD-REPORT; tested src/tests/scripts/workflow/contracts/Cargo/lock unchanged"
+  "accepted_server_source": "1d996692a248c4c743525e34c9481a6e4fe472c8",
+  "accepted_server_pin_source_equivalence": "Only README/BUILD-REPORT differ from tested1d99669",
+  "accepted_core_source": "e4fe20e40cda671535a20417a6a1bfa7eff6387d",
+  "accepted_core_pin_source_equivalence": "Only BUILD-REPORT,engine-lab README and evidence inventory differ from testede4fe20e"
 }

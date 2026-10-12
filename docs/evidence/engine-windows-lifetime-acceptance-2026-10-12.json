@@ -1,0 +1,268 @@
+{
+  "observed_at": "2026-10-12",
+  "source_sha": "e4fe20e40cda671535a20417a6a1bfa7eff6387d",
+  "status": "Verified",
+  "scope": "Windows x64 inert native ABI and lifetime only",
+  "native_run": 38259987539,
+  "native_url": "https://github.com/Helicoid-Systems/core/actions/runs/38259987539",
+  "domain_run": 38259987548,
+  "domain_url": "https://github.com/Helicoid-Systems/core/actions/runs/38259987548",
+  "runner": "Microsoft Windows Server 2022",
+  "rust_tests": 32,
+  "failed": 0,
+  "ignored": 0,
+  "harnesses": {
+    "harness.txt": {
+      "status": "Verified",
+      "checks": 133,
+      "sha256": "fd2e0151a2b7d5eeb702e970a481abf4d850992f5ecc69cb7d2d1afe68bddd0e"
+    },
+    "csharp.txt": {
+      "status": "Verified",
+      "checks": 85,
+      "sha256": "d8029774bea7096b3bbcbb7a31b5f01524e1aa59df6ecbcb8aa32dc23d3ab8f2"
+    }
+  },
+  "exports": [
+    "hs_abi_version",
+    "hs_channel_binding_export",
+    "hs_debug_inject_panic",
+    "hs_debug_queue_life",
+    "hs_engine_ctx_free",
+    "hs_engine_ctx_new",
+    "hs_engine_version",
+    "hs_frame_acquire_latest",
+    "hs_frame_get_desc",
+    "hs_frame_pixels",
+    "hs_frame_release",
+    "hs_frame_stats",
+    "hs_generation",
+    "hs_handler_rgba_ptr",
+    "hs_panics_contained",
+    "hs_server_clipboard_enabled",
+    "hs_server_file_transfer_enabled",
+    "hs_server_keyboard_enabled",
+    "hs_validate_peer_id",
+    "hs_viewer_begin_observation",
+    "hs_viewer_connect",
+    "hs_viewer_drain",
+    "hs_viewer_poll_life",
+    "hs_viewer_prepare",
+    "hs_viewer_request_close",
+    "hs_viewer_set_lifecycle_cb",
+    "hs_viewer_state"
+  ],
+  "frozen_source_hashes": {
+    "native/hs_native.h": "d203183254f2dd21f0e030e688a0191236f5933e0356ae564494488494166f62",
+    "native/harness.c": "14e890e7021f98277ee043ac2d8c53aa0cf4da8feda94d189ffd09f53f80ebac",
+    "native/wrappers/HsNativeWrapper.cs": "a4139b340301dee4c403abee636151b91a716ae60ccc178e92e6352c8eff2142",
+    "native/wrappers/HsNativeWrapper.swift": "5f920f67a5d18c5675ec05f2bd2917ff90dedf441bae18461d5fa0703bc20c02",
+    "native/wrappers/csharp_lifetime_check.cs": "a59476550ff7f823ded06eaa8706e8cb3d493b52a1f990567fcbcf96c9a093f2",
+    "native/wrappers/swift_lifetime_check.swift": "78b6046149cdd97bf09caf61c42e3d5ce371916e456fa7af4c1dcc2d641e1971",
+    "patches/0001-hs-native-bridge.patch": "4c66573cc9ead1d35563ab7d000a069c767d6edc5bf0039fc066b1990d9303e4",
+    "inventory/source-pin.txt": "e2c5e06c60c5e398183141216dc0ca49dfc0db3ed3c19d200a68f44bf1cb8e68",
+    "inventory/patched-files.sha256": "b3fa7af0e9982d3e173e15a174277f968564414cb47f7e01eb6abad02a847df3",
+    "scripts/apply-patch.sh": "e6d1e9d4df4a729f710d071b731b5576ff65d1396d31389b17231ca2ea1b609b",
+    "scripts/build-macos-arm64.sh": "9ffba06ea1f344885bf846bda19c9e3007a0e3f0be825d61c75388a1f42a0c56",
+    "scripts/check-source-pin.sh": "67c89b38222b06e670b8ca71c3e2f6911e73e4c2c319447dba6d72588c8580f0",
+    "scripts/check-header.py": "6c676c7894b4aa30ec8e19b313c349d9b1a48a881bd4c6e3ee78cd4fdacf41b2",
+    "scripts/check-wrapper-contract.py": "c4ad4cf69513dcb8a2a51fa708236d2de92e4b43396c329d0df84c8fffb810e9",
+    "scripts/check-wrappers.sh": "a618c9e3746fa19af41bcfd36a913cadeae1b79311ba9fc55719132062538ca7",
+    "scripts/gen_header.py": "18d0bf2489058d336bf306dd2fec2175f7156d562077f9d5c5cedd585e2d103e"
+  },
+  "header_bytes_match": true,
+  "dll_pe_report": "x64/8664; no Sciter/Flutter imports; exact27 hs_exports",
+  "artifact_id": 11754147189,
+  "artifact_url": "https://github.com/Helicoid-Systems/core/actions/runs/38259987539/artifacts/11754147189",
+  "artifact_sha256": "89f883cb7920c5fc886ea7c3c1cc249795d5fea93b9674b589f3620b197b0416",
+  "artifact_integrity": "Verified",
+  "artifact_files": [
+    {
+      "name": "csharp-build.txt",
+      "bytes": 318,
+      "sha256": "4d185070d9c2c01fdb64b5574b4d7cc9eade68a5853c2438d1c7787f3c0a4802"
+    },
+    {
+      "name": "csharp-lifetime-check/csharp-lifetime-check.deps.json",
+      "bytes": 457,
+      "sha256": "039ac19bd89d61902043eacd6212b8ae701750e648a4218fb227f627dcb97675"
+    },
+    {
+      "name": "csharp-lifetime-check/csharp-lifetime-check.dll",
+      "bytes": 33792,
+      "sha256": "eb0b9f3002e61bacd5560c4dd33ae877b6e50392e2745ac9dd9abbda35737994"
+    },
+    {
+      "name": "csharp-lifetime-check/csharp-lifetime-check.exe",
+      "bytes": 162816,
+      "sha256": "c6580c46cb9925f24712c35ff3fa63af8725a32984d7c713296562bcc54bc6eb",
+      "architecture": "PE x64"
+    },
+    {
+      "name": "csharp-lifetime-check/csharp-lifetime-check.pdb",
+      "bytes": 19252,
+      "sha256": "2315d57a6a6c9996ad976d50e4b2fbb5fda0a8916dab9c0506f4d58a5b77739f"
+    },
+    {
+      "name": "csharp-lifetime-check/csharp-lifetime-check.runtimeconfig.json",
+      "bytes": 342,
+      "sha256": "c230a317a54dd960bcbeb5f347f52e18dc665a26f7efda2159fced9a5ac7e097"
+    },
+    {
+      "name": "csharp.txt",
+      "bytes": 3665,
+      "sha256": "d8029774bea7096b3bbcbb7a31b5f01524e1aa59df6ecbcb8aa32dc23d3ab8f2"
+    },
+    {
+      "name": "frozen-hashes-after.txt",
+      "bytes": 1543,
+      "sha256": "d6cb6baca854a7ad77a3896a7a318f7fb804e46b9ccea6cbd43080d676f6f828"
+    },
+    {
+      "name": "frozen-hashes-before.txt",
+      "bytes": 1543,
+      "sha256": "d6cb6baca854a7ad77a3896a7a318f7fb804e46b9ccea6cbd43080d676f6f828"
+    },
+    {
+      "name": "harness.txt",
+      "bytes": 5305,
+      "sha256": "fd2e0151a2b7d5eeb702e970a481abf4d850992f5ecc69cb7d2d1afe68bddd0e"
+    },
+    {
+      "name": "hs_native.generated.h",
+      "bytes": 5755,
+      "sha256": "d203183254f2dd21f0e030e688a0191236f5933e0356ae564494488494166f62"
+    },
+    {
+      "name": "pe/exports.txt",
+      "bytes": 2700,
+      "sha256": "818cc171df0bcfe408729d08cfe3ee31592593f5756629ffd27c610e04e78801"
+    },
+    {
+      "name": "pe/headers.txt",
+      "bytes": 6336,
+      "sha256": "17526fb44aba8f87d1e74518a03a5e13762c3f8ac3c2e72690f687d2f1bbc8cc"
+    },
+    {
+      "name": "pe/hs-exports-actual.txt",
+      "bytes": 583,
+      "sha256": "f18fe8630663f1365e92b0ecb31979a3b20a89f1f71247b586a2efa407fc5753"
+    },
+    {
+      "name": "pe/hs-exports-expected.txt",
+      "bytes": 583,
+      "sha256": "bf72ef4e667f8c22d95b1e8648511012c6049a6d7aaf452b93700e5f59802e4d"
+    },
+    {
+      "name": "pe/imports.txt",
+      "bytes": 27159,
+      "sha256": "ddc0f6a3e62f766a040f16629d31e6fe7867deb13a5c5c70efbd30ab2aed73d6"
+    },
+    {
+      "name": "pins.txt",
+      "bytes": 486,
+      "sha256": "7c39a3aec2ac6a9e7244319360d1bfb2b682c332b4faa0f8deafeb7b5c0ae66d"
+    },
+    {
+      "name": "rust-build.txt",
+      "bytes": 24434,
+      "sha256": "4abd205e2418d435e7065dd034354e2817dd8eaf9f85d7ae85fd13288dd4d4ec"
+    },
+    {
+      "name": "rust-check.txt",
+      "bytes": 73448,
+      "sha256": "e4ce8bff894325322dba7be619d87e173f6aefb98b03d7bd804774dc9819d060"
+    },
+    {
+      "name": "rust-tests.txt",
+      "bytes": 41679,
+      "sha256": "1266f91ea7d462f878a426d62cdf26f3226bd1e4cd6518baa74573c6ae2a015b"
+    },
+    {
+      "name": "windows-harness.exe",
+      "bytes": 690688,
+      "sha256": "9f91f426772273ffe7c1eb1ce29e66f2931411e6dd976c28cd61e006b6babfc2",
+      "architecture": "PE x64"
+    },
+    {
+      "name": "windows-harness.ilk",
+      "bytes": 3732434,
+      "sha256": "695fcf4833320f7b2047aa09aed5d74a226756d08d4885fe4fa3eb6632f15835"
+    },
+    {
+      "name": "windows-harness.obj",
+      "bytes": 62436,
+      "sha256": "71b0ce88d0e9707ba79d5acf1736760ed477bca7ad4d26f4c9ba1663a911b2ef"
+    },
+    {
+      "name": "windows-harness.pdb",
+      "bytes": 7122944,
+      "sha256": "8c5dce047f4553eabadab51e4e5e020fbd9d789c6fa01ec1c9a21a38cb7e94d8"
+    }
+  ],
+  "coordinator_checks": {
+    "checks": [
+      {
+        "check": "header",
+        "exit": 0,
+        "seconds": 0.07
+      },
+      {
+        "check": "wrapper",
+        "exit": 0,
+        "seconds": 0.034
+      },
+      {
+        "check": "workflow",
+        "exit": 0,
+        "seconds": 0.005
+      },
+      {
+        "check": "powershell",
+        "exit": 0,
+        "seconds": 0.241
+      }
+    ],
+    "frozen_artifacts": "Unchanged against1fb642c",
+    "native_c_csharp_runtime": "Not Verified; fresh native CI required",
+    "prior_native_rust_tests": 32,
+    "prior_native_dll_exports": 27,
+    "official_sdk_source_verification": {
+      "status": "Verified as source include-chain only",
+      "sources": [
+        "https://raw.githubusercontent.com/microsoft/win32metadata/main/generation/WinSDK/RecompiledIdlHeaders/um/WS2tcpip.h",
+        "https://raw.githubusercontent.com/microsoft/win32metadata/main/generation/WinSDK/RecompiledIdlHeaders/shared/tcpmib.h"
+      ],
+      "observed": "WS2tcpip.h includes ws2ipdef.h; IPv6 owner table declarations are gated by _WS2IPDEF_ in tcpmib.h",
+      "native_compile_and_runtime": "Not Verified locally"
+    },
+    "mimo": {
+      "session_id": "ses_ffe5ecf9f065affezZ0F0ZXNzk",
+      "provider": "xiaomi",
+      "model": "mimo-v2.6-pro",
+      "assistant_records": 34,
+      "sanitized_export_sha256": "e390f40fa088b1162d0e6fd52f2d3f1ef70b7f764b2fa4fc4842da6f6d6efc02",
+      "metadata_verified": true
+    },
+    "frozen_hashes": {
+      "engine-lab/patches/0001-hs-native-bridge.patch": "4c66573cc9ead1d35563ab7d000a069c767d6edc5bf0039fc066b1990d9303e4",
+      "engine-lab/native/hs_native.h": "d203183254f2dd21f0e030e688a0191236f5933e0356ae564494488494166f62",
+      "engine-lab/native/harness.c": "14e890e7021f98277ee043ac2d8c53aa0cf4da8feda94d189ffd09f53f80ebac",
+      "engine-lab/scripts/build-macos-arm64.sh": "9ffba06ea1f344885bf846bda19c9e3007a0e3f0be825d61c75388a1f42a0c56",
+      "engine-lab/native/wrappers/csharp_lifetime_check.cs": "a59476550ff7f823ded06eaa8706e8cb3d493b52a1f990567fcbcf96c9a093f2",
+      "engine-lab/native/wrappers/HsNativeWrapper.swift": "5f920f67a5d18c5675ec05f2bd2917ff90dedf441bae18461d5fa0703bc20c02",
+      "engine-lab/native/wrappers/swift_lifetime_check.swift": "78b6046149cdd97bf09caf61c42e3d5ce371916e456fa7af4c1dcc2d641e1971",
+      "engine-lab/native/wrappers/HsNativeWrapper.cs": "a4139b340301dee4c403abee636151b91a716ae60ccc178e92e6352c8eff2142"
+    }
+  },
+  "limits": [
+    "Archived evidence includes harness binaries and reports; the tested librustdesk.dll is not retained in this archive",
+    "No live media/admitted subscription/input/channel binding or selected-route adoption",
+    "No normal native app linkage/bundling or installed Windows11 acceptance",
+    "Intel runtime/signing/recovery/security review remain Not Verified"
+  ],
+  "selected_stock_relay": "Failed / Closed",
+  "production_connect_observation_channel_binding": "Unavailable",
+  "accepted_pin": "a8cbd2be948740030891be8a4f291c67adb687bf",
+  "pin_source_equivalence": "Only BUILD-REPORT,engine-lab README and evidence inventory differ from testede4fe20e"
+}
