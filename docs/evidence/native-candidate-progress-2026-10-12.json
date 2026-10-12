@@ -1,5 +1,5 @@
 {
-  "observed_at": "2026-10-12",
+  "observed_at": "2026-10-13",
   "execution": {
     "tool": "MiMo Code",
     "provider": "xiaomi",
@@ -76,13 +76,21 @@
         "provider": "xiaomi",
         "model": "mimo-v2.6-pro",
         "verified": true
+      },
+      {
+        "export": "installer-target-final-session.json",
+        "sha256": "0b1e0672d816984b45defd16032eddef7f22f0e8bb7b41bde5433cca0b69f51d",
+        "assistant_model_records": 66,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
       }
     ],
     "agent_reports_require_coordinator_checks": true
   },
   "accepted_main_pins": {
     "modules/core": "a8cbd2be948740030891be8a4f291c67adb687bf",
-    "modules/server": "88c27309e098c87cc41c983975f441d6dacbf891",
+    "modules/server": "afa754455de73ed9cb4daf7b3605f750dea1921e",
     "apps/macos": "ae34bc655152cdbc5e6c4548ef8d3201f94514bc",
     "apps/windows": "75448f230bed2a20c96338e82e55f2bfa2cdcd8b"
   },
@@ -134,6 +142,14 @@
       "url": "https://github.com/Helicoid-Systems/server/actions/runs/38259032769",
       "status": "Verified",
       "observation": "235 Linux and243 Windows tests,strict Clippy/release,both PowerShell launchers and actual Windows TLS tests pass; coordinator242 Mac and exact downloaded archive/PE/companions verified."
+    },
+    {
+      "repository": "server",
+      "sha": "7f82f8f1599a178d4f55b61c6dc90962f714a326",
+      "run": 38315726535,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38315726535",
+      "status": "Verified",
+      "observation": "261 Linux /269 Windows tests, both native PowerShell launchers/release,22 signed-package metadata tests; coordinator268 Mac tests; downloaded ZIP/PE/scripts verified; installation/public authority/recovery remain gated"
     }
   ],
   "engine_candidates": [
@@ -311,6 +327,15 @@
       "c": 133,
       "csharp": 85,
       "native": "Verified for inert ABI/lifetime only"
+    },
+    "installer_target_package": {
+      "status": "Verified",
+      "full_mac_tests": 268,
+      "native_linux_tests": 261,
+      "native_windows_tests": 269,
+      "native_package_tests": 22,
+      "artifact_id": 11776925306,
+      "evidence": "installer-target-acceptance-2026-10-13.json"
     }
   },
   "native_core_domain_ci": {
@@ -319,7 +344,17 @@
     "status": "Verified",
     "scope": "All five core/authority/header jobs on native-source candidatee4fe20e"
   },
-  "pending_packages": [],
+  "pending_packages": [
+    {
+      "package": "engine-retained-windows-bundle",
+      "repository": "core",
+      "session_id": "ses_ffe5ecde4effdffe4dZROL0HNu",
+      "status": "Not Verified",
+      "phase": "MiMo source candidate; review repair and native CI pending",
+      "accepted_base_pin": "a8cbd2be948740030891be8a4f291c67adb687bf",
+      "model_metadata_verified": false
+    }
+  ],
   "boundaries": [
     "Main server/core pins do not advance from local tests or agent reports.",
     "Generic recovery/key reads and newly created private objects require currentUser owner; only existing SQLite store files allow currentUser/SYSTEM/Administrators owner with strict held DACL/shape/link checks.",
@@ -328,8 +363,8 @@
     "No public listener, alternate transport, VM mutation or production credential/data inspection.",
     "Live preview/control, installed platform acceptance, Intel runtime, signing/notarization, updates/recovery and release security review remain Not Verified."
   ],
-  "accepted_server_source": "1d996692a248c4c743525e34c9481a6e4fe472c8",
-  "accepted_server_pin_source_equivalence": "Only README/BUILD-REPORT differ from tested1d99669",
+  "accepted_server_source": "7f82f8f1599a178d4f55b61c6dc90962f714a326",
+  "accepted_server_pin_source_equivalence": "Only README.md and BUILD-REPORT.md differ from tested 7f82f8f",
   "accepted_core_source": "e4fe20e40cda671535a20417a6a1bfa7eff6387d",
   "accepted_core_pin_source_equivalence": "Only BUILD-REPORT,engine-lab README and evidence inventory differ from testede4fe20e"
 }
