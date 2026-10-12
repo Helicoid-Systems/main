@@ -1,0 +1,214 @@
+{
+  "observed_at": "2026-10-12",
+  "execution": {
+    "tool": "MiMo Code",
+    "provider": "xiaomi",
+    "model": "mimo-v2.6-pro",
+    "sessions": [
+      {
+        "export": "server-owner-session.json",
+        "sha256": "40ddf8fe32873cbc6dd51ba0ba492759be96cd1fdfd05e0ca4d1c01037f3b50f",
+        "assistant_model_records": 36,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "server-inherit-only-fixture-session.json",
+        "sha256": "0fde1ab61d68963d839a50f90d77489858fb63efab2b02a6aba4224f2cbcdc29",
+        "assistant_model_records": 25,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "server-cli-fixture-session.json",
+        "sha256": "088465e78437a98143fe4995a86faff70b70b5051548e09127c131ed5abd871c",
+        "assistant_model_records": 16,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "server-leading-hyphen-token-session.json",
+        "sha256": "8069db761e140b99018e4f63cf53bccffe3536d0b6029e7948970711e7cf6b21",
+        "assistant_model_records": 27,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "engine-windows-final-session.json",
+        "sha256": "009edeaaea32e5fe503a2cdc63a8f8ed9a95bd9fc41d5da20b3fdfc9da771ca8",
+        "assistant_model_records": 51,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      }
+    ],
+    "agent_reports_require_coordinator_checks": true
+  },
+  "accepted_main_pins": {
+    "modules/core": "067de354a56aae297e653ba048daacf3cb976caa",
+    "modules/server": "3a20aa03e1cfecc7c8c684c59b30790363169d37",
+    "apps/macos": "ae34bc655152cdbc5e6c4548ef8d3201f94514bc",
+    "apps/windows": "75448f230bed2a20c96338e82e55f2bfa2cdcd8b"
+  },
+  "server_candidates": [
+    {
+      "repository": "server",
+      "sha": "c939c8fe75ac0e19e308b2c9735022fcf9aee10a",
+      "run": 38246041857,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38246041857",
+      "status": "Failed",
+      "observation": "Linux passes; Windows 72 library tests pass, one inherit-only leaf fixture fails. Strict owner/DACL checks retained. Leaf ACE retention was not established; kernel filtering is an inference."
+    },
+    {
+      "repository": "server",
+      "sha": "0ae3c4c5b464bffd4aea6eddb52a99f02f7246f4",
+      "run": 38247883345,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38247883345",
+      "status": "Failed",
+      "observation": "Linux passes; Windows 74 library tests pass including retained inherit-only directory ACL carrier and persisted MFA. Later CLI fixture reaches password read with empty stdin, fails before token validation."
+    },
+    {
+      "repository": "server",
+      "sha": "e5755722cfc58f9dc89b6a8f28a0a8fdb0327c39",
+      "run": 38249674679,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38249674679",
+      "status": "Failed",
+      "observation": "Windows full 224 Rust tests, Clippy and release build pass; final PowerShell5.1 launcher init refuses a default-owned store folder. Linux fails a real generated leading-hyphen bootstrap token at argument parsing."
+    },
+    {
+      "repository": "server",
+      "sha": "286af7c5d96b9dbc82c0489d5ea16f6c2b2a6e35",
+      "run": 38251546295,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38251546295",
+      "status": "Not Verified",
+      "observation": "Opaque token options now accept leading-hyphen separate values; two deterministic parser regressions. Fresh native checks in progress. Independent launcher ownership repair remains pending."
+    }
+  ],
+  "engine_candidates": [
+    {
+      "repository": "core",
+      "sha": "d5601b812aec4d6e2531eb538996e1b7c95d2661",
+      "run": 38248418243,
+      "url": "https://github.com/Helicoid-Systems/core/actions/runs/38248418243",
+      "status": "Failed",
+      "observation": "Windows text=auto checkout produces CRLF Cargo.lock; exact frozen hash gate refuses. Real Git checkout reproduction matches native CRLF hash."
+    },
+    {
+      "repository": "core",
+      "sha": "977c9f268fe98be3fdb8c8fecfeedbb01007341d",
+      "run": 38248924582,
+      "url": "https://github.com/Helicoid-Systems/core/actions/runs/38248924582",
+      "status": "Failed",
+      "observation": "Job-scoped Git core.eol=lf restores pinned bytes. Native source/patch checks pass; default-encoding header checker refuses UTF-8 extraction. CP1252 decoding reproduces a distinct source hash."
+    },
+    {
+      "repository": "core",
+      "sha": "e7c9d5fa5974de032131601fb4f783573553ba33",
+      "run": 38249512646,
+      "url": "https://github.com/Helicoid-Systems/core/actions/runs/38249512646",
+      "status": "Failed",
+      "observation": "Explicit UTF-8 header check passes. Exact source/submodule/lock/patch/header/wrapper gates and frozen vcpkg dependency installation pass. Driver then fails PowerShell script argument binding before native Rust/C/C# execution."
+    }
+  ],
+  "coordinator_checks": {
+    "server_token_fix": {
+      "source": "286af7c5d96b9dbc82c0489d5ea16f6c2b2a6e35",
+      "mac_tests": 242,
+      "checks": [
+        {
+          "check": "fmt",
+          "exit": 0,
+          "seconds": 0.461
+        },
+        {
+          "check": "test",
+          "exit": 0,
+          "seconds": 10.227
+        },
+        {
+          "check": "clippy",
+          "exit": 0,
+          "seconds": 0.214
+        },
+        {
+          "check": "build",
+          "exit": 0,
+          "seconds": 0.14
+        }
+      ],
+      "real_cli_denials": [
+        {
+          "command": "bootstrap",
+          "exit": 1,
+          "backend_invalid_token_denial": true,
+          "recovery_absent": true
+        },
+        {
+          "command": "bootstrap-v2",
+          "exit": 1,
+          "backend_invalid_token_denial": true,
+          "recovery_absent": true
+        },
+        {
+          "case": "missing",
+          "exit": 1,
+          "expected_denial": true
+        },
+        {
+          "case": "empty",
+          "exit": 1,
+          "expected_denial": true
+        },
+        {
+          "case": "unknown",
+          "exit": 2,
+          "expected_denial": true
+        }
+      ],
+      "proof_limit": "Unix/parser execution only; no installed Windows claim"
+    },
+    "engine_windows_candidate": {
+      "header_wrapper_workflow_csharp_checks": {
+        "header": 0,
+        "wrappers": 0,
+        "workflow": 0,
+        "csharp": 0
+      },
+      "powershell_real_source_guards": {
+        "exact-pins": 0,
+        "patch-apply": 0,
+        "patched-hashes": 0,
+        "reapply-refused": 1,
+        "lock-drift-refused": 1,
+        "source-drift-refused": 1,
+        "malformed-manifest-refused": 1,
+        "traversal-refused": 1,
+        "duplicate-pin-refused": 1
+      },
+      "frozen_contracts": "ABI/header/patch/wrappers/Mac harness unchanged",
+      "native_windows_runtime": "Not Verified; current run fails before native cargo"
+    }
+  },
+  "native_core_domain_ci": {
+    "run": 38249512602,
+    "url": "https://github.com/Helicoid-Systems/core/actions/runs/38249512602",
+    "status": "Verified",
+    "scope": "All five domain/authority/header jobs; not the upstream Windows engine"
+  },
+  "pending_packages": [
+    "Windows development launcher defers store-directory creation to server private factory",
+    "PowerShell named script argument forwarding in Windows native engine driver"
+  ],
+  "boundaries": [
+    "Main server/core pins do not advance from local tests or agent reports.",
+    "Generic recovery/key reads and newly created private objects require currentUser owner; only existing SQLite store files allow currentUser/SYSTEM/Administrators owner with strict held DACL/shape/link checks.",
+    "Windows TLS server hosting remains unavailable.",
+    "Selected stock RustDesk rendezvous/relay adoption remains Failed / Closed; production connect, observation and channel binding unavailable.",
+    "No public listener, alternate transport, VM mutation or production credential/data inspection.",
+    "Live preview/control, installed platform acceptance, Intel runtime, signing/notarization, updates/recovery and release security review remain Not Verified."
+  ]
+}
