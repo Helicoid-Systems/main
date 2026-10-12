@@ -84,6 +84,14 @@
         "provider": "xiaomi",
         "model": "mimo-v2.6-pro",
         "verified": true
+      },
+      {
+        "export": "engine-retained-bundle-final-session.json",
+        "sha256": "dff012ad110c8c607989a318b42d5e007fb7100a3550525af71e5cde464786ca",
+        "assistant_model_records": 94,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
       }
     ],
     "agent_reports_require_coordinator_checks": true
@@ -194,6 +202,14 @@
       "url": "https://github.com/Helicoid-Systems/core/actions/runs/38259987539",
       "status": "Verified",
       "observation": "32 Rust/133 C/85 C# native lifetime checks,27 exports and16 frozen hashes pass. Coordinator archive digest/header/hash/report inspection passes. Evidence archive does not retain testedDLL; no installable engine/admitted media claim."
+    },
+    {
+      "repository": "core",
+      "sha": "155fff24605d4ae3beacd2b91986676ff8452c72",
+      "run": 38317350914,
+      "url": "https://github.com/Helicoid-Systems/core/actions/runs/38317350914",
+      "status": "Not Verified",
+      "observation": "Local source/header/wrapper/workflow,29 negative/metadata/copy probes and16 frozen hashes verified; real retained DLL and staged runtime gate pending"
     }
   ],
   "coordinator_checks": {
@@ -336,13 +352,20 @@
       "native_package_tests": 22,
       "artifact_id": 11776925306,
       "evidence": "installer-target-acceptance-2026-10-13.json"
+    },
+    "retained_engine_bundle": {
+      "status": "Verified for local negative metadata/copy/source guards only",
+      "local_checks": 7,
+      "frozen_files": 16,
+      "native_runtime_and_download": "Not Verified"
     }
   },
   "native_core_domain_ci": {
-    "run": 38259987548,
-    "url": "https://github.com/Helicoid-Systems/core/actions/runs/38259987548",
+    "run": 38317351049,
+    "sha": "155fff24605d4ae3beacd2b91986676ff8452c72",
     "status": "Verified",
-    "scope": "All five core/authority/header jobs on native-source candidatee4fe20e"
+    "url": "https://github.com/Helicoid-Systems/core/actions/runs/38317351049",
+    "scope": "All five jobs, including actual Linux/Mac/Windows authority and header drift; no retained DLL runtime claim"
   },
   "pending_packages": [
     {
@@ -350,8 +373,22 @@
       "repository": "core",
       "session_id": "ses_ffe5ecde4effdffe4dZROL0HNu",
       "status": "Not Verified",
-      "phase": "MiMo source candidate; review repair and native CI pending",
+      "phase": "Published source candidate; real Windows build/staged DLL runs and download inspection pending",
       "accepted_base_pin": "a8cbd2be948740030891be8a4f291c67adb687bf",
+      "model_metadata_verified": true,
+      "source_sha": "155fff24605d4ae3beacd2b91986676ff8452c72",
+      "native_run": 38317350914,
+      "domain_run": 38317351049,
+      "evidence": "engine-retained-bundle-candidate-2026-10-13.json",
+      "domain_gate": "Verified"
+    },
+    {
+      "package": "installer-product-version-binding",
+      "repository": "server",
+      "session_id": "ses_ffe5ecdb81ef1ffeFyKNNGooZi",
+      "status": "Not Verified",
+      "phase": "MiMo implementation with required first failing signed-package tests",
+      "accepted_base_pin": "afa754455de73ed9cb4daf7b3605f750dea1921e",
       "model_metadata_verified": false
     }
   ],
