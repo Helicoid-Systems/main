@@ -100,13 +100,21 @@
         "provider": "xiaomi",
         "model": "mimo-v2.6-pro",
         "verified": true
+      },
+      {
+        "export": "mfa-recovery-final-session.json",
+        "sha256": "45fb445bf5a339bc2211f77b6f37088915e7f7d862a8c423b1ab1be7648cb323",
+        "assistant_model_records": 61,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
       }
     ],
     "agent_reports_require_coordinator_checks": true
   },
   "accepted_main_pins": {
     "modules/core": "872a553bbe479041645286b1021dd309cf85f2ac",
-    "modules/server": "44a8eccb6d1503e0f1bef1f5dcd7a8310bc28b72",
+    "modules/server": "51c005ea2aba8cf0a35787f519159fdb55100e61",
     "apps/macos": "ae34bc655152cdbc5e6c4548ef8d3201f94514bc",
     "apps/windows": "75448f230bed2a20c96338e82e55f2bfa2cdcd8b"
   },
@@ -174,6 +182,14 @@
       "url": "https://github.com/Helicoid-Systems/server/actions/runs/38320441248",
       "status": "Verified",
       "observation": "265 Linux /273 Windows tests;26 real signed package metadata tests; strict Clippy/release/both launchers and Windows TLS gates; coordinator272 Mac tests; otherwise-valid old baseline accepts hostile metadata and final old-source regressions fail23/3; downloaded ZIP/PE/scripts verified"
+    },
+    {
+      "repository": "server",
+      "sha": "c30c9e2b96ce6b7bf0b41f4ef59f67b8ec79149d",
+      "run": 38441619920,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38441619920",
+      "status": "Verified",
+      "observation": "270 Linux / 278 Windows tests; new cancellation/replacement/restart/rollback regressions, existing 26 package tests, strict Clippy/release/both launchers/TLS pass; independent 277 Mac tests, same two baseline regressions red-to-green and actual download inspected"
     }
   ],
   "engine_candidates": [
@@ -393,6 +409,18 @@
       "baseline_red_passed": 23,
       "baseline_red_failed": 3,
       "artifact_id": 11778357880
+    },
+    "mfa_factor_recovery": {
+      "status": "Verified",
+      "evidence": "mfa-recovery-acceptance-2026-10-13.json",
+      "full_mac_tests": 277,
+      "native_linux_tests": 270,
+      "native_windows_tests": 278,
+      "new_native_recovery_tests": 5,
+      "independent_baseline_failed": 2,
+      "independent_after_passed": 2,
+      "artifact_id": 11837145033,
+      "scope": "Bounded TOTP factor recovery prerequisite only; installed recovery/issuer cutover Not Verified"
     }
   },
   "native_core_domain_ci": {
@@ -411,8 +439,8 @@
     "No public listener, alternate transport, VM mutation or production credential/data inspection.",
     "Live preview/control, installed platform acceptance, Intel runtime, signing/notarization, updates/recovery and release security review remain Not Verified."
   ],
-  "accepted_server_source": "21d2ff337e0b02c4dd01ea8a3bed5213fad3dacf",
-  "accepted_server_pin_source_equivalence": "Only README.md and BUILD-REPORT.md differ from tested21d2ff3",
+  "accepted_server_source": "c30c9e2b96ce6b7bf0b41f4ef59f67b8ec79149d",
+  "accepted_server_pin_source_equivalence": "Only README.md and BUILD-REPORT.md differ from tested c30c9e2b96ce6b7bf0b41f4ef59f67b8ec79149d",
   "accepted_core_source": "155fff24605d4ae3beacd2b91986676ff8452c72",
   "accepted_core_pin_source_equivalence": "Only BUILD-REPORT.md, engine-lab/README.md and evidence inventory differ from tested155fff2",
   "completed_packages": [
@@ -429,6 +457,13 @@
       "scope": "Signed metadata verifier only",
       "accepted_pin": "44a8eccb6d1503e0f1bef1f5dcd7a8310bc28b72",
       "evidence": "installer-product-acceptance-2026-10-13.json"
+    },
+    {
+      "package": "mfa-factor-recovery",
+      "status": "Verified",
+      "scope": "Cancellation preserves established factor; confirmation installs replacement transactionally; real device login, private-store restart and fault rollback",
+      "accepted_pin": "51c005ea2aba8cf0a35787f519159fdb55100e61",
+      "evidence": "mfa-recovery-acceptance-2026-10-13.json"
     }
   ]
 }

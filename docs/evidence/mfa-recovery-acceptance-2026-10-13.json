@@ -1,0 +1,302 @@
+{
+  "observed_at": "2026-10-13",
+  "source_sha": "c30c9e2b96ce6b7bf0b41f4ef59f67b8ec79149d",
+  "run": 38441619920,
+  "url": "https://github.com/Helicoid-Systems/server/actions/runs/38441619920",
+  "status": "Verified",
+  "tests": {
+    "fmt / test / clippy": {
+      "passed": 270,
+      "failed": 0,
+      "ignored": 0,
+      "suite_counts": [
+        60,
+        2,
+        31,
+        12,
+        44,
+        29,
+        26,
+        11,
+        6,
+        21,
+        28,
+        0
+      ]
+    },
+    "windows-latest test / build": {
+      "passed": 278,
+      "failed": 0,
+      "ignored": 0,
+      "suite_counts": [
+        78,
+        2,
+        32,
+        12,
+        44,
+        19,
+        26,
+        12,
+        6,
+        23,
+        24,
+        0
+      ]
+    }
+  },
+  "windows_launcher_versions": [
+    "PowerShell5.1",
+    "PowerShell7"
+  ],
+  "artifact_id": 11837145033,
+  "artifact_url": "https://github.com/Helicoid-Systems/server/actions/runs/38441619920/artifacts/11837145033",
+  "artifact_digest": "sha256:82f694c78bdf95481005f8c48af8164b0e246bb6654be8def5e2c61859fb105d",
+  "download_sha256": "82f694c78bdf95481005f8c48af8164b0e246bb6654be8def5e2c61859fb105d",
+  "zip_integrity": "Verified",
+  "files": [
+    {
+      "name": "hs-server.exe",
+      "bytes": 9175040,
+      "sha256": "dd3893e9925c76aa1bf0cfb06bd8dbb3b2c2a4e5897777bdfa1a04c159c74002",
+      "architecture": "PE x64"
+    },
+    {
+      "name": "start-development.cmd",
+      "bytes": 541,
+      "sha256": "f41ee1e31c65ce742859b696b73a1ccdafd4ed9dde71e74398a50d6f61175d4a",
+      "source_text_matches": "Verified after Git line-ending normalization"
+    },
+    {
+      "name": "start-development.ps1",
+      "bytes": 12509,
+      "sha256": "61a97b5789adf37bf56bc54b983d238ff4910efb394cca73468c6db54b31dedd",
+      "source_text_matches": "Verified after Git line-ending normalization"
+    },
+    {
+      "name": "windows-tester.md",
+      "bytes": 10504,
+      "sha256": "8d1edcdfa0647d00dbcb93fffd57ba62c29697f2b7e9c904de6bf18f039debaa",
+      "source_text_matches": "Verified after Git line-ending normalization"
+    }
+  ],
+  "local_artifact_directory": "/tmp/hs-production-20261012/hs-server-artifact-xi6mqz0u",
+  "scope": "Native Linux/Windows bounded MFA factor recovery and installer identity/target/trust/path prerequisites plus Windows literal-loopback HTTPS; installed recovery/cutover, public hosting and production release remain gated",
+  "windows_tls_hosting": "Verified for literal-loopback only",
+  "installed_windows_runtime": "Not Verified",
+  "signing": "Not Verified",
+  "production_media_control_route": "Unavailable",
+  "native_windows_tls_tests": [
+    "windows_held_file_read_refuses_untrusted_dacl_and_reads_private",
+    "windows_tls_loader_refuses_untrusted_dacl_material_before_db",
+    "windows_tls_loader_refuses_hardlinked_key_before_db",
+    "actual_windows_cli_https_health_and_bounded_kill",
+    "valid_test_ca_hostname_serves_real_health_json",
+    "foreign_ca_is_refused",
+    "wrong_hostname_is_refused",
+    "plaintext_request_cannot_access_http_body",
+    "stalled_handshake_is_bounded_and_dropped",
+    "graceful_shutdown_is_bounded"
+  ],
+  "windows_cleanup_proof": "Owned Child kill/reap only; no console signal or installed service-stop proof",
+  "native_mfa_recovery_test_names": [
+    "cancelled_recovery_enrollment_preserves_active_mfa",
+    "cancelled_recovery_enrollment_preserves_active_mfa_across_restart",
+    "factor_recovery_confirm_then_cancel_keeps_winning_factor",
+    "failed_recovery_confirm_leaves_old_factor_and_unconsumed_enrollment",
+    "replacement_factor_survives_private_store_restart"
+  ],
+  "mfa_recovery_scope": "Established factor survives cancellation; verified replacement is installed transactionally; actual key challenge login and private-store restart/rollback prerequisites only",
+  "installer_package_target_tests": "26 real signed-package metadata/trust/path tests on both native Linux and Windows",
+  "installer_product_release_binding": "Verified exact hs-server product, strict release numeric triple and nonempty artifact list with otherwise valid signed package fixtures",
+  "native_package_test_names": [
+    "all_four_targets_verify_with_real_signatures",
+    "weak_key_is_refused_and_old_nonstrict_verifier_accepted_it",
+    "wrong_key_refuses_on_every_target",
+    "wrong_signature_refuses_on_every_target",
+    "target_mismatch_refuses",
+    "architecture_mismatch_refuses",
+    "unknown_target_refuses",
+    "portable_path_violations_refuse_on_every_target",
+    "duplicate_declared_paths_refuse_before_artifact_reads",
+    "colliding_file_directory_paths_refuse",
+    "unknown_nested_file_under_known_dir_refuses",
+    "symlinked_nested_dir_refuses_before_unknown_walk_descends",
+    "malformed_installer_version_refuses_instead_of_zero_fill",
+    "non_positive_schema_floor_refuses",
+    "wrong_product_signed_with_trusted_key_refuses",
+    "malformed_release_version_with_valid_min_requirements_refuses",
+    "empty_artifact_list_with_valid_signature_refuses",
+    "canonical_release_versions_still_verify"
+  ],
+  "installer_scope": "Typed metadata verification only; installation commands remain Linux-only and Windows/macOS service installation unavailable",
+  "mimo": {
+    "session_id": "ses_ffe5ecd9933faffeaZaSV01tGp",
+    "provider": "xiaomi",
+    "model": "mimo-v2.6-pro",
+    "assistant_records": 61,
+    "all_records_requested_model": true,
+    "final_finish": "stop",
+    "sanitized_export_sha256": "45fb445bf5a339bc2211f77b6f37088915e7f7d862a8c423b1ab1be7648cb323",
+    "coordinator_review": "Four findings returned to the same serialized MiMo session and applied; coordinator additionally samples TOTP after password verification and reads recovery consumption through the latch instead of treating any denied replay as persistence proof",
+    "coordinator_production_auth_edits": false
+  },
+  "coordinator": {
+    "status": "Verified",
+    "observed_at": "2026-10-13",
+    "checks": [
+      {
+        "name": "fmt",
+        "command": "cargo fmt -- --check",
+        "exit": 0,
+        "seconds": 0.14,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "passed": null,
+        "failed": null,
+        "ignored": null
+      },
+      {
+        "name": "auth",
+        "command": "cargo test --locked --test auth_v2",
+        "exit": 0,
+        "seconds": 24.09,
+        "log_sha256": "4a2dc09bcc7bf793b661d0ef82a4c095ed1f5c7d11cb0b089d39c4f07bd36e30",
+        "passed": 31,
+        "failed": 0,
+        "ignored": 0
+      },
+      {
+        "name": "full",
+        "command": "cargo test --locked",
+        "exit": 0,
+        "seconds": 17.21,
+        "log_sha256": "60f1e366888d007321f1058506936411c0294cd24801c5567ffe12129804e1b6",
+        "passed": 277,
+        "failed": 0,
+        "ignored": 0
+      },
+      {
+        "name": "clippy",
+        "command": "cargo clippy --locked --all-targets -- -D warnings",
+        "exit": 0,
+        "seconds": 12.84,
+        "log_sha256": "fd8a95ce860a6c809931f299be3acda6a5c769b64d585ecc07b1f506408df81c",
+        "passed": null,
+        "failed": null,
+        "ignored": null
+      },
+      {
+        "name": "build",
+        "command": "cargo build --locked",
+        "exit": 0,
+        "seconds": 3.97,
+        "log_sha256": "c55053ed10e461706c01a4f89e4d4db56a1f732f46cd43f84f6e26ef26a429a0",
+        "passed": null,
+        "failed": null,
+        "ignored": null
+      }
+    ],
+    "source_hashes": {
+      "src/auth_v2.rs": "986cbb82c9ac5cc8862449be49b6f504c1965978a8d699f1300988fa3752344a",
+      "tests/auth_v2.rs": "838c327d41c00117d1a77128b7c038ec7534cf2ead3d172b46ebe669ce6933bf",
+      "Cargo.toml": "4b8607a65f07f9ac57d7f59042e45bd273876aa68e7571311f6305c840bbc9fc",
+      "Cargo.lock": "3f171f74b09ced588e448813e00a04fd1ac01928cf0aca5c5b0ab0af701b850d",
+      "src/models.rs": "91f313bfa2c1d1181c016640359872a30f2bddab8ee408c9689b454bb8e73065",
+      "src/http.rs": "e7a4644f921662d86fd3d34e1ad98cf7a62c982ceadaa556f5ecd77c477e61af",
+      "src/db.rs": "3f8e413fdf867fdcee124b93b67bbce43557d47e3e930e19642eb41aa039019a"
+    },
+    "source_unchanged": true,
+    "new_test_or_helper_names": [
+      "assert_factor_unchanged",
+      "cancelled_recovery_enrollment_preserves_active_mfa",
+      "cancelled_recovery_enrollment_preserves_active_mfa_across_restart",
+      "complete_session_login",
+      "enrollment_consumed_at",
+      "factor_recovery_confirm_then_cancel_keeps_winning_factor",
+      "factor_snapshot",
+      "failed_recovery_confirm_leaves_old_factor_and_unconsumed_enrollment",
+      "replacement_factor_survives_private_store_restart",
+      "session_count",
+      "totp_step_used",
+      "unused_totp_time"
+    ],
+    "scope": "Independent frozen-source macOS checks; native CI and installed production recovery remain separate gates"
+  },
+  "independent_baseline": {
+    "observed_at": "2026-10-13",
+    "status": "Verified",
+    "source_sha": "44a8eccb6d1503e0f1bef1f5dcd7a8310bc28b72",
+    "source_materialization": "Exact git archive into task-owned temporary directory; separate fresh target directory",
+    "command": "cargo test --locked --test auth_v2 coordinator_baseline_recovery",
+    "exit": 101,
+    "expected_exit": 101,
+    "passed": 0,
+    "failed": 2,
+    "cases": [
+      "cancelling pending recovery incorrectly changes established active factor to pending",
+      "confirmation verifies replacement TOTP but does not persist the replacement secret"
+    ],
+    "log_sha256": "84fa24697f645c579aab95bbda19f9f1152a11916eabfd2f2a58f3969bdf1fd1",
+    "test_sha256": "b2ae42ae337df9178fd85cb5199fb956984fb260f9075b259052df938c7845c0",
+    "source_sha256": "949441717707449ecc8127406404d47ab71eef1709272f93349131a9f2c8bfd1",
+    "scope": "Real MFA crypto and storage in disposable test databases; no production credentials, installed recovery or cutover proof",
+    "reconfirmed_current_turn": {
+      "exit": 101,
+      "passed": 0,
+      "failed": 2,
+      "log_sha256": "24ba764b2d6bb3dec9935fd5c91a182a08dd1a6821a453bd07a91ad2d47d66b0",
+      "source_unchanged": true
+    }
+  },
+  "independent_after": {
+    "observed_at": "2026-10-13",
+    "status": "Verified",
+    "baseline_source": "44a8eccb6d1503e0f1bef1f5dcd7a8310bc28b72",
+    "baseline_exit": 101,
+    "baseline_failed": 2,
+    "after_exit": 0,
+    "after_passed": 2,
+    "after_failed": 0,
+    "command": "cargo test --locked --test auth_v2 coordinator_baseline_recovery",
+    "production_source_sha256": "986cbb82c9ac5cc8862449be49b6f504c1965978a8d699f1300988fa3752344a",
+    "test_sha256": "b2ae42ae337df9178fd85cb5199fb956984fb260f9075b259052df938c7845c0",
+    "after_log_sha256": "6420fb6c852bd0570a42f0123f54b09517b02402830033834391f606edc0ae41",
+    "source_materialization": "Exact baseline git archive with only the actual candidate production auth source replaced; independent before/after build targets",
+    "scope": "Same coordinator regressions against real crypto/storage in disposable databases; no production or installed recovery claim"
+  },
+  "agent_compiling_red": {
+    "observed_at": "2026-10-13",
+    "status": "Verified",
+    "session_id": "ses_ffe5ecd9933faffeaZaSV01tGp",
+    "command": "CARGO_HOME=/tmp/hs-toolchain/cargo RUSTUP_HOME=/Users/barni/.rustup CARGO_TARGET_DIR=/tmp/hs-build/server-recovery-cancel-target /Users/barni/.cargo/bin/cargo test --locked --test auth_v2 -- cancelled_recovery factor_recovery failed_recovery replacement_factor 2>&1",
+    "passed": 1,
+    "failed": 4,
+    "ignored": 0,
+    "actual_compile_succeeded": true,
+    "output_sha256": "12229e5ac2b0c846cd316f3b5bc4304a9cecef87575826b65e3ead6e003c42b3",
+    "scope": "Agent candidate regressions fail on both actual cancellation and replacement gaps; test fault/restart strength requires coordinator review before acceptance",
+    "red_timestamp": 1791912177489,
+    "first_production_edit_timestamp": 1791912213332,
+    "red_precedes_first_production_edit": true,
+    "production_source_hash_at_later_capture": "db200b62dedbc07213f4ba7c035c98efacbb2b2e15b05c216c7c991aedf8dda3",
+    "production_changed_by_later_capture": true,
+    "source_proof": "Compiling red event precedes first production edit in the session; source digest was sampled later after the minimal fix. Independent exact-baseline reproduction and isolated source-only after tests supply stronger source proof."
+  },
+  "accepted_pin": "51c005ea2aba8cf0a35787f519159fdb55100e61",
+  "accepted_pin_source_equivalence": "Only README.md and BUILD-REPORT.md differ from tested c30c9e2b96ce6b7bf0b41f4ef59f67b8ec79149d",
+  "coordinator_review": {
+    "scope": "Production fixes emitted by requested MiMo; coordinator adds read-only recovery-consumption evidence through the latch and samples login TOTP after password verification",
+    "production_auth_source_changed_by_coordinator": false,
+    "real_runtime": "Crypto/device-key login, private-store reopening and rollback in disposable databases only",
+    "held_input_capture_installed_recovery": "Not Verified"
+  },
+  "remaining_gates": [
+    "Configurable operator MFA and scoped administrative delegation",
+    "Selected stock RustDesk rendezvous/relay adoption Failed / Closed; public route/media/control unavailable",
+    "Actual capture/input and installed Windows 11/Apple Silicon acceptance",
+    "macOS/Windows service installation, updates/floors/rollback, encrypted backups and independent authority recovery/cutover",
+    "Intel runtime, platform signing/notarization and release security review"
+  ],
+  "vm_mutations": "None",
+  "checkpoint_status": "Requested worker/admission, live preview and control/installation checkpoints remain incomplete",
+  "agent_report_sha256": "521c1e484fb126d1d5e46574a4af8a878e6c1ec7aa078f8138b3d56abd43977d"
+}
