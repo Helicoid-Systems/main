@@ -181,7 +181,7 @@
     },
     "expiry_followup": {
       "session_id": "ses_ffe5eba670801ffepoB0kmvyKd",
-      "status": "Not Verified; active bounded MiMo implementation",
+      "status": "Failed reviewed intermediate candidate; MiMo repair in progress",
       "brief_sha256": "b6802a349142e708ee98d120b33030c6fcd5e051425e129487ea1124e1da1cac",
       "baseline_regression": {
         "status": "Verified defect",
@@ -189,6 +189,62 @@
         "exit": 1,
         "observation": "HasSession remains true after actual session expiry with real pinned HTTPS",
         "receipt_sha256": "abc840c4646c237a8d37ae760861f5a8a1cf3854ef9ab380c250ccd338e11a5e"
+      },
+      "review_regressions": {
+        "actual_clock_expiry_no_further_bearer_request": "Verified",
+        "abandoned_client_timer_retention": "Failed",
+        "delayed_expiry_notification_preserves_replacement_UI": "Failed; also observed early one-shot timer losing automatic expiry",
+        "source_hashes": {
+          "src/Helicoid.Domain/Client/V2DeviceKeyChallengeClient.cs": "66a15720090aa1e05ec51c3bae7fca8f96544d3ca9680cc38f4d0b176a947df5",
+          "src/Helicoid.Domain/Client/V2SignInCoordinator.cs": "d7809a2cd649a400965421184ce10e2fb330dfd9252f01ddba8336d5e7230e60"
+        },
+        "receipt_sha256": "a5c8acc08e1e311d0aea884250398bdf9d12388159ea84693b9a18a04f5f0563"
+      },
+      "feedback_brief_sha256": "417c938bfa035698c094813703f13d60e1d4574f998b6bc8ab06ecfa49874980",
+      "second_review": {
+        "status": "Failed; MiMo repair in progress",
+        "tests_passed": 4,
+        "tests_failed": 2,
+        "early_callback_rearms_automatic_expiry": "Failed: expected SessionExpired event1, observed0 before lazy getter",
+        "delayed_expiry_preserves_replacement_MFA_completion": "Failed: expected Completing, observed Ready",
+        "actual_clock_expiry": "Verified",
+        "actual_clock_coordinator_UI_cleanup": "Verified",
+        "weak_client_ownership": "Verified",
+        "delayed_expiry_preserves_installed_replacement": "Verified",
+        "command_receipt_sha256": "a6c59d283851c8635d5a423a7c4e4a48f947c44b4627e5cb24f86982c779ee57",
+        "log_sha256": "2e291df1a5f6f6c8426d0572598e05ba6688597871819d511564b3dc3365fdab",
+        "source_hashes": {
+          "src/Helicoid.Domain/Client/V2DeviceKeyChallengeClient.cs": "c124bcfb1b119561a0eda73761c94779fc421cae318c643ff7c40a0d5176eec0",
+          "src/Helicoid.Domain/Client/V2SignInCoordinator.cs": "651ff492e517364b82b13745169536db27ba7c6b4483f55351663f0ae5d7a5ee"
+        },
+        "brief_sha256": "f65b76d7be5d71f22026ba2654b9d805108cbe2c3120e621cb3e7187c537f382"
+      },
+      "late_successful_response_review": {
+        "status": "Failed",
+        "cases": 2,
+        "observation": "An authorized HTTP200 inventory body returns after request session expiry or replacement",
+        "log_sha256": "40e7dbaf64489de4ae33e8264036e86d8f10ed5c8d888facdb33194457588479",
+        "fixture_constructor_corrected_before_reproduction": true,
+        "initial_sandbox_pipe_failure_excluded": true
+      },
+      "ten_case_review": {
+        "status": "Failed; final bounded repair pending",
+        "tests_passed": 6,
+        "tests_failed": 4,
+        "failed_contracts": [
+          "old successful inventory after expiry",
+          "old successful inventory after replacement",
+          "high-frequency rearm arithmetic overflow",
+          "queued actual manager UI retains old selected inventory"
+        ],
+        "source_hashes": {
+          "src/Helicoid.Domain/Client/V2DeviceKeyChallengeClient.cs": "3deaf3f3fb0746d10e77cb10227241251cba9dd2f212840eb82e772bc324c3e0",
+          "src/Helicoid.Domain/Client/V2SignInCoordinator.cs": "20bc4c5a4219a28b667c3a00b5ad595b8351c8a068165a0f3c7488c96634220d",
+          "src/Helicoid.Manager/ViewModels/ConnectionViewModel.cs": "7d8f1ee301adef5c77ed23e28c16a708f29a3d3b5495ea5affbf459f4ee1e1ca",
+          "src/Helicoid.Manager/ViewModels/MainViewModel.cs": "faa2868b3f89ad0313e6fc8f1b8c294157df2ef2672a09e67396cee0fc2d006c"
+        },
+        "receipt_sha256": "7e00b9f441576c73c7eab28c947f1db73e76f31e4512f5fe2809d4ea36daf50c",
+        "log_sha256": "0d3c7e738f5bfd78c47c968ced6b50e16788fe385cdfc82c67278a520e7d0b8c"
       }
     },
     "not_verified": [
@@ -201,7 +257,7 @@
   },
   "engine": {
     "status": "Verified macOS connection-only prerequisite; Windows/admission/media/public adoption Not Verified",
-    "candidate_revision": "cb1b8fdb039cdeea9e306e671a63dcc765aaff47",
+    "candidate_revision": "1449acbb142ae6dbc95209d501d24110446f5c56",
     "accepted_integration_pin": "872a553bbe479041645286b1021dd309cf85f2ac",
     "arm64_native_checks_passed": 100,
     "own_bridge_harness_asan_checks_passed": 100,
@@ -213,8 +269,8 @@
     "rust_tests_passed": 79,
     "header_wrapper_drift_actionlint": "Verified",
     "native_windows_ci": {
-      "run": 38933830544,
-      "status": "Failed; fetch passed, GN generation toolchain environment failed",
+      "run": 38971753484,
+      "status": "Not Verified; native SDK installation and WebRTC CI in progress",
       "previous_failures": [
         {
           "run": 38926181465,
@@ -226,16 +282,47 @@
         }
       ],
       "correction": "Narrow LF attributes/process settings and supported cache_dir=None; strict checks and pins retained",
-      "failed_step": "Build bridge + shared library + harness (x64)",
-      "failure": "DEPOT_TOOLS_WIN_TOOLCHAIN=0 set only in fetch PowerShell process, absent from fresh build process; pinned vs_toolchain.py requests unavailable internal toolchain",
-      "repair_status": "Bounded MiMo follow-up requested; Not Verified"
+      "failed_step": "Build bridge + shared library + harness (x64), GN generation",
+      "failure": "Pinned setup_toolchain.py requests Include/10.0.28000.0/um; hosted runner lacks it",
+      "repair_status": "Reviewed local SDK prerequisite published at1449acb; accepted core integration pin unchanged",
+      "previous_environment_failure_run": 38933830544,
+      "repair_model_assistant_records": 69,
+      "repair_model_metadata": "xiaomi-token-plan-ams/mimo-v2.6-pro high",
+      "coordinator_receipt": {
+        "file": "/tmp/hs-finish-20261013/coordinator-core-toolchain-env-receipt-20261016.json",
+        "sha256": "c1bfe6a09035234778d97553b2bdf1d9a2693d71862dc1abd393ed2c0dacfeb7"
+      },
+      "sdk_source": "https://learn.microsoft.com/en-us/windows/apps/windows-sdk/downloads",
+      "sdk_prerequisite_review": {
+        "status": "Historical failed intermediate candidate; local repair Verified, native runtime pending",
+        "observation": "Actual PreflightOnly accepts eleven empty placeholder files without installed servicing identity; source also has unbounded installer wait",
+        "probe_exit": 0,
+        "probe_log_sha256": "fa7af60f082ec24017b7ea6a435e0be578124f2cc4f00540580f7ab27872c889",
+        "official_installer_download_sha256": "e8e264aca8bc34abdf592352bf09f986a85cdb96db0efba405ca9e149181fe61",
+        "installer_size": 1450344,
+        "Windows_Authenticode_and_installation": "Not Verified"
+      },
+      "last_failed_sdk_run": 38966858843,
+      "sdk_candidate_coordinator_receipt_sha256": "e02ce3c85047766f8543f16b0dc0f1bd3f3e7f927709c974746dea8492d74ba2",
+      "sdk_candidate_model": {
+        "assistant_records": 112,
+        "provider": "xiaomi-token-plan-ams",
+        "model": "mimo-v2.6-pro",
+        "variant": "high",
+        "completed": true
+      }
     },
     "unavailable": [
       "endpoint admission",
       "video capture/frame handoff/VP8 media",
       "input/control",
       "TURN public adoption"
-    ]
+    ],
+    "rust_ci": {
+      "run": 38966858869,
+      "revision": "9fee60acbb80cd2c06f5942aa926c1be80d3e335",
+      "status": "Verified"
+    }
   },
   "real_native_auth_interop": {
     "status": "Verified",
@@ -292,7 +379,8 @@
       "https://doc.traefik.io/traefik/reference/routing-configuration/tcp/routing/rules-and-priority/",
       "https://doc.traefik.io/traefik/reference/routing-configuration/tcp/tls/"
     ],
-    "source_note": "Traefik docs establish router capability only, not installed configuration or WebRTC TURN route adoption."
+    "source_note": "Traefik docs establish router capability only, not installed configuration or WebRTC TURN route adoption.",
+    "dns_status": "Read-only Cloudflare discovery finds active barni.one, proposed authority/turn Helicoid hostnames have zero existing records; user naming choice pending. DNS unchanged; public443 adoption Not Verified."
   },
   "coordinator_receipts": [
     {
@@ -314,6 +402,14 @@
     {
       "file": "/tmp/hs-finish-20261013/coordinator-detached-test-cleanup-20261016.json",
       "sha256": "6fee2bcc358f50f7af562402fd2ac00e5459ff5beb1b62768cbb945c9aeb9f53"
+    },
+    {
+      "file": "/tmp/hs-finish-20261013/coordinator-incremental-cache-cleanup-20261016.json",
+      "sha256": "b4073f42d92d1fb74e9f28e95ee9c3e639dccc4d35a8b40c4f470f82ac3f75f6"
+    },
+    {
+      "file": "/tmp/hs-finish-20261013/coordinator-compiler-cache-cleanup-20261016.json",
+      "sha256": "022c6bd88925c8eb9639927ba6433f5db783d4fdf70166cb3a3cf01cc5d1b757"
     }
   ],
   "historical_failures_fixed": [
@@ -379,6 +475,14 @@
       "model": "mimo-v2.6-pro",
       "variant": "high",
       "verified": true
+    },
+    "core_sdk": {
+      "session_id": "ses_ffe5eba9947e1ffex2s1NivC0l",
+      "assistant_records": 112,
+      "provider": "xiaomi-token-plan-ams",
+      "model": "mimo-v2.6-pro",
+      "variant": "high",
+      "verified": true
     }
   },
   "release_gates": {
@@ -408,12 +512,32 @@
     "account_or_billing_changed": false,
     "support_message_sent": false,
     "source": "https://www.daytona.io/docs/en/sandboxes/",
-    "intended_use": "Additional native build/install/UI evidence; cannot substitute physical-console acceptance"
+    "intended_use": "Additional native build/install/UI evidence; cannot substitute physical-console acceptance",
+    "existing_organizations_checked": 1,
+    "alternate_eligible_organization_found": false
   },
   "integration_pins_scope": "server/Mac/Windows authentication prerequisites only; core candidate and Windows expiry follow-up remain unaccepted",
   "verified_integration_pins": {
     "modules/server": "8e21a757a187f59f3716d0309771663e154e505a",
     "apps/macos": "03e2b67ed6c7560d3c8f5d232c6d022313b28b2b",
     "apps/windows": "57bea5746705fd6595fc2174b7ea036fa28dca0a"
+  },
+  "build_headroom_note": "Owned reproducible compiler caches removed; sources, staged/tested executables, databases, reports and downloaded artifacts retained.",
+  "dns_discovery": {
+    "status": "Verified read-only active zone visibility; hostname selection pending",
+    "connector": "Cloudflare authenticated GET /zones page1 per_page50",
+    "zone": "barni.one",
+    "zone_status": "active",
+    "visible_zone_count": 13,
+    "suggested_names": [
+      "authority.helicoid.barni.one",
+      "turn.helicoid.barni.one"
+    ],
+    "DNS_mutation": false,
+    "VM_mutation": false,
+    "proposed_name_conflicts": {
+      "authority.helicoid.barni.one": 0,
+      "turn.helicoid.barni.one": 0
+    }
   }
 }

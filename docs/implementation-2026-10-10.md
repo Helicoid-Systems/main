@@ -29,8 +29,12 @@ integration tests plus both WinUI builds in [CI38931046294](https://github.com/H
 The actual runner is Windows Server2025, not installed Windows11.
 The [unsigned development apps](https://github.com/Helicoid-Systems/windows/actions/runs/38931046294/artifacts/12059590770)
 match the archive digest and contain actual x64 Manager/Computer/worker files.
-A separate bounded MiMo session is implementing automatic expiry and UI cleanup;
-that follow-up is not accepted by the earlier native tests.
+A separate bounded MiMo session is implementing automatic expiry and UI cleanup.
+The original six causal expiry regressions now pass in an isolated coordinator
+snapshot. Four added cases still fail: late successful inventory after expiry or
+replacement, high-frequency timer rearm arithmetic and queued UI carrying old
+selected inventory into a new session. The follow-up remains unaccepted and is
+not covered by the earlier native tests.
 
 The arm64 WebRTC connection harness passes100 checks, also100 with Helicoid
 bridge/harness ASan instrumentation. Full Swift wrappers pass13 runtime checks;
@@ -38,15 +42,24 @@ real C# P/Invokes pass16. Intel cross-build,79 Rust tests, strict Clippy,
 header/wrapper drift and actionlint pass. [Native Windows CI38933830544](https://github.com/Helicoid-Systems/core/actions/runs/38933830544)
 passed fetch after strict LF/cache corrections, then failed GN generation because
 the fresh build process lacked the explicit installed-SDK toolchain policy. A
-bounded MiMo repair is in progress. Core's
-integration pin stays unchanged until its applicable native gate passes.
+bounded MiMo repair passed an actual-script before/after check and is published
+at `9fee60a`; [native rerun38966858843](https://github.com/Helicoid-Systems/core/actions/runs/38966858843)
+failed at its next prerequisite: the hosted runner lacks the exact SDK28000
+headers/libs required by the pinned source. The reviewed SDK prerequisite at
+`1449acb` passes coordinator actual-source download/hash, PowerShell parse,
+header/wrapper drift, actionlint and rejection of empty/unknown-servicing files.
+[Native rerun38971753484](https://github.com/Helicoid-Systems/core/actions/runs/38971753484)
+is in progress. Core Rust CI38966858869 at the preceding revision is green;
+core's integration pin stays unchanged until the applicable native gate passes.
 Capture, endpoint admission, media and public relay adoption remain unavailable.
 
 The user has only `ubuntu@57.131.161.27`. Fresh read-only SSH preflight confirms
 one public IPv4 and existing Traefik ownership of80/443 on IPv4/IPv6;8920 is free.
 No host service/configuration/data/firewall was changed. [ADR0007](adr/0007-native-webrtc-and-public-edge.md)
 records a proposed single-VM SNI alternative and its unpassed gates; it does not
-silently adopt that route or remove the public TCP443 requirement.
+silently adopt that route or remove the public TCP443 requirement. Read-only
+Cloudflare discovery finds active `barni.one` and no existing records at the two
+proposed Helicoid hostnames; naming is pending. No DNS records were changed.
 
 Daytona was checked after the user offered it for Windows testing. Authenticated
 snapshot listing works, but `windows-medium` is US-only and VM creation is
