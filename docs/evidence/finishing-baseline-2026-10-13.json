@@ -1,0 +1,141 @@
+{
+  "recorded_date": "2026-10-13",
+  "stage": "accepted-baseline-reproduction-and-first-candidate-dispatch",
+  "accepted_pins": {
+    ".": "98eda4fbfe4589b204917e5556042b5d6eab8f90",
+    "modules/core": "872a553bbe479041645286b1021dd309cf85f2ac",
+    "modules/server": "51c005ea2aba8cf0a35787f519159fdb55100e61",
+    "apps/macos": "ae34bc655152cdbc5e6c4548ef8d3201f94514bc",
+    "apps/windows": "75448f230bed2a20c96338e82e55f2bfa2cdcd8b"
+  },
+  "coordinator_checks": {
+    "core": {
+      "exit_code": 0,
+      "tests": {
+        "passed": 79,
+        "failed": 0,
+        "ignored": 0,
+        "log_sha256": "a2d0622dd56614625d3affa37fbbfb1196b323222fdde65145cb8a05309dc423"
+      },
+      "format_exit_code": 0,
+      "strict_clippy_exit_code": 0
+    },
+    "authority_candidate": {
+      "exit_code": 0,
+      "runtime_tests_passed": 167,
+      "compile_fail_doctests_passed": 4,
+      "results": {
+        "passed": 171,
+        "failed": 0,
+        "ignored": 0,
+        "log_sha256": "a10e190703d6d09c0004815905fedf69f8eaf161d69b1e777d7b9b5a589b6bb9"
+      }
+    },
+    "server_accepted_source": {
+      "exit_code": 0,
+      "tests": {
+        "passed": 277,
+        "failed": 0,
+        "ignored": 0,
+        "log_sha256": "bd89b2931014949b5f998546b05d184984500e3d73534b3e2b9dfa35f33cac14"
+      },
+      "source": "isolated git archive of accepted pin"
+    },
+    "macos": {
+      "exit_code": 0,
+      "tests_passed": 186,
+      "suites": 27,
+      "platform": "macOS arm64"
+    },
+    "windows_domain": {
+      "exit_code": 0,
+      "tests_passed": 387,
+      "failed": 0,
+      "skipped": 0,
+      "platform": "macOS arm64; native Windows acceptance not reproduced here"
+    }
+  },
+  "mimo_packages": {
+    "core": {
+      "session_id": "ses_ffe5ec9584e10ffeWOtdQkhVsO",
+      "brief_sha256": "dbdd69c92342569a5c5b2b0c7b6f65d1a6094b2d663d6784d75278f3a746b5ea",
+      "status": "candidate running; no adoption accepted"
+    },
+    "server": {
+      "session_id": "ses_ffe5ec95822a3ffehxs2bkdT0U",
+      "brief_sha256": "e78c07129f66e5b331ced9fbad0dad46e83a37d5a045c9bdcfc277049b8ff653",
+      "status": "candidate running; no policy candidate accepted"
+    },
+    "macos": {
+      "session_id": "ses_ffe5ec94949f3ffePwgduL5IN6",
+      "brief_sha256": "833edd44d9bbd46995d3a0e239d7cf543d98128e02015cc10a3852ac9f7ed129",
+      "status": "native v2 auth candidate running; no candidate accepted",
+      "native_auth_contract_sha256": "cb3750b1ca8064770379c697f23d29410f17f0df2a91b1476ef8a6e70261c69a"
+    },
+    "windows": {
+      "session_id": "ses_ffe5ec9492594ffec3gH9iod4t",
+      "brief_sha256": "2d3510673bfae75efd443532dbd21e9d3ff72247a349b0d8c7b98c80b22116e7",
+      "status": "native v2 auth candidate running; no candidate accepted",
+      "native_auth_contract_sha256": "cb3750b1ca8064770379c697f23d29410f17f0df2a91b1476ef8a6e70261c69a"
+    }
+  },
+  "unverified": [
+    "WebRTC native adoption",
+    "admitted real capture/input",
+    "public edge and relay expiry",
+    "all four installed manager/endpoint combinations",
+    "three installed hosting paths",
+    "updates/security floors",
+    "deployment recovery and old-host fencing",
+    "platform signing/notarization",
+    "Intel runtime acceptance",
+    "production security review"
+  ],
+  "external_inputs_pending": [
+    "separate edge SSH address",
+    "two static public IPv4 addresses",
+    "owned DNS/certificate renewal",
+    "bandwidth budget",
+    "installed-device and Intel testers",
+    "platform signing credentials",
+    "two-host recovery and independent security review"
+  ],
+  "preserved_unrelated_files_sha256": {
+    ".gitmodules": "d2c427eb607d0cfa23c90cf2e66d12e5011f0803710fd515e33bd6eaa26ef706",
+    "README.md": "b3bdec2b98e7b3e6e12b2252c9f98e332b39481fd18df61c7b313b7b4ac47504",
+    "CONTEXT.md": "456fdadfdd3d9063901f994f8cd91763284551807f47d820326152ab0b9199d8",
+    "docs/plan.md": "7e1a18a7157344073029b7254151e6fd8d2cad9b12c132dc9e85e3d647de9357",
+    "docs/ui.md": "bb60d623a2f88906e0470e74a8e3336d297d3c8e61e8b17384ce666dbd843b22",
+    "docs/research-2026-10-09.md": "d6cb9414ed72945a68382a08073274a64436b155e919c0532ae1e4c0ae7ae4cf",
+    "assets/brand/hs logo.svg": "36455cf5b44d1d3a72d5218de5433f53a332f37cc4acc9a31aaa9e643086d271",
+    "assets/brand/manifest.json": "93079b1edeeffb3608230ae43522a70943e8654df1c702123851728921f30a48",
+    "assets/brand/hs logo white.svg": "12b5df88c873c892f4eee969996b9b26254d9f62743805a9e6d3aa277fab5869",
+    "assets/brand/HS Manager App icon.icon/icon.json": "2b89dc9fe8952bc6dc15202ed2fc15f279e438c78491ef92dee8b3e499ffb952",
+    "assets/brand/HS App icon.icon/icon.json": "ae154c552dcf8b8e2d7c16b6fb355013e9133f8df9410bb87746913a20398eca",
+    "assets/brand/HS App icon.icon/Assets/hs text.svg": "24c05bca221ca5455086a269e7b9b68d5d503c1608d73d57428c31eb733f3aee",
+    "assets/brand/HS App icon.icon/Assets/hs stripe.svg": "0d41b93ce1c4ee017e4516534bb1884c77978f9a7ff6edf6ad633857d560fb01",
+    "assets/brand/HS Manager App icon.icon/Assets/gridmakerpro-grid-only-300dpi-2026-10-10.png": "8019d371bdd6d717b8c94d1e9826bebdc52c870b05bcf6f6b7c15cd5b22d8f92",
+    "assets/brand/HS Manager App icon.icon/Assets/hs text.svg": "24c05bca221ca5455086a269e7b9b68d5d503c1608d73d57428c31eb733f3aee",
+    "assets/brand/HS Manager App icon.icon/Assets/hs stripe.svg": "0d41b93ce1c4ee017e4516534bb1884c77978f9a7ff6edf6ad633857d560fb01"
+  },
+  "ubuntu_readonly_preflight": {
+    "ssh_host": "ubuntu@57.131.161.27",
+    "strict_host_key_checking": true,
+    "exit_code": 0,
+    "architecture": "x86_64",
+    "listening_tcp_ports": [
+      22,
+      53,
+      80,
+      443,
+      9090,
+      11850,
+      20241
+    ],
+    "running_service_count": 25,
+    "authority_8920_occupied": false,
+    "remote_mutations": false,
+    "raw_receipt_sha256": "8bc1e7776a650c694002c6cd2988b316b9be74810b05dd4a024a53528d9a23c7",
+    "limit": "Port availability is a point-in-time preflight; recheck immediately before installation."
+  }
+}
