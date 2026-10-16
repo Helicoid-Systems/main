@@ -1,0 +1,351 @@
+{
+  "recorded_date": "2026-10-15",
+  "requested_provider": "Xiaomi Token Plan (Europe)",
+  "provider_id": "xiaomi-token-plan-ams",
+  "model": "mimo-v2.6-pro",
+  "variant": "high",
+  "endpoint": "https://token-plan-ams.xiaomimimo.com/v1",
+  "historical_block": "finishing-candidate-block-2026-10-14.json",
+  "sessions": {
+    "core": {
+      "session_id": "ses_ffe5ec9584e10ffeWOtdQkhVsO",
+      "new_continuation_message_id": "msg_g001a14088199c0019VYsbxtVd",
+      "provider": "xiaomi-token-plan-ams",
+      "model": "mimo-v2.6-pro",
+      "variant": "high",
+      "metadata_verified": true,
+      "export_sha256": "ea8494a0e26aceb44b85498ef866273bf1e0bdc258895fadb992732defbd502e",
+      "status": "In Progress; not accepted"
+    },
+    "server": {
+      "session_id": "ses_ffe5ec95822a3ffehxs2bkdT0U",
+      "new_continuation_message_id": "msg_g001a14087b513001WeYrGJB54",
+      "provider": "xiaomi-token-plan-ams",
+      "model": "mimo-v2.6-pro",
+      "variant": "high",
+      "metadata_verified": true,
+      "export_sha256": "463b580fbb0142e1914d4f880467847e32bd36f80bc48cd14dd63f20d6c23995",
+      "status": "In Progress; not accepted"
+    },
+    "macos": {
+      "session_id": "ses_ffe5ec94949f3ffePwgduL5IN6",
+      "new_continuation_message_id": "msg_g001a140881803001T3piyN6WO",
+      "provider": "xiaomi-token-plan-ams",
+      "model": "mimo-v2.6-pro",
+      "variant": "high",
+      "metadata_verified": true,
+      "export_sha256": "63309cde50cd159b9e8e8abfb86b9a4eb3f0a1e024e07d1882adbb768c562edc",
+      "status": "In Progress; not accepted"
+    },
+    "windows": {
+      "session_id": "ses_ffe5ec9492594ffec3gH9iod4t",
+      "new_continuation_message_id": "msg_g001a140881036001Gv4gnhHUb",
+      "provider": "xiaomi-token-plan-ams",
+      "model": "mimo-v2.6-pro",
+      "variant": "high",
+      "metadata_verified": true,
+      "export_sha256": "6bb46987d762a87ea3c2133cd4e2fa682792930a94c6da6fd49eeb8b6edbf10f",
+      "status": "In Progress; not accepted"
+    }
+  },
+  "verification_boundary": "Exported metadata verifies the new continuation configuration only. Earlier assistant records retain the prior provider. No implementation acceptance follows from model selection.",
+  "integration_pins_advanced": false,
+  "deployment_mutations": false,
+  "checkpoints_complete": false,
+  "coordinator_checks": {
+    "future_mfa_assurance_regression": {
+      "status": "Verified",
+      "before_exit_code": 101,
+      "after_exit_code": 0,
+      "after_passed": 1,
+      "after_failed": 0,
+      "test": "coordinator_future_mfa_assurance_does_not_authorize_policy_mutation",
+      "method": "Unchanged independent regression in isolated tree; production source copied from current candidate. No production data used.",
+      "log_sha256": "e323748b8bc9433dd5397289f3acbe37242a28305b7a282b7f2d5254aa3ccc03",
+      "auth_v2_source_sha256": "b17296d9e769f84786dae13adfda57a95dced9d4c51bd0e03dfd9e21c423c29a",
+      "limit": "Verifies named rollback repair only; not full candidate acceptance"
+    },
+    "legacy_mfa_bypass": {
+      "status": "Failed",
+      "exit_code": 101,
+      "passed": 1,
+      "failed": 2,
+      "tests": [
+        "coordinator_required_policy_cannot_be_bypassed_by_v1_login",
+        "coordinator_admin_mfa_cannot_be_bypassed_by_v1_login"
+      ],
+      "result": "Required operator policy and mandatory administrator MFA can be bypassed via actual v1 session issuance. New acceptance finding, repair pending.",
+      "log_sha256": "4404e575d57549c811fca162a3c39230daae419f9ab9f45aac43b9258db27d04",
+      "review_note_sha256": "3128baf4c6ad975ae51961ffbdc819f600594dbf7e40bbcd3f576edb1542380d",
+      "repair": {
+        "status": "Verified for named independent regressions",
+        "exit_code": 0,
+        "passed": 3,
+        "failed": 0,
+        "log_sha256": "ac593b3689a4ecf7060d3db429ee4f911b31000d7f879b9ec0ff7b628a46f3a7",
+        "source_sha256": {
+          "service.rs": "bc9ae3dc931f020f4596ed1abc80be905066fd4b7de7d53ac381b57675ead17a",
+          "auth_v2.rs": "4f8ec5ec9b205e7d4b4e3e21f9bc2c5391429cadb7de19ef4d82e912e9adcef2"
+        },
+        "limit": "Full candidate suite and compatibility remain in progress"
+      }
+    },
+    "server_full_suite": {
+      "status": "Verified on macOS arm64",
+      "exit_code": 0,
+      "passed": 303,
+      "failed": 0,
+      "ignored": 0,
+      "log_sha256": "e3c9c2621416a5e7f2ce42fb4e7cc067aab4ef4a74692ea177a5dba2e4ec8d77",
+      "limit": "Native Linux/Windows CI and real native-client/Rust-server interoperability remain Not Verified"
+    },
+    "server_format_clippy_build": [
+      {
+        "command": "cargo fmt -- --check",
+        "exit_code": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": "cargo clippy --locked --all-targets -- -D warnings",
+        "exit_code": 0,
+        "log_sha256": "1f5852af1ed7025b5728e842e3c3c2f5d2f720d25557d84c38f1ffda99719c59"
+      },
+      {
+        "command": "cargo build --locked",
+        "exit_code": 0,
+        "log_sha256": "2b34696728dc82b03cbf6311d7e3a6a41658bbde097834c3010a78bc82842c1a"
+      }
+    ],
+    "server_independent_four": {
+      "status": "Verified",
+      "exit_code": 0,
+      "passed": 4,
+      "failed": 0,
+      "log_sha256": "de183ca5df2545b3e6996fac7fa59fbdf2de523ad68ecddd3b8882911bc16418"
+    },
+    "macos_stale_client_challenge": {
+      "status": "Failed; repair in progress",
+      "tests": 1,
+      "issues": 2,
+      "log_sha256": "2a74a4fc40a479f76d901bef70650c19ee4588204a1c2ef1112639a01d43633f",
+      "repair": {
+        "status": "Verified",
+        "exit_code": 0,
+        "tests": 1,
+        "issues": 0,
+        "log_sha256": "5986a4f12a08fe4c3fd5f1a052c4ad967fbed0d46e395e9bae1c243da2e12920"
+      }
+    },
+    "windows_cancel_after_client_success": {
+      "status": "Failed; repair in progress",
+      "tests": 1,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0,
+      "runtime": "Windows domain on macOS, actual pinned HTTPS and Ed25519 with a held UI continuation",
+      "log_sha256": "7f51d525320e3162c79d69844c445288f4325397d956d06531902f127d819e4a",
+      "repair": {
+        "status": "Verified for cancel case; replacement cleanup still Failed",
+        "passed": 1,
+        "failed": 1,
+        "skipped": 0,
+        "log_sha256": "b9c5cbb2784f4ff16a7bd5fb0cf7440a77381f9c8210d74cf0ee6e01d529b806"
+      },
+      "final_repair": {
+        "status": "Verified for both unchanged independent causal tests",
+        "exit_code": 0,
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "log_sha256": "c21746344d701718001f8ebdf00204c227777158445ba2134d7d4ce5214e29ba"
+      }
+    },
+    "historical_session_assurance": {
+      "status": "Failed; follow-up pending after current interoperability package",
+      "tests": 1,
+      "passed": 0,
+      "failed": 1,
+      "exit_code": 101,
+      "finding": "Historical factor-free administrator token remains authoritative despite mandatory MFA",
+      "log_sha256": "bcd623cd3202404e0a6a0e83cfe3618789dc217438ee6b6b0fc055ab98ae1907",
+      "review_note_sha256": "0859b5a0a29d3e1266bb64a299d52f2db9ba9843de4a99557aaeb374ada62c7d"
+    },
+    "macos_full_suite": {
+      "status": "Verified on Apple Silicon macOS",
+      "exit_code": 0,
+      "tests": 212,
+      "suites": 29,
+      "log_sha256": "bd3967834c4c918b35e239fdf728733a280701aadb61fad0898af9b59098d66b",
+      "limit": "Real Rust-server interoperability, normal trusted-profile loading, installed Windows/Intel and release signing remain Not Verified"
+    },
+    "webrtc_header_and_wrapper_drift": {
+      "status": "Verified",
+      "header_exit_code": 0,
+      "header_exports": 32,
+      "wrapper_exit_code": 0,
+      "implemented_wrapper_exports": 29,
+      "limit": "Contract checks alone do not prove native calling conventions, export linkage or connection/runtime safety"
+    },
+    "webrtc_first_native_runtime": {
+      "status": "Failed; teardown timeout",
+      "binary_sha256": "a35dbaa89b6ffffdc79ffc56bc09711d72d67e0085ea8f949867b4cb3af57e2e",
+      "architecture": "macOS arm64",
+      "first_timeout_seconds": 90,
+      "diagnostic_timeout_seconds": 25,
+      "observed": "Real two-peer negotiation and bidirectional messages; tampered expected certificate denial; hang after restoring expected certificate during helper peer cleanup",
+      "log_sha256": "f87c042b6c4b7f8c772a16161038134092d41f64b61212a1480a953ae33c899b",
+      "production_media_enabled": false,
+      "repair": {
+        "binary_sha256": "1a856bc06d2f88dedd887bcdc863cb49d75560a4a4ec3167a546e3ae1a9b8986",
+        "source_hashes": {
+          "hs_webrtc_bridge.cpp": "ed77ffe75a675b07a94e344e0574b1db33e372ce7f48f8a1ce57c98635f449eb",
+          "harness.cpp": "cfa586b9558fea30f93d01c56cf88a8b059479d032580ee5a49e140089ea0391",
+          "hs_webrtc.h": "b500bc40552343d3d327e4df3333aeb19bd5dc60e28070d9fe2e2dfa48a1dc56"
+        },
+        "staged_sources_match": true,
+        "exit_code": 0,
+        "duration_seconds": 2.209,
+        "log_sha256": "e326c54a041d138aff3e2766fecb339e0375b67e8909810ba17948392963ab75",
+        "status": "Verified for bounded arm64 harness",
+        "checks": 85,
+        "failures": 0,
+        "limit": "No production admission/media/input, direct/public relay proof, native Windows, Intel runtime, sanitizer timeout acceptance or actual Swift/C# DLL calls follows from this harness"
+      }
+    },
+    "native_rust_https_interoperability": {
+      "status": "Verified for disposable loopback fixtures",
+      "exit_code": 0,
+      "swift_passed": 7,
+      "csharp_passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "owned_listeners_reaped": true,
+      "ports_verified_free": [
+        49769,
+        49781
+      ],
+      "log_sha256": "12de0828abbec7b47721f0aabbfebc0313948c90187d919b4b78096896799fd7",
+      "runner_sha256": "b5eadd6ff4f4d63c808606375c01a3e0b9032fd1ab87b9e1c548b52a9ee7d450",
+      "server_binary_sha256": "ecb843066c310ecbd41a717eeac0caa9a36b80b4615bdd196d786f106de41937",
+      "limit": "Before stored-session assurance and local expiry follow-up; must repeat after final source freezes. C# execution is on Mac, not native Windows UI/storage acceptance."
+    },
+    "windows_domain_suite": {
+      "status": "Verified on macOS",
+      "exit_code": 0,
+      "passed": 429,
+      "failed": 0,
+      "skipped": 0,
+      "log_sha256": "5855e1ac2c8ca36598fcb3a7c2be30b3c1011cba2cc6759eb9a480840e64f0d6",
+      "limit": "Actual Windows DPAPI, worker and WinUI runtime still Not Verified"
+    },
+    "macos_expiry_validation": {
+      "status": "Verified",
+      "before_exit_code": 1,
+      "before_issues": 1,
+      "after_exit_code": 0,
+      "after_tests_passed": 1,
+      "before_log_sha256": "0802acfa8c89763489eb1e431e67cd9ad138be143a1764eb8e4b0ea54e2ce583",
+      "after_log_sha256": "6c6f6c22b3f34d1a290c233c827bf5d8f1f216a52e9b5cec449cf666c0ed73df"
+    },
+    "macos_packaged_candidate": {
+      "apps": {
+        "Helicoid Manager.app": {
+          "bundle_identifier": "systems.helicoid.manager.dev",
+          "executable_sha256": "16dc6db2494c437422d43b34117a5a9d05d30bee3b690d31a36c5b7debb600f3",
+          "codesign_exit_code": 0
+        },
+        "Helicoid Computer.app": {
+          "bundle_identifier": "systems.helicoid.computer.dev",
+          "executable_sha256": "cedceabd292b4c272f516ca58732d4cad45011b3d1566829c1070816de5d072d",
+          "codesign_exit_code": 0
+        }
+      },
+      "tests": 214,
+      "signing": "ad-hoc development only",
+      "log_sha256": "48a1e854ffa611d75238e1b617543b00f8f873142b508b6e0be0517ccf758285",
+      "all_signatures_valid": true
+    }
+  },
+  "coordinator_review_followups": {
+    "server": {
+      "status": "Fixes in progress; not accepted",
+      "scratch_note": "/tmp/hs-finish-20261013/coordinator-server-legacy-review-20261015.md",
+      "sha256": "3128baf4c6ad975ae51961ffbdc819f600594dbf7e40bbcd3f576edb1542380d"
+    },
+    "core": {
+      "status": "Fixes in progress; not accepted",
+      "scratch_note": "/tmp/hs-finish-20261013/coordinator-core-lifetime-review-20261015.md",
+      "sha256": "03614070190f2f7f236ccebb8e051cf8085a081beea9f800fa4b7a3de0dc16b2"
+    },
+    "macos": {
+      "status": "Fixes in progress; not accepted",
+      "scratch_note": "/tmp/hs-finish-20261013/coordinator-macos-race-review-20261015.md",
+      "sha256": "fca2079f3048a479529db3fd19196b005acf92da5c220e060c95924213bbdadc"
+    },
+    "windows": {
+      "status": "Fixes in progress; not accepted",
+      "scratch_note": "/tmp/hs-finish-20261013/coordinator-windows-native-review-20261015.md",
+      "sha256": "400d5ad8f9d33b330420f3a70d23a3e1b9d35ca18879176c8f54319a2f2a53da",
+      "primary_sources": [
+        "https://learn.microsoft.com/en-us/windows/win32/api/aclapi/nf-aclapi-getsecurityinfo",
+        "https://learn.microsoft.com/en-us/windows/win32/api/securitybaseapi/nf-securitybaseapi-gettokeninformation",
+        "https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilew"
+      ]
+    }
+  },
+  "continued_model_evidence": {
+    "core": {
+      "new_assistant_records": 24,
+      "models": [
+        [
+          "xiaomi-token-plan-ams",
+          "mimo-v2.6-pro",
+          "high"
+        ]
+      ],
+      "all_requested_configuration": true,
+      "export_sha256": "57e2530ef20f35f287c2f7dc1c2e3259ed156163b1ef073194eed4d92df42a34"
+    },
+    "server": {
+      "new_assistant_records": 46,
+      "models": [
+        [
+          "xiaomi-token-plan-ams",
+          "mimo-v2.6-pro",
+          "high"
+        ]
+      ],
+      "all_requested_configuration": true,
+      "export_sha256": "49f3740f29c7083e20fa6ef074cb2cacbd385ee64146231e6cb4f0cb5280cb2d"
+    },
+    "macos": {
+      "new_assistant_records": 33,
+      "models": [
+        [
+          "xiaomi-token-plan-ams",
+          "mimo-v2.6-pro",
+          "high"
+        ]
+      ],
+      "all_requested_configuration": true,
+      "export_sha256": "3d967140ef0b407182a6d7263bc70fe9a20c9fc98458640501f4a6bea78aec6a"
+    },
+    "windows": {
+      "new_assistant_records": 44,
+      "models": [
+        [
+          "xiaomi-token-plan-ams",
+          "mimo-v2.6-pro",
+          "high"
+        ]
+      ],
+      "all_requested_configuration": true,
+      "export_sha256": "5c9a9aa248623d4a3bafdb644b82227631f9403812a47a8bddc3e3841c9915c6"
+    }
+  },
+  "ongoing_packages": [
+    "core native build reproducibility, actual compiler pins, Windows CI and bounded callback-timeout ownership",
+    "server stored-session MFA assurance on authority use",
+    "macOS monotonic session expiry and current-token invalidation"
+  ]
+}

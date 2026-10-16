@@ -1,0 +1,419 @@
+{
+  "recorded_date": "2026-10-16",
+  "provider": "xiaomi-token-plan-ams",
+  "model": "mimo-v2.6-pro",
+  "variant": "high",
+  "scope": "Finishing prerequisites; no complete worker/admission, preview or control/operations checkpoint",
+  "integration_pins_advanced": true,
+  "server": {
+    "status": "Verified conditional-MFA/native-client authentication prerequisite",
+    "tested_source": "89a35c4fd920d576fb724e8a620222463b4c011b",
+    "integration_revision": "8e21a757a187f59f3716d0309771663e154e505a",
+    "branch": "codex/operator-mfa-assurance-20261016",
+    "coordinator_tests_passed": 309,
+    "independent_authority_regressions_passed": 5,
+    "fmt_strict_clippy_release": "Verified",
+    "native_ci": {
+      "run": 38932191897,
+      "status": "Verified",
+      "linux_tests_passed": 302,
+      "windows_tests_passed": 310,
+      "powershell_5_1_and_7_fixtures": "Verified"
+    },
+    "download": {
+      "source": "89a35c4fd920d576fb724e8a620222463b4c011b",
+      "run": 38932191897,
+      "archive_sha256": "3fa671b497f6d6e4c4c8413ecc4b9400857c2ed3633a117791cf8a4f25ed94fb",
+      "github_digest_matches": true,
+      "archive_crc_exit": 0,
+      "tests_passed": {
+        "linux": 302,
+        "windows": 310
+      },
+      "selected_members": [
+        {
+          "path": "hs-server.exe",
+          "bytes": 9264640,
+          "sha256": "df36af553560210ac9f1321734f3cf5284e75a35e7eeeb9b2ed4a6af741e7a0b",
+          "pe_machine": "x64"
+        },
+        {
+          "path": "start-development.cmd",
+          "bytes": 541,
+          "sha256": "f41ee1e31c65ce742859b696b73a1ccdafd4ed9dde71e74398a50d6f61175d4a",
+          "matches_source": "raw bytes",
+          "source_raw_sha256": "f41ee1e31c65ce742859b696b73a1ccdafd4ed9dde71e74398a50d6f61175d4a"
+        },
+        {
+          "path": "start-development.ps1",
+          "bytes": 12509,
+          "sha256": "61a97b5789adf37bf56bc54b983d238ff4910efb394cca73468c6db54b31dedd",
+          "matches_source": "LF-normalized text; Windows checkout CRLF conversion only",
+          "source_raw_sha256": "cab64c4e34b8449a22aabd3a795589c1fb40e169f3774fe02ef7d84d204981dd"
+        }
+      ],
+      "coordinator_inspection_correction": "First comparison required raw PS1 bytes; actual archive differs solely by298CRLF newlines from Windows checkout. Raw hashes retained; content compared after explicit LF normalization.",
+      "installed_service_acceptance": "Not Verified",
+      "public_auth_recovery_delegation": "Not Verified",
+      "signing": "unsigned development output"
+    },
+    "not_verified": [
+      "normal public authentication",
+      "scoped administrative delegation",
+      "installed service hosting",
+      "authority recovery/cutover"
+    ]
+  },
+  "macos": {
+    "status": "Verified native v2 sign-in and automatic expiry prerequisite",
+    "tested_source": "d657e9762246f3a2b7814cecadd79ef61dacda95",
+    "integration_revision": "03e2b67ed6c7560d3c8f5d232c6d022313b28b2b",
+    "tests_passed": 231,
+    "suites": 31,
+    "native_ci": {
+      "run": 38927581414,
+      "status": "Verified",
+      "arm64_packaging": "Verified",
+      "intel_cross_build": "Verified",
+      "intel_runtime": "Not Verified"
+    },
+    "download_archive": {
+      "run": 38927581414,
+      "revision": "d657e9762246f3a2b7814cecadd79ef61dacda95",
+      "artifact_id": 12056404592,
+      "artifact_sha256": "edaf1c3bbd540bd8792eb16aaa6148d9bc2522d1c1a2b3a4a8e9ca4a295a7b23",
+      "digest_matches_api": true
+    },
+    "download_applications": [
+      {
+        "app": "Helicoid Manager.app",
+        "binary_sha256": "988034d09bc0ff2de85e97c1300ef7821a4b2aedd1dfe4db08f1254c344d440c",
+        "file": "/tmp/hs-finish-20261013/macos-ci-artifact-12056404592/unpacked/Helicoid Manager.app/Contents/MacOS/HelicoidManager: Mach-O 64-bit executable arm64",
+        "codesign_exit": 0,
+        "bundle_id": "systems.helicoid.manager.dev",
+        "signature": "ad-hoc development only"
+      },
+      {
+        "app": "Helicoid Computer.app",
+        "binary_sha256": "b20fec50791984e313b4b8f26a361a1a690f6dc6d30ce0444e9af91a468e99e2",
+        "file": "/tmp/hs-finish-20261013/macos-ci-artifact-12056404592/unpacked/Helicoid Computer.app/Contents/MacOS/HelicoidComputer: Mach-O 64-bit executable arm64",
+        "codesign_exit": 0,
+        "bundle_id": "systems.helicoid.computer.dev",
+        "signature": "ad-hoc development only"
+      }
+    ],
+    "staged_startup": {
+      "date": "2026-10-16",
+      "source_revision": "d657e9762246f3a2b7814cecadd79ef61dacda95",
+      "host": "macOS Apple Silicon coordinator",
+      "manager": {
+        "status": "Verified",
+        "scope": "cold startup and unavailable connection state only",
+        "bundle": "/tmp/hs-finish-20261013/coordinator-dist-macos-final-20261016/Helicoid Manager.app",
+        "binary_sha256": "0bdf380fccd4345ea09a30bcf62e358c5d5628446c6f23ed120351ee417477b3",
+        "observed_ui": "Connect to Server; Connect is unavailable. Production connection is closed until a trusted server identity is available.",
+        "connect_button_disabled": true,
+        "observation": "native CUA accessibility tree, with exact staged executable path independently verified"
+      },
+      "computer": {
+        "process_startup": "Verified",
+        "scope": "exact staged executable running; UI status not observed",
+        "binary_sha256": "52dbc1a3639aad6d91eb7222bba7866c0dbcfe13a0530d006db4eda9aa6c1d0a",
+        "ui_status": "Not Verified"
+      },
+      "screenshot": {
+        "status": "Not Verified",
+        "reason": "computer-use server timeoutReached after 119.6 seconds"
+      },
+      "worker_capture_input_installed_acceptance": "Not Verified",
+      "production_signing": "Not Verified"
+    },
+    "not_verified": [
+      "normal trusted profile/enrollment factory",
+      "installed worker capture/input/disclosure",
+      "Intel runtime",
+      "Developer ID/notarization"
+    ]
+  },
+  "windows": {
+    "status": "Verified native v2 sign-in/private key-store prerequisite; automatic expiry follow-up in progress",
+    "tested_source": "57bea5746705fd6595fc2174b7ea036fa28dca0a",
+    "native_ci": {
+      "run": 38931046294,
+      "status": "Verified",
+      "actual_runner": "Microsoft Windows Server2025",
+      "domain_tests_passed": 429,
+      "native_integration_tests_passed": 67,
+      "WinUI_builds": "Verified"
+    },
+    "download": {
+      "source": "57bea5746705fd6595fc2174b7ea036fa28dca0a",
+      "run": 38931046294,
+      "runner": "Microsoft Windows Server 2025",
+      "domain_tests_passed": 429,
+      "native_integration_tests_passed": 67,
+      "zip_sha256": "d6626386f78af58fd6bc9ead18166ce03e79111e3f699eb92da13e3ad870bfb7",
+      "github_digest_matches": true,
+      "archive_crc_exit": 0,
+      "member_count": 1070,
+      "selected_members": [
+        {
+          "path": "computer/Helicoid.CaptureWorker.exe",
+          "bytes": 162816,
+          "sha256": "efefa8dc27f37698a90d263e0ee0e7b2702ae5b37263fa001927ae00a8bc19ee",
+          "pe_machine": "x64"
+        },
+        {
+          "path": "computer/Helicoid.Computer.exe",
+          "bytes": 339456,
+          "sha256": "0274e3dc857ddc808d1af6d8d510fa846707914e760782f6fe187690c0d5fd5e",
+          "pe_machine": "x64"
+        },
+        {
+          "path": "manager/Helicoid.Manager.exe",
+          "bytes": 363008,
+          "sha256": "0ae64e1e54d3e2ebea6c796e59788181586dcabb6d0159f93f7c63c17cdcc82d",
+          "pe_machine": "x64"
+        }
+      ],
+      "installed_windows_11_acceptance": "Not Verified",
+      "signing": "unsigned development output"
+    },
+    "expiry_followup": {
+      "session_id": "ses_ffe5eba670801ffepoB0kmvyKd",
+      "status": "Not Verified; active bounded MiMo implementation",
+      "brief_sha256": "b6802a349142e708ee98d120b33030c6fcd5e051425e129487ea1124e1da1cac",
+      "baseline_regression": {
+        "status": "Verified defect",
+        "test": "CoordinatorReview_ActualClockExpiry_DropsSessionWithoutAnotherRequest",
+        "exit": 1,
+        "observation": "HasSession remains true after actual session expiry with real pinned HTTPS",
+        "receipt_sha256": "abc840c4646c237a8d37ae760861f5a8a1cf3854ef9ab380c250ccd338e11a5e"
+      }
+    },
+    "not_verified": [
+      "automatic session expiry",
+      "installed Windows11 acceptance",
+      "actual console capture/input/disclosure",
+      "normal trusted profile/enrollment factory",
+      "Windows release signing"
+    ]
+  },
+  "engine": {
+    "status": "Verified macOS connection-only prerequisite; Windows/admission/media/public adoption Not Verified",
+    "candidate_revision": "cb1b8fdb039cdeea9e306e671a63dcc765aaff47",
+    "accepted_integration_pin": "872a553bbe479041645286b1021dd309cf85f2ac",
+    "arm64_native_checks_passed": 100,
+    "own_bridge_harness_asan_checks_passed": 100,
+    "asan_scope": "Helicoid sources instrumented; upstream archives reused",
+    "swift_wrapper_runtime_checks_passed": 13,
+    "csharp_real_pinvoke_checks_passed": 16,
+    "intel_cross_build": "Verified",
+    "intel_runtime": "Not Verified",
+    "rust_tests_passed": 79,
+    "header_wrapper_drift_actionlint": "Verified",
+    "native_windows_ci": {
+      "run": 38933830544,
+      "status": "Failed; fetch passed, GN generation toolchain environment failed",
+      "previous_failures": [
+        {
+          "run": 38926181465,
+          "reason": "Windows CRLF strict header mismatch"
+        },
+        {
+          "run": 38930677112,
+          "reason": "Pinned optional Git mirror cache called unavailable git.bat"
+        }
+      ],
+      "correction": "Narrow LF attributes/process settings and supported cache_dir=None; strict checks and pins retained",
+      "failed_step": "Build bridge + shared library + harness (x64)",
+      "failure": "DEPOT_TOOLS_WIN_TOOLCHAIN=0 set only in fetch PowerShell process, absent from fresh build process; pinned vs_toolchain.py requests unavailable internal toolchain",
+      "repair_status": "Bounded MiMo follow-up requested; Not Verified"
+    },
+    "unavailable": [
+      "endpoint admission",
+      "video capture/frame handoff/VP8 media",
+      "input/control",
+      "TURN public adoption"
+    ]
+  },
+  "real_native_auth_interop": {
+    "status": "Verified",
+    "swift_checks_passed": 7,
+    "csharp_checks_passed": 6,
+    "receipt": {
+      "exit_code": 0,
+      "elapsed_seconds": 10.4,
+      "server_binary_sha256": "2d5aaf798fc5eda88735ffcc3487ba88d6f76a0f9c1e5a917c55f718ae66a3a9",
+      "binary_unchanged_during_run": true,
+      "log_sha256": "7339b1db3ea2e86c5b605cfbfee44bc5c7bc6676273d9db0bd048ae7837a4178",
+      "source_mac": "d657e9762246f3a2b7814cecadd79ef61dacda95",
+      "source_windows_domain": "57bea57 (domain unchanged from 72019ce)",
+      "test_only": true
+    },
+    "identities": "Disposable test-only identities; no normal-operation fixture identity"
+  },
+  "infrastructure": {
+    "checked_at_utc": "2026-10-16T16:39:33Z",
+    "host": "ubuntu@57.131.161.27",
+    "method": "SSH BatchMode with StrictHostKeyChecking=yes; read-only metadata only",
+    "os": "Ubuntu26.04LTS x86_64 / systemd",
+    "public_ipv4": [
+      "57.131.161.27"
+    ],
+    "public_ipv6": [
+      "2001:41d0:701:1100::e501"
+    ],
+    "tcp_80_443_owner": {
+      "container": "runtipi-reverse-proxy",
+      "image": "traefik:v3.6.14",
+      "bindings": "0.0.0.0 and [::]"
+    },
+    "authority_8920_listener_present": false,
+    "host_disk_available": "56GiB",
+    "services_mutated": false,
+    "files_or_configuration_mutated": false,
+    "secrets_or_env_files_read": false,
+    "user_resource_constraint": "Only the supplied VM is available; no separate two-address edge",
+    "single_vm_route": {
+      "status": "Not Verified",
+      "hypothesis": "Exact-name TLS SNI passthrough in existing Traefik may route distinct authority/carrier and TURN hostnames while unrelated HTTP routes remain in place",
+      "requires": [
+        "dedicated DNS names and certificate-renewal ownership",
+        "reviewed change to shared proxy and public architecture",
+        "pinned WebRTC TURN TLS hostname/SNI runtime evidence",
+        "both peers UDP-blocked TURN/TLS443 test",
+        "bounded relay allocation-expiry evidence",
+        "host firewall/provider reachability and dedicated UDP relay range"
+      ],
+      "does_not_satisfy": "two actual authority hosts for recovery cutover"
+    },
+    "source_documents": [
+      "https://doc.traefik.io/traefik/reference/routing-configuration/tcp/routing/rules-and-priority/",
+      "https://doc.traefik.io/traefik/reference/routing-configuration/tcp/tls/"
+    ],
+    "source_note": "Traefik docs establish router capability only, not installed configuration or WebRTC TURN route adoption."
+  },
+  "coordinator_receipts": [
+    {
+      "file": "/tmp/hs-finish-20261013/coordinator-server-final-checks-20261016.json",
+      "sha256": "72f3487a04812bb7d701e0f7c109023c260662b3b3fdc89a3852170ed2320676"
+    },
+    {
+      "file": "/tmp/hs-finish-20261013/coordinator-macos-final-package-receipt-20261016.json",
+      "sha256": "9cd8cedd210069e65795df1bd5493e7601463cbfed74e66c53e81eab325ebd94"
+    },
+    {
+      "file": "/tmp/hs-finish-20261013/coordinator-core-final-20261016.json",
+      "sha256": "22b188da8d644b5b165bbfd795f1ff523f2fe6c665fc857fdf569612748c5b4d"
+    },
+    {
+      "file": "/tmp/hs-finish-20261013/coordinator-core-final-hashes-20261016.json",
+      "sha256": "abee42a3513bcb7ddd2d7651fd0148ecbed227a6b68bca3320f5327c0ede60d1"
+    },
+    {
+      "file": "/tmp/hs-finish-20261013/coordinator-detached-test-cleanup-20261016.json",
+      "sha256": "6fee2bcc358f50f7af562402fd2ac00e5459ff5beb1b62768cbb945c9aeb9f53"
+    }
+  ],
+  "historical_failures_fixed": [
+    "server future MFA assurance and weak persisted-session bypass",
+    "Mac wrapper compile/expiry cancellation retention and UI notification failures",
+    "Windows key-store ACL layouts, object ownership and parent-handle access failures"
+  ],
+  "model_metadata": {
+    "original_packages": {
+      "server": {
+        "assistant_records": 124,
+        "provider": "xiaomi-token-plan-ams",
+        "model": "mimo-v2.6-pro",
+        "variant": "high",
+        "export_sha256": "43f2301804ede350cedb20015fdfdff9feeffcbde8f7d32bbc401a4a5cb08ed2",
+        "scope": "Europe-provider continuation records only; historical prior-provider/interrupted records excluded"
+      },
+      "macos": {
+        "assistant_records": 119,
+        "provider": "xiaomi-token-plan-ams",
+        "model": "mimo-v2.6-pro",
+        "variant": "high",
+        "export_sha256": "a2fd045f10d061a7eb369ba13ec1d90dedcc082a65fa0fe6f1a592ae28fb57bf",
+        "scope": "Europe-provider continuation records only; historical prior-provider/interrupted records excluded"
+      },
+      "windows": {
+        "assistant_records": 120,
+        "provider": "xiaomi-token-plan-ams",
+        "model": "mimo-v2.6-pro",
+        "variant": "high",
+        "export_sha256": "224bfa5d6d0418e0ea588c5805727f870f7b9636b5e274de065013743dba70d5",
+        "scope": "Europe-provider continuation records only; historical prior-provider/interrupted records excluded"
+      },
+      "core": {
+        "assistant_records": 144,
+        "provider": "xiaomi-token-plan-ams",
+        "model": "mimo-v2.6-pro",
+        "variant": "high",
+        "export_sha256": "78e988725c81304f6b9f9e9a2e0b7c761fe55919163bccecd66c8ccc2e7d98bc",
+        "scope": "Europe-provider continuation records only; historical prior-provider/interrupted records excluded"
+      }
+    },
+    "server": {
+      "session_id": "ses_ffe5eba9b3417ffesq6BTLFWRV",
+      "assistant_records": 51,
+      "provider": "xiaomi-token-plan-ams",
+      "model": "mimo-v2.6-pro",
+      "variant": "high",
+      "verified": true
+    },
+    "core_ci": {
+      "session_id": "ses_ffe5eba9947e1ffex2s1NivC0l",
+      "assistant_records": 48,
+      "provider": "xiaomi-token-plan-ams",
+      "model": "mimo-v2.6-pro",
+      "variant": "high",
+      "verified": true
+    },
+    "windows_ci": {
+      "session_id": "ses_ffe5eba9925b2ffez6fJaMI57D",
+      "assistant_records": 27,
+      "provider": "xiaomi-token-plan-ams",
+      "model": "mimo-v2.6-pro",
+      "variant": "high",
+      "verified": true
+    }
+  },
+  "release_gates": {
+    "worker_admission_checkpoint": "Not Verified",
+    "live_preview_checkpoint": "Not Verified",
+    "control_installation_recovery_checkpoint": "Not Verified",
+    "four_platform_combinations": "Not Verified",
+    "public_udp_blocked_tcp443": "Not Verified",
+    "signing": "Not Verified",
+    "installed_Windows_Apple_Silicon": "Not Verified",
+    "Intel_runtime": "Not Verified",
+    "two_actual_host_cutover": "Not Verified",
+    "independent_security_review": "Not Verified",
+    "performance_and_eight_hour_stability": "Not Verified"
+  },
+  "vm_services_data_ports80_443_preserved": true,
+  "unrelated_staged_website_gitmodules_and_artwork_preserved": true,
+  "daytona": {
+    "status": "Not Verified; account access blocked",
+    "cli_version": "0.224.1",
+    "authenticated_metadata_access": "Verified",
+    "windows_snapshot": "windows-medium",
+    "snapshot_region": "us",
+    "eu_attempt": "Bad Request: snapshot unavailable in eu",
+    "us_attempt": "Forbidden: Windows sandboxes unavailable for Tier1/Tier2 organizations; request access from Daytona support",
+    "sandbox_created": false,
+    "account_or_billing_changed": false,
+    "support_message_sent": false,
+    "source": "https://www.daytona.io/docs/en/sandboxes/",
+    "intended_use": "Additional native build/install/UI evidence; cannot substitute physical-console acceptance"
+  },
+  "integration_pins_scope": "server/Mac/Windows authentication prerequisites only; core candidate and Windows expiry follow-up remain unaccepted",
+  "verified_integration_pins": {
+    "modules/server": "8e21a757a187f59f3716d0309771663e154e505a",
+    "apps/macos": "03e2b67ed6c7560d3c8f5d232c6d022313b28b2b",
+    "apps/windows": "57bea5746705fd6595fc2174b7ea036fa28dca0a"
+  }
+}

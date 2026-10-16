@@ -1,8 +1,82 @@
 # Implementation run, 10 October 2026
 
+## Finishing continuation, 16 October 2026
+
+The active implementation uses **MiMo-V2.6-Pro / Xiaomi Token Plan (Europe) /
+high** (`xiaomi-token-plan-ams/mimo-v2.6-pro`), verified in exported session
+metadata. Earlier billing and failed-candidate records below are historical.
+The [current evidence record](evidence/finishing-continuation-2026-10-16.json)
+records exact source, artifact hashes, native checks and remaining boundaries.
+
+The server conditional-MFA prerequisite passes309 coordinator Mac tests,
+302 Linux and310 Windows CI tests, format, strict Clippy, release and both
+PowerShell fixtures in [CI38932191897](https://github.com/Helicoid-Systems/server/actions/runs/38932191897).
+Mandatory administrator MFA, optional-default operator policy, active-factor
+protection, approved device-key binding and rollback-safe assurance are checked.
+The [unsigned development server](https://github.com/Helicoid-Systems/server/actions/runs/38932191897/artifacts/12059988937)
+is digest/PE/launcher inspected. No production schema was migrated.
+
+Mac native sign-in and automatic expiry pass231 tests in31 suites, both release
+app builds and [CI38927581414](https://github.com/Helicoid-Systems/macos/actions/runs/38927581414).
+[Downloaded Apple Silicon apps](https://github.com/Helicoid-Systems/macos/actions/runs/38927581414/artifacts/12056404592)
+pass archive-digest and strict ad-hoc signature checks. Intel cross-build passes;
+Intel runtime remains Not Verified. A real staged Manager cold start shows the
+expected unavailable connection screen; Computer process startup is narrower
+than UI/worker acceptance. Real Rust HTTPS interop passes7 Swift and6 C# checks.
+
+Windows native sign-in/private-key storage passes429 domain and67 native
+integration tests plus both WinUI builds in [CI38931046294](https://github.com/Helicoid-Systems/windows/actions/runs/38931046294).
+The actual runner is Windows Server2025, not installed Windows11.
+The [unsigned development apps](https://github.com/Helicoid-Systems/windows/actions/runs/38931046294/artifacts/12059590770)
+match the archive digest and contain actual x64 Manager/Computer/worker files.
+A separate bounded MiMo session is implementing automatic expiry and UI cleanup;
+that follow-up is not accepted by the earlier native tests.
+
+The arm64 WebRTC connection harness passes100 checks, also100 with Helicoid
+bridge/harness ASan instrumentation. Full Swift wrappers pass13 runtime checks;
+real C# P/Invokes pass16. Intel cross-build,79 Rust tests, strict Clippy,
+header/wrapper drift and actionlint pass. [Native Windows CI38933830544](https://github.com/Helicoid-Systems/core/actions/runs/38933830544)
+passed fetch after strict LF/cache corrections, then failed GN generation because
+the fresh build process lacked the explicit installed-SDK toolchain policy. A
+bounded MiMo repair is in progress. Core's
+integration pin stays unchanged until its applicable native gate passes.
+Capture, endpoint admission, media and public relay adoption remain unavailable.
+
+The user has only `ubuntu@57.131.161.27`. Fresh read-only SSH preflight confirms
+one public IPv4 and existing Traefik ownership of80/443 on IPv4/IPv6;8920 is free.
+No host service/configuration/data/firewall was changed. [ADR0007](adr/0007-native-webrtc-and-public-edge.md)
+records a proposed single-VM SNI alternative and its unpassed gates; it does not
+silently adopt that route or remove the public TCP443 requirement.
+
+Daytona was checked after the user offered it for Windows testing. Authenticated
+snapshot listing works, but `windows-medium` is US-only and VM creation is
+refused for the current Tier1/Tier2 organization. No VM or account/billing change
+was created; Windows VM access must be enabled by Daytona before this route can
+supply evidence. Native GitHub Windows CI remains the working verification path.
+
+These downloads are authentication/build prerequisites. The worker/admission,
+live preview and control/installation/recovery checkpoints remain incomplete.
+Signing, installed OS tests, real recovery cutover, public routing, stability and
+independent security review remain required. Supplied artwork and unrelated
+staged Website/.gitmodules changes remain preserved.
+
+## Finishing implementation, 13 October 2026
+
+The accepted finishing plan replaces the selected RustDesk route with native Google WebRTC and keeps its earlier laboratory evidence historical. [ADR 0007](adr/0007-native-webrtc-and-public-edge.md) records the engine, independently trusted authority carrier, separate two-address public edge, 60-second bounded relay authorization and configurable operator MFA decisions.
+
+The bounded MiMo V2.6 packages cover the native WebRTC connection proof, optional-by-default operator MFA and native Mac/Windows challenge-login clients. On 14 October all four requested-provider sessions stopped with HTTP 402, `Insufficient account balance`; their source candidates and the pinned upstream checkout are preserved. The coordinator verifies all 169 exported assistant records as `xiaomi/mimo-v2.6-pro`. The current server candidate passes 46 authentication tests, but an independent future-assurance regression fails: clock rollback can authorize a policy change. Review also identifies completion-key binding, native cancellation/private-store and engine handle/drain/queue defects that must be fixed before acceptance. [The candidate block receipt](evidence/finishing-candidate-block-2026-10-14.json) records the billing refusals, model evidence and check results.
+
+Existing accepted repository pins remain unchanged. No actual WebRTC runtime, production media/input, public edge, installed service, update or deployment-recovery acceptance follows from these candidates. The requested downloadable checkpoints remain incomplete. The supplied Ubuntu host was checked read-only; ports 80/443 remain occupied and port 8920 was free at that preflight. No remote service, data or listener was changed.
+
+The final coordinator checks of the preserved candidates report: server auth **46 passed**, server format/strict Clippy **Failed**, Mac **199 tests / 11 issues**, and existing Windows domain tests on Mac **387 passed**. The new Windows authentication/private-store/UI acceptance remains **Not Verified**; compiling its source does not establish those behaviors. The WebRTC generated contract, native build and actual connection harness remain incomplete. These failed/unverified checks are recorded without advancing any accepted integration pin or publishing a checkpoint.
+
+On 15 October the user selected **Xiaomi Token Plan (Europe), MiMo-V2.6-Pro, high**. All four exact saved sessions resumed with `xiaomi-token-plan-ams/mimo-v2.6-pro --variant high`; sanitized exports verify this configuration for the new continuation records. [The resume receipt](evidence/finishing-resume-2026-10-15.json) distinguishes the new provider from the historical billing failures. Review fixes and fresh acceptance checks are in progress; candidates remain unaccepted.
+
+The coordinator independently confirms the clock-rollback repair with the unchanged regression (**1 passed**, previously Failed). Two additional regressions currently fail: v1 session issuance bypasses required operator MFA and mandatory administrator MFA. New review packets also identify native UI cleanup races, WebRTC timeout/registry lifetime defects and incorrect Windows native storage API declarations. The same owner sessions are repairing these findings; their earlier green suites do not establish acceptance.
+
 ## MiMo V2.6 production prerequisites
 
-The current wave uses installed MiMo Code with `xiaomi/mimo-v2.6-pro`.
+The current wave uses installed MiMo Code with `xiaomi-token-plan-ams/mimo-v2.6-pro` and variant `high`, as requested on 15 October. Earlier records used `xiaomi/mimo-v2.6-pro`.
 The coordinator checks sanitized exported session metadata, reviews each diff
 and repeats acceptance commands. The earlier V2.5 results below are historical
 foundation evidence; they do not describe the current completion status.
