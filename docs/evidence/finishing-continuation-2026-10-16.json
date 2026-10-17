@@ -177,6 +177,39 @@
           "strict_adhoc_signature": "Verified"
         }
       ]
+    },
+    "native_menu": {
+      "source": "48d8d973329e6e7579211cb2708054a9c71789e9",
+      "status": "Verified source/build; onscreen appearance and actions Not Verified",
+      "scope": "Standard macOS menu with connection/access status, Open Status Window, Settings and Quit; Help and disconnection details remain in status window",
+      "coordinator_tests": 239,
+      "coordinator_release": "Verified arm64 HelicoidComputer build and strict ad-hoc bundle signature",
+      "ci_run": 39065502373,
+      "ci_status": "Verified success;239 tests, release/package and Intel source compilation",
+      "download_url": "https://github.com/Helicoid-Systems/macos/actions/runs/39065502373/artifacts/12113008354",
+      "download_archive_sha256": "305f75f264ebeb8fc0bb584c6f4fe3d091365b3c8bbd05844d33cb1be8d61469",
+      "download_digest_matches_GitHub": true,
+      "download_archive_crc": "Verified outer and both inner ZIPs",
+      "download_bundles": "Verified both arm64 executables and strict ad-hoc signatures",
+      "download_receipt_sha256": "c13fc0fc6e007517603153a170a06546804c72a2ade200cfcd74504aa3c02220",
+      "local_zip": "/tmp/hs-finish-20261013/coordinator-macos-menu-m01-dist/Helicoid Computer.zip",
+      "local_zip_sha256": "107e79cc110c787d2ba17fd20e076b6d8c6923e2f9461e855ca1fc420f1e0b12",
+      "local_binary_sha256": "0c64fa1699ba1389c452f958ce2b21be47181bc04fc097007497db2233ef6d9b",
+      "local_zip_crc": "Verified",
+      "receipt": "/tmp/hs-finish-20261013/coordinator-macos-menu-m01-receipt.json",
+      "receipt_sha256": "40e71893ed31571f72ee1f9358be7a7781665c309cd73005bb894f22fdb6e9c6",
+      "model": {
+        "session": "ses_ffe5eb48bd45bffeDY1Qeq5AIf",
+        "provider": "xiaomi-token-plan-ams",
+        "model": "mimo-v2.6-pro",
+        "variant": "high",
+        "assistant_records": 21,
+        "final_finish": "stop"
+      },
+      "UI": "Not Verified; CUA getApp timed out for running app and isolated same-binary review bundle",
+      "signing": "Ad-hoc development only",
+      "Intel_runtime": "Not Verified",
+      "AboutView_preserved": true
     }
   },
   "windows": {
@@ -959,10 +992,10 @@
     "existing_organizations_checked": 1,
     "alternate_eligible_organization_found": false
   },
-  "integration_pins_scope": "server/Mac/Windows authentication prerequisites and core native connection-only baseline; TURN, admission and media adoption remain unaccepted",
+  "integration_pins_scope": "Server/Mac/Windows authentication, core native connection, and Mac permission/menu prerequisites; public route, admission and media adoption remain unaccepted",
   "verified_integration_pins": {
     "modules/server": "8e21a757a187f59f3716d0309771663e154e505a",
-    "apps/macos": "68c85f4bd1ba3e373b8848bc685ba741f96b995f",
+    "apps/macos": "48d8d973329e6e7579211cb2708054a9c71789e9",
     "apps/windows": "46d038849da1cd76f6cd28c73382e332c79b8453",
     "modules/core": "7aef2275dc2f675a646b9fbeda4573ff7ef31604"
   },
@@ -1310,22 +1343,22 @@
     "public_route_adoption": "Not Verified",
     "normal_capture_media_control": "Unavailable",
     "signing_installed_acceptance_recovery_security_review": "Not Verified",
-    "accepted_pin_scope": "Core7aef227 native connection prerequisites, Mac68c85f4 permission-status prerequisite and existing Windows/auth pins; server relay Linux correction still pending",
+    "accepted_pin_scope": "Core 7aef227 native connection prerequisites, Mac 48d8d97 permission/native-menu prerequisites and existing Windows/auth pins; server relay Linux correction still pending",
     "main_published_revision": "423bf218c7d323305e8274e27739fe666619300b",
     "last_published_integration_revision": "aad8a96bcd5850b2d61018677933e9c63e6d6175",
-    "main_published_revision_note": "Historical revision at initial continuation; last_published_integration_revision records subsequent accepted core baseline",
-    "current_work": "Core candidate 7aef227: Rust CI success, Windows native CI in progress (build stage); relay R02 v5b portable VERIFIED by agent + coordinator exit0, Linux CI pending; Mac P01 permission status running, AboutView bytes preserved"
+    "main_published_revision_note": "Historical continuation revisions; current accepted source pins are recorded in verified_integration_pins",
+    "current_work": "Core 7aef227 Rust and native Windows CI passed. Mac 48d8d97 permission/native-menu prerequisites pass coordinator and CI 39065502373 checks; downloaded artifacts verified. Menu appearance/actions remain Not Verified after UI inspection timeout. Relay Linux dependency correction remains unaccepted; real channel/admission review requires a corrected engine-owned handle design. AboutView bytes preserved."
   },
   "updated_date": "2026-10-17",
   "active_packages_2026_10_17": {
     "relay_linux_deps": {
       "owner": "modules/server/relay-lab/scripts",
       "session": "ses_ffe5eb49e9982ffe9u0M4AlTk5",
-      "status": "MiMo correction in progress; frozen native patches/oracle"
+      "status": "Source candidate only; native Mac dependency link probe passed. Agent used a scratch pkg-config substitute, so its configure proof is not accepted as native pkg-config evidence. Real Linux CI remains required; frozen native patches/oracle preserved."
     },
     "real_channel_admission": {
       "owner": "modules/core",
-      "status": "Read-only MiMo contract review before bounded implementation",
+      "status": "Review interrupted; proposed caller-constructed channel evidence rejected. No implementation accepted; require a retained real engine-issued handle and native integration proof.",
       "brief": "/tmp/hs-finish-20261013/core-admission-channel-a01-contract-20261017.md"
     }
   }
