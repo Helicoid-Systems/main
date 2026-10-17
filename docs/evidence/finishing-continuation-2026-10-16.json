@@ -210,6 +210,49 @@
       "signing": "Ad-hoc development only",
       "Intel_runtime": "Not Verified",
       "AboutView_preserved": true
+    },
+    "setup_style_settings": {
+      "source": "42710fd4b8f9c69aa49afc0e2a97cce8bfd1bf27",
+      "status": "Verified source/build; visual acceptance Not Verified",
+      "scope": "Manager setup titlebar/background rules;600x400 Computer window; icon-led permission cards, actual status badges, Allow actions, gear shortcuts and tooltips",
+      "previous_visual_candidate": {
+        "source": "52c65d4183e473e438619c07403750ee77dca074",
+        "ci_run": 39071731401,
+        "build_checks": "Verified success",
+        "visual_acceptance": "Failed; user requested fewer explanations, more icons and Manager setup window styling"
+      },
+      "coordinator_tests": 239,
+      "coordinator_suites": 33,
+      "arm64_release_and_strict_adhoc_signature": "Verified",
+      "ci_run": 39072489556,
+      "ci_status": "Verified success;239 tests, release/package and Intel source compilation",
+      "download_url": "https://github.com/Helicoid-Systems/macos/actions/runs/39072489556/artifacts/12116006207",
+      "download_archive_sha256": "e90979bbc75693db0953376bcb069cf488283d523ccd0ae3c4bd19097746cc47",
+      "download_digest_matches_GitHub": true,
+      "download_archive_CRC": "Verified outer and both inner ZIPs",
+      "download_bundles": "Verified both arm64 executables and strict ad-hoc signatures",
+      "download_receipt_sha256": "8a2eee912efbadffc0d03b64a78abf798ed606296a0fe60f1e1891ef37ff069f",
+      "local_zip": "/tmp/hs-finish-20261013/coordinator-macos-settings-m03-dist/Helicoid Computer.zip",
+      "local_zip_sha256": "6125e1a9cda9432a39ec0e1dea9ca05a4fc8334498cf036d2c55494e2820ef56",
+      "local_binary_sha256": "b9bf09dbc6c0a8c9f67147732a8bf9c5cbe464d64141fa537b9b034c8a5c00f7",
+      "zip_CRC": "Verified",
+      "receipt": "/tmp/hs-finish-20261013/coordinator-macos-settings-m03-receipt-v2.json",
+      "receipt_sha256": "ef7e80714f484b2b373f08332c469de3c84982f3dbe45bdb8f9ccd17e3722951",
+      "startup": "Verified exact canonical staged executable running; /tmp resolves to /private/tmp",
+      "UI": "Not Verified; requested user to open Settings so CUA can attach to the menu-only app",
+      "model": {
+        "session": "ses_ffe5eb431ab45ffebfsjjHYpca",
+        "provider": "xiaomi-token-plan-ams",
+        "model": "mimo-v2.6-pro",
+        "variant": "high",
+        "assistant_records": 18,
+        "final_finish": "stop"
+      },
+      "permission_requests": "Not exercised; no prompts accepted",
+      "worker_admission_capture_input": "Unchanged; unavailable",
+      "signing": "Ad-hoc development only",
+      "Intel_runtime": "Not Verified",
+      "unrelated_changes_and_artwork_preserved": true
     }
   },
   "windows": {
@@ -992,10 +1035,10 @@
     "existing_organizations_checked": 1,
     "alternate_eligible_organization_found": false
   },
-  "integration_pins_scope": "Server/Mac/Windows authentication, core native connection, and Mac permission/menu prerequisites; public route, admission and media adoption remain unaccepted",
+  "integration_pins_scope": "Server/Mac/Windows authentication, core native connection, and Mac permission/menu/Settings prerequisites; public route, admission and media adoption remain unaccepted",
   "verified_integration_pins": {
     "modules/server": "8e21a757a187f59f3716d0309771663e154e505a",
-    "apps/macos": "48d8d973329e6e7579211cb2708054a9c71789e9",
+    "apps/macos": "42710fd4b8f9c69aa49afc0e2a97cce8bfd1bf27",
     "apps/windows": "46d038849da1cd76f6cd28c73382e332c79b8453",
     "modules/core": "7aef2275dc2f675a646b9fbeda4573ff7ef31604"
   },
@@ -1343,11 +1386,11 @@
     "public_route_adoption": "Not Verified",
     "normal_capture_media_control": "Unavailable",
     "signing_installed_acceptance_recovery_security_review": "Not Verified",
-    "accepted_pin_scope": "Core 7aef227 native connection prerequisites, Mac 48d8d97 permission/native-menu prerequisites and existing Windows/auth pins; server relay Linux correction still pending",
+    "accepted_pin_scope": "Core 7aef227 native connection prerequisites, Mac 42710fd permission/menu/setup-style Settings prerequisites and existing Windows/auth pins; server relay Linux correction still pending",
     "main_published_revision": "423bf218c7d323305e8274e27739fe666619300b",
     "last_published_integration_revision": "aad8a96bcd5850b2d61018677933e9c63e6d6175",
     "main_published_revision_note": "Historical continuation revisions; current accepted source pins are recorded in verified_integration_pins",
-    "current_work": "Core 7aef227 Rust and native Windows CI passed. Mac 48d8d97 permission/native-menu prerequisites pass coordinator and CI 39065502373 checks; downloaded artifacts verified. Menu appearance/actions remain Not Verified after UI inspection timeout. Relay Linux dependency correction remains unaccepted; real channel/admission review requires a corrected engine-owned handle design. AboutView bytes preserved."
+    "current_work": "Core 7aef227 Rust and native Windows CI passed. Mac 42710fd setup-style permission Settings passes coordinator and CI 39072489556 checks; downloaded artifacts verified. Exact staged app is running; visual acceptance waits for Settings to be opened for CUA inspection. Relay Linux dependency correction remains unaccepted; real channel/admission review requires a corrected engine-owned handle design. AboutView bytes preserved."
   },
   "updated_date": "2026-10-17",
   "active_packages_2026_10_17": {
