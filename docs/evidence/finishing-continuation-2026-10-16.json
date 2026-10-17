@@ -332,8 +332,8 @@
     }
   },
   "engine": {
-    "status": "Verified macOS connection-only prerequisite; Windows/admission/media/public adoption Not Verified",
-    "candidate_revision": "dd97c5e9b9627d0dccfe4fcb2e63a8b37a1d2667",
+    "status": "Verified macOS and Windows connection-only native harness prerequisites; full Windows wrapper, admission/media/public adoption Not Verified",
+    "candidate_revision": "eab1939c558b90767bd363a0622f9521261dab5a",
     "accepted_integration_pin": "872a553bbe479041645286b1021dd309cf85f2ac",
     "arm64_native_checks_passed": 142,
     "own_bridge_harness_asan_checks_passed": 142,
@@ -360,7 +360,7 @@
       "correction": "Narrow LF attributes/process settings and supported cache_dir=None; strict checks and pins retained",
       "failed_step": "Run harness and retain report",
       "failure": "100 checks,24 failures; first peer A/B channel connection failure after SDP exchange; C# runtime skipped",
-      "repair_status": "Reviewed socket lifetime, failed-drain retention and binary retention repair published at dd97c5e; new native CI pending; accepted core integration pin unchanged",
+      "repair_status": "Historical failed run; dd97 rerun39021044707 passes142 native checks, then fails missing export-inspection tool before C#; accepted core integration pin unchanged",
       "previous_environment_failure_run": 38933830544,
       "repair_model_assistant_records": 69,
       "repair_model_metadata": "xiaomi-token-plan-ams/mimo-v2.6-pro high",
@@ -418,7 +418,28 @@
     "native_windows_rerun": {
       "run": 39021044707,
       "source": "dd97c5e9b9627d0dccfe4fcb2e63a8b37a1d2667",
-      "status": "Queued or in progress; Not Verified"
+      "status": "Failed export-inspection tool prerequisite after native142/0 pass; C# runtime Not Verified",
+      "native_harness": {
+        "passed": 142,
+        "failed": 0,
+        "status": "Verified actual Windows runner"
+      },
+      "failed_step": "Verify DLL exports then run C# wrapper runtime",
+      "failure": "Pinned compiler package has no llvm-readobj.exe",
+      "csharp_runtime": "Not Verified; not executed after export prerequisite failure",
+      "retained_artifact": {
+        "id": 12097613213,
+        "url": "https://github.com/Helicoid-Systems/core/actions/runs/39021044707/artifacts/12097613213",
+        "zip_bytes": 4815666,
+        "zip_sha256": "09a4da68f394d6c147866a1bfd48f5d3058e95914a8d6dd32fd8c0776169625a",
+        "zip_crc": "Verified all11 entries",
+        "actual_DLL_and_harness_present": true
+      },
+      "coordinator_receipt": {
+        "file": "/tmp/hs-finish-20261013/coordinator-core-native-39021044707-artifact-receipt.json",
+        "sha256": "c8a3a3958c5dc08f084e2432279de681e777b02769cae87272d453236de6f251"
+      },
+      "repair": "Bounded real PE export checker/workflow correction in progress; coordinator found initial zero/header function RVA false greens, not accepted"
     },
     "new_rust_ci": {
       "run": 39021044711,
@@ -445,8 +466,36 @@
     "turn_tls_connection_followup": {
       "session": "ses_ffe5eb6c805ebffeEGWwmWxFSi",
       "owner": "modules/core/webrtc-native",
-      "status": "In progress; not accepted",
+      "status": "Resumed bounded v3 loopback proof after serialized CI helper commit; not accepted",
       "scope": "Actual local relay-only TLS engine connection with strict trust, selected candidate evidence and negative tests; public and production gates remain closed"
+    },
+    "native_export_tool_repair": {
+      "source": "eab1939c558b90767bd363a0622f9521261dab5a",
+      "published_remote_verified": true,
+      "model_session": "ses_ffe5eb5f8ab65ffe5VV4TdVOng",
+      "model_records": 65,
+      "provider": "xiaomi-token-plan-ams",
+      "model": "mimo-v2.6-pro",
+      "variant": "high",
+      "final_finish": "stop",
+      "coordinator_checks": {
+        "synthetic_regressions": 18,
+        "real_DLL_cases": 12,
+        "workflow_PowerShell_blocks": 7,
+        "actionlint": "Verified exit0",
+        "isolated_committed_header_wrapper_drift": "Verified32 header/29 wrapper exports",
+        "compiled_retained_runtime_path_identity": "Enforced SHA256 before and after runtime",
+        "separate_TURN_files_preserved": 17
+      },
+      "coordinator_receipt": {
+        "file": "/tmp/hs-finish-20261013/coordinator-core-export-final-acceptance-receipt-20261017.json",
+        "sha256": "61ccd3041419face5655528f072716f359ab118107a359b5891f9035d5eef234"
+      },
+      "committed_tree_receipt": "/tmp/hs-finish-20261013/coordinator-core-export-committed-y8do76cu/receipt.json",
+      "native_windows_run": 39037906193,
+      "rust_run": 39037906240,
+      "CI_status": "In progress; not yet accepted",
+      "rust_CI_status": "Verified success; all5 jobs on eab1939"
     }
   },
   "real_native_auth_interop": {
@@ -784,7 +833,7 @@
     }
   },
   "relay_prerequisite": {
-    "status": "Failed coordinator acceptance of final test package; bounded MiMo verdict/timing correction active",
+    "status": "Oracle/fixture correction Verified; frozen native cutoff and isolation Failed; implementation unaccepted",
     "owner": "modules/server",
     "session_id": "ses_ffe5eb94a1f74ffeCxmKvBwZhB",
     "source_version": "coturn4.18.0",
@@ -889,6 +938,64 @@
       "incorrect_reported_defect_reproduced": true,
       "receipt_sha256": "00e1e281cc519cc6ead1dbe94accfcd62ba4e73e07c053bc5be397e3f403ab33",
       "repair": "Fresh bounded MiMo oracle-v3 session; private fixtures; C patch frozen"
+    },
+    "oracle_correction_final": {
+      "session": "ses_ffe5eb6bce8e7ffe7MRZudnEU5",
+      "model": {
+        "provider": "xiaomi-token-plan-ams",
+        "model": "mimo-v2.6-pro",
+        "variant": "high",
+        "assistant_records": 57,
+        "final_finish": "stop"
+      },
+      "coordinator_checks": {
+        "launcher_regressions": 11,
+        "causal_regressions": 9,
+        "shell_syntax": "Verified exit0",
+        "actionlint": "Verified exit0",
+        "restricted_causal_attempt": "Loopback bind denied by sandbox; approved rerun passes"
+      },
+      "repairs": [
+        "fresh private fixtures preserve caller binaries",
+        "bounded nonce receive returns on match and restores timeout",
+        "missed window does not claim reproduced defect",
+        "mode-specific mandatory verdicts",
+        "per-invocation correlation and binary identity",
+        "fresh paired credential denial"
+      ],
+      "native_matrix": "Failed package wrapper exit1; lastfraction cutoff and allocation isolation failed",
+      "actual_failing60": {
+        "binary_sha256": "b1dd53dd48061521e769949634136822fb6b4c9fd791e7ebbad37469cbcda313",
+        "before_timestamp_s": 0.291429,
+        "new_post_bound_packet_receipts": 5,
+        "refresh_succeeded": true,
+        "source": "/tmp/hs-finish-20261013/server-oracle-fixture-tmp/native-lab-1792243403-90349/run/native-patched-lastfraction-60s.json"
+      },
+      "actual_coordinator_passing60": {
+        "same_binary": true,
+        "before_timestamp_s": 0.293633,
+        "new_post_bound_packet_receipts": 0,
+        "refresh_succeeded": false,
+        "owned_child_reaped": true,
+        "receipt": "/tmp/hs-finish-20261013/coordinator-relay-oracle-native-final-bcrovsbd/receipt.json",
+        "sha256": "ddc7dfe00f39c14b45dbdb959be77330b59a570a391d66da7b7a44e83f0334cd"
+      },
+      "timing_conclusion": "Passing sampled phase does not erase reproducible timestamp-cutoff failures; hard60 from issuance and renewable authority remain Not Verified",
+      "clockfault_scope": "Observed compile-time seam denies Allocate/Refresh; current oracle accepts some no-response errors; existing-allocation revocation and production fault acceptance Not Verified",
+      "superseded_owner_report": "relay-lab/FINAL-REPORT-20261017.md explicitly marked Not Accepted",
+      "native_linux_ci": "Not Verified; not dispatched",
+      "coordinator_receipt": {
+        "file": "/tmp/hs-finish-20261013/coordinator-server-oracle-final-review-receipt-20261017.json",
+        "sha256": "81e5b73486f9464a465c1f6f255c74f22fe2afc655e664ba025ebe099941ad92"
+      },
+      "server_integration_pin_advanced": false
+    },
+    "native_cutoff_followup": {
+      "package": "R02",
+      "session": "ses_ffe5eb5e19cc7ffejzw8D5UqyP",
+      "status": "In progress; not accepted",
+      "scope": "New layered coturn native cutoff/delete patch, frozen oracle and old native artifacts preserved",
+      "brief_sha256": "eac793b9955b13a187dcc5676f04ad0619e0f2fcc749dc02c8f84e19d8c827cb"
     }
   },
   "tooling_repair_2026_10_17": {
