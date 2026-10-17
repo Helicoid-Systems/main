@@ -213,7 +213,7 @@
     },
     "setup_style_settings": {
       "source": "42710fd4b8f9c69aa49afc0e2a97cce8bfd1bf27",
-      "status": "Verified source/build; visual acceptance Not Verified",
+      "status": "Verified source/build; visual acceptance Failed for Allow contrast",
       "scope": "Manager setup titlebar/background rules;600x400 Computer window; icon-led permission cards, actual status badges, Allow actions, gear shortcuts and tooltips",
       "previous_visual_candidate": {
         "source": "52c65d4183e473e438619c07403750ee77dca074",
@@ -239,7 +239,7 @@
       "receipt": "/tmp/hs-finish-20261013/coordinator-macos-settings-m03-receipt-v2.json",
       "receipt_sha256": "ef7e80714f484b2b373f08332c469de3c84982f3dbe45bdb8f9ccd17e3722951",
       "startup": "Verified exact canonical staged executable running; /tmp resolves to /private/tmp",
-      "UI": "Not Verified; requested user to open Settings so CUA can attach to the menu-only app",
+      "UI": "Observed via user screenshot and CUA accessibility tree. Visual acceptance Failed for Allow contrast; M04 also removes gear buttons as requested.",
       "model": {
         "session": "ses_ffe5eb431ab45ffebfsjjHYpca",
         "provider": "xiaomi-token-plan-ams",
@@ -253,6 +253,37 @@
       "signing": "Ad-hoc development only",
       "Intel_runtime": "Not Verified",
       "unrelated_changes_and_artwork_preserved": true
+    },
+    "allow_contrast_and_gear_removal": {
+      "recorded_date": "2026-10-18",
+      "source": "6e5da811d4fd1d585f74a5303e1621ec771f5c8d",
+      "status": "Verified source/build; replacement visual acceptance Not Verified",
+      "scope": "Allow uses native bordered style and explicit Color.primary text; both per-permission gear buttons removed. Request actions and menu Settings remain unchanged.",
+      "coordinator_tests": 239,
+      "coordinator_suites": 33,
+      "arm64_release_signature_and_zip_CRC": "Verified",
+      "ci_run": 39073254051,
+      "ci_status": "Verified success; 239 tests, release/package and Intel source compilation",
+      "download_url": "https://github.com/Helicoid-Systems/macos/actions/runs/39073254051/artifacts/12115114625",
+      "download_archive_sha256": "97e4d03a9aa0445e63b12bd5c64ee2aec36c1a3214b999ba102308acd6c755a5",
+      "download_digest_matches_GitHub": true,
+      "download_CRC_and_bundle_signatures": "Verified outer/inner ZIPs and both arm64 ad-hoc bundles",
+      "download_receipt_sha256": "b347db2e9f772dc5be3d3636518f942ab011c0a19ccd6b07ccce58820c0e7367",
+      "local_zip": "/tmp/hs-finish-20261013/coordinator-macos-settings-m04-dist/Helicoid Computer.zip",
+      "local_zip_sha256": "bc5e47ec5bd63b3bb015d32d0a63dcc8bd913df19448fc1fc8785641c0e11908",
+      "local_binary_sha256": "1b7e64fd5dbde026bb5e7127d78f66bdb563396cc80e6aa32b6778f76159b88a",
+      "receipt_sha256": "a83e6d1204c13d3667089e0f3e8b8f38e469d58236a86d62f3f6b156d661a291",
+      "model": {
+        "session": "ses_ffe5eb422ea9cffeDWd1rOvFaQ",
+        "provider": "xiaomi-token-plan-ams",
+        "model": "mimo-v2.6-pro",
+        "variant": "high",
+        "assistant_records": 8,
+        "final_finish": "stop"
+      },
+      "UI": "Replacement not yet observed; no permission prompts exercised",
+      "signing": "Ad-hoc development only",
+      "Intel_runtime": "Not Verified"
     }
   },
   "windows": {
@@ -1038,7 +1069,7 @@
   "integration_pins_scope": "Server/Mac/Windows authentication, core native connection, and Mac permission/menu/Settings prerequisites; public route, admission and media adoption remain unaccepted",
   "verified_integration_pins": {
     "modules/server": "8e21a757a187f59f3716d0309771663e154e505a",
-    "apps/macos": "42710fd4b8f9c69aa49afc0e2a97cce8bfd1bf27",
+    "apps/macos": "6e5da811d4fd1d585f74a5303e1621ec771f5c8d",
     "apps/windows": "46d038849da1cd76f6cd28c73382e332c79b8453",
     "modules/core": "7aef2275dc2f675a646b9fbeda4573ff7ef31604"
   },
@@ -1386,13 +1417,13 @@
     "public_route_adoption": "Not Verified",
     "normal_capture_media_control": "Unavailable",
     "signing_installed_acceptance_recovery_security_review": "Not Verified",
-    "accepted_pin_scope": "Core 7aef227 native connection prerequisites, Mac 42710fd permission/menu/setup-style Settings prerequisites and existing Windows/auth pins; server relay Linux correction still pending",
+    "accepted_pin_scope": "Core 7aef227 native connection prerequisites, Mac 6e5da81 permission/menu/Settings and button-style prerequisites and existing Windows/auth pins; server relay Linux correction still pending",
     "main_published_revision": "423bf218c7d323305e8274e27739fe666619300b",
     "last_published_integration_revision": "aad8a96bcd5850b2d61018677933e9c63e6d6175",
     "main_published_revision_note": "Historical continuation revisions; current accepted source pins are recorded in verified_integration_pins",
-    "current_work": "Core 7aef227 Rust and native Windows CI passed. Mac 42710fd setup-style permission Settings passes coordinator and CI 39072489556 checks; downloaded artifacts verified. Exact staged app is running; visual acceptance waits for Settings to be opened for CUA inspection. Relay Linux dependency correction remains unaccepted; real channel/admission review requires a corrected engine-owned handle design. AboutView bytes preserved."
+    "current_work": "Core 7aef227 Rust and native Windows CI passed. Mac 6e5da81 corrects Allow contrast and removes per-permission gear buttons; coordinator and CI 39073254051 checks pass and downloaded artifacts are verified. Replacement visual contrast remains Not Verified. Relay Linux dependency correction remains unaccepted; real channel/admission review requires a corrected engine-owned handle design. AboutView bytes preserved."
   },
-  "updated_date": "2026-10-17",
+  "updated_date": "2026-10-18",
   "active_packages_2026_10_17": {
     "relay_linux_deps": {
       "owner": "modules/server/relay-lab/scripts",
