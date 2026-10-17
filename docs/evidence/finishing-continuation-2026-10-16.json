@@ -133,7 +133,51 @@
       "installed worker capture/input/disclosure",
       "Intel runtime",
       "Developer ID/notarization"
-    ]
+    ],
+    "permission_candidate": {
+      "source": "d9941eb44db11fbd5e3f0ed275df522cee88df3e",
+      "ci_run": 39063635258,
+      "status": "Verified permission-status prerequisite; no worker/admission checkpoint",
+      "coordinator_tests": 239,
+      "coordinator_packaging": "Verified arm64 release builds and strict ad-hoc signatures",
+      "runtime_UI": "Not Verified; computer-use inspection timed out and process resolution selected registered development bundle rather than dedicated staged path",
+      "capture_admission_input": "Unavailable",
+      "model": {
+        "provider": "xiaomi-token-plan-ams",
+        "model": "mimo-v2.6-pro",
+        "variant": "high",
+        "assistant_records": 25,
+        "final_finish": "stop"
+      },
+      "AboutView_working_tree_sha256": "76fdcc3f5023f1f51e533a69ee129e78b2143ce080c000deed8619636239ea63",
+      "accepted_pin_advanced": true,
+      "integration_pin": "68c85f4bd1ba3e373b8848bc685ba741f96b995f",
+      "ci_status": "Verified success; tests, release/package and Intel source compatibility",
+      "download_url": "https://github.com/Helicoid-Systems/macos/actions/runs/39063635258/artifacts/12112082811",
+      "archive_sha256": "a7b40f723488b9d97bfaf315f638be825c2db354ac3c97d0caf7520b944f9aa9",
+      "artifact_receipt": {
+        "file": "/tmp/hs-finish-20261013/coordinator-macos-p01-ci-artifacts/receipt.json",
+        "sha256": "4bb8c089093639ffab3a9851ef77caec7c20c479b8c12e243b62243b93e48665"
+      },
+      "apps": [
+        {
+          "role": "Computer",
+          "zip_members": 24,
+          "zip_sha256": "ab8261558a3455353be2f9e85727ce852eeaf431e7ad0f0a8c0c8adcedd9ee24",
+          "binary_sha256": "1e7cb36218d05feb556c1248c2dfe7ad73018db7d244ded5c1c095d6f0ca99df",
+          "architecture": "arm64",
+          "strict_adhoc_signature": "Verified"
+        },
+        {
+          "role": "Manager",
+          "zip_members": 26,
+          "zip_sha256": "89f50a451ffcf434308c19d8dbaa4104c876d67c63fccdb2f4ea6947bcfc6763",
+          "binary_sha256": "29e00184fe5969e24e8af1ac60e3597db767dc439c62e1a2c640655e705a41de",
+          "architecture": "arm64",
+          "strict_adhoc_signature": "Verified"
+        }
+      ]
+    }
   },
   "windows": {
     "status": "Verified native sign-in/private-store and automatic session-expiry prerequisite",
@@ -918,7 +962,7 @@
   "integration_pins_scope": "server/Mac/Windows authentication prerequisites and core native connection-only baseline; TURN, admission and media adoption remain unaccepted",
   "verified_integration_pins": {
     "modules/server": "8e21a757a187f59f3716d0309771663e154e505a",
-    "apps/macos": "03e2b67ed6c7560d3c8f5d232c6d022313b28b2b",
+    "apps/macos": "68c85f4bd1ba3e373b8848bc685ba741f96b995f",
     "apps/windows": "46d038849da1cd76f6cd28c73382e332c79b8453",
     "modules/core": "7aef2275dc2f675a646b9fbeda4573ff7ef31604"
   },
@@ -1232,11 +1276,15 @@
       "published_source": "06d7342c511d16b7e0ce43ccf3114e14b561d9f8",
       "native_linux_ci": {
         "run": 39063060584,
-        "status": "In progress"
+        "status": "Failed",
+        "source": "06d7342c511d16b7e0ce43ccf3114e14b561d9f8",
+        "failed_step": "Build stock + patched + clockfault",
+        "observed_failure": "Coturn configure cannot resolve required Libevent2 TLS modules; build disables Libevent OpenSSL support",
+        "log_sha256": "4ba467b21c7989114e3319737702eb2cbc463973ab96b4a01eb0b7e08653e7ea"
       },
       "server_ci": {
         "run": 39063060558,
-        "status": "In progress"
+        "status": "Verified success"
       },
       "model_v5": {
         "assistant_records": 29,
@@ -1262,11 +1310,23 @@
     "public_route_adoption": "Not Verified",
     "normal_capture_media_control": "Unavailable",
     "signing_installed_acceptance_recovery_security_review": "Not Verified",
-    "accepted_pin_scope": "Core7aef227 native connection prerequisites; existing Windows/Mac/auth pins unchanged; server relay and Mac permission candidates await applicable checks",
+    "accepted_pin_scope": "Core7aef227 native connection prerequisites, Mac68c85f4 permission-status prerequisite and existing Windows/auth pins; server relay Linux correction still pending",
     "main_published_revision": "423bf218c7d323305e8274e27739fe666619300b",
     "last_published_integration_revision": "aad8a96bcd5850b2d61018677933e9c63e6d6175",
     "main_published_revision_note": "Historical revision at initial continuation; last_published_integration_revision records subsequent accepted core baseline",
     "current_work": "Core candidate 7aef227: Rust CI success, Windows native CI in progress (build stage); relay R02 v5b portable VERIFIED by agent + coordinator exit0, Linux CI pending; Mac P01 permission status running, AboutView bytes preserved"
   },
-  "updated_date": "2026-10-17"
+  "updated_date": "2026-10-17",
+  "active_packages_2026_10_17": {
+    "relay_linux_deps": {
+      "owner": "modules/server/relay-lab/scripts",
+      "session": "ses_ffe5eb49e9982ffe9u0M4AlTk5",
+      "status": "MiMo correction in progress; frozen native patches/oracle"
+    },
+    "real_channel_admission": {
+      "owner": "modules/core",
+      "status": "Read-only MiMo contract review before bounded implementation",
+      "brief": "/tmp/hs-finish-20261013/core-admission-channel-a01-contract-20261017.md"
+    }
+  }
 }
