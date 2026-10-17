@@ -43,3 +43,28 @@ blocked, plus the60-second allocation authorization bound. DNS/certificate
 ownership and bandwidth budget remain unspecified. Separate actual hosts are
 still required for final recovery cutover evidence. Native, authentication and
 hosting prerequisite implementation continues while public access stays closed.
+
+## Selected hostname, 17 October 2026
+
+The user selected `server1.helicoid.puriteum.com`; the earlier `barni.one`
+suggestion is rejected and remains unused. Authenticated read-only Cloudflare
+queries find `puriteum.com` active, with no exact selected-host record or
+`*.helicoid.puriteum.com` / `*.server1.helicoid.puriteum.com` record. No DNS
+record or VM configuration was changed. Certificate renewal, any separate TURN
+name and the public routing design still require concrete verification.
+
+A loopback bind alone does not make a public SNI/carrier route safe. The current
+server router includes `/v1/bootstrap` and `/v2/bootstrap` and is exposed only
+through the loopback development listener. Any future carrier must terminate at
+an explicitly bounded authority surface that keeps bootstrap local-only or in a
+verified SSH tunnel; forwarding the entire existing loopback router is not a
+passed public-route gate. Inner TLS and independently enrolled deployment trust
+remain required.
+
+The isolated coturn connection/expiry work does not authorize public routing.
+Integer-second last-fraction timing and result-existence-only aggregation were
+rejected during coordinator review. An independent CA-verified socket probe
+observes the patched relay forwarding a unique UDP packet0.4seconds after its
+REST credential timestamp. That is a timestamp-cutoff failure, not a measured
+60-second-from-issuance result. The hard renewable60-second lease and public
+adoption remain Not Verified; the requirement is unchanged.

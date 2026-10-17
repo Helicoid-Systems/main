@@ -423,7 +423,14 @@
     "new_rust_ci": {
       "run": 39021044711,
       "source": "dd97c5e9b9627d0dccfe4fcb2e63a8b37a1d2667",
-      "status": "Queued or in progress; Not Verified"
+      "status": "Verified success",
+      "jobs": [
+        "fmt/test/strict-clippy",
+        "isolated native header drift",
+        "authority-lab Ubuntu",
+        "authority-lab macOS",
+        "authority-lab Windows"
+      ]
     },
     "lifetime_review": {
       "failed_barrier_retention": "Verified142 native/142 own-bridge ASan checks",
@@ -434,6 +441,12 @@
       "actual_final_ASan_build_script": "Verified exit0;final GN args retained",
       "restricted_network_attempt": "Failed connections; approved local-network rerun passes",
       "intel_final_harness_cross_build": "Verified actual x86_64 Mach-O; runtime Not Verified"
+    },
+    "turn_tls_connection_followup": {
+      "session": "ses_ffe5eb6c805ebffeEGWwmWxFSi",
+      "owner": "modules/core/webrtc-native",
+      "status": "In progress; not accepted",
+      "scope": "Actual local relay-only TLS engine connection with strict trust, selected candidate evidence and negative tests; public and production gates remain closed"
     }
   },
   "real_native_auth_interop": {
@@ -760,6 +773,14 @@
       "all_http_status": 200,
       "DNS_mutation": false,
       "VM_mutation": false
+    },
+    "ancestor_record_2026_10_17": {
+      "name": "helicoid.puriteum.com",
+      "type": "CNAME",
+      "target": "cname.mintlify.builders",
+      "proxied": false,
+      "preserved": true,
+      "root_wildcard_matches": 0
     }
   },
   "relay_prerequisite": {
@@ -819,6 +840,55 @@
       "repair_session": "ses_ffe5eb6d47e08ffeZcNVpbzA9N",
       "hard_60_second_bound": "Not Verified; requirement unchanged",
       "normal_public_route": "Unavailable"
+    },
+    "independent_final_timestamp_cutoff_review": {
+      "status": "Failed REST timestamp cutoff; hard60 from issue Not Verified",
+      "result": {
+        "scope": "independent final frozen coturn loopback check; no hard60/public adoption proof",
+        "binary_sha256": "b1dd53dd48061521e769949634136822fb6b4c9fd791e7ebbad37469cbcda313",
+        "initial_allocate": {
+          "ok": true,
+          "lifetime": 7,
+          "error": null
+        },
+        "forward_before_expiry": true,
+        "immediate_pre_forward": true,
+        "attempt_wall": 1792229624.705698,
+        "credential_expiry_wall": 1792229625,
+        "attempt_before_expiry": true,
+        "attempt_remaining_s": 0.29430198669433594,
+        "refresh_in_last_second": {
+          "relative_seconds": 5.893813083996065,
+          "response": [
+            true,
+            1,
+            null
+          ]
+        },
+        "post_deadline": {
+          "relative_seconds": 6.592201999999816,
+          "past_credential_expiry": true,
+          "actual_peer_packet": true
+        },
+        "defect_reproduced": true,
+        "owned_child_reaped": true
+      },
+      "receipt_sha256": "9d81ae1e58813c75e859a1471af598224057a7e4c3307830a6a1c4c3c8a9b036",
+      "distinction": "Packet delivered0.4s after REST timestamp; not by itself a measurement exceeding60s from issuance",
+      "C_patch_frozen_during_oracle_correction": true,
+      "probe_script_sha256": "9b0fda92d1ade3ffb96c4979eef9bfc37771dc18e8ed9a3cae9f9637816e7b6a"
+    },
+    "intermediate_oracle_review": {
+      "status": "Failed causal timing and defect classification",
+      "source_scope": "Frozen intermediate Python oracle; original C binary unchanged",
+      "native_binary_sha256": "b1dd53dd48061521e769949634136822fb6b4c9fd791e7ebbad37469cbcda313",
+      "immediate_pre_forward_wall": 1792230349.704394,
+      "deadline_wall": 1792230350.0,
+      "actual_attempt_wall": 1792230351.7060668,
+      "in_last_fraction": false,
+      "incorrect_reported_defect_reproduced": true,
+      "receipt_sha256": "00e1e281cc519cc6ead1dbe94accfcd62ba4e73e07c053bc5be397e3f403ab33",
+      "repair": "Fresh bounded MiMo oracle-v3 session; private fixtures; C patch frozen"
     }
   },
   "tooling_repair_2026_10_17": {
@@ -835,7 +905,8 @@
     "public_route_adoption": "Not Verified",
     "normal_capture_media_control": "Unavailable",
     "signing_installed_acceptance_recovery_security_review": "Not Verified",
-    "accepted_pin_scope": "Windows expiry only; core and server relay candidates not advanced"
+    "accepted_pin_scope": "Windows expiry only; core and server relay candidates not advanced",
+    "main_published_revision": "423bf218c7d323305e8274e27739fe666619300b"
   },
   "updated_date": "2026-10-17"
 }
