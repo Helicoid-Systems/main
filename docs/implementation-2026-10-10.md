@@ -2,24 +2,45 @@
 
 ## Finishing continuation, 17 October 2026
 
-The same repository-owned MiMo sessions continue with the Europe provider,
-MiMo-V2.6-Pro and high, confirmed again in sanitized metadata. Windows owns the
-two remaining independently reproduced session-expiry defects; core owns the
-native Windows connection failure and missing binary retention; server owns an
-isolated pinned-coturn allocation-expiry lab. The relay lab has no accepted runtime
-result yet and does not enable public routing or normal server capabilities.
+Europe MiMo-V2.6-Pro/high is confirmed in completed sanitized session exports.
+Windows automatic expiry and generation-fenced UI cleanup pass all13 independent
+causal regressions,458 portable tests and real Rust HTTPS interoperability
+(7Swift/6C#). [Native CI39018316028](https://github.com/Helicoid-Systems/windows/actions/runs/39018316028)
+at `93f14f9` passes458 domain/67 native integration tests and both WinUI builds
+on Windows Server2025. The [downloaded unsigned apps](https://github.com/Helicoid-Systems/windows/actions/runs/39018316028/artifacts/12095832540)
+match GitHub's ZIP digest, pass1070 member CRC checks and contain the three
+expected PE x64 executables. Integration pin `46d0388` adds evidence documents
+only. Installed Windows11, capture/input and complete worker admission remain
+Not Verified.
 
-A temporary SDK cache failure interrupted local Windows checks before compilation.
-The coordinator restored missing .NET10.0.401 files from Microsoft's exact
-SHA512-matched archive, verified existing files and retained a repair receipt.
-The first version check was blocked by automatic approval-review quota; after its
-reported reset, the same escalation succeeded. Fresh independent tests then ran
-and reported10 passed/2 failed. Tool restoration is not product acceptance.
+Core candidate `dd97c5e` repairs Windows socket ownership, failed-drain peer
+retention and artifact retention. Coordinator checks pass142 arm64 native and
+142 own-bridge/harness ASan checks,13 Swift/16 C# wrapper checks, header/wrapper
+drift, actionlint and PowerShell parse. The actual sanitizer build script now
+resolves its pinned runtime and records final GN arguments. A restricted-socket
+run fails connections; its approved local-network rerun passes. Intel cross-build
+is current; Intel runtime remains Not Verified. [Native Windows CI39021044707](https://github.com/Helicoid-Systems/core/actions/runs/39021044707)
+is pending, so core's accepted integration pin remains unchanged.
 
-The [current evidence record](evidence/finishing-continuation-2026-10-16.json)
-retains source hashes, failed cases and native provenance. No integration pin
-advanced in this continuation. Public naming awaits the user's different domain;
-DNS, VM resources, existing services and ports80/443 remain unchanged.
+The isolated relay candidate remains unaccepted. An independent real TLS/UDP
+probe previously caught Refresh at6.704seconds of a7second lease regranting
+7seconds and forwarding after8.104seconds; that failure stays recorded. Review
+of the next package found result-existence-only aggregation, integer-second
+last-fraction timing and metadata-only isolation/pre-silence assertions. A bounded
+MiMo correction owns these concrete defects. Hard60-second authorization and
+renewal remain Not Verified; no relay or normal public route is enabled.
+
+The user selected `server1.helicoid.puriteum.com`. Read-only Cloudflare checks
+find the zone active and no exact record or tested Helicoid wildcard record.
+DNS remains unchanged until routing is concrete and reviewed; `barni.one` stays
+unused. VM resources, existing services/data and occupied ports80/443 are intact.
+
+The earlier temporary SDK cache failure was repaired from Microsoft's exact
+SHA512-matched .NET10.0.401 archive. Automatic approval-review quota initially
+blocked its version check; the same escalation succeeded after reset. The
+[current evidence record](evidence/finishing-continuation-2026-10-16.json)
+retains failed candidates, exact source/artifact hashes and remaining gates.
+None of the three complete product checkpoints or production release is passed.
 
 ## Finishing continuation, 16 October 2026
 
