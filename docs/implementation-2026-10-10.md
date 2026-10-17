@@ -1,5 +1,26 @@
 # Implementation run, 10 October 2026
 
+## Finishing continuation, 17 October 2026
+
+The same repository-owned MiMo sessions continue with the Europe provider,
+MiMo-V2.6-Pro and high, confirmed again in sanitized metadata. Windows owns the
+two remaining independently reproduced session-expiry defects; core owns the
+native Windows connection failure and missing binary retention; server owns an
+isolated pinned-coturn allocation-expiry lab. The relay lab has no accepted runtime
+result yet and does not enable public routing or normal server capabilities.
+
+A temporary SDK cache failure interrupted local Windows checks before compilation.
+The coordinator restored missing .NET10.0.401 files from Microsoft's exact
+SHA512-matched archive, verified existing files and retained a repair receipt.
+The first version check was blocked by automatic approval-review quota; after its
+reported reset, the same escalation succeeded. Fresh independent tests then ran
+and reported10 passed/2 failed. Tool restoration is not product acceptance.
+
+The [current evidence record](evidence/finishing-continuation-2026-10-16.json)
+retains source hashes, failed cases and native provenance. No integration pin
+advanced in this continuation. Public naming awaits the user's different domain;
+DNS, VM resources, existing services and ports80/443 remain unchanged.
+
 ## Finishing continuation, 16 October 2026
 
 The active implementation uses **MiMo-V2.6-Pro / Xiaomi Token Plan (Europe) /
@@ -30,11 +51,10 @@ The actual runner is Windows Server2025, not installed Windows11.
 The [unsigned development apps](https://github.com/Helicoid-Systems/windows/actions/runs/38931046294/artifacts/12059590770)
 match the archive digest and contain actual x64 Manager/Computer/worker files.
 A separate bounded MiMo session is implementing automatic expiry and UI cleanup.
-The original six causal expiry regressions now pass in an isolated coordinator
-snapshot. Four added cases still fail: late successful inventory after expiry or
-replacement, high-frequency timer rearm arithmetic and queued UI carrying old
-selected inventory into a new session. The follow-up remains unaccepted and is
-not covered by the earlier native tests.
+The latest isolated coordinator snapshot passes10 of12 causal expiry regressions.
+Two cases still fail: an inventory response accepted beyond its deadline before
+timer dispatch, and queued old-session loss clearing fresh replacement inventory.
+The follow-up remains unaccepted and is not covered by the earlier native tests.
 
 The arm64 WebRTC connection harness passes100 checks, also100 with Helicoid
 bridge/harness ASan instrumentation. Full Swift wrappers pass13 runtime checks;
@@ -49,8 +69,14 @@ headers/libs required by the pinned source. The reviewed SDK prerequisite at
 `1449acb` passes coordinator actual-source download/hash, PowerShell parse,
 header/wrapper drift, actionlint and rejection of empty/unknown-servicing files.
 [Native rerun38971753484](https://github.com/Helicoid-Systems/core/actions/runs/38971753484)
-is in progress. Core Rust CI38966858869 at the preceding revision is green;
-core's integration pin stays unchanged until the applicable native gate passes.
+installed the exact SDK and compiled the native DLL and harness. Its retained
+provenance confirms Valid Microsoft Authenticode, the pinned installer hash,
+exit0 and observed servicing10.0.28000.2957. The runtime harness failed24 of100
+checks, beginning with peer connection after SDP exchange; C# runtime was skipped.
+The retained artifact omitted the actual DLL/executable. A bounded MiMo repair
+owns runtime diagnosis and binary retention. Core Rust CI38971753412 passes at
+that exact revision; core's integration pin stays unchanged until native runtime
+and retained-binary checks pass.
 Capture, endpoint admission, media and public relay adoption remain unavailable.
 
 The user has only `ubuntu@57.131.161.27`. Fresh read-only SSH preflight confirms
@@ -58,8 +84,9 @@ one public IPv4 and existing Traefik ownership of80/443 on IPv4/IPv6;8920 is fre
 No host service/configuration/data/firewall was changed. [ADR0007](adr/0007-native-webrtc-and-public-edge.md)
 records a proposed single-VM SNI alternative and its unpassed gates; it does not
 silently adopt that route or remove the public TCP443 requirement. Read-only
-Cloudflare discovery finds active `barni.one` and no existing records at the two
-proposed Helicoid hostnames; naming is pending. No DNS records were changed.
+Cloudflare discovery was read-only. The user rejected the suggested `barni.one`
+domain and requested a different domain; the replacement name is pending.
+No DNS records were changed, and `barni.one` stays unused.
 
 Daytona was checked after the user offered it for Windows testing. Authenticated
 snapshot listing works, but `windows-medium` is US-only and VM creation is
