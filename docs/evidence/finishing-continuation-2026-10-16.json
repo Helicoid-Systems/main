@@ -245,6 +245,22 @@
         },
         "receipt_sha256": "7e00b9f441576c73c7eab28c947f1db73e76f31e4512f5fe2809d4ea36daf50c",
         "log_sha256": "0d3c7e738f5bfd78c47c968ced6b50e16788fe385cdfc82c67278a520e7d0b8c"
+      },
+      "twelve_case_review_2026_10_17": {
+        "status": "Failed; bounded final two-case repair in MiMo",
+        "tests_passed": 10,
+        "tests_failed": 2,
+        "failed_contracts": [
+          "authorized inventory response must check expiry even before timer dispatch",
+          "queued old-session loss must preserve fresh replacement inventory"
+        ],
+        "source_hashes": {
+          "src/Helicoid.Domain/Client/V2DeviceKeyChallengeClient.cs": "e491b03c8ecf890f5a20361ca924082f0ecfe60c08f2bb89cb1b705a08894002",
+          "src/Helicoid.Domain/Client/V2SignInCoordinator.cs": "4aa5dc71dc8404c6ee6e6682fefae447ffb3fc6f588bb8517a92cc2fd34c2c6e",
+          "src/Helicoid.Manager/ViewModels/ConnectionViewModel.cs": "810c764b26c4746d5c15086980bae30aeed4d46d3f471aba37495ac916f40fd9",
+          "src/Helicoid.Manager/ViewModels/MainViewModel.cs": "908246d054e2e9ed5303a43f45e1bfe676f66579e1278dd4ca05dbefdd2c8e59"
+        },
+        "receipt_sha256": "ca9ff93f6ccefee792a9f8f35cdaeff1c138aa4615bdc03a2a057aa6e4e860b3"
       }
     },
     "not_verified": [
@@ -270,7 +286,7 @@
     "header_wrapper_drift_actionlint": "Verified",
     "native_windows_ci": {
       "run": 38971753484,
-      "status": "Not Verified; native SDK installation and WebRTC CI in progress",
+      "status": "Failed runtime harness; SDK installation and native compilation Verified",
       "previous_failures": [
         {
           "run": 38926181465,
@@ -282,9 +298,9 @@
         }
       ],
       "correction": "Narrow LF attributes/process settings and supported cache_dir=None; strict checks and pins retained",
-      "failed_step": "Build bridge + shared library + harness (x64), GN generation",
-      "failure": "Pinned setup_toolchain.py requests Include/10.0.28000.0/um; hosted runner lacks it",
-      "repair_status": "Reviewed local SDK prerequisite published at1449acb; accepted core integration pin unchanged",
+      "failed_step": "Run harness and retain report",
+      "failure": "100 checks,24 failures; first peer A/B channel connection failure after SDP exchange; C# runtime skipped",
+      "repair_status": "Bounded runtime diagnosis and artifact retention repair in MiMo; integration pin unchanged",
       "previous_environment_failure_run": 38933830544,
       "repair_model_assistant_records": 69,
       "repair_model_metadata": "xiaomi-token-plan-ams/mimo-v2.6-pro high",
@@ -294,13 +310,13 @@
       },
       "sdk_source": "https://learn.microsoft.com/en-us/windows/apps/windows-sdk/downloads",
       "sdk_prerequisite_review": {
-        "status": "Historical failed intermediate candidate; local repair Verified, native runtime pending",
+        "status": "Historical intermediate preflight failure corrected; native exact SDK installation now Verified",
         "observation": "Actual PreflightOnly accepts eleven empty placeholder files without installed servicing identity; source also has unbounded installer wait",
         "probe_exit": 0,
         "probe_log_sha256": "fa7af60f082ec24017b7ea6a435e0be578124f2cc4f00540580f7ab27872c889",
         "official_installer_download_sha256": "e8e264aca8bc34abdf592352bf09f986a85cdb96db0efba405ca9e149181fe61",
         "installer_size": 1450344,
-        "Windows_Authenticode_and_installation": "Not Verified"
+        "Windows_Authenticode_and_installation": "Verified on run38971753484; retained SDK prerequisite record independently inspected"
       },
       "last_failed_sdk_run": 38966858843,
       "sdk_candidate_coordinator_receipt_sha256": "e02ce3c85047766f8543f16b0dc0f1bd3f3e7f927709c974746dea8492d74ba2",
@@ -310,7 +326,23 @@
         "model": "mimo-v2.6-pro",
         "variant": "high",
         "completed": true
-      }
+      },
+      "sdk_prerequisite_step": "Verified actual install/repair, Authenticode Valid, exact SHA256, exit0, observed servicing10.0.28000.2957",
+      "prior_sdk_failure": "Run38966858843 failed GN generation because exact SDK folder absent; corrected at1449acb",
+      "native_build": "Verified step success on WindowsServer2022",
+      "actual_runner": "Microsoft Windows Server2022",
+      "harness": {
+        "passed": 76,
+        "failed": 24,
+        "total": 100
+      },
+      "retained_artifact": {
+        "id": 12078933090,
+        "files": 8,
+        "contains_executable_or_DLL": false,
+        "status": "Failed binary retention; reports and headers present"
+      },
+      "coordinator_native_receipt_sha256": "751e2d7494ddbba123753912e221c75cf0b38557ab847472c9aae52ea06fef6e"
     },
     "unavailable": [
       "endpoint admission",
@@ -319,9 +351,9 @@
       "TURN public adoption"
     ],
     "rust_ci": {
-      "run": 38966858869,
-      "revision": "9fee60acbb80cd2c06f5942aa926c1be80d3e335",
-      "status": "Verified"
+      "run": 38971753412,
+      "revision": "1449acbb142ae6dbc95209d501d24110446f5c56",
+      "status": "Verified success"
     }
   },
   "real_native_auth_interop": {
@@ -483,6 +515,44 @@
       "model": "mimo-v2.6-pro",
       "variant": "high",
       "verified": true
+    },
+    "resume_2026_10_17": {
+      "windows": {
+        "assistant_records": 121,
+        "models": [
+          [
+            "xiaomi-token-plan-ams",
+            "mimo-v2.6-pro",
+            "high"
+          ]
+        ],
+        "export_sha256": "fc8eb81bc6a3400814e49bcc4cfd3cd6af4e5450b2c0a4b32ffa48d1815902e7",
+        "latest_created": 1792224729201
+      },
+      "server": {
+        "assistant_records": 101,
+        "models": [
+          [
+            "xiaomi-token-plan-ams",
+            "mimo-v2.6-pro",
+            "high"
+          ]
+        ],
+        "export_sha256": "ca9dcdae8a989cc90842e3bdc6430708a34c71ec2a79533a1029e3c5fbcacca8",
+        "latest_created": 1792224731291
+      },
+      "core": {
+        "assistant_records": 113,
+        "models": [
+          [
+            "xiaomi-token-plan-ams",
+            "mimo-v2.6-pro",
+            "high"
+          ]
+        ],
+        "export_sha256": "c36f3c52679b7ab85f39cb27781925b247defd8655b35d59d946cb24568d5623",
+        "latest_created": 1792224734483
+      }
     }
   },
   "release_gates": {
@@ -524,7 +594,7 @@
   },
   "build_headroom_note": "Owned reproducible compiler caches removed; sources, staged/tested executables, databases, reports and downloaded artifacts retained.",
   "dns_discovery": {
-    "status": "Verified read-only active zone visibility; hostname selection pending",
+    "status": "Verified read-only visibility; suggested domain rejected by user, alternative domain pending",
     "connector": "Cloudflare authenticated GET /zones page1 per_page50",
     "zone": "barni.one",
     "zone_status": "active",
@@ -538,6 +608,38 @@
     "proposed_name_conflicts": {
       "authority.helicoid.barni.one": 0,
       "turn.helicoid.barni.one": 0
-    }
+    },
+    "user_decision_2026_10_17": "Use a different domain; barni.one must remain unused",
+    "selected_domain": null,
+    "suggested_names_status": "Historical suggestion rejected; no DNS changes authorized by this choice"
+  },
+  "relay_prerequisite": {
+    "status": "Not Verified; active isolated lab implementation",
+    "owner": "modules/server",
+    "session_id": "ses_ffe5eb94a1f74ffeCxmKvBwZhB",
+    "source_version": "coturn4.18.0",
+    "source_revision": "23c6c1d32a3d2b21a56cee65d3203bcc4ea82d2b",
+    "scope": "Actual loopback allocation-expiry baseline and minimal lifecycle patch if reproduced; no normal route or VM/DNS mutation",
+    "model_initial_records": 8,
+    "provider": "xiaomi-token-plan-ams",
+    "model": "mimo-v2.6-pro",
+    "variant": "high",
+    "runtime_acceptance": "Not Verified",
+    "public_adoption": "Not Verified"
+  },
+  "tooling_repair_2026_10_17": {
+    "SDK": "10.0.401 macOSarm64",
+    "repair": "191 existing SDK files verified,4715 missing files restored from official SHA512-matched archive",
+    "post_repair_version_check": "Verified exit0,10.0.401",
+    "automatic_review_quota": "Historical SDK check blocked by review usage limit; retried through normal escalation after reset, succeeded",
+    "receipt_sha256": "2be7c78eb1d82b26a151747ce36c318f930b86810faa8dbbedabacaf75743377",
+    "scope": "Temporary toolchain only; no product test passed merely from repair"
+  },
+  "continuation_2026_10_17": {
+    "scope": "Windows session lifecycle, native Windows engine connection failure, isolated relay allocation-expiry lab",
+    "accepted_pins_advanced": false,
+    "public_route_adoption": "Not Verified",
+    "normal_capture_media_control": "Unavailable",
+    "signing_installed_acceptance_recovery_security_review": "Not Verified"
   }
 }
