@@ -24,8 +24,8 @@ passes all142 native checks and retains the actual DLL/harness. Its next step
 fails because the pinned toolchain has no `llvm-readobj.exe`, leaving Windows C#
 runtime unexecuted. The bounded replacement export checker is under coordinator
 review against the downloaded DLL; malformed zero/header function RVA cases
-exposed a first-candidate false green. Core's accepted integration pin remains
-advanced to `eab1939` after the complete native workflow passes. Its repair
+exposed a first-candidate false green. Core's accepted integration pin is now
+`eab1939` after the complete native workflow passed. Its repair
 passes18 checker regressions,12 independent real-DLL cases,7 actual PowerShell
 block parses, actionlint and committed-tree header/wrapper checks.
 [Native run39037906193](https://github.com/Helicoid-Systems/core/actions/runs/39037906193)
@@ -35,7 +35,12 @@ CI39037906240 passes all5 jobs. The downloaded
 matches GitHub's SHA256, passes all13 ZIP CRC checks and contains the actual
 x64 DLL/harness and32 matching exports. Installed Windows11, TURN, admission
 and media acceptance remain Not Verified. The separate loopback TURN/TLS
-package continues in a fresh bounded session.
+package passes an independent actual ARM64 REST-authenticated replay: real
+messages, negotiated certificates and selected relay pairs. Its implementation
+remains unaccepted: coordinator AddressSanitizer reproduces a Swift short-pin
+buffer over-read; length-based JSON decoding and causal negative verdicts also
+need correction. A bounded MiMo follow-up owns these fixes. This is loopback
+connection evidence, without public443, admission or media acceptance.
 
 The isolated relay candidate remains unaccepted. An independent real TLS/UDP
 probe previously caught Refresh at6.704seconds of a7second lease regranting
@@ -48,8 +53,13 @@ native testing records a real60-second timestamp-cutoff failure (5 newly sent
 post-bound packets) and allocation deletion/isolation failure. A coordinator run
 on the same binary passes at another sampled phase; that does not erase the
 failure. Owner docs mark the earlier green report superseded. The package stays
-unaccepted. A new bounded native patch task owns cutoff/deletion fixes with
-frozen oracle and previous binaries preserved. Hard60-second authorization
+unaccepted. The next native patch passes its own frozen-oracle run but fails two
+independent coordinator checks: reallocation inherits an old permission after
+authenticated deletion, and a five-second server cap forwards a fresh nonce
+at reply+5.401687seconds near a fractional credential boundary. Socket release
+and independent-allocation continuity pass. A bounded MiMo correction owns
+permission cleanup, precise lifetime caps and conservative clock sampling,
+with frozen oracle and previous binaries preserved. Hard60-second authorization
 and renewal remain Not Verified; no
 relay or normal public route is enabled.
 

@@ -466,8 +466,41 @@
     "turn_tls_connection_followup": {
       "session": "ses_ffe5eb5c8e3b3ffenkFwdBA80z",
       "owner": "modules/core/webrtc-native",
-      "status": "Fresh bounded v4 route correction; no accepted TURN implementation",
-      "scope": "Real REST-authenticated loopback TLS/relay route, verified certificates/channels, generated ABI/wrappers; baseline native Windows success does not include TURN WIP"
+      "status": "Coordinator actual ARM64 relay replay Verified; candidate not accepted pending wrapper safety and causal-negative corrections",
+      "scope": "Real REST-authenticated loopback TLS/relay route, verified certificates/channels, generated ABI/wrappers; baseline native Windows success does not include TURN WIP",
+      "model_v4": {
+        "provider": "xiaomi-token-plan-ams",
+        "model": "mimo-v2.6-pro",
+        "variant": "high",
+        "assistant_records": 85,
+        "final_finish": "stop"
+      },
+      "coordinator_replay": {
+        "file": "/tmp/hs-finish-20261013/coordinator-core-turn-v4-wv0gcz02/relay-result.json",
+        "sha256": "5311a0be2b53acb9780b86bb8aa6e7d98c260955a45d06bd8e3646db4738ecc8"
+      },
+      "observed_scope": "REST TURN/TLS loopback: actual messages both directions, selected relay pairs, negotiated certificates and opaque channel handles; all eight current scenarios exit0, child reaped, no projected secrets",
+      "coordinator_memory_failure": {
+        "file": "/tmp/hs-finish-20261013/coordinator-core-turn-v4-wv0gcz02/malformed-sha-asan-receipt.json",
+        "sha256": "7e9a68e66295dc4fd5051fb277a21f7c1c81fdcf35069b94227890ba6afb0d19"
+      },
+      "review_blockers": [
+        "Swift short SHA buffer length passes32 and causes actual AddressSanitizer heap-buffer-overflow",
+        "Swift selected JSON uses NUL decoding despite length-only native export",
+        "Wrong-host/credential verdicts need explicit successful TLS-pin callback prerequisite",
+        "Runner startup failure log call has wrong parameter and must retain cleanup receipt",
+        "Correct SHA256 positive path needs independent runtime proof"
+      ],
+      "correction_brief": {
+        "file": "/tmp/hs-finish-20261013/coordinator-core-turn-review-v5-20261017.md",
+        "sha256": "7416448c574dd39b5da65a74504b672c54a4ebd0fc23a981c37872eb4ee95582"
+      },
+      "normal_product_route": "Unavailable; no admission/media/public443 acceptance",
+      "startup_failure_reproduction": {
+        "file": "/tmp/hs-finish-20261013/coordinator-core-turn-startup-red-2zu_komm/receipt.json",
+        "sha256": "e13ac59f176859b152bb5410a0387fbbf2c578c2891ece862cc167acc37fbfc1",
+        "observed": "Harmless fixture exits; launcher raises TypeError and fails to retain result JSON. Fixture only, not native transport proof."
+      }
     },
     "native_export_tool_repair": {
       "source": "eab1939c558b90767bd363a0622f9521261dab5a",
@@ -1015,9 +1048,34 @@
     "native_cutoff_followup": {
       "package": "R02",
       "session": "ses_ffe5eb5e19cc7ffejzw8D5UqyP",
-      "status": "In progress; not accepted",
+      "status": "Failed coordinator acceptance; bounded v4 root-cause correction in progress",
       "scope": "New layered coturn native cutoff/delete patch, frozen oracle and old native artifacts preserved",
-      "brief_sha256": "eac793b9955b13a187dcc5676f04ad0619e0f2fcc749dc02c8f84e19d8c827cb"
+      "brief_sha256": "eac793b9955b13a187dcc5676f04ad0619e0f2fcc749dc02c8f84e19d8c827cb",
+      "failed_candidate_binary_sha256": "6b93fcb68b9018ca2f425684523d25ad968400d76462a894f5c4c910bf68a65c",
+      "model_v3": {
+        "provider": "xiaomi-token-plan-ams",
+        "model": "mimo-v2.6-pro",
+        "variant": "high",
+        "assistant_records": 67,
+        "final_finish": "stop"
+      },
+      "delete_reallocation": {
+        "file": "/tmp/hs-finish-20261013/coordinator-relay-delete-realloc-8krg18l_/receipt.json",
+        "sha256": "a7098d96637876145cc2522f49b6eab1783a23a2f45e6810a031bd731ecbe5e1"
+      },
+      "delete_reallocation_observation": "Authenticated delete frees socket and independent B survives; same-connection replacement inherits prior permission and forwards new nonce without new CreatePermission",
+      "server_cap": {
+        "file": "/tmp/hs-finish-20261013/coordinator-relay-server-cap-p616m11l/receipt.json",
+        "sha256": "fbb4b9fdfa41237f918e49bdf073bde2ab9460618c139f115baa00414605dcb5"
+      },
+      "server_cap_observation": "Server max5s, credential6s, reply lifetime5; fresh nonce forwarded at reply+5.401687s",
+      "source_review_gap": "Realtime-before-monotonic sampling can lengthen deadline across scheduling gap; checked conservative conversion required",
+      "correction_session": "ses_ffe5eb5a35032ffefP2C1sLpsU",
+      "correction_brief": {
+        "file": "/tmp/hs-finish-20261013/coordinator-server-relay-r02-correction-v4-20261017.md",
+        "sha256": "d0778c7b4d57b851169510b571c3d39f750eb7ca4deb41c427a0d56ecaaff1be"
+      },
+      "server_pin_advanced": false
     }
   },
   "tooling_repair_2026_10_17": {
@@ -1034,8 +1092,10 @@
     "public_route_adoption": "Not Verified",
     "normal_capture_media_control": "Unavailable",
     "signing_installed_acceptance_recovery_security_review": "Not Verified",
-    "accepted_pin_scope": "Windows expiry only; core and server relay candidates not advanced",
-    "main_published_revision": "423bf218c7d323305e8274e27739fe666619300b"
+    "accepted_pin_scope": "Windows expiry/authentication prerequisites and core eab1939 native connection baseline; core TURN and server relay candidates remain unaccepted",
+    "main_published_revision": "423bf218c7d323305e8274e27739fe666619300b",
+    "last_published_integration_revision": "aad8a96bcd5850b2d61018677933e9c63e6d6175",
+    "main_published_revision_note": "Historical revision at initial continuation; last_published_integration_revision records subsequent accepted core baseline"
   },
   "updated_date": "2026-10-17"
 }
