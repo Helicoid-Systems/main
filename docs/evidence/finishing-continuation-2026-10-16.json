@@ -332,9 +332,9 @@
     }
   },
   "engine": {
-    "status": "Verified macOS and Windows connection-only native harness prerequisites; full Windows wrapper, admission/media/public adoption Not Verified",
+    "status": "Verified macOS/Windows native connection-only prerequisites; admission/media/TURN public adoption Not Verified",
     "candidate_revision": "eab1939c558b90767bd363a0622f9521261dab5a",
-    "accepted_integration_pin": "872a553bbe479041645286b1021dd309cf85f2ac",
+    "accepted_integration_pin": "eab1939c558b90767bd363a0622f9521261dab5a",
     "arm64_native_checks_passed": 142,
     "own_bridge_harness_asan_checks_passed": 142,
     "asan_scope": "Helicoid sources instrumented; upstream archives reused",
@@ -464,10 +464,10 @@
       "intel_final_harness_cross_build": "Verified actual x86_64 Mach-O; runtime Not Verified"
     },
     "turn_tls_connection_followup": {
-      "session": "ses_ffe5eb6c805ebffeEGWwmWxFSi",
+      "session": "ses_ffe5eb5c8e3b3ffenkFwdBA80z",
       "owner": "modules/core/webrtc-native",
-      "status": "Resumed bounded v3 loopback proof after serialized CI helper commit; not accepted",
-      "scope": "Actual local relay-only TLS engine connection with strict trust, selected candidate evidence and negative tests; public and production gates remain closed"
+      "status": "Fresh bounded v4 route correction; no accepted TURN implementation",
+      "scope": "Real REST-authenticated loopback TLS/relay route, verified certificates/channels, generated ABI/wrappers; baseline native Windows success does not include TURN WIP"
     },
     "native_export_tool_repair": {
       "source": "eab1939c558b90767bd363a0622f9521261dab5a",
@@ -494,8 +494,30 @@
       "committed_tree_receipt": "/tmp/hs-finish-20261013/coordinator-core-export-committed-y8do76cu/receipt.json",
       "native_windows_run": 39037906193,
       "rust_run": 39037906240,
-      "CI_status": "In progress; not yet accepted",
-      "rust_CI_status": "Verified success; all5 jobs on eab1939"
+      "CI_status": "Verified native Windows and all5 Rust CI jobs",
+      "rust_CI_status": "Verified success; all5 jobs on eab1939",
+      "native_windows_harness": {
+        "passed": 142,
+        "failed": 0
+      },
+      "native_windows_csharp_runtime": {
+        "passed": 16,
+        "failed": 0,
+        "build_warnings": 0,
+        "build_errors": 0
+      },
+      "artifact": {
+        "id": 12104000149,
+        "url": "https://github.com/Helicoid-Systems/core/actions/runs/39037906193/artifacts/12104000149",
+        "zip_bytes": 4816857,
+        "zip_sha256": "144a5650c486df58cc7ec570b36c7e079b65f003bd380bb4a4991d4efc00796b",
+        "all13_member_crc": "Verified",
+        "actual_x64_DLL_harness_and32_exports": "Verified",
+        "signing": "Unsigned development output",
+        "receipt": "/tmp/hs-finish-20261013/coordinator-core-native-39037906193-artifact-receipt.json",
+        "receipt_sha256": "cf82c0303a6fa1f29c69797e99a2d66d53852321ae00f9f018ec51a5cab99bcc"
+      },
+      "installed_Windows11_acceptance": "Not Verified"
     }
   },
   "real_native_auth_interop": {
@@ -784,7 +806,7 @@
     "existing_organizations_checked": 1,
     "alternate_eligible_organization_found": false
   },
-  "integration_pins_scope": "server/Mac/Windows authentication prerequisites, including Windows expiry; core native candidate and relay adoption remain unaccepted",
+  "integration_pins_scope": "server/Mac/Windows authentication prerequisites and core native connection-only baseline; TURN, admission and media adoption remain unaccepted",
   "verified_integration_pins": {
     "modules/server": "8e21a757a187f59f3716d0309771663e154e505a",
     "apps/macos": "03e2b67ed6c7560d3c8f5d232c6d022313b28b2b",

@@ -25,12 +25,17 @@ fails because the pinned toolchain has no `llvm-readobj.exe`, leaving Windows C#
 runtime unexecuted. The bounded replacement export checker is under coordinator
 review against the downloaded DLL; malformed zero/header function RVA cases
 exposed a first-candidate false green. Core's accepted integration pin remains
-unchanged until the complete native workflow passes. Repair `eab1939` is
-published after18 checker regressions,12 independent real-DLL cases,7 actual
-PowerShell block parses, actionlint and committed-tree header/wrapper checks.
-The [fresh native run39037906193](https://github.com/Helicoid-Systems/core/actions/runs/39037906193)
-is in progress; Rust CI39037906240 passes all5 jobs. The separate loopback TURN/TLS package
-resumes after this serialized core change.
+advanced to `eab1939` after the complete native workflow passes. Its repair
+passes18 checker regressions,12 independent real-DLL cases,7 actual PowerShell
+block parses, actionlint and committed-tree header/wrapper checks.
+[Native run39037906193](https://github.com/Helicoid-Systems/core/actions/runs/39037906193)
+passes142 native and16 real C# checks with0 build warnings/errors; Rust
+CI39037906240 passes all5 jobs. The downloaded
+[unsigned native development bundle](https://github.com/Helicoid-Systems/core/actions/runs/39037906193/artifacts/12104000149)
+matches GitHub's SHA256, passes all13 ZIP CRC checks and contains the actual
+x64 DLL/harness and32 matching exports. Installed Windows11, TURN, admission
+and media acceptance remain Not Verified. The separate loopback TURN/TLS
+package continues in a fresh bounded session.
 
 The isolated relay candidate remains unaccepted. An independent real TLS/UDP
 probe previously caught Refresh at6.704seconds of a7second lease regranting
