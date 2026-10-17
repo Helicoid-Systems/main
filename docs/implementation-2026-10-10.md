@@ -64,8 +64,13 @@ public adoption remain Not Verified; the server integration pin stays unchanged.
 
 An independent Mac package now owns actual current-process Screen Recording
 and Accessibility permission status with explicit native request buttons.
-The candidate passes239 coordinator tests; packaged-app validation is in
-progress. It cannot enable capture, admission or control.
+The code at `d9941eb` passes239 coordinator tests, release packaging and
+[CI39063635258](https://github.com/Helicoid-Systems/macos/actions/runs/39063635258),
+including Intel cross-compilation. The downloaded arm64 apps match GitHub’s
+archive hash and pass inner CRC and strict ad-hoc signature checks. Mac pin
+`68c85f4` adds evidence documents only. Installed permission behavior, Intel
+runtime and actual worker/admission remain Not Verified; this cannot enable
+capture, admission or control.
 
 The user selected `server1.helicoid.puriteum.com`. Read-only Cloudflare checks
 find the zone active and no exact record or tested Helicoid wildcard record.
