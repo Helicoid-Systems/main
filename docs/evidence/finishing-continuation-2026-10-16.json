@@ -333,12 +333,12 @@
   },
   "engine": {
     "status": "Verified macOS/Windows native connection-only prerequisites; admission/media/TURN public adoption Not Verified",
-    "candidate_revision": "eab1939c558b90767bd363a0622f9521261dab5a",
-    "accepted_integration_pin": "eab1939c558b90767bd363a0622f9521261dab5a",
+    "candidate_revision": "7aef2275dc2f675a646b9fbeda4573ff7ef31604",
+    "accepted_integration_pin": "7aef2275dc2f675a646b9fbeda4573ff7ef31604",
     "arm64_native_checks_passed": 142,
     "own_bridge_harness_asan_checks_passed": 142,
     "asan_scope": "Helicoid sources instrumented; upstream archives reused",
-    "swift_wrapper_runtime_checks_passed": 13,
+    "swift_wrapper_runtime_checks_passed": 22,
     "csharp_real_pinvoke_checks_passed": 16,
     "intel_cross_build": "Verified",
     "intel_runtime": "Not Verified",
@@ -466,7 +466,7 @@
     "turn_tls_connection_followup": {
       "session": "ses_ffe5eb5c8e3b3ffenkFwdBA80z",
       "owner": "modules/core/webrtc-native",
-      "status": "Coordinator actual ARM64 relay replay Verified; candidate not accepted pending wrapper safety and causal-negative corrections",
+      "status": "Verified bounded ARM64 TURN connection prerequisite, native Windows baseline and reviewed artifact; accepted core pin advanced",
       "scope": "Real REST-authenticated loopback TLS/relay route, verified certificates/channels, generated ABI/wrappers; baseline native Windows success does not include TURN WIP",
       "model_v4": {
         "provider": "xiaomi-token-plan-ams",
@@ -484,13 +484,6 @@
         "file": "/tmp/hs-finish-20261013/coordinator-core-turn-v4-wv0gcz02/malformed-sha-asan-receipt.json",
         "sha256": "7e9a68e66295dc4fd5051fb277a21f7c1c81fdcf35069b94227890ba6afb0d19"
       },
-      "review_blockers": [
-        "Swift short SHA buffer length passes32 and causes actual AddressSanitizer heap-buffer-overflow",
-        "Swift selected JSON uses NUL decoding despite length-only native export",
-        "Wrong-host/credential verdicts need explicit successful TLS-pin callback prerequisite",
-        "Runner startup failure log call has wrong parameter and must retain cleanup receipt",
-        "Correct SHA256 positive path needs independent runtime proof"
-      ],
       "correction_brief": {
         "file": "/tmp/hs-finish-20261013/coordinator-core-turn-review-v5-20261017.md",
         "sha256": "7416448c574dd39b5da65a74504b672c54a4ebd0fc23a981c37872eb4ee95582"
@@ -500,6 +493,72 @@
         "file": "/tmp/hs-finish-20261013/coordinator-core-turn-startup-red-2zu_komm/receipt.json",
         "sha256": "e13ac59f176859b152bb5410a0387fbbf2c578c2891ece862cc167acc37fbfc1",
         "observed": "Harmless fixture exits; launcher raises TypeError and fails to retain result JSON. Fixture only, not native transport proof."
+      },
+      "published_source": "7aef2275dc2f675a646b9fbeda4573ff7ef31604",
+      "model_v5": {
+        "assistant_records": 119,
+        "provider": "xiaomi-token-plan-ams",
+        "model": "mimo-v2.6-pro",
+        "variant": "high",
+        "final_finish": "stop",
+        "export_sha256": "e57d78c36063ab89fdca2741163311fd756cbd10d7f670d38617cb4c5ed9e123"
+      },
+      "contributing_v3_metadata": {
+        "assistant_records": 118,
+        "provider": "xiaomi-token-plan-ams",
+        "model": "mimo-v2.6-pro",
+        "variant": "high",
+        "final_finish": null,
+        "export_sha256": "012c1946834a45e42a7e99f23a9a3f8596ef3ec5767ec620a4f8b7e69b903dac",
+        "scope": "Interrupted historical contributing session; final v5 completed and coordinator verified"
+      },
+      "historical_review_blockers": [
+        "Swift short SHA buffer length passes32 and causes actual AddressSanitizer heap-buffer-overflow",
+        "Swift selected JSON uses NUL decoding despite length-only native export",
+        "Wrong-host/credential verdicts need explicit successful TLS-pin callback prerequisite",
+        "Runner startup failure log call has wrong parameter and must retain cleanup receipt",
+        "Correct SHA256 positive path needs independent runtime proof"
+      ],
+      "current_review_blockers": [],
+      "fixed_and_reproduced": [
+        "Short SHA wrapper denies lengths0/1/31/33 before native read; coordinator ASan red/green",
+        "Selected JSON uses returned length and checked UTF8",
+        "Wrong host/password require actual pin acceptance callback; wrong pin requires actual rejection",
+        "Startup failure retains receipt after owned-child cleanup",
+        "Both exact PEM and real SHA256 digest connect; zero-capacity digest root cause corrected"
+      ],
+      "coordinator_final_route": {
+        "file": "/tmp/hs-finish-20261013/coordinator-core-turn-final-runner-9gqnm693/full-receipt.json",
+        "sha256": "a3bbd13a9ef1cf2ee8b7f203b949415e634182cafa0119ca5f938559e8224510"
+      },
+      "coordinator_startup_failure_green": {
+        "file": "/tmp/hs-finish-20261013/coordinator-core-turn-final-runner-9gqnm693/startup-receipt.json",
+        "sha256": "77a70895c184ae2e32921fd1511e97409e6d301012ec8eb897a924699de81ab2"
+      },
+      "coordinator_native_normal_asan": {
+        "file": "/tmp/hs-finish-20261013/coordinator-core-turn-v5-pq8f5u5p/native-coordinator-receipt.json",
+        "sha256": "25560c2b2e8e75343d56a407e2a205cd9ed4177600aa5e3f76fd3b2bf02dc88a"
+      },
+      "checks": {
+        "normal": 142,
+        "own_bridge_asan": 142,
+        "swift": 22,
+        "csharp": 16,
+        "route_and_launcher_scenarios": 10,
+        "pem_positive": 48,
+        "sha_positive": 48,
+        "header_exports": 35,
+        "wrapper_exports": 32,
+        "rebuild_hashes_match_snapshot": true,
+        "cargo_fmt_test_strict_clippy": "Verified exit0"
+      },
+      "fresh_ci": {
+        "source": "7aef2275dc2f675a646b9fbeda4573ff7ef31604",
+        "rust_run": 39047675471,
+        "rust_status": "Verified success",
+        "native_windows_run": 39047675459,
+        "native_windows_status": "Verified success",
+        "accepted_pin_advanced": true
       }
     },
     "native_export_tool_repair": {
@@ -551,6 +610,23 @@
         "receipt_sha256": "cf82c0303a6fa1f29c69797e99a2d66d53852321ae00f9f018ec51a5cab99bcc"
       },
       "installed_Windows11_acceptance": "Not Verified"
+    },
+    "accepted_native_candidate": {
+      "source": "7aef2275dc2f675a646b9fbeda4573ff7ef31604",
+      "rust_ci_run": 39047675471,
+      "native_windows_ci_run": 39047675459,
+      "status": "Verified native Windows baseline and local ARM64 TURN prerequisite",
+      "download_url": "https://github.com/Helicoid-Systems/core/actions/runs/39047675459/artifacts/12106189833",
+      "archive_sha256": "84976e095a83f8b1b0a692c14530342315ad43d85223e13a12274ca83d5ced52",
+      "artifact_receipt": {
+        "file": "/tmp/hs-finish-20261013/coordinator-core-native-39047675459/receipt.json",
+        "sha256": "9571e91c6cc69ef912dbf5c54531689736088d71492ac2979692d588a6b19ed5"
+      },
+      "native_checks": 142,
+      "csharp_checks": 16,
+      "header_exports": 35,
+      "signing": "Unsigned development output",
+      "Windows_TURN_and_installed_acceptance": "Not Verified"
     }
   },
   "real_native_auth_interop": {
@@ -843,7 +919,8 @@
   "verified_integration_pins": {
     "modules/server": "8e21a757a187f59f3716d0309771663e154e505a",
     "apps/macos": "03e2b67ed6c7560d3c8f5d232c6d022313b28b2b",
-    "apps/windows": "46d038849da1cd76f6cd28c73382e332c79b8453"
+    "apps/windows": "46d038849da1cd76f6cd28c73382e332c79b8453",
+    "modules/core": "7aef2275dc2f675a646b9fbeda4573ff7ef31604"
   },
   "build_headroom_note": "Owned reproducible compiler caches removed; sources, staged/tested executables, databases, reports and downloaded artifacts retained.",
   "dns_discovery": {
@@ -888,7 +965,7 @@
     }
   },
   "relay_prerequisite": {
-    "status": "Oracle/fixture correction Verified; frozen native cutoff and isolation Failed; implementation unaccepted",
+    "status": "Agent portable harness VERIFIED + coordinator independent reproduction exit0 on frozen v4; Linux CI runtime Not Verified, R02 v4 remains candidate",
     "owner": "modules/server",
     "session_id": "ses_ffe5eb94a1f74ffeCxmKvBwZhB",
     "source_version": "coturn4.18.0",
@@ -898,7 +975,7 @@
     "provider": "xiaomi-token-plan-ams",
     "model": "mimo-v2.6-pro",
     "variant": "high",
-    "runtime_acceptance": "Not Verified",
+    "runtime_acceptance": "Verified bounded macOS loopback candidate only",
     "public_adoption": "Not Verified",
     "independent_subsecond_review_2026_10_17": {
       "status": "Failed",
@@ -1048,7 +1125,7 @@
     "native_cutoff_followup": {
       "package": "R02",
       "session": "ses_ffe5eb5e19cc7ffejzw8D5UqyP",
-      "status": "Failed coordinator acceptance; bounded v4 root-cause correction in progress",
+      "status": "Verified independent local native checks and portable harness; published candidate awaiting Linux CI",
       "scope": "New layered coturn native cutoff/delete patch, frozen oracle and old native artifacts preserved",
       "brief_sha256": "eac793b9955b13a187dcc5676f04ad0619e0f2fcc749dc02c8f84e19d8c827cb",
       "failed_candidate_binary_sha256": "6b93fcb68b9018ca2f425684523d25ad968400d76462a894f5c4c910bf68a65c",
@@ -1075,7 +1152,100 @@
         "file": "/tmp/hs-finish-20261013/coordinator-server-relay-r02-correction-v4-20261017.md",
         "sha256": "d0778c7b4d57b851169510b571c3d39f750eb7ca4deb41c427a0d56ecaaff1be"
       },
-      "server_pin_advanced": false
+      "server_pin_advanced": false,
+      "model_v4": {
+        "assistant_records": 54,
+        "provider": "xiaomi-token-plan-ams",
+        "model": "mimo-v2.6-pro",
+        "variant": "high",
+        "final_finish": "stop",
+        "export_sha256": "89c9639154cd5cd9f41ba284430e80887566e1e6ccb23a31dadd9c5ecfefc09a"
+      },
+      "corrected_binary_sha256": "6afd46f965e8c522b4ad0dd9722db52060349f81981ec0c6b1a9c05dda177727",
+      "corrected_patch_sha256": "493857d6976d92f1b9f3b1d3100c865ee33df3cd0bcff7958a23e9c9337dc04a",
+      "independent_correction_checks": {
+        "delete_reallocation": {
+          "file": "/tmp/hs-finish-20261013/coordinator-relay-delete-realloc-batyt0rd/receipt.json",
+          "sha256": "52911a1aad46c49e888f849d3816d2002c4a7dc64c82a8378caf146858a6136c"
+        },
+        "server_cap_auth6": {
+          "file": "/tmp/hs-finish-20261013/coordinator-relay-server-cap-sj38aq8r/receipt.json",
+          "sha256": "8969e43b4026c1306a9c7e5777989561678a5bb8dd39416a0563b4016af7d3e9"
+        },
+        "server_cap_auth30": {
+          "file": "/tmp/hs-finish-20261013/coordinator-relay-server-cap-u1wh846g/receipt.json",
+          "sha256": "a57f8a907434433bb2b85112447ffeb5e5fc61702973b5fd19ad7540d5de2d0c"
+        },
+        "four_wall_phases_7s": {
+          "file": "/tmp/hs-finish-20261013/coordinator-relay-phase-matrix-rk49t2lb/receipt.json",
+          "sha256": "4b3e4db734c02b22fce83bbd162917f53de6ce7b4f9e5db54385caee1afd45dc"
+        },
+        "timestamp60": {
+          "file": "/tmp/hs-finish-20261013/coordinator-r02-v4-final-ouzc21vz/lastfraction-receipt.json",
+          "sha256": "c561baa13d87f45078b4c2dd9c4b4f65a7a975db3b5e8c99695b678688ed5543"
+        },
+        "clockfault": {
+          "file": "/tmp/hs-finish-20261013/coordinator-r02-v4-final-ouzc21vz/clockfault-receipt.json",
+          "sha256": "1da85be1f7e697cc254b2f1c79f8302d622ddb45da6f738e35f95e2f71aae91a"
+        },
+        "accelerated_patched": {
+          "file": "/tmp/hs-finish-20261013/coordinator-r02-v4-final-ouzc21vz/accelerated-patched.json",
+          "sha256": "2176333fcdd048b318992a9382ea101b366e7c4e1d4d81e6658cbebfc06bc262"
+        },
+        "accelerated_stock_red": {
+          "file": "/tmp/hs-finish-20261013/coordinator-r02-v4-final-ouzc21vz/accelerated-stock.json",
+          "sha256": "cdad1c27da2b328e4f4183d7b17a120d3bb06f5fbc80cfb67022f44b5449d532"
+        },
+        "ordered_patch_matches_built_tree": {
+          "file": "/tmp/hs-finish-20261013/coordinator-r02-v4-ordered-patch-46d_i_p_/receipt.json",
+          "sha256": "f13da6fab8e0612a85fd805029e30d3ea49b1b7b734b6e51c6bf559070c5af93"
+        }
+      },
+      "portable_test_coordinator": "Fresh copied three-file harness; python3 -I with new LAB_ROOT parent; same-connection stale permission denied, independent B survives; exit0",
+      "inapplicable_coordinator_attempt": "First accelerated invocation used unsupported --isolation option and exited2; rerun with documented flags exits0. Not product failure.",
+      "portable_v5b_agent": "VERIFIED portable harness contract on this host; independent coordinator reproduction and Linux CI NOT VERIFIED by design",
+      "portable_v5b_coordinator": {
+        "file": "/tmp/hs-finish-20261013/coordinator-r02-portable-verify-6f4e4mml/fresh-parent/lab/owned-delrealloc-bew9711u/receipt.json",
+        "sha256": "1fe1ef95a14c8756f52a4c2b9fc20630935e2a429ca76be80e934cee3501f6ab"
+      },
+      "portable_v5b_checks": {
+        "method": "Fresh copied three-file harness; python3 -I; fresh LAB_ROOT parent; PATCHED_BIN frozen v4; no coordinator imports",
+        "exit": 0,
+        "binary_sha256": "6afd46f965e8c522b4ad0dd9722db52060349f81981ec0c6b1a9c05dda177727",
+        "old_permission_forwarded": false,
+        "new_permission_forwarded": true,
+        "B_final": true,
+        "owned_child_reaped": true,
+        "frozen_hashes": {
+          "patch_0001": "6a6fd685ca39b2eee85ac26d68465bdfd99a637a36272d4e32cdd2b8f8751990",
+          "patch_0002": "493857d6976d92f1b9f3b1d3100c865ee33df3cd0bcff7958a23e9c9337dc04a",
+          "run_expiry_lab": "6b18695a1f2ec9bb3a8e41946d40685d10c91a2021c21e4da3388681f9c4ffa0",
+          "turn_protocol": "5fa549c1edd0a066be0d51bff0757a5eabbd16103f9332e66106d5ec7cb7b6f0",
+          "test_oracle_causality": "a4bb3ff303ea213ad2bbfe3f4194f87f4cf2100198b5f0619f88bc6de9137091",
+          "summarize_lab_results": "2d1317243f20ab5cea6a27a0510a928b520a90a415b13f42521a26270475068d"
+        },
+        "workflow_mirror_invocation_matches": 0,
+        "workflow_seam": "Owned delete-realloc regression seam",
+        "bash_syntax": "exit0",
+        "py_compile": "exit0"
+      },
+      "published_source": "06d7342c511d16b7e0ce43ccf3114e14b561d9f8",
+      "native_linux_ci": {
+        "run": 39063060584,
+        "status": "In progress"
+      },
+      "server_ci": {
+        "run": 39063060558,
+        "status": "In progress"
+      },
+      "model_v5": {
+        "assistant_records": 29,
+        "provider": "xiaomi-token-plan-ams",
+        "model": "mimo-v2.6-pro",
+        "variant": "high",
+        "final_finish": "stop",
+        "export_sha256": "f0c1e1ce4fcc814af5622ae5c07659834b07de1ec2e8943ee74e240f623f141f"
+      }
     }
   },
   "tooling_repair_2026_10_17": {
@@ -1092,10 +1262,11 @@
     "public_route_adoption": "Not Verified",
     "normal_capture_media_control": "Unavailable",
     "signing_installed_acceptance_recovery_security_review": "Not Verified",
-    "accepted_pin_scope": "Windows expiry/authentication prerequisites and core eab1939 native connection baseline; core TURN and server relay candidates remain unaccepted",
+    "accepted_pin_scope": "Core7aef227 native connection prerequisites; existing Windows/Mac/auth pins unchanged; server relay and Mac permission candidates await applicable checks",
     "main_published_revision": "423bf218c7d323305e8274e27739fe666619300b",
     "last_published_integration_revision": "aad8a96bcd5850b2d61018677933e9c63e6d6175",
-    "main_published_revision_note": "Historical revision at initial continuation; last_published_integration_revision records subsequent accepted core baseline"
+    "main_published_revision_note": "Historical revision at initial continuation; last_published_integration_revision records subsequent accepted core baseline",
+    "current_work": "Core candidate 7aef227: Rust CI success, Windows native CI in progress (build stage); relay R02 v5b portable VERIFIED by agent + coordinator exit0, Linux CI pending; Mac P01 permission status running, AboutView bytes preserved"
   },
   "updated_date": "2026-10-17"
 }

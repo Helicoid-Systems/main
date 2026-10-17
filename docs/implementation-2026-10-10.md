@@ -34,34 +34,38 @@ CI39037906240 passes all5 jobs. The downloaded
 [unsigned native development bundle](https://github.com/Helicoid-Systems/core/actions/runs/39037906193/artifacts/12104000149)
 matches GitHub's SHA256, passes all13 ZIP CRC checks and contains the actual
 x64 DLL/harness and32 matching exports. Installed Windows11, TURN, admission
-and media acceptance remain Not Verified. The separate loopback TURN/TLS
-package passes an independent actual ARM64 REST-authenticated replay: real
-messages, negotiated certificates and selected relay pairs. Its implementation
-remains unaccepted: coordinator AddressSanitizer reproduces a Swift short-pin
-buffer over-read; length-based JSON decoding and causal negative verdicts also
-need correction. A bounded MiMo follow-up owns these fixes. This is loopback
-connection evidence, without public443, admission or media acceptance.
+and media acceptance remain Not Verified. The separate TURN/TLS candidate is published at `7aef227`. Coordinator
+rebuilds produce identical ARM64 hashes and pass142 native/142 own-bridge ASan,
+22 Swift/16 C# checks, header/wrapper drift, Rust format/tests/strict Clippy and
+all ten route/launcher scenarios. Both PEM and SHA256 positives pass48 checks.
+The rejected Swift short-pin over-read, length-based JSON decoding, startup
+receipt and causal-negative defects are corrected with independent reproduction.
+[Fresh Rust CI39047675471](https://github.com/Helicoid-Systems/core/actions/runs/39047675471)
+passes; [Windows native CI39047675459](https://github.com/Helicoid-Systems/core/actions/runs/39047675459)
+passes142 native/16 C# checks. Its downloaded unsigned bundle matches GitHub’s
+SHA256, all13 ZIP CRC checks and the committed header/wrappers; all35 exports
+match. The accepted core integration pin advances to `7aef227`.
+This is loopback connection evidence; public443, admission/media, Windows TURN
+and Intel runtime acceptance remain Not Verified.
 
-The isolated relay candidate remains unaccepted. An independent real TLS/UDP
-probe previously caught Refresh at6.704seconds of a7second lease regranting
-7seconds and forwarding after8.104seconds; that failure stays recorded. Review
-of the next package found result-existence-only aggregation, integer-second
-last-fraction timing and metadata-only isolation/pre-silence assertions. A bounded
-MiMo correction now passes11 launcher and9 causal regressions, with coordinator
-reproduction and57 exported Europe/high assistant metadata records. Corrected
-native testing records a real60-second timestamp-cutoff failure (5 newly sent
-post-bound packets) and allocation deletion/isolation failure. A coordinator run
-on the same binary passes at another sampled phase; that does not erase the
-failure. Owner docs mark the earlier green report superseded. The package stays
-unaccepted. The next native patch passes its own frozen-oracle run but fails two
-independent coordinator checks: reallocation inherits an old permission after
-authenticated deletion, and a five-second server cap forwards a fresh nonce
-at reply+5.401687seconds near a fractional credential boundary. Socket release
-and independent-allocation continuity pass. A bounded MiMo correction owns
-permission cleanup, precise lifetime caps and conservative clock sampling,
-with frozen oracle and previous binaries preserved. Hard60-second authorization
-and renewal remain Not Verified; no
-relay or normal public route is enabled.
+The relay's corrected R02 v4 binary `6afd46f9` independently passes actual
+same-connection delete/reallocation isolation, a five-second server cap with
+six- and thirty-second credentials, four fractional-wall 7second trials, the
+real60second cutoff, accelerated isolation and clock-fault denials. The stock
+binary reproduces the defect. A fresh ordered patch application matches the
+built source. Earlier timing and inherited-permission failures remain recorded.
+MiMo corrected the CI test's hardcoded private scratch path, removed the
+workflow's arithmetic-mirror invocation, and labeled historical status; the
+mirror file itself is left untouched. Coordinator independently reran the final
+owned delete-realloc test with fresh isolated LAB_ROOT, sibling-only imports
+and the frozen v4 binary: exit 0, stale permission denied, independent B
+survives, child reaped. Linux CI, hard60 renewable authority and
+public adoption remain Not Verified; the server integration pin stays unchanged.
+
+An independent Mac package now owns actual current-process Screen Recording
+and Accessibility permission status with explicit native request buttons.
+The candidate passes239 coordinator tests; packaged-app validation is in
+progress. It cannot enable capture, admission or control.
 
 The user selected `server1.helicoid.puriteum.com`. Read-only Cloudflare checks
 find the zone active and no exact record or tested Helicoid wildcard record.
