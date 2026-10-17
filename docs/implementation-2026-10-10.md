@@ -20,15 +20,33 @@ drift, actionlint and PowerShell parse. The actual sanitizer build script now
 resolves its pinned runtime and records final GN arguments. A restricted-socket
 run fails connections; its approved local-network rerun passes. Intel cross-build
 is current; Intel runtime remains Not Verified. [Native Windows CI39021044707](https://github.com/Helicoid-Systems/core/actions/runs/39021044707)
-is pending, so core's accepted integration pin remains unchanged.
+passes all142 native checks and retains the actual DLL/harness. Its next step
+fails because the pinned toolchain has no `llvm-readobj.exe`, leaving Windows C#
+runtime unexecuted. The bounded replacement export checker is under coordinator
+review against the downloaded DLL; malformed zero/header function RVA cases
+exposed a first-candidate false green. Core's accepted integration pin remains
+unchanged until the complete native workflow passes. Repair `eab1939` is
+published after18 checker regressions,12 independent real-DLL cases,7 actual
+PowerShell block parses, actionlint and committed-tree header/wrapper checks.
+The [fresh native run39037906193](https://github.com/Helicoid-Systems/core/actions/runs/39037906193)
+is in progress; Rust CI39037906240 passes all5 jobs. The separate loopback TURN/TLS package
+resumes after this serialized core change.
 
 The isolated relay candidate remains unaccepted. An independent real TLS/UDP
 probe previously caught Refresh at6.704seconds of a7second lease regranting
 7seconds and forwarding after8.104seconds; that failure stays recorded. Review
 of the next package found result-existence-only aggregation, integer-second
 last-fraction timing and metadata-only isolation/pre-silence assertions. A bounded
-MiMo correction owns these concrete defects. Hard60-second authorization and
-renewal remain Not Verified; no relay or normal public route is enabled.
+MiMo correction now passes11 launcher and9 causal regressions, with coordinator
+reproduction and57 exported Europe/high assistant metadata records. Corrected
+native testing records a real60-second timestamp-cutoff failure (5 newly sent
+post-bound packets) and allocation deletion/isolation failure. A coordinator run
+on the same binary passes at another sampled phase; that does not erase the
+failure. Owner docs mark the earlier green report superseded. The package stays
+unaccepted. A new bounded native patch task owns cutoff/deletion fixes with
+frozen oracle and previous binaries preserved. Hard60-second authorization
+and renewal remain Not Verified; no
+relay or normal public route is enabled.
 
 The user selected `server1.helicoid.puriteum.com`. Read-only Cloudflare checks
 find the zone active and no exact record or tested Helicoid wildcard record.
