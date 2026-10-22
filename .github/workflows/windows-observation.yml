@@ -1,0 +1,171 @@
+# Build the same pinned native transport that Helicoid Computer packages.
+# This checks the native ABI and DLL bundle; live desktop capture and pixels
+# remain separate acceptance gates while the product capability bits are off.
+name: Windows native transport integration
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/windows/**'
+      - 'apps/windows'
+      - 'modules/core'
+      - 'modules/core/**'
+      - '.gitmodules'
+      - '.github/workflows/windows-observation.yml'
+  pull_request:
+    paths:
+      - 'apps/windows/**'
+      - 'apps/windows'
+      - 'modules/core'
+      - 'modules/core/**'
+      - '.gitmodules'
+      - '.github/workflows/windows-observation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-observation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  windows-x64-native-bundle:
+    name: Pinned native DLL + Windows Computer bundle
+    runs-on: windows-2022
+    timeout-minutes: 180
+    env:
+      DEPOT_TOOLS_WIN_TOOLCHAIN: '0'
+      DEPOT_TOOLS_UPDATE: '0'
+    defaults:
+      run:
+        shell: pwsh
+
+    steps:
+      - name: Checkout parent repository
+        uses: actions/checkout@v7
+
+      - name: Checkout pinned source submodules
+        run: |
+          git submodule update --init --depth 1 -- modules/core apps/windows
+          if ($LASTEXITCODE -ne 0) { throw 'required submodule checkout failed' }
+          $status = git submodule status -- modules/core apps/windows
+          if ($LASTEXITCODE -ne 0) { throw 'could not verify submodule revisions' }
+          if ($status -match '(?m)^[+U-]') { throw "submodule revision is not checked out at the parent pin: $status" }
+          $status | Set-Content -Encoding ascii modules/core/webrtc-native/inventory/integration-submodules.txt
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Verify domain admission tests
+        timeout-minutes: 10
+        run: |
+          dotnet restore apps/windows/src/Helicoid.Domain.Tests/Helicoid.Domain.Tests.csproj --locked-mode
+          if ($LASTEXITCODE -ne 0) { throw 'locked domain restore failed' }
+          dotnet test apps/windows/src/Helicoid.Domain.Tests/Helicoid.Domain.Tests.csproj -c Release --nologo --no-restore
+          if ($LASTEXITCODE -ne 0) { throw 'domain tests failed' }
+
+      - name: Verify pinned Windows SDK prerequisite
+        timeout-minutes: 20
+        run: |
+          ./modules/core/webrtc-native/scripts/install-win-sdk.ps1
+          if ($LASTEXITCODE -ne 0) { throw 'pinned Windows SDK prerequisite failed' }
+
+      - name: Fetch pinned WebRTC source
+        timeout-minutes: 45
+        run: |
+          ./modules/core/webrtc-native/scripts/fetch-upstream.ps1 $env:RUNNER_TEMP/webrtc-upstream
+          if ($LASTEXITCODE -ne 0) { throw 'pinned WebRTC checkout failed' }
+
+      - name: Build and run pinned native bridge
+        timeout-minutes: 45
+        run: |
+          ./modules/core/webrtc-native/scripts/build-windows.ps1 $env:RUNNER_TEMP/webrtc-upstream out-win-x64
+          if ($LASTEXITCODE -ne 0) { throw 'native Windows build failed' }
+          $out = Join-Path $env:RUNNER_TEMP 'webrtc-upstream/webrtc-checkout/src/out/out-win-x64'
+          $harness = Get-ChildItem -Recurse $out -Filter hs_webrtc_harness.exe | Select-Object -First 1
+          if (-not $harness) { throw 'native harness executable missing' }
+          & $harness.FullName 2>&1 | Tee-Object -FilePath modules/core/webrtc-native/inventory/harness-windows-integration.txt
+          if ($LASTEXITCODE -ne 0) { throw 'native Windows harness failed' }
+          python modules/core/webrtc-native/scripts/check-pe-exports.py `
+            modules/core/webrtc-native/inventory/hs_webrtc_shared.dll `
+            modules/core/webrtc-native/native/hs_webrtc.h 2>&1 |
+            Tee-Object -FilePath modules/core/webrtc-native/inventory/dll-exports-windows-integration.txt
+          if ($LASTEXITCODE -ne 0) { throw 'native DLL export verification failed' }
+
+      - name: Verify C# wrapper against built DLL
+        timeout-minutes: 15
+        run: |
+          $nativeOut = Join-Path $env:RUNNER_TEMP 'webrtc-upstream/webrtc-checkout/src/out/out-win-x64'
+          $compiledDll = Join-Path $nativeOut 'hs_webrtc_shared.dll'
+          $retainedDll = 'modules/core/webrtc-native/inventory/hs_webrtc_shared.dll'
+          $compiledHash = (Get-FileHash $compiledDll -Algorithm SHA256).Hash
+          $retainedHash = (Get-FileHash $retainedDll -Algorithm SHA256).Hash
+          if ($compiledHash -ne $retainedHash) { throw 'compiled and retained DLL differ before the C# runtime check' }
+          ./modules/core/webrtc-native/scripts/run-csharp-runtime.ps1 $env:RUNNER_TEMP/webrtc-upstream out-win-x64 2>&1 |
+            Tee-Object -FilePath modules/core/webrtc-native/inventory/csharp-runtime-windows-integration.txt
+          if ($LASTEXITCODE -ne 0) { throw 'C# native wrapper runtime failed' }
+          $compiledAfter = (Get-FileHash $compiledDll -Algorithm SHA256).Hash
+          $retainedAfter = (Get-FileHash $retainedDll -Algorithm SHA256).Hash
+          if ($compiledAfter -ne $compiledHash -or $retainedAfter -ne $retainedHash) {
+            throw 'compiled or retained DLL changed during the C# runtime check'
+          }
+
+      - name: Build and publish Computer with native DLL required
+        timeout-minutes: 30
+        run: |
+          $dll = (Resolve-Path 'modules/core/webrtc-native/inventory/hs_webrtc_shared.dll').Path
+          dotnet build apps/windows/src/Helicoid.Computer/Helicoid.Computer.csproj `
+            -c Release -r win-x64 -p:Platform=x64 -p:WindowsPackageType=None `
+            -p:RequireNativeWebRtc=true "-p:NativeWebRtcDllPath=$dll" --nologo
+          if ($LASTEXITCODE -ne 0) { throw 'Computer build with required native DLL failed' }
+          dotnet publish apps/windows/src/Helicoid.Computer/Helicoid.Computer.csproj `
+            -c Release -r win-x64 -p:Platform=x64 -p:WindowsPackageType=None `
+            -p:WindowsAppSDKSelfContained=true -p:RequireNativeWebRtc=true `
+            "-p:NativeWebRtcDllPath=$dll" --self-contained true --nologo `
+            -o artifacts/computer-native-transport
+          if ($LASTEXITCODE -ne 0) { throw 'Computer publish with required native DLL failed' }
+          dotnet publish apps/windows/src/Helicoid.CaptureWorker/Helicoid.CaptureWorker.csproj `
+            -c Release -r win-x64 -p:ContinuousIntegrationBuild=true --self-contained true `
+            --nologo -o artifacts/computer-native-transport
+          if ($LASTEXITCODE -ne 0) { throw 'CaptureWorker publish failed' }
+
+      - name: Verify published DLL identity and record bundle hashes
+        run: |
+          $sourceDll = 'modules/core/webrtc-native/inventory/hs_webrtc_shared.dll'
+          $publishedDll = 'artifacts/computer-native-transport/hs_webrtc_shared.dll'
+          if (-not (Test-Path $publishedDll -PathType Leaf)) { throw 'published Computer bundle omitted hs_webrtc_shared.dll' }
+          $sourceHash = (Get-FileHash $sourceDll -Algorithm SHA256).Hash.ToLowerInvariant()
+          $publishedHash = (Get-FileHash $publishedDll -Algorithm SHA256).Hash.ToLowerInvariant()
+          if ($sourceHash -ne $publishedHash) { throw "published DLL hash differs from the built DLL: $sourceHash != $publishedHash" }
+          $root = (Resolve-Path 'artifacts/computer-native-transport').Path
+          $files = Get-ChildItem $root -Recurse -File | Where-Object { $_.Name -ne 'SHA256SUMS' } | Sort-Object FullName
+          $lines = foreach ($file in $files) {
+            $relative = $file.FullName.Substring($root.Length + 1)
+            $hash = (Get-FileHash $file.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
+            "$hash  $relative"
+          }
+          $lines | Set-Content -Encoding ascii (Join-Path $root 'SHA256SUMS')
+          "native_dll_sha256=$sourceHash" | Set-Content -Encoding ascii modules/core/webrtc-native/inventory/computer-bundle-windows.txt
+          "published_dll_sha256=$publishedHash" | Add-Content -Encoding ascii modules/core/webrtc-native/inventory/computer-bundle-windows.txt
+          Get-Content modules/core/webrtc-native/inventory/build-provenance-out-win-x64.txt |
+            Add-Content -Encoding ascii modules/core/webrtc-native/inventory/computer-bundle-windows.txt
+
+      - name: Upload Windows integration evidence and bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: helicoid-windows-native-transport
+          path: |
+            artifacts/computer-native-transport/**
+            modules/core/webrtc-native/inventory/*windows*
+            modules/core/webrtc-native/inventory/build-provenance-out-win-x64.txt
+            modules/core/webrtc-native/inventory/win-sdk-pins.json
+            modules/core/webrtc-native/inventory/win-sdk-prereq.txt
+            modules/core/webrtc-native/inventory/upstream-pins.json
+            modules/core/webrtc-native/native/hs_webrtc.h
+          if-no-files-found: warn
+          retention-days: 14
