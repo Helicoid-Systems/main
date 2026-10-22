@@ -1,0 +1,89 @@
+{
+  "passed": 21,
+  "checks": [
+    {
+      "check": "health",
+      "status": 200
+    },
+    {
+      "check": "anonymous inventory denied",
+      "status": 401
+    },
+    {
+      "check": "bootstrap",
+      "status": 201
+    },
+    {
+      "check": "approved manager login",
+      "status": 200
+    },
+    {
+      "check": "administration does not imply inventory",
+      "status": 200
+    },
+    {
+      "check": "pending computer 1",
+      "status": 201
+    },
+    {
+      "check": "pending computer 2",
+      "status": 201
+    },
+    {
+      "check": "explicit access assignment",
+      "status": 201
+    },
+    {
+      "check": "scoped inventory",
+      "status": 200
+    },
+    {
+      "check": "native client integration",
+      "status": "passed"
+    },
+    {
+      "check": "native client integration",
+      "status": "passed"
+    },
+    {
+      "check": "outside scope denied",
+      "status": 403
+    },
+    {
+      "check": "new manager pending",
+      "status": 201
+    },
+    {
+      "check": "pending manager denied",
+      "status": 403
+    },
+    {
+      "check": "explicit manager approval",
+      "status": 200
+    },
+    {
+      "check": "newly approved manager login",
+      "status": 200
+    },
+    {
+      "check": "manager revocation",
+      "status": 200
+    },
+    {
+      "check": "revoked manager session denied",
+      "status": 401
+    },
+    {
+      "check": "file jobs explicitly unavailable",
+      "status": 501
+    },
+    {
+      "check": "logout",
+      "status": 204
+    },
+    {
+      "check": "logged out session denied",
+      "status": 401
+    }
+  ]
+}

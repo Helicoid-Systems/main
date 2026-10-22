@@ -1,0 +1,88 @@
+{
+  "observed_at": "2026-10-12",
+  "source_sha": "f01019faa41d484f7ce43bcc0f0559834ad9d10c",
+  "run": 38252656196,
+  "url": "https://github.com/Helicoid-Systems/server/actions/runs/38252656196",
+  "status": "Verified",
+  "tests": {
+    "windows-latest test / build": {
+      "passed": 226,
+      "failed": 0,
+      "ignored": 0,
+      "suite_counts": [
+        74,
+        2,
+        27,
+        12,
+        44,
+        19,
+        12,
+        6,
+        23,
+        7,
+        0
+      ]
+    },
+    "fmt / test / clippy": {
+      "passed": 235,
+      "failed": 0,
+      "ignored": 0,
+      "suite_counts": [
+        56,
+        2,
+        26,
+        12,
+        44,
+        29,
+        11,
+        6,
+        21,
+        28,
+        0
+      ]
+    }
+  },
+  "windows_launcher_versions": [
+    "PowerShell5.1",
+    "PowerShell7"
+  ],
+  "artifact_id": 11748988843,
+  "artifact_url": "https://github.com/Helicoid-Systems/server/actions/runs/38252656196/artifacts/11748988843",
+  "artifact_digest": "sha256:b360ede6ccf48269a66edd1a179fe8be0833049a805e1e35dd21f8bdbda726bc",
+  "download_sha256": "b360ede6ccf48269a66edd1a179fe8be0833049a805e1e35dd21f8bdbda726bc",
+  "zip_integrity": "Verified",
+  "files": [
+    {
+      "name": "hs-server.exe",
+      "bytes": 7554048,
+      "sha256": "c4d5b7182bbb6217a087f9a91cf93ea2bb8596dec34b9c608e772f7169f8c3d1",
+      "architecture": "PE x64"
+    },
+    {
+      "name": "start-development.cmd",
+      "bytes": 541,
+      "sha256": "f41ee1e31c65ce742859b696b73a1ccdafd4ed9dde71e74398a50d6f61175d4a",
+      "source_text_matches": "Verified after Git line-ending normalization"
+    },
+    {
+      "name": "start-development.ps1",
+      "bytes": 12509,
+      "sha256": "61a97b5789adf37bf56bc54b983d238ff4910efb394cca73468c6db54b31dedd",
+      "source_text_matches": "Verified after Git line-ending normalization"
+    },
+    {
+      "name": "windows-tester.md",
+      "bytes": 10504,
+      "sha256": "8d1edcdfa0647d00dbcb93fffd57ba62c29697f2b7e9c904de6bf18f039debaa",
+      "source_text_matches": "Verified after Git line-ending normalization"
+    }
+  ],
+  "scope": "Native Windows server private-store/MFA/CLI and development launcher prerequisite",
+  "windows_tls_hosting": "Unavailable at this revision",
+  "installed_windows_runtime": "Not Verified",
+  "signing": "Not Verified",
+  "production_media_control_route": "Unavailable",
+  "accepted_integration_pin": "7ae1f4169dd4c33af53b0b064b4cc94a41a168c1",
+  "evidence_revision_source_identical": true,
+  "runner_os": "Windows Server2025"
+}

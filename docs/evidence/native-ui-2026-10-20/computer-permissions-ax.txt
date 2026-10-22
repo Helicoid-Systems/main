@@ -1,0 +1,2 @@
+There has been no change in the accessibility tree for Window: "Helicoid Computer Settings".
+The focused UI element is 19 standard window Helicoid Computer Settings, ID: com_apple_SwiftUI_Settings_window, Secondary Actions: Raise

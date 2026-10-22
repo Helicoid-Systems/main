@@ -1,0 +1,3119 @@
+{
+  "schema": "hs-ui-acceptance/v1",
+  "recorded_date": "2026-10-19",
+  "provider": "xiaomi-token-plan-ams",
+  "model": "mimo-v2.6-pro",
+  "variant": "high",
+  "scope": "Accepted 74-screen specification and implementation acceptance ledger. Partial native UI work is recorded separately from complete screen/runtime acceptance.",
+  "specification": {
+    "document": "docs/ui.md",
+    "kind": "source specification",
+    "delivered_runtime": false,
+    "separation": "Source spec is separate from delivered runtime. This ledger records acceptance status only.",
+    "binding_refinements": [
+      "native system typography accent chrome; supplied artwork unchanged",
+      "SF and Fluent icons 16 to 20; modest headings; neutral surfaces; 8 16 24 spacing",
+      "one meaningful group; no nested cards pills healthy badges marketing headings developer copy or repeated policy text",
+      "keep essential operator permission trust release meaning",
+      "bottom actions reachable while body scrolls; no loading ellipses",
+      "focus first input; destructive default neutral or cancel; inline errors; safe draft retained; secrets cleared; honest measured progress",
+      "native window transitions only; no custom scale or timer",
+      "accessible light dark inactive high contrast motion text scaling",
+      "native keyboard and context menus; no canvas focus trap",
+      "preview sizes 192 256 320 default 448 per real account and deployment",
+      "Updates Delayed after 3s missing stream health; clear 5s; immediate clear on invalidation",
+      "Stop Control CmdShiftEscape Mac CtrlShiftF12 Win; CtrlTab exits canvas locally",
+      "release registry survives viewer close; Pending Release until ack or safe expiry"
+    ]
+  },
+  "id_policy": {
+    "expected_count": 74,
+    "families": [
+      "C",
+      "M",
+      "E",
+      "A",
+      "H",
+      "P"
+    ],
+    "ranges": {
+      "C": "C01-C03",
+      "M": "M01-M25",
+      "E": "E01-E11",
+      "A": "A01-A11",
+      "H": "H01-H19",
+      "P": "P01-P05"
+    },
+    "require_exact_match": true,
+    "require_no_duplicates": true,
+    "never_mark_verified_from_docs": true
+  },
+  "validation": {
+    "source_spec_ids": "docs/ui.md headings of the form \"#### <ID>\"",
+    "ledger_ids": "screens[].id in this file",
+    "command": "python3 scripts/verify-ui-coverage.py",
+    "policy": "Existing unit and build prerequisites are not end-to-end. No capability is Verified from documentation alone.",
+    "last_coverage_result": "Verified: 74 IDs and 148 rows; no complete runtime acceptance claimed"
+  },
+  "phases": {
+    "0": {
+      "name": "contracts",
+      "scope": "Shared presentation rules, window sizes, preview and streaming states, input and release registry, cross-screen states, and this acceptance ledger. No runtime claim.",
+      "ids": [],
+      "dependencies": [
+        "docs/ui.md source specification",
+        "docs/spec/contracts.md",
+        "docs/spec/workflows.md",
+        "D01-D32 behavior contracts preserved"
+      ],
+      "planned_gates": [
+        "exactly 74 IDs with no duplicates",
+        "ledger matches source IDs",
+        "binding refinements recorded"
+      ]
+    },
+    "1": {
+      "name": "native polish",
+      "scope": "Connection, sign-in, enrollment, permissions, endpoint status shell, and settings/help surfaces. Compact native layout and honest states before feature breadth.",
+      "ids": [
+        "C01",
+        "C02",
+        "C03",
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05"
+      ],
+      "dependencies": [
+        "phase 0",
+        "real local accounts and device identity",
+        "OS permission APIs",
+        "supplied artwork manifest"
+      ],
+      "planned_gates": [
+        "packaged normal launch without fixture switches",
+        "permission grant denial and revocation truthful",
+        "light dark inactive high contrast text scale",
+        "keyboard and VoiceOver or Narrator reach both permission actions"
+      ]
+    },
+    "2": {
+      "name": "real inventory and windows",
+      "scope": "Computers inventory, grid and list, selection, independent remote view-only windows, details, pause and paused result. No control yet beyond view-only.",
+      "ids": [
+        "M01",
+        "M02",
+        "M03",
+        "M04",
+        "M06",
+        "M18",
+        "M20",
+        "M21"
+      ],
+      "dependencies": [
+        "phase 1",
+        "authenticated inventory",
+        "per-computer admission",
+        "engine frame handoff"
+      ],
+      "planned_gates": [
+        "authorized inventory loads with correct names and count",
+        "grid and list switch visibly",
+        "two independent remote windows",
+        "pause clears pixels and resume obtains fresh admission",
+        "reopen focuses existing window"
+      ]
+    },
+    "3": {
+      "name": "admitted media and control",
+      "scope": "Explicit control lifecycle: reservation, acknowledgment, input pause, minimize release, pending release registry, stop control, and competing owner behavior.",
+      "ids": [
+        "M07"
+      ],
+      "dependencies": [
+        "phase 2",
+        "endpoint admission consumed before input",
+        "release registry",
+        "D09 D24 D27"
+      ],
+      "planned_gates": [
+        "real endpoint input effects",
+        "reservation plus acknowledgment",
+        "focus loss cleans held input",
+        "minimize releases control and cancels pending claim",
+        "Pending Release survives viewer close until ack or safe expiry",
+        "no input replay"
+      ]
+    },
+    "4": {
+      "name": "admin operations",
+      "scope": "Administration screens and server setup through Ready for Enrollment. Deployment Verified stays separate.",
+      "ids": [
+        "A01",
+        "A02",
+        "A03",
+        "A04",
+        "A05",
+        "A06",
+        "A08",
+        "A09",
+        "A10",
+        "H01",
+        "H02",
+        "H03",
+        "H04",
+        "H05",
+        "H06",
+        "H07",
+        "H08",
+        "H09",
+        "H10",
+        "H11",
+        "H12",
+        "H14",
+        "H15"
+      ],
+      "dependencies": [
+        "phase 1",
+        "scoped delegation and recovery",
+        "installer journal",
+        "storage and backup primitives"
+      ],
+      "planned_gates": [
+        "occupied host checks for every route",
+        "no self approval",
+        "recovery-only reset shows no usable password",
+        "Server Ready for Enrollment distinct from Deployment Verified",
+        "interrupted install cancel and partial resume",
+        "security floor preserved"
+      ]
+    },
+    "5": {
+      "name": "broad tools",
+      "scope": "Sharing, attention, message, website and app launch, files and file requests, received files, screenshot, computer actions, help requests, and results.",
+      "ids": [
+        "M05",
+        "M08",
+        "M09",
+        "M10",
+        "M11",
+        "M12",
+        "M13",
+        "M14",
+        "M15",
+        "M16",
+        "M17",
+        "M19",
+        "E07",
+        "E08",
+        "E09",
+        "E10",
+        "E11",
+        "A07"
+      ],
+      "dependencies": [
+        "phase 2",
+        "phase 3",
+        "D21 D29 D30",
+        "file job persistence",
+        "typed app catalog"
+      ],
+      "planned_gates": [
+        "per-recipient sharing states and zero-end",
+        "D29 intended user resume only",
+        "screenshot authority distinct from preview",
+        "typed operations with unsaved-work review",
+        "no home directory browser",
+        "metadata-only export"
+      ]
+    },
+    "6": {
+      "name": "recording and identity",
+      "scope": "Local MP4 recording with optional remote computer sound, identity integration connectors, and public remote access configuration surfaces.",
+      "ids": [
+        "M23",
+        "M24",
+        "A11",
+        "E05",
+        "E06"
+      ],
+      "dependencies": [
+        "phase 3",
+        "phase 5",
+        "ScreenCaptureKit and Windows capture APIs",
+        "OIDC and SCIM connectors",
+        "organization-owned WebRTC edge proof"
+      ],
+      "planned_gates": [
+        "recorded file committed after stop",
+        "disk full revoke disconnect display change finalize recoverably",
+        "no microphone talkback or server archive",
+        "issuer and subject not email link",
+        "UDP-blocked TCP443 proven exactly",
+        "ports 80 and 443 preserved"
+      ]
+    },
+    "7": {
+      "name": "restrictions and OS sign-in",
+      "scope": "Whole-device restrictions with honest enforcement scope and authorized unattended OS sign-in.",
+      "ids": [
+        "M22",
+        "M25"
+      ],
+      "dependencies": [
+        "phase 3",
+        "phase 6",
+        "EndpointSecurity and NetworkExtension entitlements",
+        "AppLocker and WFP",
+        "CredentialProvider or reviewed login adapter feasibility"
+      ],
+      "planned_gates": [
+        "VPN proxy encrypted DNS IPv6 shared IP restart conflicts proven or unavailable",
+        "no force kill running apps default",
+        "preflight before ephemeral credential",
+        "one bounded attempt",
+        "no secrets in logs storage or queues",
+        "adapter failure is actual Unavailable"
+      ]
+    },
+    "8": {
+      "name": "release acceptance",
+      "scope": "Deployment Verified, restore and cutover, updates and rollback, support and recovery, remove server, and production release gates.",
+      "ids": [
+        "H13",
+        "H16",
+        "H17",
+        "H18",
+        "H19"
+      ],
+      "dependencies": [
+        "phase 4",
+        "two actual hosts",
+        "signing credentials",
+        "independent security reviewer"
+      ],
+      "planned_gates": [
+        "one real enrolled endpoint checklist with media denial teardown recovery",
+        "restore quarantine and per-peer trust",
+        "security floor not lowered on rollback",
+        "keep-data default on remove",
+        "production gates below"
+      ]
+    }
+  },
+  "screens": [
+    {
+      "id": "C01",
+      "family": "Connection",
+      "title": "Connect to Server",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "source_revision": "b6f17fb61879c970242bf6784affb7f27f6a6146",
+            "run": "https://github.com/Helicoid-Systems/windows/actions/runs/39343145295",
+            "scope": "WinUI native source compiled and unsigned packaging passed; not installed GUI or full feature acceptance"
+          }
+        }
+      ],
+      "phase": 1,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "trusted-profile import",
+        "deployment identity"
+      ],
+      "planned_expanded_gate": "packaged normal launch without fixture switches; permission grant denial and revocation truthful; light dark inactive high contrast text scale; keyboard and VoiceOver or Narrator reach both permission actions",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "C02",
+      "family": "Connection",
+      "title": "Verify Server",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 1,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "actual verification identity",
+        "changed-identity block"
+      ],
+      "planned_expanded_gate": "packaged normal launch without fixture switches; permission grant denial and revocation truthful; light dark inactive high contrast text scale; keyboard and VoiceOver or Narrator reach both permission actions",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "C03",
+      "family": "Connection",
+      "title": "Sign In",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "source_revision": "b6f17fb61879c970242bf6784affb7f27f6a6146",
+            "run": "https://github.com/Helicoid-Systems/windows/actions/runs/39343145295",
+            "scope": "WinUI native source compiled and unsigned packaging passed; not installed GUI or full feature acceptance"
+          }
+        }
+      ],
+      "phase": 1,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "local accounts",
+        "MFA",
+        "enrollment",
+        "rate limit",
+        "recovery-only"
+      ],
+      "planned_expanded_gate": "packaged normal launch without fixture switches; permission grant denial and revocation truthful; light dark inactive high contrast text scale; keyboard and VoiceOver or Narrator reach both permission actions",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M01",
+      "family": "Manager",
+      "title": "Computers Connecting",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "source_revision": "b6f17fb61879c970242bf6784affb7f27f6a6146",
+            "run": "https://github.com/Helicoid-Systems/windows/actions/runs/39343145295",
+            "scope": "WinUI native source compiled and unsigned packaging passed; not installed GUI or full feature acceptance"
+          }
+        }
+      ],
+      "phase": 2,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "authenticated inventory",
+        "per-computer admission"
+      ],
+      "planned_expanded_gate": "authorized inventory loads with correct names and count; grid and list switch visibly; two independent remote windows; pause clears pixels and resume obtains fresh admission; reopen focuses existing window",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M02",
+      "family": "Manager",
+      "title": "Monitoring Paused",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "source_revision": "b6f17fb61879c970242bf6784affb7f27f6a6146",
+            "run": "https://github.com/Helicoid-Systems/windows/actions/runs/39343145295",
+            "scope": "WinUI native source compiled and unsigned packaging passed; not installed GUI or full feature acceptance"
+          }
+        }
+      ],
+      "phase": 2,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "fresh admission on resume",
+        "pending release"
+      ],
+      "planned_expanded_gate": "authorized inventory loads with correct names and count; grid and list switch visibly; two independent remote windows; pause clears pixels and resume obtains fresh admission; reopen focuses existing window",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M03",
+      "family": "Manager",
+      "title": "Monitoring",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "source_revision": "b6f17fb61879c970242bf6784affb7f27f6a6146",
+            "run": "https://github.com/Helicoid-Systems/windows/actions/runs/39343145295",
+            "scope": "WinUI native source compiled and unsigned packaging passed; not installed GUI or full feature acceptance"
+          }
+        }
+      ],
+      "phase": 2,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "admitted previews",
+        "unavailable pixel clear"
+      ],
+      "planned_expanded_gate": "authorized inventory loads with correct names and count; grid and list switch visibly; two independent remote windows; pause clears pixels and resume obtains fresh admission; reopen focuses existing window",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M04",
+      "family": "Manager",
+      "title": "Selection",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "source_revision": "b6f17fb61879c970242bf6784affb7f27f6a6146",
+            "run": "https://github.com/Helicoid-Systems/windows/actions/runs/39343145295",
+            "scope": "WinUI native source compiled and unsigned packaging passed; not installed GUI or full feature acceptance"
+          }
+        }
+      ],
+      "phase": 2,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "frozen target snapshots",
+        "displayed-or-selected targeting"
+      ],
+      "planned_expanded_gate": "authorized inventory loads with correct names and count; grid and list switch visibly; two independent remote windows; pause clears pixels and resume obtains fresh admission; reopen focuses existing window",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M05",
+      "family": "Manager",
+      "title": "Help Requests",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "help transport",
+        "request list"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M06",
+      "family": "Manager",
+      "title": "View Screen",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "source_revision": "b6f17fb61879c970242bf6784affb7f27f6a6146",
+            "run": "https://github.com/Helicoid-Systems/windows/actions/runs/39343145295",
+            "scope": "WinUI native source compiled and unsigned packaging passed; not installed GUI or full feature acceptance"
+          }
+        }
+      ],
+      "phase": 2,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "independent remote windows",
+        "display picker",
+        "view-only admission"
+      ],
+      "planned_expanded_gate": "authorized inventory loads with correct names and count; grid and list switch visibly; two independent remote windows; pause clears pixels and resume obtains fresh admission; reopen focuses existing window",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M07",
+      "family": "Manager",
+      "title": "Assistance",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 3,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "reservation and ack",
+        "release registry",
+        "Stop Control",
+        "D09 no user stop"
+      ],
+      "planned_expanded_gate": "real endpoint input effects; reservation plus acknowledgment; focus loss cleans held input; minimize releases control and cancels pending claim; Pending Release survives viewer close until ack or safe expiry; no input replay",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M08",
+      "family": "Manager",
+      "title": "Share Screen Source",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "source picker",
+        "fixed recipients",
+        "D30 stop policy"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M09",
+      "family": "Manager",
+      "title": "Sharing",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "per-branch stop",
+        "zero-end distribution",
+        "D30"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M10",
+      "family": "Manager",
+      "title": "Attention",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "conflict matrix",
+        "watchdog recovery",
+        "actual restriction label"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M11",
+      "family": "Manager",
+      "title": "Message",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "1000 scalar limit",
+        "draft retention",
+        "per-target delivery"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M12",
+      "family": "Manager",
+      "title": "Open Website or App",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "typed app catalog",
+        "HTTP(S) validation",
+        "no shell path"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M13",
+      "family": "Manager",
+      "title": "Send Files",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "D29 recipient binding",
+        "committed jobs",
+        "quota"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M14",
+      "family": "Manager",
+      "title": "File Request",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "D21 close rules",
+        "draft",
+        "independent pause"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M15",
+      "family": "Manager",
+      "title": "Received Files",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "verified attribution",
+        "quarantine",
+        "no home browser"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M16",
+      "family": "Manager",
+      "title": "Screenshot",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "distinct screenshot authority",
+        "current display",
+        "no cached export"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M17",
+      "family": "Manager",
+      "title": "Computer Action",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "typed power ops",
+        "unsaved-work review",
+        "no offline queue"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M18",
+      "family": "Manager",
+      "title": "Computer Details",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 2,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "capability disclosure",
+        "local permission recovery"
+      ],
+      "planned_expanded_gate": "authorized inventory loads with correct names and count; grid and list switch visibly; two independent remote windows; pause clears pixels and resume obtains fresh admission; reopen focuses existing window",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M19",
+      "family": "Manager",
+      "title": "Action Results",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "frozen scope",
+        "safe Retry Failed",
+        "metadata-only export"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M20",
+      "family": "Manager",
+      "title": "Pause Monitoring",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 2,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "owned-control consequence",
+        "unrelated observers"
+      ],
+      "planned_expanded_gate": "authorized inventory loads with correct names and count; grid and list switch visibly; two independent remote windows; pause clears pixels and resume obtains fresh admission; reopen focuses existing window",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M21",
+      "family": "Manager",
+      "title": "Monitoring Paused Result",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 2,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "cleared pixels",
+        "unresolved release link"
+      ],
+      "planned_expanded_gate": "authorized inventory loads with correct names and count; grid and list switch visibly; two independent remote windows; pause clears pixels and resume obtains fresh admission; reopen focuses existing window",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M22",
+      "family": "Manager",
+      "title": "Restrictions",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 7,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "EndpointSecurity and NetworkExtension",
+        "AppLocker and WFP",
+        "bundle preflight",
+        "enforcement proof"
+      ],
+      "planned_expanded_gate": "VPN proxy encrypted DNS IPv6 shared IP restart conflicts proven or unavailable; no force kill running apps default; preflight before ephemeral credential; one bounded attempt; no secrets in logs storage or queues; adapter failure is actual Unavailable",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M23",
+      "family": "Manager",
+      "title": "Recording and Audio",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 6,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "local MP4",
+        "optional remote computer sound",
+        "disk full and revoke finalize",
+        "no server archive"
+      ],
+      "planned_expanded_gate": "recorded file committed after stop; disk full revoke disconnect display change finalize recoverably; no microphone talkback or server archive; issuer and subject not email link; UDP-blocked TCP443 proven exactly; ports 80 and 443 preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M24",
+      "family": "Manager",
+      "title": "Remote Access",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 6,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "organization-owned WebRTC edge",
+        "UDP-blocked TCP443",
+        "certificate and relay health",
+        "ports 80 and 443 preserved"
+      ],
+      "planned_expanded_gate": "recorded file committed after stop; disk full revoke disconnect display change finalize recoverably; no microphone talkback or server archive; issuer and subject not email link; UDP-blocked TCP443 proven exactly; ports 80 and 443 preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "M25",
+      "family": "Manager",
+      "title": "Remote OS Sign-in",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 7,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "preflight gate",
+        "ephemeral credential",
+        "CredentialProvider feasibility",
+        "macOS login adapter feasibility"
+      ],
+      "planned_expanded_gate": "VPN proxy encrypted DNS IPv6 shared IP restart conflicts proven or unavailable; no force kill running apps default; preflight before ephemeral credential; one bounded attempt; no secrets in logs storage or queues; adapter failure is actual Unavailable",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "E01",
+      "family": "Monitored computer",
+      "title": "Enroll Computer",
+      "platforms": [
+        {
+          "name": "Mac computer",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows computer",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 1,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "profile or invitation",
+        "IT recovery route"
+      ],
+      "planned_expanded_gate": "packaged normal launch without fixture switches; permission grant denial and revocation truthful; light dark inactive high contrast text scale; keyboard and VoiceOver or Narrator reach both permission actions",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "E02",
+      "family": "Monitored computer",
+      "title": "Pending Approval",
+      "platforms": [
+        {
+          "name": "Mac computer",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows computer",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 1,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "manager approval",
+        "no premature monitoring"
+      ],
+      "planned_expanded_gate": "packaged normal launch without fixture switches; permission grant denial and revocation truthful; light dark inactive high contrast text scale; keyboard and VoiceOver or Narrator reach both permission actions",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "E03",
+      "family": "Monitored computer",
+      "title": "Permissions",
+      "platforms": [
+        {
+          "name": "Mac computer",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows computer",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 1,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "Screen Recording",
+        "Accessibility",
+        "actual process readiness",
+        "Windows native readiness"
+      ],
+      "planned_expanded_gate": "packaged normal launch without fixture switches; permission grant denial and revocation truthful; light dark inactive high contrast text scale; keyboard and VoiceOver or Narrator reach both permission actions",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "E04",
+      "family": "Monitored computer",
+      "title": "Ready",
+      "platforms": [
+        {
+          "name": "Mac computer",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows computer",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "source_revision": "b6f17fb61879c970242bf6784affb7f27f6a6146",
+            "run": "https://github.com/Helicoid-Systems/windows/actions/runs/39343145295",
+            "scope": "WinUI native source compiled and unsigned packaging passed; not installed GUI or full feature acceptance"
+          }
+        }
+      ],
+      "phase": 1,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "tray or menu status",
+        "No Active Access",
+        "safe quit"
+      ],
+      "planned_expanded_gate": "packaged normal launch without fixture switches; permission grant denial and revocation truthful; light dark inactive high contrast text scale; keyboard and VoiceOver or Narrator reach both permission actions",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "E05",
+      "family": "Monitored computer",
+      "title": "Observation Active",
+      "platforms": [
+        {
+          "name": "Mac computer",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows computer",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "source_revision": "b6f17fb61879c970242bf6784affb7f27f6a6146",
+            "run": "https://github.com/Helicoid-Systems/windows/actions/runs/39343145295",
+            "scope": "WinUI native source compiled and unsigned packaging passed; not installed GUI or full feature acceptance"
+          }
+        }
+      ],
+      "phase": 3,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "named observers",
+        "authority change identity update"
+      ],
+      "planned_expanded_gate": "real endpoint input effects; reservation plus acknowledgment; focus loss cleans held input; minimize releases control and cancels pending claim; Pending Release survives viewer close until ack or safe expiry; no input replay",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "E06",
+      "family": "Monitored computer",
+      "title": "Control Active",
+      "platforms": [
+        {
+          "name": "Mac computer",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows computer",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "source_revision": "b6f17fb61879c970242bf6784affb7f27f6a6146",
+            "run": "https://github.com/Helicoid-Systems/windows/actions/runs/39343145295",
+            "scope": "WinUI native source compiled and unsigned packaging passed; not installed GUI or full feature acceptance"
+          }
+        }
+      ],
+      "phase": 3,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "named controller",
+        "D09 no user stop",
+        "automatic teardown"
+      ],
+      "planned_expanded_gate": "real endpoint input effects; reservation plus acknowledgment; focus loss cleans held input; minimize releases control and cancels pending claim; Pending Release survives viewer close until ack or safe expiry; no input replay",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "E07",
+      "family": "Monitored computer",
+      "title": "Help Request",
+      "platforms": [
+        {
+          "name": "Mac computer",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows computer",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "bounded text",
+        "dedup",
+        "transport"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "E08",
+      "family": "Monitored computer",
+      "title": "Message",
+      "platforms": [
+        {
+          "name": "Mac computer",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows computer",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "operator-named message",
+        "no focus theft",
+        "no read receipt"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "E09",
+      "family": "Monitored computer",
+      "title": "Screen Sharing",
+      "platforms": [
+        {
+          "name": "Mac computer",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows computer",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "D30 owner or IT stop only",
+        "fitted presentation",
+        "invalidate clears content"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "E10",
+      "family": "Monitored computer",
+      "title": "Attention",
+      "platforms": [
+        {
+          "name": "Mac computer",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows computer",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "owner and expiry",
+        "no fake OS lock",
+        "watchdog IT recovery"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "E11",
+      "family": "Monitored computer",
+      "title": "Files and Requests",
+      "platforms": [
+        {
+          "name": "Mac computer",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows computer",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "D29 private delivery",
+        "D21 replacement",
+        "user change fence"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "A01",
+      "family": "Administration",
+      "title": "Overview",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "outstanding-work list",
+        "no metrics wall"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "A02",
+      "family": "Administration",
+      "title": "Computers",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "inventory table",
+        "no auto observation"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "A03",
+      "family": "Administration",
+      "title": "Enrollment",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "pending",
+        "invitations",
+        "approved managers",
+        "identity review",
+        "no self approval"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "A04",
+      "family": "Administration",
+      "title": "Computer Access and Groups",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "access separate from groups",
+        "delegation ceiling",
+        "staging groups freeze IDs"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "A05",
+      "family": "Administration",
+      "title": "Accounts",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "local and external accounts",
+        "recovery-only reset",
+        "last recoverable admin"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "A06",
+      "family": "Administration",
+      "title": "Policies",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "Saved Delivered Applied revisions",
+        "new modules off until configured"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "A07",
+      "family": "Administration",
+      "title": "Approved Apps and Websites",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 5,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "typed catalog",
+        "Test One",
+        "catalog not grant"
+      ],
+      "planned_expanded_gate": "per-recipient sharing states and zero-end; D29 intended user resume only; screenshot authority distinct from preview; typed operations with unsaved-work review; no home directory browser; metadata-only export",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "A08",
+      "family": "Administration",
+      "title": "Activity",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "metadata audit",
+        "metadata-only export"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "A09",
+      "family": "Administration",
+      "title": "Security",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "trust and MFA",
+        "recovery codes once",
+        "fresh auth review",
+        "no recovery media authority"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "A10",
+      "family": "Administration",
+      "title": "Import and Export Configuration",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "typed validated preview",
+        "no secrets export",
+        "no trust bypass"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "A11",
+      "family": "Administration",
+      "title": "Identity Integration",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 6,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "OIDC and SCIM separate",
+        "external browser PKCE",
+        "issuer and subject link",
+        "local recovery admin preserved"
+      ],
+      "planned_expanded_gate": "recorded file committed after stop; disk full revoke disconnect display change finalize recoverably; no microphone talkback or server archive; issuer and subject not email link; UDP-blocked TCP443 proven exactly; ports 80 and 443 preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H01",
+      "family": "Server setup and operation",
+      "title": "Choose Hosting",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "source_revision": "b6f17fb61879c970242bf6784affb7f27f6a6146",
+            "run": "https://github.com/Helicoid-Systems/windows/actions/runs/39343145295",
+            "scope": "WinUI native source compiled and unsigned packaging passed; not installed GUI or full feature acceptance"
+          }
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "route availability",
+        "no secrets until packages available"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H02",
+      "family": "Server setup and operation",
+      "title": "Local Host",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "Windows local only",
+        "elevation",
+        "no SSH fields"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H03",
+      "family": "Server setup and operation",
+      "title": "Connect",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "SSH key agent",
+        "no writes before identity"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H04",
+      "family": "Server setup and operation",
+      "title": "Host Identity",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "SSH host identity review",
+        "changed key blocks writes"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H05",
+      "family": "Server setup and operation",
+      "title": "Check Host",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "real check rows",
+        "no fake green"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H06",
+      "family": "Server setup and operation",
+      "title": "Network",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "HTTPS 8920 LAN primary",
+        "no 80 or 443 takeover",
+        "listeners validated"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H07",
+      "family": "Server setup and operation",
+      "title": "Deployment Identity",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "actual generated identity",
+        "no fabricated ID",
+        "restore separate"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H08",
+      "family": "Server setup and operation",
+      "title": "Administrator",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "named admin",
+        "mandatory MFA",
+        "recovery",
+        "local or tunnel bootstrap"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H09",
+      "family": "Server setup and operation",
+      "title": "Storage and Backups",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "dedicated paths",
+        "quota",
+        "optional encrypted backups separate keys"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H10",
+      "family": "Server setup and operation",
+      "title": "Review",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "exact owned resources",
+        "recheck before writes"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H11",
+      "family": "Server setup and operation",
+      "title": "Install",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "real phase journal",
+        "cancel boundary",
+        "partial resume"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H12",
+      "family": "Server setup and operation",
+      "title": "Ready",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "Server Ready for Enrollment",
+        "Not Deployment Verified",
+        "export public profile"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H13",
+      "family": "Server setup and operation",
+      "title": "Verify Deployment",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 8,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "real evidence checklist",
+        "source artifact platform",
+        "process is not verified"
+      ],
+      "planned_expanded_gate": "one real enrolled endpoint checklist with media denial teardown recovery; restore quarantine and per-peer trust; security floor not lowered on rollback; keep-data default on remove; production gates below",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H14",
+      "family": "Server setup and operation",
+      "title": "Server Status",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "process vs authority health",
+        "scoped recovery",
+        "safety stop reachable"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H15",
+      "family": "Server setup and operation",
+      "title": "Backups",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 4,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "encrypted backup history",
+        "integrity vs restore tested",
+        "explicit retention"
+      ],
+      "planned_expanded_gate": "occupied host checks for every route; no self approval; recovery-only reset shows no usable password; Server Ready for Enrollment distinct from Deployment Verified; interrupted install cancel and partial resume; security floor preserved",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H16",
+      "family": "Server setup and operation",
+      "title": "Restore",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 8,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "restore quarantine",
+        "fresh issuer",
+        "old host fence",
+        "per peer trust",
+        "no resurrection"
+      ],
+      "planned_expanded_gate": "one real enrolled endpoint checklist with media denial teardown recovery; restore quarantine and per-peer trust; security floor not lowered on rollback; keep-data default on remove; production gates below",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H17",
+      "family": "Server setup and operation",
+      "title": "Updates",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 8,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "signed hash",
+        "security floor",
+        "exact artifact rollback",
+        "fresh compatibility"
+      ],
+      "planned_expanded_gate": "one real enrolled endpoint checklist with media denial teardown recovery; restore quarantine and per-peer trust; security floor not lowered on rollback; keep-data default on remove; production gates below",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H18",
+      "family": "Server setup and operation",
+      "title": "Support and Recovery",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 8,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "connection doctor",
+        "redaction preview",
+        "repair manifest",
+        "endpoint local recovery"
+      ],
+      "planned_expanded_gate": "one real enrolled endpoint checklist with media denial teardown recovery; restore quarantine and per-peer trust; security floor not lowered on rollback; keep-data default on remove; production gates below",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "H19",
+      "family": "Server setup and operation",
+      "title": "Remove Server",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 8,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "owned resource removal",
+        "keep data default",
+        "deletion separate",
+        "resumable partial"
+      ],
+      "planned_expanded_gate": "one real enrolled endpoint checklist with media denial teardown recovery; restore quarantine and per-peer trust; security floor not lowered on rollback; keep-data default on remove; production gates below",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "P01",
+      "family": "Settings and help",
+      "title": "General",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 1,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "presentation preferences",
+        "system parallel"
+      ],
+      "planned_expanded_gate": "packaged normal launch without fixture switches; permission grant denial and revocation truthful; light dark inactive high contrast text scale; keyboard and VoiceOver or Narrator reach both permission actions",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "P02",
+      "family": "Settings and help",
+      "title": "Server and Account",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 1,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "trusted server and account",
+        "release switch",
+        "no caches between identities"
+      ],
+      "planned_expanded_gate": "packaged normal launch without fixture switches; permission grant denial and revocation truthful; light dark inactive high contrast text scale; keyboard and VoiceOver or Narrator reach both permission actions",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "P03",
+      "family": "Settings and help",
+      "title": "Notifications",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 1,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "task notifications",
+        "OS settings",
+        "essential disclosure not disableable"
+      ],
+      "planned_expanded_gate": "packaged normal launch without fixture switches; permission grant denial and revocation truthful; light dark inactive high contrast text scale; keyboard and VoiceOver or Narrator reach both permission actions",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "P04",
+      "family": "Settings and help",
+      "title": "About",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "partially implemented",
+          "build_status": "Verified",
+          "runtime_status": "Not Verified",
+          "implementation_evidence": "docs/evidence/native-ui-2026-10-20.md",
+          "build_evidence": {
+            "manifest": "docs/evidence/native-ui-artifacts-2026-10-20.json",
+            "scope": "Mac arm64 source compiled and ad-hoc development packaging passed; not full feature acceptance"
+          }
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 1,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "compiled icon",
+        "version source license",
+        "general monitoring identity"
+      ],
+      "planned_expanded_gate": "packaged normal launch without fixture switches; permission grant denial and revocation truthful; light dark inactive high contrast text scale; keyboard and VoiceOver or Narrator reach both permission actions",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    },
+    {
+      "id": "P05",
+      "family": "Settings and help",
+      "title": "Help",
+      "platforms": [
+        {
+          "name": "Mac manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        },
+        {
+          "name": "Windows manager",
+          "source_status": "specified",
+          "build_status": "Not Verified",
+          "runtime_status": "Not Verified"
+        }
+      ],
+      "phase": 1,
+      "source_evidence": {
+        "document": "docs/ui.md",
+        "kind": "source specification",
+        "recorded": "2026-10-19",
+        "delivered_runtime": false
+      },
+      "build_evidence": null,
+      "runtime_evidence": null,
+      "dependencies": [
+        "task guides",
+        "search actual shipped",
+        "shortcut help"
+      ],
+      "planned_expanded_gate": "packaged normal launch without fixture switches; permission grant denial and revocation truthful; light dark inactive high contrast text scale; keyboard and VoiceOver or Narrator reach both permission actions",
+      "notes": "Full screen/state acceptance remains Not Verified. Individual source/build/scenario observations are recorded separately in the native UI evidence."
+    }
+  ],
+  "production_gates": {
+    "signing": {
+      "status": "Not Verified",
+      "note": "Release signing and notarization credentials not present in this work package."
+    },
+    "native_installed_acceptance": {
+      "status": "Not Verified",
+      "note": "Installed Windows and Apple Silicon acceptance not performed."
+    },
+    "intel_runtime": {
+      "status": "Not Verified",
+      "note": "Intel Mac runtime evidence not performed."
+    },
+    "two_host_recovery": {
+      "status": "Not Verified",
+      "note": "Two actual host recovery and cutover not performed."
+    },
+    "independent_security_review": {
+      "status": "Not Verified",
+      "note": "Independent security review not performed."
+    }
+  },
+  "current_work": {
+    "status": "In Progress",
+    "package": "UI00-UI06 native composition, inventory and independent viewers",
+    "owner": "main coordination; apps/macos and apps/windows own native source",
+    "evidence": "docs/evidence/native-ui-2026-10-20.md",
+    "separation": "Builds and individual observed states do not pass every state of a screen family.",
+    "blocked_executor": {
+      "provider": "xiaomi-token-plan-ams",
+      "model": "mimo-v2.6-pro",
+      "variant": "high",
+      "response": "429 quota exhausted",
+      "sessions_preserved": true
+    },
+    "not_modified": [
+      "modules/core source",
+      "modules/server source",
+      "Website",
+      "supplied artwork",
+      "Ubuntu infrastructure"
+    ],
+    "not_claimed": [
+      "completed 74-screen implementation",
+      "real media or input",
+      "functional installers",
+      "production readiness"
+    ],
+    "design_correction": "docs/evidence/native-ui-design-correction-2026-10-20.md"
+  },
+  "summary": {
+    "screen_families": 74,
+    "platforms_initially_not_verified": 148,
+    "verified_from_docs": 0,
+    "source_specified": 74,
+    "platform_rows": 148
+  }
+}

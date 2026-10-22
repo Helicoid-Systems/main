@@ -1,0 +1,23 @@
+{
+  "kind": "Mac Manager visual correction; development artifact",
+  "source_base": "6e5da811d4fd1d585f74a5303e1621ec771f5c8d",
+  "source_patch": "/tmp/hs-ui-design-20261020/deliverables/Helicoid-macOS-design-source.patch",
+  "source_patch_sha256": "0b5dbb69e94ce82475d4a25a2822306352b2e7722ebc0cf7b4edea2f635838fc",
+  "artifact": "/tmp/hs-ui-design-20261020/deliverables/Helicoid-Manager-macOS-arm64-design-revision.zip",
+  "artifact_sha256": "5108e7e1693584a6fc692e0e6c623f4b71e299eedea13f93dc1b60e408269601",
+  "architecture": "arm64",
+  "signing": "strict-verified ad-hoc development signature",
+  "release_build": "Verified",
+  "manager_tests": 18,
+  "visual_scope": "Connect, sign-in/verification composition, hosting chooser and host-check presentation",
+  "runtime_observations": [
+    "Connect address starts focused and uses a full-width native text field",
+    "Hosting chooser displays both routes and its caption without a scrollbar",
+    "Host-check rows display real preflight status; warning explanation is under Details"
+  ],
+  "limitations": [
+    "Full light/dark/accessibility/text-scaling acceptance Not Verified",
+    "Cua captures can show transformed background window thumbnails",
+    "Authentication, trust, hosting implementation, installer gates and server state were not changed"
+  ]
+}

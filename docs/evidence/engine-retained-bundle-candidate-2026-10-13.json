@@ -1,0 +1,120 @@
+{
+  "observed_at": "2026-10-13",
+  "status": "Not Verified",
+  "scope": "Retained inert unsigned Windows lab bundle; native DLL/staged runs/download acceptance pending",
+  "source_sha": "155fff24605d4ae3beacd2b91986676ff8452c72",
+  "native_run": 38317350914,
+  "native_url": "https://github.com/Helicoid-Systems/core/actions/runs/38317350914",
+  "domain_run": 38317351049,
+  "domain_url": "https://github.com/Helicoid-Systems/core/actions/runs/38317351049",
+  "accepted_base_pin": "a8cbd2be948740030891be8a4f291c67adb687bf",
+  "mimo": {
+    "session_id": "ses_ffe5ecde4effdffe4dZROL0HNu",
+    "assistant_records": 94,
+    "providers_models": [
+      [
+        "xiaomi",
+        "mimo-v2.6-pro"
+      ]
+    ],
+    "sanitized_export_sha256": "dff012ad110c8c607989a318b42d5e007fb7100a3550525af71e5cde464786ca",
+    "model_metadata_verified": true
+  },
+  "coordinator": {
+    "checks": [
+      {
+        "name": "header",
+        "exit": 0,
+        "expected": 0,
+        "verified": true,
+        "log": "/tmp/hs-production-20261012/engine-bundle-coordinator-header.log"
+      },
+      {
+        "name": "wrappers",
+        "exit": 0,
+        "expected": 0,
+        "verified": true,
+        "log": "/tmp/hs-production-20261012/engine-bundle-coordinator-wrappers.log"
+      },
+      {
+        "name": "workflow",
+        "exit": 0,
+        "expected": 0,
+        "verified": true,
+        "log": "/tmp/hs-production-20261012/engine-bundle-coordinator-workflow.log"
+      },
+      {
+        "name": "receipt-path-copy-negatives",
+        "exit": 0,
+        "expected": 0,
+        "verified": true,
+        "log": "/tmp/hs-production-20261012/engine-bundle-coordinator-receipt-path-copy-negatives.log"
+      },
+      {
+        "name": "dangling-link-refusal",
+        "exit": 0,
+        "expected": 0,
+        "verified": true,
+        "log": "/tmp/hs-production-20261012/engine-bundle-coordinator-dangling-link-refusal.log"
+      },
+      {
+        "name": "real-source-guards",
+        "exit": 0,
+        "expected": 0,
+        "verified": true,
+        "log": "/tmp/hs-production-20261012/engine-bundle-coordinator-real-source-guards.log"
+      },
+      {
+        "name": "wrong-source-refusal",
+        "exit": 1,
+        "expected": 1,
+        "verified": true,
+        "log": "/tmp/hs-production-20261012/engine-bundle-coordinator-wrong-source-refusal.log"
+      }
+    ],
+    "source_hashes": {
+      "engine-lab/scripts/build-windows-x64.ps1": "f7acf2b2a6b3bbc4c06cc7edc9356d67ace246e42c0f1f410fd89db63be68d77",
+      "engine-lab/scripts/check-windows-lab-bundle.ps1": "0ce9b085635a521efeb1f304a33d314d7e71a70efebdabe46411b4fa23ea1350",
+      ".github/workflows/engine-windows.yml": "d651f9dde9d9261da53b85a86eca32718fcb1947c2798b5d6e832eff152eed57"
+    },
+    "source_unchanged": true,
+    "frozen_files": 16,
+    "frozen_source_hashes": {
+      "native/hs_native.h": "d203183254f2dd21f0e030e688a0191236f5933e0356ae564494488494166f62",
+      "native/harness.c": "14e890e7021f98277ee043ac2d8c53aa0cf4da8feda94d189ffd09f53f80ebac",
+      "native/wrappers/HsNativeWrapper.cs": "a4139b340301dee4c403abee636151b91a716ae60ccc178e92e6352c8eff2142",
+      "native/wrappers/HsNativeWrapper.swift": "5f920f67a5d18c5675ec05f2bd2917ff90dedf441bae18461d5fa0703bc20c02",
+      "native/wrappers/csharp_lifetime_check.cs": "a59476550ff7f823ded06eaa8706e8cb3d493b52a1f990567fcbcf96c9a093f2",
+      "native/wrappers/swift_lifetime_check.swift": "78b6046149cdd97bf09caf61c42e3d5ce371916e456fa7af4c1dcc2d641e1971",
+      "patches/0001-hs-native-bridge.patch": "4c66573cc9ead1d35563ab7d000a069c767d6edc5bf0039fc066b1990d9303e4",
+      "inventory/source-pin.txt": "e2c5e06c60c5e398183141216dc0ca49dfc0db3ed3c19d200a68f44bf1cb8e68",
+      "inventory/patched-files.sha256": "b3fa7af0e9982d3e173e15a174277f968564414cb47f7e01eb6abad02a847df3",
+      "scripts/apply-patch.sh": "e6d1e9d4df4a729f710d071b731b5576ff65d1396d31389b17231ca2ea1b609b",
+      "scripts/build-macos-arm64.sh": "9ffba06ea1f344885bf846bda19c9e3007a0e3f0be825d61c75388a1f42a0c56",
+      "scripts/check-source-pin.sh": "67c89b38222b06e670b8ca71c3e2f6911e73e4c2c319447dba6d72588c8580f0",
+      "scripts/check-header.py": "6c676c7894b4aa30ec8e19b313c349d9b1a48a881bd4c6e3ee78cd4fdacf41b2",
+      "scripts/check-wrapper-contract.py": "c4ad4cf69513dcb8a2a51fa708236d2de92e4b43396c329d0df84c8fffb810e9",
+      "scripts/check-wrappers.sh": "a618c9e3746fa19af41bcfd36a913cadeae1b79311ba9fc55719132062538ca7",
+      "scripts/gen_header.py": "18d0bf2489058d336bf306dd2fec2175f7156d562077f9d5c5cedd585e2d103e"
+    },
+    "local_real_dll_positive": "Not Verified; actual DLL absent; no native runtime claimed"
+  },
+  "local_negative_and_metadata_cases": 29,
+  "additional_dangling_link_refusal": "Verified with disposable bytes on macOS; no DLL/runtime proof",
+  "required_native_reports": [
+    "harness.txt",
+    "csharp.txt",
+    "harness-staged.txt",
+    "csharp-staged.txt",
+    "rust-tests.txt"
+  ],
+  "required_retained_members": [
+    "librustdesk.dll",
+    "lab-bundle-receipt.json",
+    "hs_native.generated.h"
+  ],
+  "selected_stock_relay_adoption": "Failed / Closed",
+  "production_connect_observation_channel_binding": "Unavailable",
+  "normal_product_linkage_installation_signing": "Not Verified",
+  "domain_gate": "Verified: all five exact-source jobs passed"
+}

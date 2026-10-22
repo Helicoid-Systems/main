@@ -1,0 +1,171 @@
+{
+  "observed_at": "2026-10-12",
+  "source_sha": "1d996692a248c4c743525e34c9481a6e4fe472c8",
+  "run": 38259032769,
+  "url": "https://github.com/Helicoid-Systems/server/actions/runs/38259032769",
+  "status": "Verified",
+  "tests": {
+    "windows-latest test / build": {
+      "passed": 243,
+      "failed": 0,
+      "ignored": 0,
+      "suite_counts": [
+        74,
+        2,
+        27,
+        12,
+        44,
+        19,
+        12,
+        6,
+        23,
+        24,
+        0
+      ]
+    },
+    "fmt / test / clippy": {
+      "passed": 235,
+      "failed": 0,
+      "ignored": 0,
+      "suite_counts": [
+        56,
+        2,
+        26,
+        12,
+        44,
+        29,
+        11,
+        6,
+        21,
+        28,
+        0
+      ]
+    }
+  },
+  "windows_launcher_versions": [
+    "PowerShell5.1",
+    "PowerShell7"
+  ],
+  "artifact_id": 11751622589,
+  "artifact_url": "https://github.com/Helicoid-Systems/server/actions/runs/38259032769/artifacts/11751622589",
+  "artifact_digest": "sha256:e26601d528efd82b2fd961bb35fea0ecce09978030b217a617e029670f861f66",
+  "download_sha256": "e26601d528efd82b2fd961bb35fea0ecce09978030b217a617e029670f861f66",
+  "zip_integrity": "Verified",
+  "files": [
+    {
+      "name": "hs-server.exe",
+      "bytes": 9138688,
+      "sha256": "27cea927f77b815c488994a76f6b41a2429f6df643bc592c385a3a093bc68ec6",
+      "architecture": "PE x64"
+    },
+    {
+      "name": "start-development.cmd",
+      "bytes": 541,
+      "sha256": "f41ee1e31c65ce742859b696b73a1ccdafd4ed9dde71e74398a50d6f61175d4a",
+      "source_text_matches": "Verified after Git line-ending normalization"
+    },
+    {
+      "name": "start-development.ps1",
+      "bytes": 12509,
+      "sha256": "61a97b5789adf37bf56bc54b983d238ff4910efb394cca73468c6db54b31dedd",
+      "source_text_matches": "Verified after Git line-ending normalization"
+    },
+    {
+      "name": "windows-tester.md",
+      "bytes": 10504,
+      "sha256": "8d1edcdfa0647d00dbcb93fffd57ba62c29697f2b7e9c904de6bf18f039debaa",
+      "source_text_matches": "Verified after Git line-ending normalization"
+    }
+  ],
+  "local_artifact_directory": "/tmp/hs-production-20261012/hs-server-artifact-z2mbnm4k",
+  "scope": "Native Windows literal-loopback HTTPS plus private-store/MFA/CLI and development launcher prerequisite",
+  "windows_tls_hosting": "Verified for literal-loopback only",
+  "installed_windows_runtime": "Not Verified",
+  "signing": "Not Verified",
+  "production_media_control_route": "Unavailable",
+  "native_windows_tls_tests": [
+    "windows_held_file_read_refuses_untrusted_dacl_and_reads_private",
+    "windows_tls_loader_refuses_untrusted_dacl_material_before_db",
+    "windows_tls_loader_refuses_hardlinked_key_before_db",
+    "actual_windows_cli_https_health_and_bounded_kill",
+    "valid_test_ca_hostname_serves_real_health_json",
+    "foreign_ca_is_refused",
+    "wrong_hostname_is_refused",
+    "plaintext_request_cannot_access_http_body",
+    "stalled_handshake_is_bounded_and_dropped",
+    "graceful_shutdown_is_bounded"
+  ],
+  "windows_cleanup_proof": "Owned Child kill/reap only; no console signal or installed service-stop proof",
+  "accepted_pin": "88c27309e098c87cc41c983975f441d6dacbf891",
+  "pin_source_equivalence": "Only README/BUILD-REPORT differ from tested1d99669",
+  "coordinator": {
+    "source_hashes": {
+      "src/tls.rs": "0eeefb76fdb5a48b2767a2514db6540ece17834e0b9a816817bd3134fae724fd",
+      "tests/tls_transport.rs": "d049fa963559cd118f1083a6943384147c1292710041433e1de9f1b824aa465d"
+    },
+    "checks": [
+      {
+        "check": "fmt",
+        "command": "cargo fmt -- --check",
+        "exit": 0,
+        "seconds": 0.138,
+        "summaries": []
+      },
+      {
+        "check": "tls",
+        "command": "cargo test --locked --test tls_transport",
+        "exit": 0,
+        "seconds": 4.179,
+        "summaries": [
+          "test result: ok. 29 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.12s"
+        ]
+      },
+      {
+        "check": "test",
+        "command": "cargo test --locked",
+        "exit": 0,
+        "seconds": 10.526,
+        "summaries": [
+          "test result: ok. 61 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.72s",
+          "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+          "test result: ok. 26 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.73s",
+          "test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.20s",
+          "test result: ok. 44 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s",
+          "test result: ok. 29 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s",
+          "test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.46s",
+          "test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.01s",
+          "test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.67s",
+          "test result: ok. 29 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.12s",
+          "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+        ]
+      },
+      {
+        "check": "clippy",
+        "command": "cargo clippy --locked --all-targets -- -D warnings",
+        "exit": 0,
+        "seconds": 0.625,
+        "summaries": []
+      },
+      {
+        "check": "build",
+        "command": "cargo build --locked",
+        "exit": 0,
+        "seconds": 0.156,
+        "summaries": []
+      }
+    ],
+    "mac_tests": 242,
+    "source_stable": true,
+    "windows_native": "Not Verified",
+    "mimo": {
+      "session_id": "ses_ffe5ecfb82fe6ffeezEZHNnBCO",
+      "provider": "xiaomi",
+      "model": "mimo-v2.6-pro",
+      "assistant_records": 45,
+      "export_sha256": "c410523bd28b60b35a2ab057a90ee12208845136c7bcf00985e3db5b1f136c44",
+      "metadata_verified": true
+    },
+    "coordinator_retry_pause_repair": "sleep_until min of original deadline and now +50ms"
+  },
+  "runner": "Microsoft Windows Server2025; windows-2025-vs2026"
+}

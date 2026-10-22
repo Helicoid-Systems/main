@@ -1,0 +1,332 @@
+name: Shared Qt Manager
+
+on:
+  push:
+    paths:
+      - 'apps/manager/**'
+      - 'modules/core'
+      - 'modules/core/**'
+      - '.gitmodules'
+      - '.github/workflows/manager-qt.yml'
+  pull_request:
+    paths:
+      - 'apps/manager/**'
+      - 'modules/core'
+      - 'modules/core/**'
+      - '.gitmodules'
+      - '.github/workflows/manager-qt.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  macos-arm64:
+    name: macOS arm64 build and package
+    runs-on: macos-15
+    timeout-minutes: 150
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Checkout pinned native source
+        shell: bash
+        run: |
+          set -euo pipefail
+          git submodule update --init --depth 1 -- modules/core
+          status="$(git submodule status -- modules/core)"
+          case "$status" in -*|+*|U*) echo "core submodule is not checked out at the parent pin: $status" >&2; exit 1 ;; esac
+          echo "$status" > modules/core/webrtc-native/inventory/manager-submodule.txt
+
+      - name: Build and check pinned WebRTC ARM64 library
+        shell: bash
+        run: |
+          set -euo pipefail
+          ./modules/core/webrtc-native/scripts/fetch-upstream.sh "$RUNNER_TEMP/webrtc-upstream"
+          ./modules/core/webrtc-native/scripts/build-macos.sh "$RUNNER_TEMP/webrtc-upstream" manager-macos-arm64 arm64
+          dylib="$RUNNER_TEMP/webrtc-upstream/webrtc-checkout/src/out/manager-macos-arm64/libhs_webrtc_shared.dylib"
+          test -s "$dylib"
+          archs="$(lipo -archs "$dylib")"
+          case " $archs " in *" arm64 "*) ;; *) echo "ARM64 dylib missing arm64 slice: $archs" >&2; exit 1 ;; esac
+          echo "HELICOID_MANAGER_WEBRTC_DYLIB=$dylib" >> "$GITHUB_ENV"
+          echo "HELICOID_MANAGER_REQUIRE_WEBRTC=1" >> "$GITHUB_ENV"
+          ./modules/core/webrtc-native/scripts/run-swift-runtime.sh "$RUNNER_TEMP/webrtc-upstream" manager-macos-arm64 \
+            | tee modules/core/webrtc-native/inventory/swift-runtime-manager-macos-arm64.txt
+          mkdir -p apps/manager/.build/manager-macos-arm64-release
+          echo "architectures=$archs" > apps/manager/.build/manager-macos-arm64-release/native-dylib-architectures.txt
+          shasum -a 256 "$dylib" | tee apps/manager/.build/manager-macos-arm64-release/native-dylib-build-sha256.txt
+
+      - name: Install Qt 6.10
+        id: qt
+        uses: jurplel/install-qt-action@v4.4.1
+        with:
+          version: '6.10.0'
+          host: mac
+          target: desktop
+          arch: clang_64
+
+      - name: Ensure Ninja is available
+        run: |
+          if ! command -v ninja >/dev/null 2>&1; then
+            brew install ninja
+          fi
+          ninja --version
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@1.99.0
+
+      - name: Configure, build, and run Manager checks
+        working-directory: apps/manager
+        env:
+          QT6_ROOT: ${{ steps.qt.outputs.qt-root-dir }}
+          HELICOID_MANAGER_REQUIRE_WEBRTC: '1'
+        run: |
+          cmake --version
+          ninja --version
+          cargo --version
+          cmake --preset manager-macos-arm64-release
+          cmake --build --preset manager-macos-arm64-release
+          cmake --build --preset manager-macos-arm64-release --target manager_registry_tests
+          ctest --test-dir .build/manager-macos-arm64-release --output-on-failure
+
+      - name: Package unsigned development image
+        working-directory: apps/manager
+        env:
+          QT6_ROOT: ${{ steps.qt.outputs.qt-root-dir }}
+          HELICOID_MANAGER_REQUIRE_LAYERED_ICON: '1'
+          HELICOID_MANAGER_REQUIRE_WEBRTC: '1'
+        run: cmake --build --preset manager-macos-arm64-release --target package
+
+      - name: Verify package contains the built native library
+        shell: bash
+        run: |
+          set -euo pipefail
+          dmg="$(find apps/manager/.build/manager-macos-arm64-release -maxdepth 1 -name 'HelicoidManager-*.dmg' -print -quit)"
+          test -n "$dmg"
+          mount="$(mktemp -d "$RUNNER_TEMP/manager-dmg.XXXXXX")"
+          attached=0
+          cleanup() {
+            if [ "$attached" -eq 1 ]; then hdiutil detach "$mount" -quiet; fi
+            rmdir "$mount" 2>/dev/null || true
+          }
+          trap cleanup EXIT
+          hdiutil attach -quiet -readonly -nobrowse -mountpoint "$mount" "$dmg"
+          attached=1
+          bundled="$(find "$mount" -path '*/Contents/Frameworks/libhs_webrtc_shared.dylib' -type f -print -quit)"
+          test -n "$bundled"
+          manager="$(find "$mount" -path '*/Contents/MacOS/HelicoidManager' -type f -print -quit)"
+          test -n "$manager"
+          manager_archs="$(lipo -archs "$manager")"
+          case " $manager_archs " in *" arm64 "*) ;; *) echo "packaged Manager missing arm64 slice: $manager_archs" >&2; exit 1 ;; esac
+          expected="$(shasum -a 256 "$HELICOID_MANAGER_WEBRTC_DYLIB" | awk '{print $1}')"
+          actual="$(shasum -a 256 "$bundled" | awk '{print $1}')"
+          test "$expected" = "$actual"
+          probe="$RUNNER_TEMP/ManagerBundleProbe.app/Contents/MacOS/runtime-probe"
+          probe_frameworks="$RUNNER_TEMP/ManagerBundleProbe.app/Contents/Frameworks"
+          mkdir -p "$(dirname "$probe")" "$probe_frameworks"
+          cp apps/manager/.build/manager-macos-arm64-release/manager_webrtc_runtime_tests "$probe"
+          cp "$bundled" "$probe_frameworks/libhs_webrtc_shared.dylib"
+          "$probe" --bundled | tee apps/manager/.build/manager-macos-arm64-release/native-dylib-load-smoke.txt
+          {
+            echo "manager_architectures=$manager_archs"
+            echo "source_dylib_sha256=$expected"
+            echo "packaged_dylib_sha256=$actual"
+            echo "dmg_sha256=$(shasum -a 256 "$dmg" | awk '{print $1}')"
+            otool -L "$bundled"
+          } > apps/manager/.build/manager-macos-arm64-release/native-dylib-package-evidence.txt
+
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: helicoid-manager-macos-arm64-unsigned
+          path: |
+            apps/manager/.build/manager-macos-arm64-release/HelicoidManager-*.dmg
+            apps/manager/.build/manager-macos-arm64-release/native-dylib-*-sha256.txt
+            apps/manager/.build/manager-macos-arm64-release/native-dylib-architectures.txt
+            apps/manager/.build/manager-macos-arm64-release/native-dylib-package-evidence.txt
+            apps/manager/.build/manager-macos-arm64-release/native-dylib-load-smoke.txt
+            modules/core/webrtc-native/inventory/manager-submodule.txt
+            modules/core/webrtc-native/inventory/swift-runtime-manager-macos-arm64.txt
+            modules/core/webrtc-native/inventory/build-provenance-manager-macos-arm64.txt
+            modules/core/webrtc-native/inventory/built-artifacts-manager-macos-arm64.txt
+            modules/core/webrtc-native/inventory/upstream-pins.json
+          if-no-files-found: error
+          retention-days: 14
+
+  macos-x86_64:
+    name: macOS x86_64 build and package
+    runs-on: macos-15-intel
+    timeout-minutes: 150
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Checkout pinned native source
+        shell: bash
+        run: |
+          set -euo pipefail
+          git submodule update --init --depth 1 -- modules/core
+          status="$(git submodule status -- modules/core)"
+          case "$status" in -*|+*|U*) echo "core submodule is not checked out at the parent pin: $status" >&2; exit 1 ;; esac
+          echo "$status" > modules/core/webrtc-native/inventory/manager-submodule.txt
+
+      - name: Build and check pinned WebRTC x86_64 library
+        shell: bash
+        run: |
+          set -euo pipefail
+          ./modules/core/webrtc-native/scripts/fetch-upstream.sh "$RUNNER_TEMP/webrtc-upstream"
+          ./modules/core/webrtc-native/scripts/build-macos.sh "$RUNNER_TEMP/webrtc-upstream" manager-macos-x86_64 x86_64
+          dylib="$RUNNER_TEMP/webrtc-upstream/webrtc-checkout/src/out/manager-macos-x86_64/libhs_webrtc_shared.dylib"
+          test -s "$dylib"
+          archs="$(lipo -archs "$dylib")"
+          case " $archs " in *" x86_64 "*) ;; *) echo "x86_64 dylib missing x86_64 slice: $archs" >&2; exit 1 ;; esac
+          echo "HELICOID_MANAGER_WEBRTC_DYLIB=$dylib" >> "$GITHUB_ENV"
+          echo "HELICOID_MANAGER_REQUIRE_WEBRTC=1" >> "$GITHUB_ENV"
+          ./modules/core/webrtc-native/scripts/run-swift-runtime.sh "$RUNNER_TEMP/webrtc-upstream" manager-macos-x86_64 \
+            | tee modules/core/webrtc-native/inventory/swift-runtime-manager-macos-x86_64.txt
+          mkdir -p apps/manager/.build/manager-macos-x86_64-release
+          echo "architectures=$archs" > apps/manager/.build/manager-macos-x86_64-release/native-dylib-architectures.txt
+          shasum -a 256 "$dylib" | tee apps/manager/.build/manager-macos-x86_64-release/native-dylib-build-sha256.txt
+
+      - name: Install Qt 6.10
+        id: qt
+        uses: jurplel/install-qt-action@v4.4.1
+        with:
+          version: '6.10.0'
+          host: mac
+          target: desktop
+          arch: clang_64
+
+      - name: Ensure Ninja is available
+        run: |
+          if ! command -v ninja >/dev/null 2>&1; then
+            brew install ninja
+          fi
+          ninja --version
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@1.99.0
+
+      - name: Configure, build, and run Manager checks
+        working-directory: apps/manager
+        env:
+          QT6_ROOT: ${{ steps.qt.outputs.qt-root-dir }}
+          HELICOID_MANAGER_REQUIRE_WEBRTC: '1'
+        run: |
+          cmake --version
+          ninja --version
+          cargo --version
+          cmake --preset manager-macos-x86_64-release
+          cmake --build --preset manager-macos-x86_64-release
+          cmake --build --preset manager-macos-x86_64-release --target manager_registry_tests
+          ctest --test-dir .build/manager-macos-x86_64-release --output-on-failure
+
+      - name: Package unsigned development image
+        working-directory: apps/manager
+        env:
+          QT6_ROOT: ${{ steps.qt.outputs.qt-root-dir }}
+          HELICOID_MANAGER_REQUIRE_LAYERED_ICON: '1'
+          HELICOID_MANAGER_REQUIRE_WEBRTC: '1'
+        run: cmake --build --preset manager-macos-x86_64-release --target package
+
+      - name: Verify package contains the built native library
+        shell: bash
+        run: |
+          set -euo pipefail
+          dmg="$(find apps/manager/.build/manager-macos-x86_64-release -maxdepth 1 -name 'HelicoidManager-*.dmg' -print -quit)"
+          test -n "$dmg"
+          mount="$(mktemp -d "$RUNNER_TEMP/manager-dmg.XXXXXX")"
+          attached=0
+          cleanup() {
+            if [ "$attached" -eq 1 ]; then hdiutil detach "$mount" -quiet; fi
+            rmdir "$mount" 2>/dev/null || true
+          }
+          trap cleanup EXIT
+          hdiutil attach -quiet -readonly -nobrowse -mountpoint "$mount" "$dmg"
+          attached=1
+          bundled="$(find "$mount" -path '*/Contents/Frameworks/libhs_webrtc_shared.dylib' -type f -print -quit)"
+          test -n "$bundled"
+          manager="$(find "$mount" -path '*/Contents/MacOS/HelicoidManager' -type f -print -quit)"
+          test -n "$manager"
+          manager_archs="$(lipo -archs "$manager")"
+          case " $manager_archs " in *" x86_64 "*) ;; *) echo "packaged Manager missing x86_64 slice: $manager_archs" >&2; exit 1 ;; esac
+          expected="$(shasum -a 256 "$HELICOID_MANAGER_WEBRTC_DYLIB" | awk '{print $1}')"
+          actual="$(shasum -a 256 "$bundled" | awk '{print $1}')"
+          test "$expected" = "$actual"
+          probe="$RUNNER_TEMP/ManagerBundleProbe.app/Contents/MacOS/runtime-probe"
+          probe_frameworks="$RUNNER_TEMP/ManagerBundleProbe.app/Contents/Frameworks"
+          mkdir -p "$(dirname "$probe")" "$probe_frameworks"
+          cp apps/manager/.build/manager-macos-x86_64-release/manager_webrtc_runtime_tests "$probe"
+          cp "$bundled" "$probe_frameworks/libhs_webrtc_shared.dylib"
+          "$probe" --bundled | tee apps/manager/.build/manager-macos-x86_64-release/native-dylib-load-smoke.txt
+          {
+            echo "manager_architectures=$manager_archs"
+            echo "source_dylib_sha256=$expected"
+            echo "packaged_dylib_sha256=$actual"
+            echo "dmg_sha256=$(shasum -a 256 "$dmg" | awk '{print $1}')"
+            otool -L "$bundled"
+          } > apps/manager/.build/manager-macos-x86_64-release/native-dylib-package-evidence.txt
+
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: helicoid-manager-macos-x86_64-unsigned
+          path: |
+            apps/manager/.build/manager-macos-x86_64-release/HelicoidManager-*.dmg
+            apps/manager/.build/manager-macos-x86_64-release/native-dylib-*-sha256.txt
+            apps/manager/.build/manager-macos-x86_64-release/native-dylib-architectures.txt
+            apps/manager/.build/manager-macos-x86_64-release/native-dylib-package-evidence.txt
+            apps/manager/.build/manager-macos-x86_64-release/native-dylib-load-smoke.txt
+            modules/core/webrtc-native/inventory/manager-submodule.txt
+            modules/core/webrtc-native/inventory/swift-runtime-manager-macos-x86_64.txt
+            modules/core/webrtc-native/inventory/build-provenance-manager-macos-x86_64.txt
+            modules/core/webrtc-native/inventory/built-artifacts-manager-macos-x86_64.txt
+            modules/core/webrtc-native/inventory/upstream-pins.json
+          if-no-files-found: error
+          retention-days: 14
+
+  windows-x64:
+    name: Windows x64 build and package
+    runs-on: windows-2025
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Install Qt 6.10
+        id: qt
+        uses: jurplel/install-qt-action@v4.4.1
+        with:
+          version: '6.10.0'
+          host: windows
+          target: desktop
+          arch: win64_msvc2022_64
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@1.99.0
+
+      - name: Configure, build, and run Manager checks
+        working-directory: apps/manager
+        env:
+          QT6_ROOT: ${{ steps.qt.outputs.qt-root-dir }}
+        run: |
+          cmake --version
+          cargo --version
+          cmake --preset manager-windows-x64-release
+          cmake --build --preset manager-windows-x64-release --config Release
+          cmake --build --preset manager-windows-x64-release --config Release --target manager_registry_tests
+          ctest --test-dir .build/manager-windows-x64-release --build-config Release --output-on-failure
+
+      - name: Package unsigned development archive
+        working-directory: apps/manager
+        env:
+          QT6_ROOT: ${{ steps.qt.outputs.qt-root-dir }}
+        run: cmake --build --preset manager-windows-x64-release --config Release --target PACKAGE
+
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: helicoid-manager-windows-x64-unsigned
+          path: apps/manager/.build/manager-windows-x64-release/HelicoidManager-*.zip
+          if-no-files-found: error
+          retention-days: 14

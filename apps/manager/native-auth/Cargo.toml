@@ -1,0 +1,13 @@
+[package]
+name = "hs-manager-auth"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "hs_manager_auth"
+crate-type = ["staticlib"]
+
+[dependencies]
+ed25519-dalek = { version = "2", features = ["zeroize"] }
+zeroize = "1"

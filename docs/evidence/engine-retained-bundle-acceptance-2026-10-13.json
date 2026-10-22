@@ -1,0 +1,643 @@
+{
+  "status": "Verified",
+  "source_sha": "155fff24605d4ae3beacd2b91986676ff8452c72",
+  "run": 38317350914,
+  "artifact_id": 11778571128,
+  "artifact_url": "https://github.com/Helicoid-Systems/core/actions/runs/38317350914/artifacts/11778571128",
+  "download_sha256": "69f6dfddbb303bd7d61bca5daeea731313f4986896225925b339733782a34afe",
+  "receipt_sha256": "4f09e846700e1ae814890f621502297dc9b73d574680c6b0edfeb3edf8547935",
+  "dll": {
+    "path": "librustdesk.dll",
+    "role": "exact-tested-dll",
+    "sha256": "3cd453ecab4373e4e23b59fecc7f3c425758ba0ddd4a3ab7c62844887f8092cf",
+    "size": 16958464
+  },
+  "rust_tests": 32,
+  "runtime_checks": {
+    "harness.txt": 133,
+    "csharp.txt": 85,
+    "harness-staged.txt": 133,
+    "csharp-staged.txt": 85
+  },
+  "exports": 27,
+  "independent_retained_dll_pe_exports": [
+    "hs_abi_version",
+    "hs_channel_binding_export",
+    "hs_debug_inject_panic",
+    "hs_debug_queue_life",
+    "hs_engine_ctx_free",
+    "hs_engine_ctx_new",
+    "hs_engine_version",
+    "hs_frame_acquire_latest",
+    "hs_frame_get_desc",
+    "hs_frame_pixels",
+    "hs_frame_release",
+    "hs_frame_stats",
+    "hs_generation",
+    "hs_handler_rgba_ptr",
+    "hs_panics_contained",
+    "hs_server_clipboard_enabled",
+    "hs_server_file_transfer_enabled",
+    "hs_server_keyboard_enabled",
+    "hs_validate_peer_id",
+    "hs_viewer_begin_observation",
+    "hs_viewer_connect",
+    "hs_viewer_drain",
+    "hs_viewer_poll_life",
+    "hs_viewer_prepare",
+    "hs_viewer_request_close",
+    "hs_viewer_set_lifecycle_cb",
+    "hs_viewer_state"
+  ],
+  "independent_retained_dll_pe_imports": [
+    "advapi32.dll",
+    "ADVAPI32.dll",
+    "api-ms-win-core-synch-l1-2-0.dll",
+    "api-ms-win-crt-convert-l1-1-0.dll",
+    "api-ms-win-crt-heap-l1-1-0.dll",
+    "api-ms-win-crt-math-l1-1-0.dll",
+    "api-ms-win-crt-runtime-l1-1-0.dll",
+    "api-ms-win-crt-stdio-l1-1-0.dll",
+    "api-ms-win-crt-string-l1-1-0.dll",
+    "api-ms-win-crt-time-l1-1-0.dll",
+    "api-ms-win-crt-utility-l1-1-0.dll",
+    "bcryptprimitives.dll",
+    "cfgmgr32.dll",
+    "gdi32.dll",
+    "iphlpapi.dll",
+    "kernel32.dll",
+    "KERNEL32.dll",
+    "MSVCP140.dll",
+    "newdev.dll",
+    "ntdll.dll",
+    "ole32.dll",
+    "oleaut32.dll",
+    "setupapi.dll",
+    "shell32.dll",
+    "user32.dll",
+    "userenv.dll",
+    "VCRUNTIME140.dll",
+    "VCRUNTIME140_1.dll",
+    "WTSAPI32.dll"
+  ],
+  "independent_pe_source_reference": "https://learn.microsoft.com/en-us/windows/win32/debug/pe-format",
+  "independent_pe_log_sha256": "5da6f7f31b4da0caadc7cecbe082838dfb951c9d2d69d46ae96b918a585c9d32",
+  "generated_header_source_matches": true,
+  "frozen_hashes_before_after_match": true,
+  "frozen_source_hashes": {
+    "native/hs_native.h": "d203183254f2dd21f0e030e688a0191236f5933e0356ae564494488494166f62",
+    "native/harness.c": "14e890e7021f98277ee043ac2d8c53aa0cf4da8feda94d189ffd09f53f80ebac",
+    "native/wrappers/HsNativeWrapper.cs": "a4139b340301dee4c403abee636151b91a716ae60ccc178e92e6352c8eff2142",
+    "native/wrappers/HsNativeWrapper.swift": "5f920f67a5d18c5675ec05f2bd2917ff90dedf441bae18461d5fa0703bc20c02",
+    "native/wrappers/csharp_lifetime_check.cs": "a59476550ff7f823ded06eaa8706e8cb3d493b52a1f990567fcbcf96c9a093f2",
+    "native/wrappers/swift_lifetime_check.swift": "78b6046149cdd97bf09caf61c42e3d5ce371916e456fa7af4c1dcc2d641e1971",
+    "patches/0001-hs-native-bridge.patch": "4c66573cc9ead1d35563ab7d000a069c767d6edc5bf0039fc066b1990d9303e4",
+    "inventory/source-pin.txt": "e2c5e06c60c5e398183141216dc0ca49dfc0db3ed3c19d200a68f44bf1cb8e68",
+    "inventory/patched-files.sha256": "b3fa7af0e9982d3e173e15a174277f968564414cb47f7e01eb6abad02a847df3",
+    "scripts/apply-patch.sh": "e6d1e9d4df4a729f710d071b731b5576ff65d1396d31389b17231ca2ea1b609b",
+    "scripts/build-macos-arm64.sh": "9ffba06ea1f344885bf846bda19c9e3007a0e3f0be825d61c75388a1f42a0c56",
+    "scripts/check-source-pin.sh": "67c89b38222b06e670b8ca71c3e2f6911e73e4c2c319447dba6d72588c8580f0",
+    "scripts/check-header.py": "6c676c7894b4aa30ec8e19b313c349d9b1a48a881bd4c6e3ee78cd4fdacf41b2",
+    "scripts/check-wrapper-contract.py": "c4ad4cf69513dcb8a2a51fa708236d2de92e4b43396c329d0df84c8fffb810e9",
+    "scripts/check-wrappers.sh": "a618c9e3746fa19af41bcfd36a913cadeae1b79311ba9fc55719132062538ca7",
+    "scripts/gen_header.py": "18d0bf2489058d336bf306dd2fec2175f7156d562077f9d5c5cedd585e2d103e"
+  },
+  "retained_members": [
+    {
+      "path": "csharp-lifetime-check/csharp-lifetime-check.deps.json",
+      "role": "csharp-runtime-companion",
+      "sha256": "039ac19bd89d61902043eacd6212b8ae701750e648a4218fb227f627dcb97675",
+      "size": 457
+    },
+    {
+      "path": "csharp-lifetime-check/csharp-lifetime-check.dll",
+      "role": "csharp-assembly",
+      "sha256": "8a5c46d0544075051b20ee8f130706ae5e2341f002090cc67f69a38b6b8ea7c8",
+      "size": 33792
+    },
+    {
+      "path": "csharp-lifetime-check/csharp-lifetime-check.exe",
+      "role": "csharp-apphost",
+      "sha256": "e721a02fa8cb394beacec64dff5fd310f092e54bf7a39999de560511e923a992",
+      "size": 162816
+    },
+    {
+      "path": "csharp-lifetime-check/csharp-lifetime-check.pdb",
+      "role": "compile-sidecar",
+      "sha256": "d412884bbada20e6af6b2e8f1bc39aafd83795ef268a83fd057a0784f8b201b7",
+      "size": 19256
+    },
+    {
+      "path": "csharp-lifetime-check/csharp-lifetime-check.runtimeconfig.json",
+      "role": "csharp-runtime-companion",
+      "sha256": "c230a317a54dd960bcbeb5f347f52e18dc665a26f7efda2159fced9a5ac7e097",
+      "size": 342
+    },
+    {
+      "path": "pe/exports.txt",
+      "role": "pe-evidence",
+      "sha256": "818cc171df0bcfe408729d08cfe3ee31592593f5756629ffd27c610e04e78801",
+      "size": 2700
+    },
+    {
+      "path": "pe/headers.txt",
+      "role": "pe-evidence",
+      "sha256": "754d27049b9ffd4798a0cc423b4f732d35e082789914edec81dd67efa7675a7c",
+      "size": 6336
+    },
+    {
+      "path": "pe/hs-exports-actual.txt",
+      "role": "pe-evidence",
+      "sha256": "f18fe8630663f1365e92b0ecb31979a3b20a89f1f71247b586a2efa407fc5753",
+      "size": 583
+    },
+    {
+      "path": "pe/hs-exports-expected.txt",
+      "role": "pe-evidence",
+      "sha256": "bf72ef4e667f8c22d95b1e8648511012c6049a6d7aaf452b93700e5f59802e4d",
+      "size": 583
+    },
+    {
+      "path": "pe/imports.txt",
+      "role": "pe-evidence",
+      "sha256": "ddc0f6a3e62f766a040f16629d31e6fe7867deb13a5c5c70efbd30ab2aed73d6",
+      "size": 27159
+    },
+    {
+      "path": "csharp-build.txt",
+      "role": "report",
+      "sha256": "ff28b768a6138681769872d0c12fc2e85b30cc0e2f41421ee3d624b3ba07d67c",
+      "size": 318
+    },
+    {
+      "path": "csharp-staged.txt",
+      "role": "report",
+      "sha256": "d8029774bea7096b3bbcbb7a31b5f01524e1aa59df6ecbcb8aa32dc23d3ab8f2",
+      "size": 3665
+    },
+    {
+      "path": "csharp.txt",
+      "role": "report",
+      "sha256": "d8029774bea7096b3bbcbb7a31b5f01524e1aa59df6ecbcb8aa32dc23d3ab8f2",
+      "size": 3665
+    },
+    {
+      "path": "frozen-hashes-after.txt",
+      "role": "report",
+      "sha256": "d6cb6baca854a7ad77a3896a7a318f7fb804e46b9ccea6cbd43080d676f6f828",
+      "size": 1543
+    },
+    {
+      "path": "frozen-hashes-before.txt",
+      "role": "report",
+      "sha256": "d6cb6baca854a7ad77a3896a7a318f7fb804e46b9ccea6cbd43080d676f6f828",
+      "size": 1543
+    },
+    {
+      "path": "harness-staged.txt",
+      "role": "report",
+      "sha256": "7c089de812d629ad69830e7cd06b6d098bc7799c8d3dc7177b3f932eb539bdec",
+      "size": 5305
+    },
+    {
+      "path": "harness.txt",
+      "role": "report",
+      "sha256": "c3aef6a5dd130b867a29fe030607a7e2f883f14af6c7a9d68b1e710848cd97a7",
+      "size": 5305
+    },
+    {
+      "path": "hs_native.generated.h",
+      "role": "generated-header",
+      "sha256": "d203183254f2dd21f0e030e688a0191236f5933e0356ae564494488494166f62",
+      "size": 5755
+    },
+    {
+      "path": "librustdesk.dll",
+      "role": "exact-tested-dll",
+      "sha256": "3cd453ecab4373e4e23b59fecc7f3c425758ba0ddd4a3ab7c62844887f8092cf",
+      "size": 16958464
+    },
+    {
+      "path": "librustdesk.dll.lib",
+      "role": "import-library",
+      "sha256": "deb45e66df18ef21b5e8de33ae81069889c352a497e3286695d41b94056abcc0",
+      "size": 8218
+    },
+    {
+      "path": "pins.txt",
+      "role": "report",
+      "sha256": "7c39a3aec2ac6a9e7244319360d1bfb2b682c332b4faa0f8deafeb7b5c0ae66d",
+      "size": 486
+    },
+    {
+      "path": "rust-build.txt",
+      "role": "report",
+      "sha256": "53d715c33d80532ecf22c25727f5207549a48d4917f4464f02b3700fbc70aa88",
+      "size": 24434
+    },
+    {
+      "path": "rust-check.txt",
+      "role": "report",
+      "sha256": "709ec0559b2ec419e4511a6b1c3c9ca6fed79556a4e12219945d09747f8c84d3",
+      "size": 47962
+    },
+    {
+      "path": "rust-tests.txt",
+      "role": "report",
+      "sha256": "a60c595c1bbd3b7f8a44953431c9e7d457dd8a4e0a24adf4a6c3fa27bd1f09ad",
+      "size": 41518
+    },
+    {
+      "path": "windows-harness.exe",
+      "role": "test-binary",
+      "sha256": "ec93bf10b9c6551942ed3dfc811cacc2f9d9cb706e8cde490dec1c93afda467c",
+      "size": 690688
+    },
+    {
+      "path": "windows-harness.ilk",
+      "role": "compile-sidecar",
+      "sha256": "4b53973a879a078c91120f9e0c21e1a323e8828d922a1765ec2e3d1a261752af",
+      "size": 3732434
+    },
+    {
+      "path": "windows-harness.obj",
+      "role": "compile-sidecar",
+      "sha256": "da0df8403997d051c91b7850583a7487a191571059d157174d71f99d1149fc6d",
+      "size": 62436
+    },
+    {
+      "path": "windows-harness.pdb",
+      "role": "compile-sidecar",
+      "sha256": "952eba26b6623163794b85e96c986fbd9b16f87a6f348dcb6953f8da9604b695",
+      "size": 7122944
+    }
+  ],
+  "receipt": {
+    "format": "hs-windows-lab-bundle-receipt/v1",
+    "kind": "inert-unsigned-lab-bundle",
+    "generated_utc": "2026-10-12T23:05:47Z",
+    "lab_source_git_sha": "155fff24605d4ae3beacd2b91986676ff8452c72",
+    "disposition": {
+      "signed": false,
+      "release_manifest": false,
+      "update_manifest": false,
+      "authorization": false,
+      "note": "Evidence/integrity receipt only. SHA256 values are not signatures, not publisher keys, and not authorization to install, update, or operate anything."
+    },
+    "pins": {
+      "upstream_commit": "001b0e96173cea4e49f9f7a67bea95a177dd1de3",
+      "hbb_common_commit": "229b904508364c8997aad0fb5af57effac859f60",
+      "lockfile_sha256": "b7ac324e15b5ae6f6ed7fd88bb8bc65633ca53b7cb1ad257600bdd6d719f234b",
+      "vcpkg_commit_id": "9e593bb18ea69cc5095e012465dcd675a822ed0d"
+    },
+    "architecture": {
+      "os": "windows",
+      "arch": "x86_64",
+      "pe_machine": "8664"
+    },
+    "abi": {
+      "version": 2,
+      "expected_export_count": 27,
+      "expected_exports": [
+        "hs_abi_version",
+        "hs_engine_version",
+        "hs_engine_ctx_new",
+        "hs_engine_ctx_free",
+        "hs_validate_peer_id",
+        "hs_viewer_prepare",
+        "hs_viewer_state",
+        "hs_viewer_request_close",
+        "hs_viewer_drain",
+        "hs_panics_contained",
+        "hs_debug_inject_panic",
+        "hs_debug_queue_life",
+        "hs_generation",
+        "hs_server_keyboard_enabled",
+        "hs_server_file_transfer_enabled",
+        "hs_server_clipboard_enabled",
+        "hs_handler_rgba_ptr",
+        "hs_viewer_connect",
+        "hs_viewer_begin_observation",
+        "hs_frame_acquire_latest",
+        "hs_frame_pixels",
+        "hs_frame_get_desc",
+        "hs_frame_release",
+        "hs_frame_stats",
+        "hs_viewer_set_lifecycle_cb",
+        "hs_viewer_poll_life",
+        "hs_channel_binding_export"
+      ]
+    },
+    "claims": {
+      "bundle_role": "INERT UNSIGNED LAB bundle",
+      "connect": "UNAVAILABLE",
+      "observation": "UNAVAILABLE",
+      "channel_binding": "UNAVAILABLE",
+      "endpoint_hosting": "not started by this bundle",
+      "product_adoption": false,
+      "media_input": "NOT implemented / NOT adopted",
+      "note": "Retains the exact tested DLL for inert lab replay only. No release, no signing, no endpoint hosting, no product linkage."
+    },
+    "external_prerequisites": {
+      "note": "Not installed or downloaded by this helper. The host must already provide these external runtime prerequisites to execute the retained harnesses.",
+      "native_harness": [
+        "Windows x64 (x86_64) operating system",
+        "MSVC x64 C runtime: VCRUNTIME140.dll, VCRUNTIME140_1.dll, MSVCP140.dll (actual PE imports of the retained DLL and linked harness)",
+        "Universal CRT (api-ms-win-crt-*; Windows 10+ / UCRT)",
+        "OS system libraries already shipped with Windows (kernel32, iphlpapi, ws2_32, ...)",
+        "librustdesk.dll is loaded from this bundle directory (exact application-directory path); no ambient DLL search expansion"
+      ],
+      "csharp_lifetime_check": [
+        ".NET 10 runtime (Microsoft.NETCore.App 10.0.x) as targeted by csharp-lifetime-check.runtimeconfig.json",
+        "MSVC x64 C runtime and Universal CRT as above for the retained native DLL",
+        "HS_NATIVE_DLL_DIR must point at this bundle directory (exact librustdesk.dll path; NativeDllGate exact loader rules unchanged)"
+      ]
+    },
+    "files": [
+      {
+        "path": "csharp-lifetime-check/csharp-lifetime-check.deps.json",
+        "role": "csharp-runtime-companion",
+        "sha256": "039ac19bd89d61902043eacd6212b8ae701750e648a4218fb227f627dcb97675",
+        "size": 457
+      },
+      {
+        "path": "csharp-lifetime-check/csharp-lifetime-check.dll",
+        "role": "csharp-assembly",
+        "sha256": "8a5c46d0544075051b20ee8f130706ae5e2341f002090cc67f69a38b6b8ea7c8",
+        "size": 33792
+      },
+      {
+        "path": "csharp-lifetime-check/csharp-lifetime-check.exe",
+        "role": "csharp-apphost",
+        "sha256": "e721a02fa8cb394beacec64dff5fd310f092e54bf7a39999de560511e923a992",
+        "size": 162816
+      },
+      {
+        "path": "csharp-lifetime-check/csharp-lifetime-check.pdb",
+        "role": "compile-sidecar",
+        "sha256": "d412884bbada20e6af6b2e8f1bc39aafd83795ef268a83fd057a0784f8b201b7",
+        "size": 19256
+      },
+      {
+        "path": "csharp-lifetime-check/csharp-lifetime-check.runtimeconfig.json",
+        "role": "csharp-runtime-companion",
+        "sha256": "c230a317a54dd960bcbeb5f347f52e18dc665a26f7efda2159fced9a5ac7e097",
+        "size": 342
+      },
+      {
+        "path": "pe/exports.txt",
+        "role": "pe-evidence",
+        "sha256": "818cc171df0bcfe408729d08cfe3ee31592593f5756629ffd27c610e04e78801",
+        "size": 2700
+      },
+      {
+        "path": "pe/headers.txt",
+        "role": "pe-evidence",
+        "sha256": "754d27049b9ffd4798a0cc423b4f732d35e082789914edec81dd67efa7675a7c",
+        "size": 6336
+      },
+      {
+        "path": "pe/hs-exports-actual.txt",
+        "role": "pe-evidence",
+        "sha256": "f18fe8630663f1365e92b0ecb31979a3b20a89f1f71247b586a2efa407fc5753",
+        "size": 583
+      },
+      {
+        "path": "pe/hs-exports-expected.txt",
+        "role": "pe-evidence",
+        "sha256": "bf72ef4e667f8c22d95b1e8648511012c6049a6d7aaf452b93700e5f59802e4d",
+        "size": 583
+      },
+      {
+        "path": "pe/imports.txt",
+        "role": "pe-evidence",
+        "sha256": "ddc0f6a3e62f766a040f16629d31e6fe7867deb13a5c5c70efbd30ab2aed73d6",
+        "size": 27159
+      },
+      {
+        "path": "csharp-build.txt",
+        "role": "report",
+        "sha256": "ff28b768a6138681769872d0c12fc2e85b30cc0e2f41421ee3d624b3ba07d67c",
+        "size": 318
+      },
+      {
+        "path": "csharp-staged.txt",
+        "role": "report",
+        "sha256": "d8029774bea7096b3bbcbb7a31b5f01524e1aa59df6ecbcb8aa32dc23d3ab8f2",
+        "size": 3665
+      },
+      {
+        "path": "csharp.txt",
+        "role": "report",
+        "sha256": "d8029774bea7096b3bbcbb7a31b5f01524e1aa59df6ecbcb8aa32dc23d3ab8f2",
+        "size": 3665
+      },
+      {
+        "path": "frozen-hashes-after.txt",
+        "role": "report",
+        "sha256": "d6cb6baca854a7ad77a3896a7a318f7fb804e46b9ccea6cbd43080d676f6f828",
+        "size": 1543
+      },
+      {
+        "path": "frozen-hashes-before.txt",
+        "role": "report",
+        "sha256": "d6cb6baca854a7ad77a3896a7a318f7fb804e46b9ccea6cbd43080d676f6f828",
+        "size": 1543
+      },
+      {
+        "path": "harness-staged.txt",
+        "role": "report",
+        "sha256": "7c089de812d629ad69830e7cd06b6d098bc7799c8d3dc7177b3f932eb539bdec",
+        "size": 5305
+      },
+      {
+        "path": "harness.txt",
+        "role": "report",
+        "sha256": "c3aef6a5dd130b867a29fe030607a7e2f883f14af6c7a9d68b1e710848cd97a7",
+        "size": 5305
+      },
+      {
+        "path": "hs_native.generated.h",
+        "role": "generated-header",
+        "sha256": "d203183254f2dd21f0e030e688a0191236f5933e0356ae564494488494166f62",
+        "size": 5755
+      },
+      {
+        "path": "librustdesk.dll",
+        "role": "exact-tested-dll",
+        "sha256": "3cd453ecab4373e4e23b59fecc7f3c425758ba0ddd4a3ab7c62844887f8092cf",
+        "size": 16958464
+      },
+      {
+        "path": "librustdesk.dll.lib",
+        "role": "import-library",
+        "sha256": "deb45e66df18ef21b5e8de33ae81069889c352a497e3286695d41b94056abcc0",
+        "size": 8218
+      },
+      {
+        "path": "pins.txt",
+        "role": "report",
+        "sha256": "7c39a3aec2ac6a9e7244319360d1bfb2b682c332b4faa0f8deafeb7b5c0ae66d",
+        "size": 486
+      },
+      {
+        "path": "rust-build.txt",
+        "role": "report",
+        "sha256": "53d715c33d80532ecf22c25727f5207549a48d4917f4464f02b3700fbc70aa88",
+        "size": 24434
+      },
+      {
+        "path": "rust-check.txt",
+        "role": "report",
+        "sha256": "709ec0559b2ec419e4511a6b1c3c9ca6fed79556a4e12219945d09747f8c84d3",
+        "size": 47962
+      },
+      {
+        "path": "rust-tests.txt",
+        "role": "report",
+        "sha256": "a60c595c1bbd3b7f8a44953431c9e7d457dd8a4e0a24adf4a6c3fa27bd1f09ad",
+        "size": 41518
+      },
+      {
+        "path": "windows-harness.exe",
+        "role": "test-binary",
+        "sha256": "ec93bf10b9c6551942ed3dfc811cacc2f9d9cb706e8cde490dec1c93afda467c",
+        "size": 690688
+      },
+      {
+        "path": "windows-harness.ilk",
+        "role": "compile-sidecar",
+        "sha256": "4b53973a879a078c91120f9e0c21e1a323e8828d922a1765ec2e3d1a261752af",
+        "size": 3732434
+      },
+      {
+        "path": "windows-harness.obj",
+        "role": "compile-sidecar",
+        "sha256": "da0df8403997d051c91b7850583a7487a191571059d157174d71f99d1149fc6d",
+        "size": 62436
+      },
+      {
+        "path": "windows-harness.pdb",
+        "role": "compile-sidecar",
+        "sha256": "952eba26b6623163794b85e96c986fbd9b16f87a6f348dcb6953f8da9604b695",
+        "size": 7122944
+      }
+    ]
+  },
+  "scope": "Inert unsigned native Windows lab bundle; genuine original and staged DLL lifetime checks only",
+  "production_connect_observation_channel_binding": "Unavailable",
+  "installed_product_acceptance": "Not Verified",
+  "signing": "Not Verified",
+  "observed_at": "2026-10-13",
+  "accepted_pin": "872a553bbe479041645286b1021dd309cf85f2ac",
+  "accepted_pin_source_equivalence": "Only BUILD-REPORT.md, engine-lab/README.md and evidence inventory differ from tested155fff2",
+  "mimo": {
+    "session_id": "ses_ffe5ecde4effdffe4dZROL0HNu",
+    "assistant_records": 94,
+    "providers_models": [
+      [
+        "xiaomi",
+        "mimo-v2.6-pro"
+      ]
+    ],
+    "sanitized_export_sha256": "dff012ad110c8c607989a318b42d5e007fb7100a3550525af71e5cde464786ca",
+    "model_metadata_verified": true
+  },
+  "coordinator": {
+    "checks": [
+      {
+        "name": "header",
+        "exit": 0,
+        "expected": 0,
+        "verified": true,
+        "log": "/tmp/hs-production-20261012/engine-bundle-coordinator-header.log"
+      },
+      {
+        "name": "wrappers",
+        "exit": 0,
+        "expected": 0,
+        "verified": true,
+        "log": "/tmp/hs-production-20261012/engine-bundle-coordinator-wrappers.log"
+      },
+      {
+        "name": "workflow",
+        "exit": 0,
+        "expected": 0,
+        "verified": true,
+        "log": "/tmp/hs-production-20261012/engine-bundle-coordinator-workflow.log"
+      },
+      {
+        "name": "receipt-path-copy-negatives",
+        "exit": 0,
+        "expected": 0,
+        "verified": true,
+        "log": "/tmp/hs-production-20261012/engine-bundle-coordinator-receipt-path-copy-negatives.log"
+      },
+      {
+        "name": "dangling-link-refusal",
+        "exit": 0,
+        "expected": 0,
+        "verified": true,
+        "log": "/tmp/hs-production-20261012/engine-bundle-coordinator-dangling-link-refusal.log"
+      },
+      {
+        "name": "real-source-guards",
+        "exit": 0,
+        "expected": 0,
+        "verified": true,
+        "log": "/tmp/hs-production-20261012/engine-bundle-coordinator-real-source-guards.log"
+      },
+      {
+        "name": "wrong-source-refusal",
+        "exit": 1,
+        "expected": 1,
+        "verified": true,
+        "log": "/tmp/hs-production-20261012/engine-bundle-coordinator-wrong-source-refusal.log"
+      }
+    ],
+    "source_hashes": {
+      "engine-lab/scripts/build-windows-x64.ps1": "f7acf2b2a6b3bbc4c06cc7edc9356d67ace246e42c0f1f410fd89db63be68d77",
+      "engine-lab/scripts/check-windows-lab-bundle.ps1": "0ce9b085635a521efeb1f304a33d314d7e71a70efebdabe46411b4fa23ea1350",
+      ".github/workflows/engine-windows.yml": "d651f9dde9d9261da53b85a86eca32718fcb1947c2798b5d6e832eff152eed57"
+    },
+    "source_unchanged": true,
+    "frozen_files": 16,
+    "frozen_source_hashes": {
+      "native/hs_native.h": "d203183254f2dd21f0e030e688a0191236f5933e0356ae564494488494166f62",
+      "native/harness.c": "14e890e7021f98277ee043ac2d8c53aa0cf4da8feda94d189ffd09f53f80ebac",
+      "native/wrappers/HsNativeWrapper.cs": "a4139b340301dee4c403abee636151b91a716ae60ccc178e92e6352c8eff2142",
+      "native/wrappers/HsNativeWrapper.swift": "5f920f67a5d18c5675ec05f2bd2917ff90dedf441bae18461d5fa0703bc20c02",
+      "native/wrappers/csharp_lifetime_check.cs": "a59476550ff7f823ded06eaa8706e8cb3d493b52a1f990567fcbcf96c9a093f2",
+      "native/wrappers/swift_lifetime_check.swift": "78b6046149cdd97bf09caf61c42e3d5ce371916e456fa7af4c1dcc2d641e1971",
+      "patches/0001-hs-native-bridge.patch": "4c66573cc9ead1d35563ab7d000a069c767d6edc5bf0039fc066b1990d9303e4",
+      "inventory/source-pin.txt": "e2c5e06c60c5e398183141216dc0ca49dfc0db3ed3c19d200a68f44bf1cb8e68",
+      "inventory/patched-files.sha256": "b3fa7af0e9982d3e173e15a174277f968564414cb47f7e01eb6abad02a847df3",
+      "scripts/apply-patch.sh": "e6d1e9d4df4a729f710d071b731b5576ff65d1396d31389b17231ca2ea1b609b",
+      "scripts/build-macos-arm64.sh": "9ffba06ea1f344885bf846bda19c9e3007a0e3f0be825d61c75388a1f42a0c56",
+      "scripts/check-source-pin.sh": "67c89b38222b06e670b8ca71c3e2f6911e73e4c2c319447dba6d72588c8580f0",
+      "scripts/check-header.py": "6c676c7894b4aa30ec8e19b313c349d9b1a48a881bd4c6e3ee78cd4fdacf41b2",
+      "scripts/check-wrapper-contract.py": "c4ad4cf69513dcb8a2a51fa708236d2de92e4b43396c329d0df84c8fffb810e9",
+      "scripts/check-wrappers.sh": "a618c9e3746fa19af41bcfd36a913cadeae1b79311ba9fc55719132062538ca7",
+      "scripts/gen_header.py": "18d0bf2489058d336bf306dd2fec2175f7156d562077f9d5c5cedd585e2d103e"
+    },
+    "local_real_dll_positive": "Not Verified; actual DLL absent; no native runtime claimed"
+  },
+  "coordinator_real_download_metadata": {
+    "status": "Verified",
+    "command": "pwsh -NoProfile -File engine-lab/scripts/check-windows-lab-bundle.ps1 -BundleDir <owned downloaded real bundle>",
+    "exit": 0,
+    "archive_sha256": "69f6dfddbb303bd7d61bca5daeea731313f4986896225925b339733782a34afe",
+    "log_sha256": "47f2e209ec6fc40e10be5cc9e81b554e261fa29410c43605eea80e59ec537950",
+    "scope": "Portable integrity/metadata checker on actual downloaded DLL bundle; Windows harness runtime evidence comes from native CI only",
+    "local_directory": "/tmp/hs-production-20261012/hs-real-retained-bundle-mj0dd8j4"
+  },
+  "domain_gate": {
+    "run": 38317351049,
+    "source_sha": "155fff24605d4ae3beacd2b91986676ff8452c72",
+    "jobs": 5,
+    "status": "Verified"
+  },
+  "selected_stock_relay_adoption": "Failed / Closed",
+  "normal_app_linkage": "Not Verified",
+  "full_worker_admission_live_preview_control_checkpoints": "Not Verified"
+}
