@@ -1,0 +1,62 @@
+[
+  {
+    "package": "screen-contract",
+    "session": "ses_ffe5ea9e63a9effedDrn2ZZ7yD",
+    "assistant_records": 27,
+    "provider": "xiaomi-token-plan-ams",
+    "model": "mimo-v2.6-pro",
+    "variant": "high",
+    "export_sanitized": true,
+    "brief_sha256": "2b4e8218f98483ef1c345db123f66d6a33d228865c4648256b85f0fa88ab09a1"
+  },
+  {
+    "package": "mac-computer",
+    "session": "ses_ffe5ea9e63783ffeIMjtfHRzi6",
+    "assistant_records": 24,
+    "provider": "xiaomi-token-plan-ams",
+    "model": "mimo-v2.6-pro",
+    "variant": "high",
+    "export_sanitized": true,
+    "brief_sha256": "1a06cedd8376a621f5edca3881d000152fa86e5aedc50843ab8d9e4dd54178be"
+  },
+  {
+    "package": "windows-inventory",
+    "session": "ses_ffe5ea9e63f7bffenR4eZVWD8a",
+    "assistant_records": 63,
+    "provider": "xiaomi-token-plan-ams",
+    "model": "mimo-v2.6-pro",
+    "variant": "high",
+    "export_sanitized": true,
+    "brief_sha256": "8de2baabc0349f61094bc19efc7e6fea78edcfa5a7c3044b78e4938873635d14"
+  },
+  {
+    "package": "mac-manager",
+    "session": "ses_ffe5ea9e5724affeWpN2nIOaDt",
+    "assistant_records": 42,
+    "provider": "xiaomi-token-plan-ams",
+    "model": "mimo-v2.6-pro",
+    "variant": "high",
+    "export_sanitized": true,
+    "brief_sha256": "3ebcc8718fba46b7d6e2a2c0c947dc1f7c371371ba5e8e8291f760f082a090e3"
+  },
+  {
+    "package": "windows-computer",
+    "session": "ses_ffe5ea9e218b3ffeogssgh2gsf",
+    "assistant_records": 44,
+    "provider": "xiaomi-token-plan-ams",
+    "model": "mimo-v2.6-pro",
+    "variant": "high",
+    "export_sanitized": true,
+    "brief_sha256": "36c05437e421d3435d98d6411e5b1954b820cb9e4f118e298c2f732cd3d88075"
+  },
+  {
+    "package": "mac-compact",
+    "session": "ses_ffe5ea9e212eeffeh3sm7M91b6",
+    "assistant_records": 37,
+    "provider": "xiaomi-token-plan-ams",
+    "model": "mimo-v2.6-pro",
+    "variant": "high",
+    "export_sanitized": true,
+    "brief_sha256": "02b4f590921950cb972e9bf150ac82df014f8773338a56ede96ecaebf3524d0a"
+  }
+]
