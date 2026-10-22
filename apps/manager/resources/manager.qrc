@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/brand">
+    <file alias="windows-manager.ico">brand/windows/manager.ico</file>
+  </qresource>
+</RCC>

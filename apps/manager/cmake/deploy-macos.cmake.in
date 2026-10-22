@@ -1,0 +1,120 @@
+set(_manager_bundle "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/HelicoidManager.app")
+if(NOT EXISTS "${_manager_bundle}")
+  message(FATAL_ERROR "Installed HelicoidManager.app is missing: ${_manager_bundle}")
+endif()
+
+execute_process(
+  COMMAND "@MANAGER_QT_DEPLOY_TOOL@" "${_manager_bundle}" -always-overwrite
+  RESULT_VARIABLE _manager_deploy_result
+)
+if(NOT _manager_deploy_result EQUAL 0)
+  message(FATAL_ERROR "macdeployqt failed with exit code ${_manager_deploy_result}")
+endif()
+
+set(_manager_resources "${_manager_bundle}/Contents/Resources")
+set(_manager_info_plist "${_manager_bundle}/Contents/Info.plist")
+set(_manager_icon_output "@CMAKE_CURRENT_BINARY_DIR@/manager-icon-output")
+file(REMOVE "${_manager_resources}/Assets.car")
+execute_process(
+  COMMAND "@MANAGER_PLUTIL_EXECUTABLE@" -remove CFBundleIconName
+          "${_manager_info_plist}"
+  RESULT_VARIABLE _manager_icon_name_remove_result
+  ERROR_QUIET
+)
+
+file(READ "@CMAKE_CURRENT_SOURCE_DIR@/resources/brand/source/manifest.json"
+     _manager_brand_manifest)
+string(JSON _manager_brand_file_count LENGTH "${_manager_brand_manifest}" files)
+math(EXPR _manager_brand_file_last "${_manager_brand_file_count} - 1")
+set(_manager_icon_source_files
+  "HS Manager App icon.icon/icon.json"
+  "HS Manager App icon.icon/Assets/gridmakerpro-grid-only-300dpi-2026-10-10.png"
+  "HS Manager App icon.icon/Assets/hs stripe.svg"
+  "HS Manager App icon.icon/Assets/hs text.svg"
+)
+foreach(_manager_icon_relative_file IN LISTS _manager_icon_source_files)
+  set(_manager_icon_source_found FALSE)
+  foreach(_manager_brand_index RANGE 0 ${_manager_brand_file_last})
+    string(JSON _manager_brand_path GET "${_manager_brand_manifest}"
+           files ${_manager_brand_index} path)
+    if(_manager_brand_path STREQUAL _manager_icon_relative_file)
+      string(JSON _manager_brand_expected_hash GET "${_manager_brand_manifest}"
+             files ${_manager_brand_index} sha256)
+      file(SHA256
+        "@CMAKE_CURRENT_SOURCE_DIR@/resources/brand/source/${_manager_icon_relative_file}"
+        _manager_brand_actual_hash
+      )
+      if(NOT _manager_brand_actual_hash STREQUAL _manager_brand_expected_hash)
+        message(FATAL_ERROR
+          "Selected Manager icon source failed its manifest SHA-256 check: ${_manager_icon_relative_file}"
+        )
+      endif()
+      set(_manager_icon_source_found TRUE)
+      break()
+    endif()
+  endforeach()
+  if(NOT _manager_icon_source_found)
+    message(FATAL_ERROR
+      "Selected Manager icon source is missing from the approved brand manifest: ${_manager_icon_relative_file}"
+    )
+  endif()
+endforeach()
+
+file(REMOVE_RECURSE "${_manager_icon_output}")
+file(MAKE_DIRECTORY "${_manager_icon_output}")
+execute_process(
+  COMMAND "@MANAGER_XCRUN_EXECUTABLE@" actool "@MANAGER_ICON_SOURCE@"
+          --compile "${_manager_icon_output}"
+          --platform macosx
+          --minimum-deployment-target "@CMAKE_OSX_DEPLOYMENT_TARGET@"
+          --target-device mac
+          --app-icon "@MANAGER_ICON_NAME@"
+          --output-partial-info-plist "${_manager_icon_output}/IconInfo.plist"
+  RESULT_VARIABLE _manager_icon_result
+  OUTPUT_VARIABLE _manager_icon_stdout
+  ERROR_VARIABLE _manager_icon_stderr
+)
+
+set(_manager_icon_layered FALSE)
+if(_manager_icon_result EQUAL 0
+   AND EXISTS "${_manager_icon_output}/Assets.car"
+   AND EXISTS "${_manager_icon_output}/@MANAGER_ICON_NAME@.icns")
+  file(COPY_FILE "${_manager_icon_output}/Assets.car"
+       "${_manager_resources}/Assets.car" ONLY_IF_DIFFERENT)
+  file(COPY_FILE "${_manager_icon_output}/@MANAGER_ICON_NAME@.icns"
+       "${_manager_resources}/Manager.icns" ONLY_IF_DIFFERENT)
+  execute_process(
+    COMMAND "@MANAGER_PLUTIL_EXECUTABLE@" -insert CFBundleIconName -string
+            "@MANAGER_ICON_NAME@" "${_manager_info_plist}"
+    RESULT_VARIABLE _manager_icon_plist_result
+  )
+  if(NOT _manager_icon_plist_result EQUAL 0)
+    message(FATAL_ERROR "Cannot set CFBundleIconName in the Manager bundle Info.plist")
+  endif()
+  set(_manager_icon_layered TRUE)
+endif()
+
+if(NOT _manager_icon_layered)
+  if("$ENV{HELICOID_MANAGER_REQUIRE_LAYERED_ICON}" STREQUAL "1")
+    message(FATAL_ERROR
+      "The Manager package requires the supplied layered icon, but actool failed or omitted its outputs.\n"
+      "actool stdout: ${_manager_icon_stdout}\nactool stderr: ${_manager_icon_stderr}"
+    )
+  endif()
+
+  file(READ "@MANAGER_ICON_PROVENANCE@" _manager_icon_provenance)
+  string(JSON _manager_expected_fallback_hash
+         GET "${_manager_icon_provenance}" files 0 sha256)
+  file(SHA256 "@MANAGER_ICON_FALLBACK@" _manager_actual_fallback_hash)
+  if(NOT _manager_actual_fallback_hash STREQUAL _manager_expected_fallback_hash)
+    message(FATAL_ERROR
+      "The approved Mac Manager icon fallback failed its provenance hash check"
+    )
+  endif()
+  file(COPY_FILE "@MANAGER_ICON_FALLBACK@"
+       "${_manager_resources}/Manager.icns" ONLY_IF_DIFFERENT)
+  message(WARNING
+    "actool did not compile the supplied layered Manager icon; using the verified same-artwork .icns fallback.\n"
+    "actool stdout: ${_manager_icon_stdout}\nactool stderr: ${_manager_icon_stderr}"
+  )
+endif()

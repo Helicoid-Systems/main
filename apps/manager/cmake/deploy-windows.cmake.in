@@ -1,0 +1,14 @@
+set(_manager_install_bin "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin")
+set(_manager_executable "${_manager_install_bin}/HelicoidManager.exe")
+if(NOT EXISTS "${_manager_executable}")
+  message(FATAL_ERROR "Installed HelicoidManager.exe is missing: ${_manager_executable}")
+endif()
+
+execute_process(
+  COMMAND "@MANAGER_QT_DEPLOY_TOOL@" --release --compiler-runtime
+          --no-translations --dir "${_manager_install_bin}" "${_manager_executable}"
+  RESULT_VARIABLE _manager_deploy_result
+)
+if(NOT _manager_deploy_result EQUAL 0)
+  message(FATAL_ERROR "windeployqt failed with exit code ${_manager_deploy_result}")
+endif()
