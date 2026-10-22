@@ -68,17 +68,15 @@ installed Windows-to-Mac pixel proof.
 - Native harness strict C++ syntax check passed with `-Wall -Wextra -Werror -pedantic`.
 - `git diff --check` passed in `modules/core`.
 
-The native bridge and harness were not linked or executed. The available pinned
-WebRTC checkout is incomplete (`build/config/gclient_args.gni`,
-`third_party/libyuv/include/libyuv/convert_argb.h`, and
-`third_party/abseil-cpp/absl/functional/any_invocable.h` are absent), and the
-restricted environment cannot fetch missing upstream objects. The full Qt
-Manager configure also stops at `find_package(Qt6 6.10...<6.11)` because Qt 6.10
-is not installed. The Computer WinUI app build remains unverified: its
-no-restore build has no `project.assets.json`, and its Windows UI packages are
-not present in the local NuGet cache. The C# platform compile used a temporary
-composite of the local SDK and repair files because the SDK executable is not
-on `PATH` and the original SDK directory is incomplete.
+At the time this evidence was first captured, the native bridge and harness had
+not been linked or executed. The subsequent exact-pin arm64 build and runtime
+results are recorded in the final section below. The Qt Manager configure had
+stopped at `find_package(Qt6 6.10...<6.11)` because Qt 6.10 was unavailable.
+The Computer WinUI app build remains unverified: its no-restore build has no
+`project.assets.json`, and its Windows UI packages are not present in the local
+NuGet cache. The C# platform compile used a temporary composite of the local
+SDK and repair files because the SDK executable is not on `PATH` and the
+original SDK directory is incomplete.
 
 ## Endpoint close-signal cleanup correction — 2026-10-22
 
@@ -200,3 +198,48 @@ timed out after 25 seconds before dependency resolution, so the updated lock
 graphs were checked as JSON and against the project references but were not
 validated by a completed NuGet restore. This does not prove native Windows
 IPC, installed capture, or endpoint-to-Manager pixel delivery.
+
+## Pinned WebRTC handshake and native media harness — 2026-10-22
+
+The native bridge now waits for asynchronous local-description completion
+before returning SDP. ICE polling reports `TIMEOUT` while gathering is still
+active and `EXHAUSTED` only after the gatherer completes; the harness drains
+both peers through completion and checks every candidate-add result. DTLS
+observer state no longer treats the transport's pre-negotiation `closed` state
+as a terminal handshake failure. A close becomes terminal only after that
+transport has connected, and the live connected transport snapshot can clear a
+stale failure flag. The Manager treats ICE `TIMEOUT` and `EXHAUSTED` as
+non-fatal queue states, and retries transient channel `HANDSHAKE` or `TIMEOUT`
+results while its signed grant and session remain current.
+
+The pinned scratch checkout passed the repository's source, `depot_tools`, and
+DEPS hash preflight: WebRTC `d7862361c6c3942b5b96c8162ae4fa37666a2ea3`,
+`depot_tools` `2fd34a8813b6f34336aad40976cc4223768177f8`, and DEPS SHA-256
+`d060df2421433efe13a0ab4f227174676f0b07f3c10a4be13b81d8dbe761a86f`. The
+arm64 target `hs_native_build:hs_webrtc_harness` linked successfully. Ninja
+reported 195 warnings from the bridge compilation and 5 harness shadow
+warnings; it reported no errors. The escalated local-socket run passed all 214
+checks with zero failures, including
+certificate-pin rejection, matching channel bindings, synthetic lease
+admission and expiry, decoded BGRA frame delivery, queue clearing, peer churn,
+and delayed-callback teardown.
+
+The shared `libhs_webrtc_shared.dylib` also linked as arm64 with SHA-256
+`6396185b301eeec8c327c6461e996b85fa1aea092ca6f869a10eef060becf401`.
+`nm -gU` found exactly the 40 exports declared by the generated header, and a
+dynamic load/query returned ABI 3, capability status 0, and mask `0x0000008f`.
+That mask includes initialization, negotiation, channel evidence, drain, and
+the TURN/TLS lab bit; capture, admission, and media remain disabled.
+A strict C++20 probe linked to `apps/manager/src/native_webrtc_runtime.cpp`
+loaded this dylib through `NativeWebRtcRuntime::loadForTesting`, reported
+connection support and no observation support, and initialized and shut down
+an engine successfully. This did not build the Qt UI or exercise its bundled
+application path. The relay-only harness was also updated to wait for gathering
+completion and linked successfully; its coturn scenarios were not run because
+no relay fixture configuration was supplied in this check.
+
+This proves the pinned arm64 bridge and synthetic two-peer harness only. It
+does not enable capture, admission, or media capability bits; it does not use a
+server-issued grant or physical Windows capture; and it does not prove an
+installed Windows-to-Mac preview. The Manager retry change was not compiled in
+this run because Qt 6.10 is unavailable in the environment.
