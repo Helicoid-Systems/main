@@ -13107,7 +13107,8 @@ void MainWindow::requestObservationPreview(
                                             }
                                             iceReply->deleteLater();
                                         });
-                                    } else if (iceStatus != HS_STATUS_TIMEOUT) {
+                                    } else if (iceStatus != HS_STATUS_TIMEOUT &&
+                                               iceStatus != HS_STATUS_EXHAUSTED) {
                                         (*stopSession)(tr("The native Manager could not read its ICE candidates."));
                                         return;
                                     }
@@ -13285,8 +13286,16 @@ void MainWindow::requestObservationPreview(
                                         if (!*localAdmissionStarted &&
                                             peerState == HS_PEER_STATE_CHANNEL_OPEN) {
                                             std::vector<std::uint8_t> binding;
-                                            if (peerOwnerGuard->peer()->exportVerifiedChannelBinding(binding) != HS_STATUS_OK ||
-                                                binding.empty()) {
+                                            const std::uint32_t bindingStatus =
+                                                peerOwnerGuard->peer()->exportVerifiedChannelBinding(binding);
+                                            if (bindingStatus == HS_STATUS_HANDSHAKE ||
+                                                bindingStatus == HS_STATUS_TIMEOUT) {
+                                                statusGuard->setText(
+                                                    tr("Secure channel is open. Verifying the endpoint identity…"));
+                                                signalingReply->deleteLater();
+                                                return;
+                                            }
+                                            if (bindingStatus != HS_STATUS_OK || binding.empty()) {
                                                 (*stopSession)(tr("The native DTLS channel binding could not be verified."));
                                                 signalingReply->deleteLater();
                                                 return;
