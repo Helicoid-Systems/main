@@ -1,0 +1,231 @@
+{
+  "observed_at": "2026-10-11",
+  "execution": {
+    "tool": "MiMo Code",
+    "provider": "xiaomi",
+    "model": "mimo-v2.6-pro",
+    "sanitized_export_metadata_verified": true
+  },
+  "repositories": {
+    "core": {
+      "sha": "067de354a56aae297e653ba048daacf3cb976caa",
+      "ci": 38123977124,
+      "conclusion": "success"
+    },
+    "windows": {
+      "sha": "75448f230bed2a20c96338e82e55f2bfa2cdcd8b",
+      "ci": 38142367280,
+      "conclusion": "success",
+      "runner": "Windows Server 2025",
+      "domain_tests": 387,
+      "native_integration_tests": 47,
+      "skipped": 0,
+      "artifact": 11703970176,
+      "downloaded_pe_x64": [
+        {
+          "path": "manager/Helicoid.Manager.exe",
+          "bytes": 363008,
+          "machine": "x64",
+          "sha256": "27660b25de7e8c01122a0677ffd9d1c6f37e4fa669098008e911114b7f175cf7"
+        },
+        {
+          "path": "computer/Helicoid.Computer.exe",
+          "bytes": 339456,
+          "machine": "x64",
+          "sha256": "566dff4157dc5b35eb315df2b3070e6bfa751becfd9f6be459827fc4603eb739"
+        },
+        {
+          "path": "computer/Helicoid.CaptureWorker.exe",
+          "bytes": 162816,
+          "machine": "x64",
+          "sha256": "c994918014a5eddba590bae0b6508938de45f801b82fe31bdd8f1eb9e8162dd3"
+        }
+      ],
+      "ci_source_sha": "f8f356d3f29419f1161952d38bfb6428f24b3666",
+      "changes_after_ci": "README.md and BUILD-REPORT.md only; production and test code identical"
+    },
+    "macos": {
+      "observed_at": "2026-10-11",
+      "code_sha": "7bf00ac9ce6b03f47f66539a913136451abe55fd",
+      "ci": 38167550626,
+      "ci_status": "Verified",
+      "artifact_id": 11711859570,
+      "artifact_digest": "89b2f3928c5bd0cd1a08de3f6c62c0d008500af70d051e584db46389749593f2",
+      "checks": [
+        {
+          "archive": "Helicoid Computer.zip",
+          "archive_sha256": "d93c66d3fc86dc566ae2f95f5fa5a86ad02802c65cc4ab2e8dadd4c4f010e3de",
+          "zip_integrity": "Verified",
+          "strict_ad_hoc_signature": "Verified",
+          "executable": "HelicoidComputer",
+          "architecture": "arm64",
+          "minimum_macos": "15.0",
+          "binary_sha256": "e8d886cb9a0f39382234ba38e917f33b31a742d856662a17bf3ca8702361ad1a"
+        },
+        {
+          "archive": "Helicoid Manager.zip",
+          "archive_sha256": "3b2bd31257c55c9c94f88193ea283e7434aa88157fa4c33a13ae6606b80d162a",
+          "zip_integrity": "Verified",
+          "strict_ad_hoc_signature": "Verified",
+          "executable": "HelicoidManager",
+          "architecture": "arm64",
+          "minimum_macos": "15.0",
+          "binary_sha256": "6103a12abd95c93e65affefa4b43affded233c6a6befb278b09719fe300348bb"
+        }
+      ],
+      "intel": "Source cross-build Verified; runtime Not Verified",
+      "installed_runtime": "Not Verified",
+      "release_signing": "Developer ID/notarization Not Verified",
+      "sha": "ae34bc655152cdbc5e6c4548ef8d3201f94514bc",
+      "ci_source_sha": "7bf00ac9ce6b03f47f66539a913136451abe55fd",
+      "conclusion": "success",
+      "swift_tests": 186,
+      "swift_suites": 27,
+      "native_test_seconds": 43.877,
+      "native_package_test_seconds": 43.843,
+      "changes_after_ci": "README.md and BUILD-REPORT.md only; production and test code identical",
+      "downloaded_bundles_verified": "ZIP integrity and codesign --verify --deep --strict",
+      "signing": "ad hoc",
+      "artifact": 11711859570
+    },
+    "server": {
+      "sha": "3a20aa03e1cfecc7c8c684c59b30790363169d37",
+      "ci": 38143445740,
+      "conclusion": "success",
+      "macos_tests": 238,
+      "native_client_loopback_checks": 21,
+      "scope": "Reviewed Unix loopback HTTPS/auth/private-store/installer prerequisite; Windows TLS and persisted private MFA explicitly unavailable",
+      "linux_tests": 231,
+      "windows_tests": 189,
+      "native_windows_runner": "Windows Server 2025",
+      "linux_runner": "Ubuntu 24.04",
+      "artifact": 11703299972,
+      "ci_source_sha": "ccaf29ab1255ba7c2669128e0dbf5bb2f9af3612",
+      "changes_after_ci": "README.md and BUILD-REPORT.md only; production and test code identical",
+      "downloaded_bundle": {
+        "path": "hs-server.exe",
+        "bytes": 8731136,
+        "machine": "x64",
+        "sha256": "246a48f9b5db2a9154126e8b5270d619953fe95681f232f5a02b0c99ad682175",
+        "launcher_companions_verified": true
+      }
+    }
+  },
+  "capabilities": [
+    {
+      "name": "Separate persistent issuer/receiver candidate",
+      "status": "Verified",
+      "scope": "167 runtime plus four compile-fail tests; native Linux/Mac/Windows CI; real OS/channel integration excluded"
+    },
+    {
+      "name": "Native bridge callback/frame lifetime",
+      "platform": "macOS arm64",
+      "status": "Verified",
+      "scope": "32 Rust tests, linked C/Swift/C# harnesses, ABI2 contracts and negative drift; no live media"
+    },
+    {
+      "name": "Native bridge compilation",
+      "platform": "macOS x86_64",
+      "status": "Verified",
+      "scope": "Current library and C harness compile/link; 27 exports"
+    },
+    {
+      "name": "Native bridge runtime",
+      "platform": "macOS x86_64",
+      "status": "Not Verified"
+    },
+    {
+      "name": "Native bridge runtime",
+      "platform": "Windows x64",
+      "status": "Not Verified"
+    },
+    {
+      "name": "Metadata worker IPC/storage",
+      "platform": "Windows Server 2025 CI",
+      "status": "Verified",
+      "scope": "47 native tests; different-user service boundary and capture/input excluded"
+    },
+    {
+      "name": "Installed console capture/input",
+      "platform": "Windows 11",
+      "status": "Not Verified"
+    },
+    {
+      "name": "This Mac hosting preflight",
+      "platform": "macOS arm64",
+      "status": "Verified",
+      "scope": "Read-only setup; launchd installation and signed-in capture/input worker excluded"
+    },
+    {
+      "name": "Persistent server credential confidentiality",
+      "status": "Verified",
+      "scope": "Descriptor-relative private-store checks, Darwin ACL/owner/mode/link and pre-open SQLite sidecar denial; new Windows persistent MFA and private migration remain unavailable",
+      "platform": "Unix candidate"
+    },
+    {
+      "name": "Selected stock RustDesk relay adoption",
+      "status": "Failed",
+      "scope": "Global licence key/UUID pairing lacks Helicoid-bound allocation authorization; selected modified route has not been rejected as impossible"
+    },
+    {
+      "name": "All four live preview/control combinations",
+      "status": "Not Verified"
+    },
+    {
+      "name": "Public pinned HTTPS and administrator/operator authentication integration",
+      "status": "Not Verified"
+    },
+    {
+      "name": "Installed Linux/Windows/macOS hosting, update and recovery",
+      "status": "Not Verified"
+    },
+    {
+      "name": "Signed production release and required security review",
+      "status": "Not Verified"
+    },
+    {
+      "name": "MFA legacy password login refusal",
+      "status": "Verified",
+      "scope": "Six actual service/HTTP regressions plus portable real CLI startup; final transaction rechecks MFA/account/password/manager state; public authentication remains gated"
+    },
+    {
+      "name": "Pinned HTTPS transport",
+      "platform": "Windows Server 2025 native CI",
+      "status": "Verified",
+      "scope": "95 TLS/domain checks within387 total domain tests; sole independently supplied CA, native chain/name/date/EKU, redirect/body/deadline/cancellation/disposal checks; production trust adoption and login UI excluded"
+    },
+    {
+      "name": "Final HTTPS client/server integration",
+      "platform": "macOS arm64",
+      "status": "Verified",
+      "scope": "Actual final Rust server health with native Swift and .NET-on-Mac clients using disposable independently supplied test CA; account/device/engine/production identity excluded",
+      "evidence": "final-client-server-tls-2026-10-11.json"
+    },
+    {
+      "name": "Loopback HTTPS server transport",
+      "platform": "Unix",
+      "status": "Verified",
+      "scope": "238 Mac and231 Linux tests; actual CLI HTTPS health/SIGINT, bounded TLS handshakes and held-descriptor secret material; Windows seven TLS/CLI refusal/portable cases; public routes excluded"
+    },
+    {
+      "name": "Pinned HTTPS and owned setup command lifecycle",
+      "platform": "macOS native CI",
+      "status": "Verified",
+      "scope": "186 tests in 27 suites in both Test and Package apps; real certificates/sockets, wrong trust/body/deadline/drain/cancellation and actual local child reap checks; production sign-in/trust adoption and installed workers excluded"
+    }
+  ],
+  "deployment": {
+    "vm": "ubuntu@57.131.161.27",
+    "mutations": 0,
+    "existing_services_and_data": "Preserved",
+    "authority_or_relay_listeners_opened": false,
+    "server_ready_for_enrollment": false,
+    "deployment_verified": false
+  },
+  "checkpoints": {
+    "worker_admission": "Not Verified",
+    "live_preview": "Not Verified",
+    "control_installation_recovery": "Not Verified"
+  },
+  "builds": "Prerequisite development builds; none represents a passed requested checkpoint"
+}

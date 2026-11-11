@@ -1,0 +1,213 @@
+{
+  "observed_at": "2026-10-13",
+  "source_sha": "7f82f8f1599a178d4f55b61c6dc90962f714a326",
+  "run": 38315726535,
+  "url": "https://github.com/Helicoid-Systems/server/actions/runs/38315726535",
+  "status": "Verified",
+  "tests": {
+    "windows-latest test / build": {
+      "passed": 269,
+      "failed": 0,
+      "ignored": 0,
+      "suite_counts": [
+        78,
+        2,
+        27,
+        12,
+        44,
+        19,
+        22,
+        12,
+        6,
+        23,
+        24,
+        0
+      ]
+    },
+    "fmt / test / clippy": {
+      "passed": 261,
+      "failed": 0,
+      "ignored": 0,
+      "suite_counts": [
+        60,
+        2,
+        26,
+        12,
+        44,
+        29,
+        22,
+        11,
+        6,
+        21,
+        28,
+        0
+      ]
+    }
+  },
+  "windows_launcher_versions": [
+    "PowerShell5.1",
+    "PowerShell7"
+  ],
+  "artifact_id": 11776925306,
+  "artifact_url": "https://github.com/Helicoid-Systems/server/actions/runs/38315726535/artifacts/11776925306",
+  "artifact_digest": "sha256:39d577eddaf6395b8c2a73966a5f6e115b051041a7b790aa1b221146db4cf12a",
+  "download_sha256": "39d577eddaf6395b8c2a73966a5f6e115b051041a7b790aa1b221146db4cf12a",
+  "zip_integrity": "Verified",
+  "files": [
+    {
+      "name": "hs-server.exe",
+      "bytes": 9173504,
+      "sha256": "67167dc8a00b886277761470ccc22640c154dc6d772a173ded4046963db50f1d",
+      "architecture": "PE x64"
+    },
+    {
+      "name": "start-development.cmd",
+      "bytes": 541,
+      "sha256": "f41ee1e31c65ce742859b696b73a1ccdafd4ed9dde71e74398a50d6f61175d4a",
+      "source_text_matches": "Verified after Git line-ending normalization"
+    },
+    {
+      "name": "start-development.ps1",
+      "bytes": 12509,
+      "sha256": "61a97b5789adf37bf56bc54b983d238ff4910efb394cca73468c6db54b31dedd",
+      "source_text_matches": "Verified after Git line-ending normalization"
+    },
+    {
+      "name": "windows-tester.md",
+      "bytes": 10504,
+      "sha256": "8d1edcdfa0647d00dbcb93fffd57ba62c29697f2b7e9c904de6bf18f039debaa",
+      "source_text_matches": "Verified after Git line-ending normalization"
+    }
+  ],
+  "scope": "Trusted-target installer package metadata verification plus unchanged native loopback HTTPS/private-store/MFA/CLI prerequisites",
+  "windows_tls_hosting": "Verified for literal-loopback only",
+  "installed_windows_runtime": "Not Verified",
+  "signing": "Not Verified",
+  "production_media_control_route": "Unavailable",
+  "native_windows_tls_tests": [
+    "windows_held_file_read_refuses_untrusted_dacl_and_reads_private",
+    "windows_tls_loader_refuses_untrusted_dacl_material_before_db",
+    "windows_tls_loader_refuses_hardlinked_key_before_db",
+    "actual_windows_cli_https_health_and_bounded_kill",
+    "valid_test_ca_hostname_serves_real_health_json",
+    "foreign_ca_is_refused",
+    "wrong_hostname_is_refused",
+    "plaintext_request_cannot_access_http_body",
+    "stalled_handshake_is_bounded_and_dropped",
+    "graceful_shutdown_is_bounded"
+  ],
+  "windows_cleanup_proof": "Owned Child kill/reap only; no console signal or installed service-stop proof",
+  "installer_package_target_tests": "22 real signed-package metadata/trust/path tests on both native Linux and Windows",
+  "native_package_test_names": [
+    "all_four_targets_verify_with_real_signatures",
+    "weak_key_is_refused_and_old_nonstrict_verifier_accepted_it",
+    "wrong_key_refuses_on_every_target",
+    "wrong_signature_refuses_on_every_target",
+    "target_mismatch_refuses",
+    "architecture_mismatch_refuses",
+    "unknown_target_refuses",
+    "portable_path_violations_refuse_on_every_target",
+    "duplicate_declared_paths_refuse_before_artifact_reads",
+    "colliding_file_directory_paths_refuse",
+    "unknown_nested_file_under_known_dir_refuses",
+    "symlinked_nested_dir_refuses_before_unknown_walk_descends",
+    "malformed_installer_version_refuses_instead_of_zero_fill",
+    "non_positive_schema_floor_refuses"
+  ],
+  "installer_scope": "Typed metadata verification only; existing installation commands remain Linux-only and Windows/macOS service installation unavailable",
+  "accepted_pin": "afa754455de73ed9cb4daf7b3605f750dea1921e",
+  "accepted_pin_source_equivalence": "Only README.md and BUILD-REPORT.md differ from tested 7f82f8f",
+  "mimo": {
+    "session_id": "ses_ffe5ecde89ee6ffeOfBTMpsaK5",
+    "assistant_records": 66,
+    "providers_models": [
+      [
+        "xiaomi",
+        "mimo-v2.6-pro"
+      ]
+    ],
+    "sanitized_export_sha256": "0b1e0672d816984b45defd16032eddef7f22f0e8bb7b41bde5433cca0b69f51d",
+    "model_metadata_verified": true
+  },
+  "coordinator": {
+    "checks": [
+      {
+        "name": "fmt",
+        "exit": 0,
+        "elapsed_seconds": 0.55,
+        "passed": 0,
+        "failed": 0,
+        "ignored": 0,
+        "log": "/tmp/hs-production-20261012/installer-target-coordinator-fmt.log"
+      },
+      {
+        "name": "focused",
+        "exit": 0,
+        "elapsed_seconds": 1.86,
+        "passed": 66,
+        "failed": 0,
+        "ignored": 0,
+        "log": "/tmp/hs-production-20261012/installer-target-coordinator-focused.log"
+      },
+      {
+        "name": "full",
+        "exit": 0,
+        "elapsed_seconds": 10.59,
+        "passed": 268,
+        "failed": 0,
+        "ignored": 0,
+        "log": "/tmp/hs-production-20261012/installer-target-coordinator-full.log"
+      },
+      {
+        "name": "clippy",
+        "exit": 0,
+        "elapsed_seconds": 0.51,
+        "passed": 0,
+        "failed": 0,
+        "ignored": 0,
+        "log": "/tmp/hs-production-20261012/installer-target-coordinator-clippy.log"
+      },
+      {
+        "name": "build",
+        "exit": 0,
+        "elapsed_seconds": 0.17,
+        "passed": 0,
+        "failed": 0,
+        "ignored": 0,
+        "log": "/tmp/hs-production-20261012/installer-target-coordinator-build.log"
+      }
+    ],
+    "source_hashes": {
+      "src/installer/manifest.rs": "57c9c1a53766d85a59bc69b5edaf2862eaa085a21a5f15f9071d64d967ac6c84",
+      "src/installer/models.rs": "091957732be1b8542b8e9557bd25f876b310926780688179d1b08d5ccbfd3edd",
+      "src/installer/mod.rs": "1a387b647d1e81ed305fb55b30ce5f201fc1e9f078b6d0d462ec22e67f1071ac",
+      "tests/installer_package_targets.rs": "bdb651586a1a3681fbe618693a80f1bc9055d9813612c4d67b3d889a588b5971",
+      "contracts/installer-package-targets-v1.md": "3f525d648158106c7ef8cfee7712b6a60ff1f183ad1ad8417fed4e33cb3e8b96"
+    },
+    "source_unchanged": true
+  },
+  "trusted_target_platforms": [
+    "linux-x86_64",
+    "windows-x86_64",
+    "macos-arm64",
+    "macos-x86_64"
+  ],
+  "manifest_format_version": 1,
+  "package_contract": "modules/server/contracts/installer-package-targets-v1.md",
+  "compatibility_parser_regression": {
+    "baseline_source": "88c27309e098c87cc41c983975f441d6dacbf891",
+    "method": "Run the unchanged extracted original version_gt function; new signed-package regressions run in the full suite",
+    "old_floor_accepts": [
+      "abc.0.0",
+      "0.1",
+      "0.1.0.0",
+      "99999999999999999999999999.0.0",
+      "0.1.0-rc1"
+    ],
+    "new_verifier_refuses_malformed_metadata": true
+  },
+  "weak_key_regression": "Actual non-strict dalek verifier accepts identity key plus zero-scalar signature; strict package verifier refuses; disposable test fixture only",
+  "installation": "Not Verified on occupied Linux host; Windows/macOS local service installation unavailable",
+  "persistent_security_floors_rollback_recovery": "Not Verified",
+  "intel_runtime": "Not Verified"
+}

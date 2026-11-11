@@ -1,0 +1,61 @@
+{
+  "kind": "native UI development checkpoint; not production release",
+  "mac_source": {
+    "base_revision": "6e5da811d4fd1d585f74a5303e1621ec771f5c8d",
+    "tracked_diff_sha256": "d3bde52333bef233c01945ddf13c0c207f29de45368936dcee3a14256fc37e1b",
+    "untracked_files": {
+      "Sources/HelicoidManager/ManagerPresentation.swift": "11459d75106b93208b090ce7a30f775be73893df3a7c418eb4adbd6f9d2adf3f",
+      "Tests/HelicoidManagerTests/ManagerPresentationTests.swift": "12f2f7ad132d95dfdbaffdf50cb1aab9c416f5f0303e533e3f89d58476f2e129"
+    },
+    "patch": {
+      "path": "/tmp/hs-ui-20261019/deliverables/Helicoid-macOS-UI-source-20261020.patch",
+      "sha256": "93492a8b3d5ac717c2bb2dbab36e9093060261a1b297e00d1533084c49e4a983"
+    }
+  },
+  "mac_artifacts": {
+    "Helicoid-Manager-macOS-arm64-UI-20261020.zip": {
+      "sha256": "e58580b22485edb6e4461d5dc21cffc0112686269d6fc51ac5fd951bdc2450eb",
+      "path": "/tmp/hs-ui-20261019/deliverables/Helicoid-Manager-macOS-arm64-UI-20261020.zip",
+      "architecture": "arm64",
+      "signing": "ad-hoc development; no Developer ID or notarization",
+      "runtime_acceptance": "Not Verified"
+    },
+    "Helicoid-Computer-macOS-arm64-UI-20261020.zip": {
+      "sha256": "76a64a8ed4a61e975f881542e613bbdf14302e2f342e18ea591d997833d4c279",
+      "path": "/tmp/hs-ui-20261019/deliverables/Helicoid-Computer-macOS-arm64-UI-20261020.zip",
+      "architecture": "arm64",
+      "signing": "ad-hoc development; no Developer ID or notarization",
+      "runtime_acceptance": "Not Verified"
+    },
+    "Helicoid-Manager-macOS-x86_64-UI-20261020.zip": {
+      "sha256": "a37a9913a5c33cdb8d42a3bb32161bd30b52747ac4dfa9f0f3c0ffa142751cba",
+      "path": "/tmp/hs-ui-20261019/deliverables/Helicoid-Manager-macOS-x86_64-UI-20261020.zip",
+      "architecture": "x86_64",
+      "signing": "ad-hoc development; no Developer ID or notarization",
+      "runtime_acceptance": "Not Verified"
+    },
+    "Helicoid-Computer-macOS-x86_64-UI-20261020.zip": {
+      "sha256": "62b5950788b70643dee3368b350913d3328866aba8029023941bc80520a6620b",
+      "path": "/tmp/hs-ui-20261019/deliverables/Helicoid-Computer-macOS-x86_64-UI-20261020.zip",
+      "architecture": "x86_64",
+      "signing": "ad-hoc development; no Developer ID or notarization",
+      "runtime_acceptance": "Not Verified"
+    }
+  },
+  "windows_source_revision": "b6f17fb61879c970242bf6784affb7f27f6a6146",
+  "windows_branch": "codex/native-ui-20261020",
+  "mimo_metadata": "docs/evidence/mimo-ui-model-2026-10-20.json",
+  "windows_verification": {
+    "source_revision": "b6f17fb61879c970242bf6784affb7f27f6a6146",
+    "run": "https://github.com/Helicoid-Systems/windows/actions/runs/39343145295",
+    "conclusion": "success",
+    "domain_tests": 496,
+    "native_integration_tests": 67,
+    "artifact_url": "https://github.com/Helicoid-Systems/windows/actions/runs/39343145295/artifacts/12230215088",
+    "artifact_sha256": "7b6356b96527c1b7f3b904f467d380e21de532452cdfa109b1aad8f15c11e002",
+    "runtime_gui_acceptance": "Not Verified",
+    "local_archive": "/tmp/hs-ui-20261019/deliverables/Helicoid-Windows-x64-UI-20261020.zip",
+    "download_digest_verified": true,
+    "branch_documentation_revision": "8a28919"
+  }
+}

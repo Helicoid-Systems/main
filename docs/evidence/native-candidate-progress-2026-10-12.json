@@ -1,0 +1,469 @@
+{
+  "observed_at": "2026-10-13",
+  "execution": {
+    "tool": "MiMo Code",
+    "provider": "xiaomi",
+    "model": "mimo-v2.6-pro",
+    "sessions": [
+      {
+        "export": "server-owner-session.json",
+        "sha256": "40ddf8fe32873cbc6dd51ba0ba492759be96cd1fdfd05e0ca4d1c01037f3b50f",
+        "assistant_model_records": 36,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "server-inherit-only-fixture-session.json",
+        "sha256": "0fde1ab61d68963d839a50f90d77489858fb63efab2b02a6aba4224f2cbcdc29",
+        "assistant_model_records": 25,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "server-cli-fixture-session.json",
+        "sha256": "088465e78437a98143fe4995a86faff70b70b5051548e09127c131ed5abd871c",
+        "assistant_model_records": 16,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "server-leading-hyphen-token-session.json",
+        "sha256": "8069db761e140b99018e4f63cf53bccffe3536d0b6029e7948970711e7cf6b21",
+        "assistant_model_records": 27,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "engine-windows-final-session.json",
+        "sha256": "009edeaaea32e5fe503a2cdc63a8f8ed9a95bd9fc41d5da20b3fdfc9da771ca8",
+        "assistant_model_records": 51,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "server-launcher-private-directory-session.json",
+        "sha256": "6c6226bf854a21a55e59a2984c2a732079085527599c8e60062177650ebaecdb",
+        "assistant_model_records": 29,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "engine-script-arguments-session.json",
+        "sha256": "ff2b94fb22274bd0bbcfce97b97131be2c861e6a5c27cb3a392dfbaf62a74296",
+        "assistant_model_records": 29,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "server-windows-loopback-tls-final-session.json",
+        "sha256": "c410523bd28b60b35a2ab057a90ee12208845136c7bcf00985e3db5b1f136c44",
+        "assistant_model_records": 45,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "engine-ipv6-sdk-header-session.json",
+        "sha256": "e390f40fa088b1162d0e6fd52f2d3f1ef70b7f764b2fa4fc4842da6f6d6efc02",
+        "assistant_model_records": 34,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "installer-target-final-session.json",
+        "sha256": "0b1e0672d816984b45defd16032eddef7f22f0e8bb7b41bde5433cca0b69f51d",
+        "assistant_model_records": 66,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "engine-retained-bundle-final-session.json",
+        "sha256": "dff012ad110c8c607989a318b42d5e007fb7100a3550525af71e5cde464786ca",
+        "assistant_model_records": 94,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "installer-product-final-session.json",
+        "sha256": "e5a0ddfba863b3435728ea668753ee1b5e88822bcea6112e371bf9138e5aedfc",
+        "assistant_model_records": 40,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      },
+      {
+        "export": "mfa-recovery-final-session.json",
+        "sha256": "45fb445bf5a339bc2211f77b6f37088915e7f7d862a8c423b1ab1be7648cb323",
+        "assistant_model_records": 61,
+        "provider": "xiaomi",
+        "model": "mimo-v2.6-pro",
+        "verified": true
+      }
+    ],
+    "agent_reports_require_coordinator_checks": true
+  },
+  "accepted_main_pins": {
+    "modules/core": "872a553bbe479041645286b1021dd309cf85f2ac",
+    "modules/server": "51c005ea2aba8cf0a35787f519159fdb55100e61",
+    "apps/macos": "ae34bc655152cdbc5e6c4548ef8d3201f94514bc",
+    "apps/windows": "75448f230bed2a20c96338e82e55f2bfa2cdcd8b"
+  },
+  "server_candidates": [
+    {
+      "repository": "server",
+      "sha": "c939c8fe75ac0e19e308b2c9735022fcf9aee10a",
+      "run": 38246041857,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38246041857",
+      "status": "Failed",
+      "observation": "Linux passes; Windows 72 library tests pass, one inherit-only leaf fixture fails. Strict owner/DACL checks retained. Leaf ACE retention was not established; kernel filtering is an inference."
+    },
+    {
+      "repository": "server",
+      "sha": "0ae3c4c5b464bffd4aea6eddb52a99f02f7246f4",
+      "run": 38247883345,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38247883345",
+      "status": "Failed",
+      "observation": "Linux passes; Windows 74 library tests pass including retained inherit-only directory ACL carrier and persisted MFA. Later CLI fixture reaches password read with empty stdin, fails before token validation."
+    },
+    {
+      "repository": "server",
+      "sha": "e5755722cfc58f9dc89b6a8f28a0a8fdb0327c39",
+      "run": 38249674679,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38249674679",
+      "status": "Failed",
+      "observation": "Windows full 224 Rust tests, Clippy and release build pass; final PowerShell5.1 launcher init refuses a default-owned store folder. Linux fails a real generated leading-hyphen bootstrap token at argument parsing."
+    },
+    {
+      "repository": "server",
+      "sha": "286af7c5d96b9dbc82c0489d5ea16f6c2b2a6e35",
+      "run": 38251546295,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38251546295",
+      "status": "Failed",
+      "observation": "Linux full checks pass; Windows full tests, Clippy and release pass, then unchanged old launcher init refuses its precreated default-owned store folder."
+    },
+    {
+      "repository": "server",
+      "sha": "f01019faa41d484f7ce43bcc0f0559834ad9d10c",
+      "run": 38252656196,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38252656196",
+      "status": "Verified",
+      "observation": "235 Linux and226 Windows tests, no failures/ignores, formatting/Clippy, native release and actual PowerShell5.1/7 private-folder ACL/launcher checks pass. Downloaded archive digest, PE x64 and all companions verified."
+    },
+    {
+      "repository": "server",
+      "sha": "1d996692a248c4c743525e34c9481a6e4fe472c8",
+      "run": 38259032769,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38259032769",
+      "status": "Verified",
+      "observation": "235 Linux and243 Windows tests,strict Clippy/release,both PowerShell launchers and actual Windows TLS tests pass; coordinator242 Mac and exact downloaded archive/PE/companions verified."
+    },
+    {
+      "repository": "server",
+      "sha": "7f82f8f1599a178d4f55b61c6dc90962f714a326",
+      "run": 38315726535,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38315726535",
+      "status": "Verified",
+      "observation": "261 Linux /269 Windows tests, both native PowerShell launchers/release,22 signed-package metadata tests; coordinator268 Mac tests; downloaded ZIP/PE/scripts verified; installation/public authority/recovery remain gated"
+    },
+    {
+      "repository": "server",
+      "sha": "21d2ff337e0b02c4dd01ea8a3bed5213fad3dacf",
+      "run": 38320441248,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38320441248",
+      "status": "Verified",
+      "observation": "265 Linux /273 Windows tests;26 real signed package metadata tests; strict Clippy/release/both launchers and Windows TLS gates; coordinator272 Mac tests; otherwise-valid old baseline accepts hostile metadata and final old-source regressions fail23/3; downloaded ZIP/PE/scripts verified"
+    },
+    {
+      "repository": "server",
+      "sha": "c30c9e2b96ce6b7bf0b41f4ef59f67b8ec79149d",
+      "run": 38441619920,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38441619920",
+      "status": "Verified",
+      "observation": "270 Linux / 278 Windows tests; new cancellation/replacement/restart/rollback regressions, existing 26 package tests, strict Clippy/release/both launchers/TLS pass; independent 277 Mac tests, same two baseline regressions red-to-green and actual download inspected"
+    }
+  ],
+  "engine_candidates": [
+    {
+      "repository": "core",
+      "sha": "d5601b812aec4d6e2531eb538996e1b7c95d2661",
+      "run": 38248418243,
+      "url": "https://github.com/Helicoid-Systems/core/actions/runs/38248418243",
+      "status": "Failed",
+      "observation": "Windows text=auto checkout produces CRLF Cargo.lock; exact frozen hash gate refuses. Real Git checkout reproduction matches native CRLF hash."
+    },
+    {
+      "repository": "core",
+      "sha": "977c9f268fe98be3fdb8c8fecfeedbb01007341d",
+      "run": 38248924582,
+      "url": "https://github.com/Helicoid-Systems/core/actions/runs/38248924582",
+      "status": "Failed",
+      "observation": "Job-scoped Git core.eol=lf restores pinned bytes. Native source/patch checks pass; default-encoding header checker refuses UTF-8 extraction. CP1252 decoding reproduces a distinct source hash."
+    },
+    {
+      "repository": "core",
+      "sha": "e7c9d5fa5974de032131601fb4f783573553ba33",
+      "run": 38249512646,
+      "url": "https://github.com/Helicoid-Systems/core/actions/runs/38249512646",
+      "status": "Failed",
+      "observation": "Explicit UTF-8 header check passes. Exact source/submodule/lock/patch/header/wrapper gates and frozen vcpkg dependency installation pass. Driver then fails PowerShell script argument binding before native Rust/C/C# execution."
+    },
+    {
+      "repository": "core",
+      "sha": "1fb642c73ce87fbba55b13eb5571273bd664f4fd",
+      "run": 38253183124,
+      "url": "https://github.com/Helicoid-Systems/core/actions/runs/38253183124",
+      "status": "Failed",
+      "attempt1": "Failed; Strawberry Perl dependency release download returned HTTP500 after vcpkg retries",
+      "attempt2": "Failed at MSVC C harness compile;32 real Rust tests and27 DLL exports pass",
+      "observation": "Exact pins/patch/header/wrappers, pinned dependency install,32 Rust bridge tests, actual DLL build and27 exports pass. MSVC C harness fails undeclared PMIB_TCP6TABLE_OWNER_PID; C/C# runtime gate remains Not Verified. Bounded public SDK include repair in progress."
+    },
+    {
+      "repository": "core",
+      "sha": "e4fe20e40cda671535a20417a6a1bfa7eff6387d",
+      "run": 38259987539,
+      "url": "https://github.com/Helicoid-Systems/core/actions/runs/38259987539",
+      "status": "Verified",
+      "observation": "32 Rust/133 C/85 C# native lifetime checks,27 exports and16 frozen hashes pass. Coordinator archive digest/header/hash/report inspection passes. Evidence archive does not retain testedDLL; no installable engine/admitted media claim."
+    },
+    {
+      "repository": "core",
+      "sha": "155fff24605d4ae3beacd2b91986676ff8452c72",
+      "run": 38317350914,
+      "url": "https://github.com/Helicoid-Systems/core/actions/runs/38317350914",
+      "status": "Verified",
+      "observation": "Actual retained DLL bundle passes32 Rust/133 C/85 C# original and133 C/85 C# staged checks; all28 receipt members/digests/header/27 exports/16 frozen hashes independently checked; local real-bundle metadata checker passes; inert unsigned lab only"
+    }
+  ],
+  "coordinator_checks": {
+    "server_token_fix": {
+      "source": "286af7c5d96b9dbc82c0489d5ea16f6c2b2a6e35",
+      "mac_tests": 242,
+      "checks": [
+        {
+          "check": "fmt",
+          "exit": 0,
+          "seconds": 0.461
+        },
+        {
+          "check": "test",
+          "exit": 0,
+          "seconds": 10.227
+        },
+        {
+          "check": "clippy",
+          "exit": 0,
+          "seconds": 0.214
+        },
+        {
+          "check": "build",
+          "exit": 0,
+          "seconds": 0.14
+        }
+      ],
+      "real_cli_denials": [
+        {
+          "command": "bootstrap",
+          "exit": 1,
+          "backend_invalid_token_denial": true,
+          "recovery_absent": true
+        },
+        {
+          "command": "bootstrap-v2",
+          "exit": 1,
+          "backend_invalid_token_denial": true,
+          "recovery_absent": true
+        },
+        {
+          "case": "missing",
+          "exit": 1,
+          "expected_denial": true
+        },
+        {
+          "case": "empty",
+          "exit": 1,
+          "expected_denial": true
+        },
+        {
+          "case": "unknown",
+          "exit": 2,
+          "expected_denial": true
+        }
+      ],
+      "proof_limit": "Unix/parser execution only; no installed Windows claim"
+    },
+    "engine_windows_candidate": {
+      "header_wrapper_workflow_csharp_checks": {
+        "header": 0,
+        "wrappers": 0,
+        "workflow": 0,
+        "csharp": 0
+      },
+      "powershell_real_source_guards": {
+        "exact-pins": 0,
+        "patch-apply": 0,
+        "patched-hashes": 0,
+        "reapply-refused": 1,
+        "lock-drift-refused": 1,
+        "source-drift-refused": 1,
+        "malformed-manifest-refused": 1,
+        "traversal-refused": 1,
+        "duplicate-pin-refused": 1
+      },
+      "frozen_contracts": "ABI/header/patch/wrappers/Mac harness unchanged",
+      "native_windows_runtime": "32 Rust tests and actual DLL/27 exports verified in CI38253183124 attempt2; C harness compilation fails; C/C# runtime not verified"
+    },
+    "engine_script_arguments": [
+      {
+        "case": "Old",
+        "exit": 1,
+        "expected": 1,
+        "guard": "A positional parameter cannot be found",
+        "verified": true
+      },
+      {
+        "case": "Fixed",
+        "exit": 0,
+        "expected": 0,
+        "guard": "patched-files.sha256 OK",
+        "verified": true
+      },
+      {
+        "case": "Wrong",
+        "exit": 1,
+        "expected": 1,
+        "guard": "failed (git exit",
+        "verified": true
+      },
+      {
+        "case": "WrongPin",
+        "exit": 1,
+        "expected": 1,
+        "guard": "wrong upstream HEAD",
+        "verified": true
+      }
+    ],
+    "server_launcher": {
+      "powershell_7_6_6_parse": "Verified; both scripts",
+      "actionlint_1_7_12": "Verified",
+      "actual_unix_helper_server_delegation": "Verified; chosen path absent, missing parent refused, actual server creates private folder",
+      "windows_native_acl_and_launcher": "Verified in CI38252656196 under PowerShell5.1 and7"
+    },
+    "server_windows_tls": {
+      "evidence": "server-windows-tls-acceptance-2026-10-12.json",
+      "source": "1d996692a248c4c743525e34c9481a6e4fe472c8",
+      "mac_tests": 242,
+      "tls_tests": 29,
+      "native_windows_tests": 243,
+      "native_linux_tests": 235,
+      "all_checks_exit": 0,
+      "native": "Verified for literal-loopback only"
+    },
+    "engine_windows_lifetime": {
+      "evidence": "engine-windows-lifetime-acceptance-2026-10-12.json",
+      "source": "e4fe20e40cda671535a20417a6a1bfa7eff6387d",
+      "rust": 32,
+      "c": 133,
+      "csharp": 85,
+      "native": "Verified for inert ABI/lifetime only"
+    },
+    "installer_target_package": {
+      "status": "Verified",
+      "full_mac_tests": 268,
+      "native_linux_tests": 261,
+      "native_windows_tests": 269,
+      "native_package_tests": 22,
+      "artifact_id": 11776925306,
+      "evidence": "installer-target-acceptance-2026-10-13.json"
+    },
+    "retained_engine_bundle": {
+      "status": "Verified",
+      "evidence": "engine-retained-bundle-acceptance-2026-10-13.json",
+      "local_checks": 7,
+      "negative_metadata_copy_cases": 29,
+      "frozen_files": 16,
+      "native_rust_tests": 32,
+      "native_c_checks": 133,
+      "native_csharp_checks": 85,
+      "staged_c_checks": 133,
+      "staged_csharp_checks": 85,
+      "artifact_id": 11778571128,
+      "native_runtime_and_download": "Verified for inert laboratory lifetime bundle only"
+    },
+    "installer_product_package": {
+      "status": "Verified",
+      "evidence": "installer-product-acceptance-2026-10-13.json",
+      "full_mac_tests": 272,
+      "native_linux_tests": 265,
+      "native_windows_tests": 273,
+      "native_package_tests": 26,
+      "baseline_red_passed": 23,
+      "baseline_red_failed": 3,
+      "artifact_id": 11778357880
+    },
+    "mfa_factor_recovery": {
+      "status": "Verified",
+      "evidence": "mfa-recovery-acceptance-2026-10-13.json",
+      "full_mac_tests": 277,
+      "native_linux_tests": 270,
+      "native_windows_tests": 278,
+      "new_native_recovery_tests": 5,
+      "independent_baseline_failed": 2,
+      "independent_after_passed": 2,
+      "artifact_id": 11837145033,
+      "scope": "Bounded TOTP factor recovery prerequisite only; installed recovery/issuer cutover Not Verified"
+    }
+  },
+  "native_core_domain_ci": {
+    "run": 38317351049,
+    "sha": "155fff24605d4ae3beacd2b91986676ff8452c72",
+    "status": "Verified",
+    "url": "https://github.com/Helicoid-Systems/core/actions/runs/38317351049",
+    "scope": "All five jobs, including actual Linux/Mac/Windows authority and header drift; no retained DLL runtime claim"
+  },
+  "pending_packages": [],
+  "boundaries": [
+    "Main server/core pins do not advance from local tests or agent reports.",
+    "Generic recovery/key reads and newly created private objects require currentUser owner; only existing SQLite store files allow currentUser/SYSTEM/Administrators owner with strict held DACL/shape/link checks.",
+    "Windows TLS server hosting is verified only on literal loopback; public authentication/listeners remain unavailable.",
+    "Selected stock RustDesk rendezvous/relay adoption remains Failed / Closed; production connect, observation and channel binding unavailable.",
+    "No public listener, alternate transport, VM mutation or production credential/data inspection.",
+    "Live preview/control, installed platform acceptance, Intel runtime, signing/notarization, updates/recovery and release security review remain Not Verified."
+  ],
+  "accepted_server_source": "c30c9e2b96ce6b7bf0b41f4ef59f67b8ec79149d",
+  "accepted_server_pin_source_equivalence": "Only README.md and BUILD-REPORT.md differ from tested c30c9e2b96ce6b7bf0b41f4ef59f67b8ec79149d",
+  "accepted_core_source": "155fff24605d4ae3beacd2b91986676ff8452c72",
+  "accepted_core_pin_source_equivalence": "Only BUILD-REPORT.md, engine-lab/README.md and evidence inventory differ from tested155fff2",
+  "completed_packages": [
+    {
+      "package": "engine-retained-windows-bundle",
+      "status": "Verified",
+      "scope": "Inert native bundle only",
+      "accepted_pin": "872a553bbe479041645286b1021dd309cf85f2ac",
+      "evidence": "engine-retained-bundle-acceptance-2026-10-13.json"
+    },
+    {
+      "package": "installer-product-version-binding",
+      "status": "Verified",
+      "scope": "Signed metadata verifier only",
+      "accepted_pin": "44a8eccb6d1503e0f1bef1f5dcd7a8310bc28b72",
+      "evidence": "installer-product-acceptance-2026-10-13.json"
+    },
+    {
+      "package": "mfa-factor-recovery",
+      "status": "Verified",
+      "scope": "Cancellation preserves established factor; confirmation installs replacement transactionally; real device login, private-store restart and fault rollback",
+      "accepted_pin": "51c005ea2aba8cf0a35787f519159fdb55100e61",
+      "evidence": "mfa-recovery-acceptance-2026-10-13.json"
+    }
+  ]
+}

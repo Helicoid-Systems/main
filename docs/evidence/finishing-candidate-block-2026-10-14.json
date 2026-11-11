@@ -1,0 +1,245 @@
+{
+  "recorded_date": "2026-10-14",
+  "provider": "xiaomi",
+  "requested_model": "mimo-v2.6-pro",
+  "candidate_acceptance": "not accepted",
+  "billing_block": {
+    "core-webrtc": {
+      "errors": [
+        {
+          "type": "APIError",
+          "http_status": 402,
+          "message": "Insufficient account balance",
+          "is_retryable": false
+        }
+      ],
+      "events_sha256": "c89b3b27f465fd35a1618dc22b09ec693ddd37d586f5404eee73ecd1c260cba1"
+    },
+    "server-operator-mfa": {
+      "errors": [
+        {
+          "type": "APIError",
+          "http_status": 402,
+          "message": "Insufficient account balance",
+          "is_retryable": false
+        }
+      ],
+      "events_sha256": "5d7b7b5017bfa9bd112bbc6049c7cf6acce6096a31d5b2ebeb5ad569ee25d3b6"
+    },
+    "macos-auth": {
+      "errors": [
+        {
+          "type": "APIError",
+          "http_status": 402,
+          "message": "Insufficient account balance",
+          "is_retryable": false
+        }
+      ],
+      "events_sha256": "bda2c6086b60093e36f4aecfaddd463d010e956e79a287daea102a484a09f586"
+    },
+    "windows-auth": {
+      "errors": [
+        {
+          "type": "APIError",
+          "http_status": 402,
+          "message": "Insufficient account balance",
+          "is_retryable": false
+        }
+      ],
+      "events_sha256": "407e48a4461111bafc8b9d205c987438424f7eae16a7eb6c2ebecaded09d7878"
+    }
+  },
+  "repositories": {
+    "modules/core": {
+      "head": "872a553bbe479041645286b1021dd309cf85f2ac",
+      "candidate_files_sha256": {
+        "README.md": "86176a53b8a7657e2e0b3224fd87bddb2e9112454d2b2fd9ef03b5f72bd6046c",
+        "webrtc-native/README.md": "94fc359faa7e1dbba3b20ca60ec17922d57239ef706e05ac2fc6ef765b8e2531",
+        "webrtc-native/inventory/upstream-pins.json": "9e9942e84db732a442bb02e2aa366304b4fd8e49c7cb9bff006ded4df2c619b9",
+        "webrtc-native/native/hs_webrtc_bridge.cpp": "f6cd9f78b1424ee3d95de9cb83be756752bff033cae758e5f72dcc1378efdf8a"
+      },
+      "accepted": false
+    },
+    "modules/server": {
+      "head": "51c005ea2aba8cf0a35787f519159fdb55100e61",
+      "candidate_files_sha256": {
+        "README.md": "873340850dbf726c191b0dc8170a99b1b1ffe927f9cfaf9108df3e51417ba64f",
+        "src/auth_v2.rs": "01c1c7c01a2477a878bbc2c144b36656730b5283022fd1968c492907545b4bf5",
+        "src/db.rs": "040f65aecf1645a8672029d39746384fe88b5c95beccf4eb7870e1aae8a28124",
+        "src/http.rs": "c0696c0fd92aca02a9cad386a31ee25d1678b37ff3ab4149b4b1c41983932fb0",
+        "src/models.rs": "f488729e50cc9732ef6c6f62daa82562f8d8a8be3bafebd46674dd5b3574c97e",
+        "src/service.rs": "951f4f96616b1c7fc7509a110d0f6069aa88ec84b5aca497afeb4f55cece6b81",
+        "tests/auth_v2.rs": "5abb492f2851b8449a424d4d2e06473368cc99c1bcb18a384f5c87def637c65c"
+      },
+      "accepted": false
+    },
+    "apps/macos": {
+      "head": "ae34bc655152cdbc5e6c4548ef8d3201f94514bc",
+      "candidate_files_sha256": {
+        "README.md": "f14d201214b95f587d14c075c117888f633fbf95d3d6b4e46528b6f8feac1c13",
+        "Sources/HelicoidCore/Connection/NativeV2AuthClient.swift": "174172a10d2f47c1a131edb6c3aa60b5bc26dda66796dcd374938f28b372564c",
+        "Sources/HelicoidCore/HTTP/AuthV2DTOs.swift": "71096c6a8c3d3a9bc9d7052dcf8a67a6244afc2360018d0daa3f90178cd9572d",
+        "Sources/HelicoidManager/ManagerSession.swift": "52f8d355850251f1def273472aff30bc7b657ca3ea8596dbc535d18f65410ea2",
+        "Sources/HelicoidManager/Views/Connection/ConnectionViews.swift": "d673caf389971fdbbdbf92fbea4773d94eb365b0e1b2a2a6a7cebaa35d27020c",
+        "Tests/HelicoidCoreTests/NativeV2AuthClientTests.swift": "a564e3aa2d8c0f084a6c39acfeb5a398725e3907f441269ec28eefa6a513c4f2"
+      },
+      "accepted": false
+    },
+    "apps/windows": {
+      "head": "75448f230bed2a20c96338e82e55f2bfa2cdcd8b",
+      "candidate_files_sha256": {
+        "README.md": "961de152d14990a266f92125013c0d04bb574a61446357163364e8bd858c0f15",
+        "src/Helicoid.Domain.Tests/packages.lock.json": "0941302375b8f45adb2e0986b46f248ed1e79ce3135e19ccaacd925b5905da18",
+        "src/Helicoid.Domain/Client/AuthChallengeContracts.cs": "5904daaa7a4373551e6e6e107d8cfd68b9f550cfa15bbb9a568900a4fa25e725",
+        "src/Helicoid.Domain/Client/Ed25519DeviceKey.cs": "2a94e24c2dd4771f7a9fa66e233cabea6e92550a172fab347a11db2a6b54876a",
+        "src/Helicoid.Domain/Client/PendingAuthChallenge.cs": "b3845f4564d4f434f10fdd072f80311eb36c8fd7045d7d032a4faa8f7afe2499",
+        "src/Helicoid.Domain/Client/PinnedHttpsTransport.cs": "d7f28d9a976b80237162ac2fcd7d0ba9379f31e32286962e45a74acbdfd58d01",
+        "src/Helicoid.Domain/Client/V2DeviceKeyChallengeClient.cs": "c78714b0219c1454704dbe7cbd2a9edd281b5000bff82d152ca6477bb1e540f0",
+        "src/Helicoid.Domain/Client/V2SignInCoordinator.cs": "9c76653b63188b5b8585b02d4e2de27ccb5880a1e551a1d0bf94821964a653c5",
+        "src/Helicoid.Domain/Helicoid.Domain.csproj": "d4f11fca8af3e03364676db9216b025e775a4ebcf1a21586ea30ff0a5f5bc470",
+        "src/Helicoid.Domain/packages.lock.json": "d0fd46d6f4bfde3b166bd9d63bd13328c1850a35235bc3c2bb3e1c77748b75d3",
+        "src/Helicoid.Manager/ViewModels/ConnectionViewModel.cs": "b7f33807b9b7e4d5f4b44ad6e590a31a76a4005616426f061279f8cec7e1973c",
+        "src/Helicoid.WindowsPlatform/DeviceKeyStorage.cs": "e12731032bf189251978ef21fcfab8c33de13bd5d6d3452704fc3e444b5ffd00",
+        "src/Helicoid.WindowsPlatform/packages.lock.json": "72f74f0a256353d3992ba3c57d8e6df889f96fb921a1c38421a4f40347a5620e"
+      },
+      "accepted": false
+    }
+  },
+  "coordinator_findings": {
+    "core": {
+      "scratch_note": "/tmp/hs-finish-20261013/coordinator-core-review-20261014.md",
+      "sha256": "7c7f8ad64c53200c196b923b5c6525b881f3aeeabbf9b1d286c97d44711ec02a"
+    },
+    "server": {
+      "scratch_note": "/tmp/hs-finish-20261013/coordinator-server-review-20261014.md",
+      "sha256": "9169682fddfd29576f4eb4881f16ce077f2b3e27f055944e2a9c62e453610153"
+    },
+    "macos": {
+      "scratch_note": "/tmp/hs-finish-20261013/coordinator-macos-review-20261014.md",
+      "sha256": "bc08f2305e8b04eeff4d78e1359630742c92eb461b503641db16fbdd28a8c163"
+    },
+    "windows": {
+      "scratch_note": "/tmp/hs-finish-20261013/coordinator-windows-review-20261014.md",
+      "sha256": "7999ebc44a12b554b7e93a9c13ec3aa5fe6943c59c09c3dbd4cd0ac39f35dcb3"
+    }
+  },
+  "integration_pins_advanced": false,
+  "deployment_mutations": false,
+  "coordinator_regression": {
+    "case": "future MFA assurance cannot authorize policy mutation",
+    "before_candidate_exit_code": 101,
+    "before_candidate_result": "FAILED; future assurance authorized the policy change",
+    "log_sha256": "b8088cfe391c69349d60e33a42e149d24f39b742ce18f5a23d147532bf7c3945",
+    "repaired_candidate": "Not Verified; source fix not applied before billing block"
+  },
+  "shared_auth_contract_revision2_sha256": "ae44cb5e1298c34caaf7efe3aedea9aa524bed93d8c3a75091b4c38a59a31863",
+  "model_metadata": {
+    "core-webrtc": {
+      "session_id": "ses_ffe5ec9584e10ffeWOtdQkhVsO",
+      "assistant_records": 38,
+      "model_pairs": [
+        [
+          "xiaomi",
+          "mimo-v2.6-pro"
+        ]
+      ],
+      "all_requested_model": true,
+      "sanitized_export_sha256": "0b36115484d4e476c84e79aa2bfc9abbefb303960f20a7b70c4e01c32862642c",
+      "export_exit_code": 0
+    },
+    "server-operator-mfa": {
+      "session_id": "ses_ffe5ec95822a3ffehxs2bkdT0U",
+      "assistant_records": 56,
+      "model_pairs": [
+        [
+          "xiaomi",
+          "mimo-v2.6-pro"
+        ]
+      ],
+      "all_requested_model": true,
+      "sanitized_export_sha256": "fcd0d31bc1c386837ab864e07bfb830d1f96b0aaede03aad8413413dfd94026d",
+      "export_exit_code": 0
+    },
+    "macos-auth": {
+      "session_id": "ses_ffe5ec94949f3ffePwgduL5IN6",
+      "assistant_records": 37,
+      "model_pairs": [
+        [
+          "xiaomi",
+          "mimo-v2.6-pro"
+        ]
+      ],
+      "all_requested_model": true,
+      "sanitized_export_sha256": "9b547434ebe3e136750f89a1522dc922335808959ba5d52fbb36057677e4a23f",
+      "export_exit_code": 0
+    },
+    "windows-auth": {
+      "session_id": "ses_ffe5ec9492594ffec3gH9iod4t",
+      "assistant_records": 38,
+      "model_pairs": [
+        [
+          "xiaomi",
+          "mimo-v2.6-pro"
+        ]
+      ],
+      "all_requested_model": true,
+      "sanitized_export_sha256": "ee55f2cb1ca11db425a3c932ce2066cdba6df85ae8939ed412f6d9bd9d5c277f",
+      "export_exit_code": 0
+    }
+  },
+  "coordinator_checks": {
+    "server_auth_candidate": {
+      "exit_code": 0,
+      "passed": 46,
+      "failed": 0,
+      "ignored": 0,
+      "log_sha256": "4abc55d8daaf181afa9013fe20d5fe9dec4d829a803c61b87cc8ff9e387b87e5"
+    },
+    "server_format": {
+      "exit_code": 1,
+      "result": "Failed; current auth tests are not formatted"
+    },
+    "server_strict_clippy": {
+      "exit_code": 101,
+      "result": "Failed; type_complexity in policy-session row"
+    },
+    "macos_candidate": {
+      "exit_code": 1,
+      "tests": 199,
+      "suites": 28,
+      "issues": 11,
+      "result": "Failed; unfinished challenge-login tests/contract integration",
+      "log_sha256": "3a8e484910e1aa62cfafb3d5afb24bb952804bc833e3d10d0897b52a7099119c"
+    },
+    "windows_domain_candidate_on_mac": {
+      "exit_code": 0,
+      "passed": 387,
+      "failed": 0,
+      "skipped": 0,
+      "limit": "Existing domain suite compiles candidate; targeted new auth and native Windows private-store/UI acceptance are incomplete",
+      "log_sha256": "8c7e58895f567d348b60d55d516bd1df22669908aa130428282f8be55e97290b"
+    },
+    "webrtc_native": {
+      "status": "Not Verified",
+      "result": "Only README, pin manifest and C++ candidate exist; generated header, wrappers, reproducible bridge build and real harness are incomplete"
+    },
+    "diff_whitespace_exit_codes": {
+      ".": 0,
+      "modules/core": 0,
+      "modules/server": 0,
+      "apps/macos": 0,
+      "apps/windows": 0
+    }
+  },
+  "preservation": {
+    "unrelated_file_mismatches": [],
+    "original_repo_heads_unchanged": true,
+    "root_staged_diff_sha256_unchanged": true
+  },
+  "resume": {
+    "launcher": "/tmp/hs-finish-20261013/run_review_mimo.py",
+    "core_bridge_only_launcher": "/tmp/hs-finish-20261013/run_review_mimo_core_v2.py",
+    "condition": "Restore Xiaomi/MiMo provider balance; resume existing exact sessions and attached review notes, no model substitution",
+    "next_gate": "Fix named review findings, reproduce regression/checks and actual native engine build before acceptance"
+  }
+}

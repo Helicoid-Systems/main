@@ -1,0 +1,12 @@
+.DS_Store
+.mimocode/
+**/.build/
+**/target/
+**/bin/
+**/obj/
+**/dist/
+**/*.db
+**/*.db-shm
+**/*.db-wal
+**/__pycache__/
+**/*.pyc

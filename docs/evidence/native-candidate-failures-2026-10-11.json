@@ -1,0 +1,319 @@
+{
+  "observed_at": "2026-10-11",
+  "execution": {
+    "tool": "MiMo Code",
+    "provider": "xiaomi",
+    "model": "mimo-v2.6-pro",
+    "exported_metadata_verified": true,
+    "agent_reports_require_coordinator_checks": true
+  },
+  "candidates": [
+    {
+      "capability": "macOS pinned HTTPS transport",
+      "sha": "dab66917ce71714fa9484b3d2c1efb9ba19c087f",
+      "status": "Failed",
+      "ci": 38146856209,
+      "url": "https://github.com/Helicoid-Systems/macos/actions/runs/38146856209",
+      "runner": "macos-15",
+      "tests": 170,
+      "suites": 26,
+      "issues": 14,
+      "elapsed_seconds": 34.493,
+      "observations": [
+        "Real TLS fixture startup succeeds after literal-address binding and bounded POSIX pipe reads.",
+        "Positive HTTPS requests and exact response-body rejection cases receive cancellation; native trust failure cause is not established.",
+        "An independent SSH command-runner deadline assertion also fails.",
+        "Intel source build passes; Intel runtime remains Not Verified."
+      ],
+      "next_gate": "Reviewed task-owned trust diagnostics followed by a fresh native run; independent SSH deadline repair."
+    },
+    {
+      "capability": "Windows persistent private credential store",
+      "sha": "3741506515399750289edf727ffc8d1184a8d5d2",
+      "status": "Failed",
+      "ci": 38147363684,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38147363684",
+      "runner": "windows-latest",
+      "first_failure": {
+        "file": "tests/tls_transport.rs",
+        "line": 273,
+        "code": "E0425",
+        "detail": "create_new_private_file imported only on Unix but used by a Windows test"
+      },
+      "windows_runtime_tests": "Not Verified; compilation failed before runtime",
+      "linux_job": "Verified; passed",
+      "next_gate": "Fix import and genuinely private Windows fixture setup; compile and run full Windows tests before acceptance."
+    },
+    {
+      "capability": "Windows persistent private credential store fixture repair",
+      "sha": "6d9cc7b17d3025939a79e0cbb3f01f04b34d13e1",
+      "status": "Failed",
+      "ci": 38160803572,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38160803572",
+      "first_failure": {
+        "file": "tests/auth_v2.rs",
+        "code": "E0609",
+        "detail": "Three Windows-only assertions used totp_secret; the actual BootstrapV2Response field is totp_secret_base32."
+      },
+      "windows_runtime_tests": "Not Verified; compilation failed before runtime",
+      "linux_job": "Verified; passed"
+    },
+    {
+      "capability": "macOS task-owned TLS diagnostics",
+      "sha": "c098c02f00f6684bbce76cafb6d50c31fc89dc03",
+      "status": "Failed",
+      "ci": 38161304956,
+      "url": "https://github.com/Helicoid-Systems/macos/actions/runs/38161304956",
+      "tests": 173,
+      "suites": 26,
+      "issues": 17,
+      "elapsed_seconds": 37.732,
+      "native_trust": {
+        "decision": "refusedEvaluate",
+        "step": "evaluate",
+        "certificate_count": 2,
+        "cf_domain": "NSOSStatusErrorDomain",
+        "cf_code": -67903,
+        "apple_symbol": "errSecCertificateDuplicateExtension",
+        "primary_source": "https://raw.githubusercontent.com/apple-oss-distributions/Security/main/base/SecBase.h"
+      },
+      "local_coordinator": {
+        "tests": 173,
+        "suites": 26,
+        "elapsed_seconds": 19.833,
+        "arm64_release_packages": "Verified; strict ad hoc signatures",
+        "intel_compile": "Verified; both x86_64; minos15.0",
+        "intel_runtime": "Not Verified"
+      },
+      "next_gate": "Diagnose actual duplicate certificate extensions; retain native strict validation and repair fixtures only if confirmed."
+    },
+    {
+      "capability": "Portable MFA bootstrap and reopen tests with native Windows ACL corruption",
+      "sha": "19f14d0e5b791d0413fb6027b56723a58a4d0569",
+      "status": "Failed",
+      "ci": 38161333976,
+      "local_coordinator": {
+        "tests": 240,
+        "format": "Verified",
+        "clippy": "Verified; all targets, warnings denied",
+        "build": "Verified"
+      },
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38161333976",
+      "linux_job": "Verified; passed",
+      "windows_runtime_tests": "Executed; 32 library tests failed, 24 passed; dependent suites not reached",
+      "first_failure": {
+        "message": "path ancestor is not owned by current principal/SYSTEM/Administrators; refusing private store",
+        "next_gate": "Bounded native owner and ACL metadata diagnosis; no policy relaxation before native evidence"
+      }
+    },
+    {
+      "capability": "macOS independently configured certificate fixtures",
+      "sha": "9f8b71f50ca9230a86a79836800d76957494e57a",
+      "status": "Failed",
+      "ci": 38163339118,
+      "url": "https://github.com/Helicoid-Systems/macos/actions/runs/38163339118",
+      "runner": "macos-15",
+      "tests": 177,
+      "suites": 27,
+      "issues": 1,
+      "elapsed_seconds": 44.398,
+      "observations": [
+        "All TLS tests pass with explicit owned OpenSSL configuration and unique-extension regressions. Production trust validation remains strict.",
+        "Only the existing SSH timeout assertion fails: 1.063767334 seconds against the unchanged less-than-one-second bound.",
+        "Earlier duplicate extensions were not reproduced locally with LibreSSL 3.3.6 or OpenSSL 3.6.4; ambient configuration is an inference, not a confirmed local root cause."
+      ],
+      "local_coordinator": {
+        "frozen_snapshot": "c098c02 plus only the two fixture files; excludes concurrent SSH edits",
+        "tests": 177,
+        "suites": 27,
+        "elapsed_seconds": 21.458
+      },
+      "next_gate": "Review actual child cleanup, preserve successful output, and rerun the complete native suite before accepting the Mac gitlink."
+    },
+    {
+      "capability": "Windows private-store ancestry metadata diagnostic",
+      "sha": "ce19f817868c96f65bb69a7d9aa334d78ece9597",
+      "status": "Failed",
+      "ci": 38162772545,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38162772545",
+      "observations": [
+        "Managed SID enum member names incorrectly used Win prefixes; metadata collection did not run.",
+        "The owned empty diagnostic directory was removed."
+      ]
+    },
+    {
+      "capability": "Windows private-store ancestry metadata diagnostic",
+      "sha": "e639d783437a5da0cf9899cf4818c8ffc4982d4d",
+      "status": "Verified",
+      "ci": 38162915222,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38162915222",
+      "runner": "windows-latest",
+      "observations": [
+        "Bounded read-only owner/ACE classification completed; no system ACLs changed and no credentials or full paths printed.",
+        "The normal root ancestor is owned by TrustedInstaller; Authenticated Users has current-directory FILE_ADD_SUBDIRECTORY (0x4) plus an INHERIT_ONLY generic mutation grant.",
+        "Remaining observed ancestors are owned by Administrators or SYSTEM; unknown current-directory grants are read/traverse."
+      ],
+      "private_store_gate": "Not Verified; this metadata job does not run or accept the store implementation.",
+      "next_gate": "Bounded ancestor-only policy repair; protected product directories, files and SQLite sidecars remain strict; full native Windows suite required."
+    },
+    {
+      "capability": "Windows private-store ancestor role repair",
+      "sha": "ff9874085589214135dd3bb9864ea78734ea5463",
+      "status": "Failed",
+      "ci": 38165068195,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38165068195",
+      "linux_job": "Verified; passed",
+      "windows_library": {
+        "passed": 64,
+        "failed": 4,
+        "elapsed_seconds": 1.88
+      },
+      "observations": [
+        "Normal ancestry, exact TrustedInstaller ancestor-only ownership, product TrustedInstaller denial, creation-only/inherit-only role checks, and scoped thread privilege unwind regressions pass.",
+        "Remaining failures: migrate_refuses_already_current_store_without_backup, migrate_upgrades_v1_store_on_windows_private_boundary, open_refuses_older_schema_without_auto_migrate, sqlite_lifecycle_live_wal_shm_journal_stay_private.",
+        "The remaining failures refuse an object owner other than current process principal; actual owner classification is not yet established.",
+        "Dependent Windows suites and packaging are not reached."
+      ],
+      "local_coordinator": {
+        "tests": 240,
+        "format": "Verified",
+        "clippy": "Verified; all targets, warnings denied",
+        "build": "Verified",
+        "windows_source_types": "Verified; actual module and native test source, not runtime"
+      },
+      "next_gate": "Actual native SQLite/fixture owner metadata before any owner-policy change; preserve final private DACL and refusal/no-re-ACL boundaries."
+    },
+    {
+      "capability": "Mac pinned HTTPS and owned command lifecycle",
+      "sha": "7bf00ac9ce6b03f47f66539a913136451abe55fd",
+      "status": "Verified",
+      "ci": 38167550626,
+      "url": "https://github.com/Helicoid-Systems/macos/actions/runs/38167550626",
+      "tests": 186,
+      "suites": 27,
+      "issues": 0,
+      "test_seconds": 43.877,
+      "package_test_seconds": 43.843,
+      "intel_source_build": "Verified; runtime Not Verified",
+      "downloaded_artifact": {
+        "observed_at": "2026-10-11",
+        "code_sha": "7bf00ac9ce6b03f47f66539a913136451abe55fd",
+        "ci": 38167550626,
+        "ci_status": "Verified",
+        "artifact_id": 11711859570,
+        "artifact_digest": "89b2f3928c5bd0cd1a08de3f6c62c0d008500af70d051e584db46389749593f2",
+        "checks": [
+          {
+            "archive": "Helicoid Computer.zip",
+            "archive_sha256": "d93c66d3fc86dc566ae2f95f5fa5a86ad02802c65cc4ab2e8dadd4c4f010e3de",
+            "zip_integrity": "Verified",
+            "strict_ad_hoc_signature": "Verified",
+            "executable": "HelicoidComputer",
+            "architecture": "arm64",
+            "minimum_macos": "15.0",
+            "binary_sha256": "e8d886cb9a0f39382234ba38e917f33b31a742d856662a17bf3ca8702361ad1a"
+          },
+          {
+            "archive": "Helicoid Manager.zip",
+            "archive_sha256": "3b2bd31257c55c9c94f88193ea283e7434aa88157fa4c33a13ae6606b80d162a",
+            "zip_integrity": "Verified",
+            "strict_ad_hoc_signature": "Verified",
+            "executable": "HelicoidManager",
+            "architecture": "arm64",
+            "minimum_macos": "15.0",
+            "binary_sha256": "6103a12abd95c93e65affefa4b43affded233c6a6befb278b09719fe300348bb"
+          }
+        ],
+        "intel": "Source cross-build Verified; runtime Not Verified",
+        "installed_runtime": "Not Verified",
+        "release_signing": "Developer ID/notarization Not Verified"
+      },
+      "local_coordinator": {
+        "tests": 186,
+        "suites": 27,
+        "seconds": 21.054,
+        "six_frozen_source_hashes": "Verified",
+        "arm64_release_packages": "Verified; strict ad hoc signatures",
+        "intel_cross_build": "Verified; both executables x86_64/minimum macOS15.0",
+        "proof_limits": "No installed workers, production trust adoption or real media/input"
+      }
+    },
+    {
+      "capability": "Windows private seed fixtures and recreated SQLite owner diagnostics",
+      "sha": "44346bf4fa060158851dc3e7de6699e612fb1be4",
+      "status": "Failed",
+      "ci": 38167890462,
+      "url": "https://github.com/Helicoid-Systems/server/actions/runs/38167890462",
+      "local_coordinator": {
+        "tests": 240,
+        "format_clippy_build": "Verified",
+        "actual_windows_module_tests_type_lint": "Verified; no runtime claim"
+      },
+      "policy": "Production owner acceptance unchanged; collect native object/default-owner classifications before compatibility change",
+      "windows_library_tests_passed": 67,
+      "windows_library_tests_failed": 2,
+      "seconds": 2.09,
+      "linux_job": "Verified; passed",
+      "native_observations": {
+        "live_WAL_owner": "Administrators",
+        "recreated_WAL_owner": "Administrators",
+        "recreated_SHM_owner": "Administrators",
+        "process_token_user": "currentUser",
+        "process_token_owner": "Administrators"
+      },
+      "next_gate": "Scoped compatibility for existing SQLite store files only; native held-owner + strict DACL/shape/link checks. New explicit-owner objects and general recovery/key reads stay current-user only. Full native suite still required."
+    }
+  ],
+  "boundaries": [
+    "No candidate gitlink was accepted from local tests or agent reports.",
+    "Windows TLS remains unsupported in the server candidate.",
+    "No VM mutation or public authority/rendezvous/relay listener.",
+    "Selected stock RustDesk routing adoption remains Failed.",
+    "Live preview, control, installed acceptance, signing and recovery remain Not Verified."
+  ],
+  "local_macos_ssh_review": {
+    "status": "Failed full-suite checks; candidate remains unaccepted",
+    "base_sha": "9f8b71f50ca9230a86a79836800d76957494e57a",
+    "tests": 186,
+    "suites": 27,
+    "issues": 2,
+    "full_suite_elapsed_seconds": [
+      22.391,
+      20.813
+    ],
+    "failed_checks": [
+      "timeoutDoesNotWaitForInheritedPipeWriter",
+      "timeoutWithNonReadingStdinIsBounded"
+    ],
+    "unchanged_assertion": "less than 1 second",
+    "subset_tests": "Verified; actual cleanup and timeout checks pass near50ms",
+    "intel_cross_build": "Verified; runtime Not Verified",
+    "probe": {
+      "scope": "Disposable snapshot only; no product diagnostic logging",
+      "actual_spawn_seconds": [
+        0.002,
+        0.007
+      ],
+      "actual_failure_resume_seconds": [
+        0.05,
+        0.052
+      ],
+      "instrumented_full_suite": "186 tests/27 suites pass in23.545s; instrumentation perturbs scheduling",
+      "inference": "Synchronous generation/material locks in TLS fixtures block Swift test executors; not a universally confirmed root cause"
+    },
+    "working_source_sha256": {
+      "Sources/HelicoidCore/Setup/SetupCommandRunner.swift": "1934aede1958f186a6606d45b68c5b154409cb64f108e0c5bf63c6cc0342ad4a",
+      "Tests/HelicoidCoreTests/SSHSetupTests.swift": "0dcfcc233af7ec0c77706bbc8c8ab7f4b17add2349b89978107688030ae9c499"
+    },
+    "next_gate": "Suspend waiting fixture tasks while bounded native certificate generation runs separately; keep real certificates, concurrent tests and unchanged assertions; complete local/native acceptance."
+  },
+  "pins_at_start_of_candidate_review": {
+    "macos": "dff6e75a5e874b668b06a66a49d545f3231f01ef",
+    "server": "3a20aa03e1cfecc7c8c684c59b30790363169d37"
+  },
+  "accepted_updates": {
+    "macos": "ae34bc655152cdbc5e6c4548ef8d3201f94514bc",
+    "ci_source_sha": "7bf00ac9ce6b03f47f66539a913136451abe55fd",
+    "server_unchanged": "3a20aa03e1cfecc7c8c684c59b30790363169d37"
+  }
+}
